@@ -158,6 +158,7 @@
     <Content Include="img\sort_desc.png" />
     <Content Include="img\sort_desc_disabled.png" />
     <Content Include="js\app.js" />
+    <Content Include="js\app\Cliente\Cliente.js" />
     <Content Include="js\app\Portal.js" />
     <Content Include="js\app\Enums.js" />
     <Content Include="js\app\Search.js" />
@@ -628,7 +629,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="js\app\Cliente\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Fornecedor\" />
     <Folder Include="Views\Funcionario\" />
