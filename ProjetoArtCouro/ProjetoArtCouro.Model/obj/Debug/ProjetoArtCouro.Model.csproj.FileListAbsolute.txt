@@ -5,3 +5,10 @@ D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\Pr
 D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
 D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
 D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.dll
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.pdb
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.dll
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.pdb
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
+C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb
