@@ -12,7 +12,6 @@ C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\Proje
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouro.Resource.pdb
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.dll
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.xml
-C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csprojResolveAssemblyReference.cache
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Erros.resources
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Mensagens.resources
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csproj.GenerateResource.Cache
