@@ -1,0 +1,103 @@
+﻿@using ProjetoArtCouroResources
+@using ProjetoArtCouro.Controllers
+
+<aside id="left-panel">
+
+    <!-- User info -->
+    <div class="login-info">
+        <span>
+            <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+            <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                <img src="/img/avatars/sunny.png" alt="me" class="online">
+                <span>@ListTokens._tokens[0].UserName
+                </span>
+                <i class="fa fa-angle-down"></i>
+            </a>
+
+        </span>
+    </div>
+    <!-- end user info -->
+
+    <!-- NAVIGATION : This navigation is also responsive
+
+			To make this navigation dynamic please make sure to link the node
+			(the reference to the nav > ul) after page load. Or the navigation
+			will not initialize.
+			-->
+    <nav>
+        <!-- 
+				NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional href="" links. See documentation for details.
+				-->
+
+        <ul>
+            <li class="active">
+                <a href="/" title="Home"><i class="fa fa-lg fa-fw fa-home"></i><span class="menu-item-parent">@Resource.Home</span></a>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i><span class="menu-item-parent">@Resource.Register</span><b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Person</a>
+                        <ul>
+                            <li>
+                                <a href="/Registers/SearchPerson?typePerson=4">@Resource.Client</a>
+                            </li>
+                            <li>
+                                <a href="/Registers/SearchPerson?typePerson=5">@Resource.Provider</a>
+                            </li>
+                            <li>
+                                <a href="/Registers/SearchPerson?typePerson=3">@Resource.Employee</a>
+                            </li>
+                       </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Product</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-table"></i><span class="menu-item-parent">@Resource.Operations</span><b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Buy</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Sale</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.AccountsPayable</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.AccountsReceivable</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i><span class="menu-item-parent">@Resource.Report</span><b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Stock</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">@Resource.Information</span></a>
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.GroupSettings</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.SettingsForUsers</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Resource.Updates</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <span class="minifyme" data-action="minifyMenu"><i class="fa fa-arrow-circle-left hit"></i></span>
+</aside>

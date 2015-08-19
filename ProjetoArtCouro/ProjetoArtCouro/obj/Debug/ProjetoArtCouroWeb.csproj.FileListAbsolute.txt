@@ -1,0 +1,80 @@
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.pdb
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\DB1.Tools.Encryption.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroResources.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Optimization.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroResources.pdb
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouroWeb.csprojResolveAssemblyReference.cache
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouroWeb.csprojResolveAssemblyReference.cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\EntityFramework.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\EntityFramework.SqlServer.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Web.Infrastructure.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroDataBase.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroDomain.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroResources.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroDataBase.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroDomain.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouroResources.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\EntityFramework.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\EntityFramework.SqlServer.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\AutoMapper.Net4.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\AutoMapper.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\AutoMapper.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.InitialMigrations.resources
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouroWeb.csproj.GenerateResource.Cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.ServiceLocation.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.Unity.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Unity.Mvc4.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.ServiceLocation.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.ServiceLocation.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.Unity.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Practices.Unity.Configuration.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll.config

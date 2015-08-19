@@ -1,0 +1,84 @@
+﻿@model ProjetoArtCouro.Models.Registers.SearchPersonModelView
+@using ProjetoArtCouro.Extensions.HtmlHelperExtensions
+@using ProjetoArtCouroResources
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ValidationSummaryBootstrap()
+<div class="jarviswidget jarviswidget-sortable" id="wid-id-8"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>Formulario de Pesquisa </h2>
+
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+
+    <div role="content">
+        <div class="widget-body no-padding">
+            @using (Html.BeginForm("CreateLegalPerson", "Registers", FormMethod.Post, new { id = "smart-form-register", @class = "smart-form", novalidate = "novalidate" }))
+            {
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            @Html.LabelFor(m => m.Name, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(m => m.Name, new { placeholder = @Resource.Name })
+                            </label>
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope-o"></i>
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Resource.CPFCNPJ })
+                            </label>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                            @Html.LabelFor(m => m.Email, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = @Resource.Email })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-12 col-md-8 col-lg-4">
+                            @Html.LabelFor(m => m.PersonCode, new {@class = "label"})
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(m => m.PersonCode, new {placeholder = @Resource.Code})
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+
+                <footer>
+                    <ul class="demo-btns">
+                        <li>
+                            <a href="javascript:void(0)" class="btn btn-labeled btn-primary" id="Search"><span class="btn-label"><i class="glyphicon glyphicon-search"></i></span>@Resource.Research </a>
+                        </li>
+                    </ul>
+                </footer>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/app/Enums.js"></script>
+    <script type="text/javascript" src="~/js/app/Search.js"></script>
+    <script>
+        Default.Mask();
+        Default.Search({
+            Button: $("#Search"),
+            Form: $("#smart-form-register")
+        });
+    </script>
+}

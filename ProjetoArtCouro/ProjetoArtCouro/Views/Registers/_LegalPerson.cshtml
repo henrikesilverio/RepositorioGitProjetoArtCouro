@@ -1,0 +1,53 @@
+﻿@model ProjetoArtCouro.Models.Registers.LegalPersonModelView
+@using ProjetoArtCouroResources
+
+<fieldset>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-8">
+            @Html.LabelFor(m => m.LegalName, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                @Html.TextBoxFor(m => m.LegalName, new { placeholder = @Resource.CompanyName })
+            </label>
+            @Html.ValidationMessageFor(m => m.LegalName)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            @Html.LabelFor(m => m.CNPJ, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.CNPJ, new { placeholder = @Resource.CNPJ, @class = "cnpj" })
+            </label>
+            @Html.ValidationMessageFor(m => m.CNPJ)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-8">
+            @Html.LabelFor(m => m.Contact, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.Contact, new { placeholder = @Resource.Contact })
+            </label>
+            @Html.ValidationMessageFor(m => m.Contact)
+        </section>
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            @Html.LabelFor(m => m.Phone, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.Phone, new { placeholder = @Resource.Phone, @class = "phone" })
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.Phone)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            @Html.LabelFor(m => m.Email, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.Email, new { placeholder = @Resource.Email })
+            </label>
+            @Html.ValidationMessageFor(m => m.Email)
+        </section>
+    </div>
+</fieldset>

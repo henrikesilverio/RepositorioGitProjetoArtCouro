@@ -1,0 +1,10 @@
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouro.Resource.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouro.Resource.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Erros.resources
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Mensagens.resources
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csproj.GenerateResource.Cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csprojResolveAssemblyReference.cache

@@ -1,0 +1,13 @@
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resource.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resource.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb

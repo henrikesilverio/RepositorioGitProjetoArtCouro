@@ -1,0 +1,144 @@
+﻿@model ProjetoArtCouro.Models.Registers.PersonModelView
+@using ProjetoArtCouroResources
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cadastro";
+    ViewBag.SubTitle = "Pessoa Fisíca";
+}
+
+<div class="jarviswidget jarviswidget-sortable" id="wid-id-8"
+    data-widget-editbutton="true" data-widget-colorbutton="true"
+    data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+    data-widget-custombutton="true" data-widget-togglebutton="true"
+    data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>Formulario de Registro </h2>
+
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+
+    <!-- widget div-->
+    <div role="content">
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+            @using (Html.BeginForm("CreatePerson", "Registers", FormMethod.Post, new { id = "smart-form-register", @class = "smart-form", novalidate = "novalidate" }))
+            {
+                @Html.HiddenFor(m => m.TypePerson)
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                            @Html.LabelFor(m => m.PhysicalName, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-user"></i>
+                                @Html.TextBoxFor(m => m.PhysicalName, new { placeholder = @Resource.Name })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.PhysicalName)
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.CPF, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope-o"></i>
+                                @Html.TextBoxFor(m => m.CPF, new { placeholder = @Resource.CPF, @class = "cpf" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.CPF)
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.RG, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @Html.TextBoxFor(m => m.RG, new { placeholder = @Resource.RG })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.RG)
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.StateId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.MaritalStatusId, new SelectList(ViewBag.MaritalStatus, "Id", "Name"), @Resource.SelectMaritalStatus)
+                                <i></i>
+                            </label>
+                            @Html.ValidationMessageFor(m => m.MaritalStatusId)
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.Sex, new { @class = "label" })
+                            <div class="inline-group">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Sex, "Masculino")
+                                    <i></i>@Resource.Male</label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Sex, "Feminino")
+                                    <i></i>@Resource.Female</label>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Sex)
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.Phone, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @Html.TextBoxFor(m => m.Phone, new { placeholder = @Resource.Phone, @class = "phone" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.Phone)
+                        </section>
+
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+                            @Html.LabelFor(m => m.MobilePhone, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-lock"></i>
+                                @Html.TextBoxFor(m => m.MobilePhone, new { placeholder = @Resource.MobilePhone, @class = "mobilePhone" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.MobilePhone)
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                            @Html.LabelFor(m => m.Email, new { @class = "label" })
+                            <label class="input">
+                                <i class="icon-append fa fa-envelope-o"></i>
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = @Resource.Email })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.Email)
+                        </section>
+                    </div>
+                </fieldset>
+                @Html.Partial("_Address", Model)
+                <footer>
+                    <ul class="demo-btns">
+                        <li>
+                            <a href="#" class="btn btn-labeled btn-primary" id="Salvar"><span class="btn-label"><i class="glyphicon glyphicon-save"></i></span>@Resource.Save </a>
+                        </li>
+                    </ul>
+                </footer>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        Default.Mask();
+        Default.Form({
+            Selector: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+    </script>
+}

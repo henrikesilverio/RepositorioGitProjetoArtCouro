@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Home";
+    ViewBag.SubTitle = "Home"; 
+}
+
+<div class="jarviswidget jarviswidget-sortable" id="wid-id-4" 
+    data-widget-editbutton="true" data-widget-colorbutton="true" 
+    data-widget-fullscreenbutton="true" data-widget-collapsed="true" 
+    data-widget-custombutton="true" data-widget-togglebutton="true" 
+    data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>Registration form </h2>
+
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+
+    <!-- widget div-->
+    <div role="content">
+
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+
+        </div>
+        <!-- end widget edit box -->
+
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+
+            <form action="" id="smart-form-register" class="smart-form" novalidate="novalidate">
+                <header>
+                    Registration form
+                </header>
+
+                <fieldset>
+                    <section>
+                        <label class="input">
+                            <i class="icon-append fa fa-user"></i>
+                            <input type="text" name="username" id="testeUser" placeholder="Username">
+                            <b class="tooltip tooltip-bottom-right">Needed to enter the website</b>
+                        </label>
+                    </section>
+
+
+
+                    <section>
+                        <label class="input">
+                            <i class="icon-append fa fa-envelope-o"></i>
+                            <input type="email" name="email" placeholder="Email address">
+                            <b class="tooltip tooltip-bottom-right">Needed to verify your account</b>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="input">
+                            <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" id="password">
+                            <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                        </label>
+                    </section>
+
+                    <section>
+                        <label class="input">
+                            <i class="icon-append fa fa-lock"></i>
+                            <input type="password" name="passwordConfirm" placeholder="Confirm password">
+                            <b class="tooltip tooltip-bottom-right">Don't forget your password</b>
+                        </label>
+                    </section>
+                </fieldset>
+
+                <fieldset>
+                    <div class="row">
+                        <section class="col col-6">
+                            <label class="input">
+                                <input type="text" name="firstname" placeholder="First name">
+                            </label>
+                        </section>
+                        <section class="col col-6">
+                            <label class="input">
+                                <input type="text" name="lastname" placeholder="Last name">
+                            </label>
+                        </section>
+                    </div>
+
+                    <div class="row">
+                        <section class="col col-6">
+                            <label class="select">
+                                <select name="gender">
+                                    <option value="0" selected="" disabled="">Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">Prefer not to answer</option>
+                                </select>
+                                <i></i>
+                            </label>
+                        </section>
+                        <section class="col col-6">
+                            <label class="input">
+                                <i class="icon-append fa fa-calendar"></i>
+                                <input type="text" name="request" placeholder="Request activation on" class="datepicker hasDatepicker" data-dateformat="dd/mm/yy" id="dp1404950984862">
+                            </label>
+                        </section>
+                    </div>
+
+                    <section>
+                        <label class="checkbox">
+                            <input type="checkbox" name="subscription" id="subscription">
+                            <i></i>I want to receive news and special offers</label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="terms" id="terms">
+                            <i></i>I agree with the Terms and Conditions</label>
+                    </section>
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary">
+                        Validate Form
+                    </button>
+                </footer>
+            </form>
+
+        </div>
+        <!-- end widget content -->
+
+    </div>
+    <!-- end widget div -->
+
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/js/app/Enums.js"></script>
+    <script type="text/javascript" src="~/js/app/Search.js"></script>
+    <script>
+        Default.Mask();
+    </script>
+}

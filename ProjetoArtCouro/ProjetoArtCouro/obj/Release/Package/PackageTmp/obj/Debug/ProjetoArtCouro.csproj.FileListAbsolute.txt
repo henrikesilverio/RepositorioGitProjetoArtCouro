@@ -1,0 +1,81 @@
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.pdb
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Optimization.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.xml
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.pdb
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.pdb
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Optimization.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.xml
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.csprojResolveAssemblyReference.cache
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.dll
+C:\Users\erica\Desktop\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.pdb
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\ProjetoArtCouro.pdb
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\DB1.Tools.Encryption.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\Microsoft.Web.Infrastructure.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\Newtonsoft.Json.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Net.Http.Formatting.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Helpers.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Http.WebHost.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Mvc.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.Razor.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Deployment.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\bin\System.Web.WebPages.Razor.xml
+G:\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.csprojResolveAssemblyReference.cache
+G:\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.dll
+G:\ProjetoArtCouro\ProjetoArtCouro\obj\Debug\ProjetoArtCouro.pdb
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouro\bin\DB1.Tools.Encryption.dll

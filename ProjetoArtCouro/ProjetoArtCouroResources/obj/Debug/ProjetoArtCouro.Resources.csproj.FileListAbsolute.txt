@@ -1,0 +1,10 @@
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.Net4.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.xml
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resources.csprojResolveAssemblyReference.cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.Resource.resources
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resources.csproj.GenerateResource.Cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.pdb

@@ -1,0 +1,69 @@
+﻿@model ProjetoArtCouro.Models.Registers.PersonModelView
+@using ProjetoArtCouroResources
+
+<fieldset>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            @Html.LabelFor(m => m.Street, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                @Html.TextBoxFor(m => m.Street, new { placeholder = @Resource.Address })
+            </label>
+            @Html.ValidationMessageFor(m => m.Street)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.Neighborhood, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.Neighborhood, new { placeholder = @Resource.Neighborhood })
+            </label>
+            @Html.ValidationMessageFor(m => m.Neighborhood)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.Number, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.Number, new { placeholder = @Resource.Number })
+            </label>
+            @Html.ValidationMessageFor(m => m.Number)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.Complement, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                @Html.TextBoxFor(m => m.Complement, new { placeholder = @Resource.Complement })
+            </label>
+            @Html.ValidationMessageFor(m => m.Complement)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.City, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.City, new { placeholder = @Resource.City })
+            </label>
+            @Html.ValidationMessageFor(m => m.City)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.CEP, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.CEP, new { placeholder = @Resource.CEP, @class = "cep" })
+            </label>
+            @Html.ValidationMessageFor(m => m.CEP)
+        </section>
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.StateId, new { @class = "label" })
+            <label class="select">
+                @Html.DropDownListFor(m => m.StateId, new SelectList(ViewBag.States, "Id", "Name"), @Resource.SelectStates)
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.StateId)
+        </section>
+    </div>
+</fieldset>

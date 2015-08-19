@@ -1,0 +1,5 @@
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Release\ProjetoArtCouroDomain.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Release\ProjetoArtCouroDomain.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\obj\Release\ProjetoArtCouroDomain.csprojResolveAssemblyReference.cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\obj\Release\ProjetoArtCouroDomain.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\obj\Release\ProjetoArtCouroDomain.pdb

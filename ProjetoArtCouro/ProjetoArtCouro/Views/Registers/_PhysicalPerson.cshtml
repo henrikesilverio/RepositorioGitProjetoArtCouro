@@ -1,0 +1,84 @@
+﻿@model ProjetoArtCouro.Models.Registers.PhysicalPersonModelView
+@using ProjetoArtCouroResources
+
+<fieldset>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            @Html.LabelFor(m => m.PhysicalName, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                @Html.TextBoxFor(m => m.PhysicalName, new { placeholder = @Resource.Name })
+            </label>
+            @Html.ValidationMessageFor(m => m.PhysicalName)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.CPF, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.CPF, new { placeholder = @Resource.CPF, @class = "cpf" })
+            </label>
+            @Html.ValidationMessageFor(m => m.CPF)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.RG, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.RG, new { placeholder = @Resource.RG })
+            </label>
+            @Html.ValidationMessageFor(m => m.RG)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.MaritalStatusId, new { @class = "label" })
+            <label class="select">
+                @Html.DropDownListFor(m => m.MaritalStatusId, new SelectList(ViewBag.MaritalStatus, "Id", "Name"), @Resource.SelectMaritalStatus)
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.MaritalStatusId)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.Sex, new { @class = "label" })
+            <div class="inline-group">
+                <label class="radio">
+                    @Html.RadioButtonFor(m => m.Sex, "Masculino")
+                    <i></i>@Resource.Male</label>
+                <label class="radio">
+                    @Html.RadioButtonFor(m => m.Sex, "Feminino")
+                    <i></i>@Resource.Female</label>
+            </div>
+            @Html.ValidationMessageFor(m => m.Sex)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.Phone, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.Phone, new { placeholder = @Resource.Phone, @class = "phone" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Phone)
+        </section>
+
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-3">
+            @Html.LabelFor(m => m.MobilePhone, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-lock"></i>
+                @Html.TextBoxFor(m => m.MobilePhone, new { placeholder = @Resource.MobilePhone, @class = "mobilePhone" })
+            </label>
+            @Html.ValidationMessageFor(m => m.MobilePhone)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-6">
+            @Html.LabelFor(m => m.Email, new { @class = "label" })
+            <label class="input">
+                <i class="icon-append fa fa-envelope-o"></i>
+                @Html.TextBoxFor(m => m.Email, new { placeholder = @Resource.Email })
+            </label>
+            @Html.ValidationMessageFor(m => m.Email)
+        </section>
+    </div>
+</fieldset>

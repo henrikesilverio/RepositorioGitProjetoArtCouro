@@ -1,0 +1,15 @@
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.pdb
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.Resource.resources
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.csproj.GenerateResource.Cache
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.dll
+C:\Users\Henrique\Documents\Visual Studio 2012\Projects\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouroResources.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.Resource.resources
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.csproj.GenerateResource.Cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouroResources.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.Net4.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.xml

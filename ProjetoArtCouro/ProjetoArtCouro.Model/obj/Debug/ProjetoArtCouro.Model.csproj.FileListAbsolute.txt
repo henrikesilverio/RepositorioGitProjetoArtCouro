@@ -1,0 +1,7 @@
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.pdb
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
+D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb

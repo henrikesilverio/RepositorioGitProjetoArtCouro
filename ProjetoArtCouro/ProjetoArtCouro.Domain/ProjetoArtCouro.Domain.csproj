@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EF49AA8-F650-4E7E-B669-7EB09F3C67F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjetoArtCouro.Domain</RootNamespace>
+    <AssemblyName>ProjetoArtCouro.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\IRepository\IPessoa\IEnderecoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IEstadoCivilRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IPessoaFisicaRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IPessoaRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IEstadoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IUsuario\IUsuarioRepository.cs" />
+    <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
+    <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
+    <Compile Include="Contracts\IService\IUsuario\IUsuarioService.cs" />
+    <Compile Include="Models\Common\Lookup.cs" />
+    <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
+    <Compile Include="Models\Pessoas\MeioComunicacao.cs" />
+    <Compile Include="Models\Pessoas\PessoaJuridica.cs" />
+    <Compile Include="Models\Pessoas\EstadoCivil.cs" />
+    <Compile Include="Models\Pessoas\PessoaFisica.cs" />
+    <Compile Include="Models\Pessoas\Papel.cs" />
+    <Compile Include="Models\Pessoas\Estado.cs" />
+    <Compile Include="Models\Pessoas\Endereco.cs" />
+    <Compile Include="Models\Pessoas\Pessoa.cs" />
+    <Compile Include="Models\Enums\TipoPessoaEnum.cs" />
+    <Compile Include="Models\Usuarios\Permissions.cs" />
+    <Compile Include="Models\Usuarios\Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\IRepository\ICommon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+      <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
+      <Name>ProjetoArtCouro.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
