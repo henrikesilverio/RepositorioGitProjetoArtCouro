@@ -6,7 +6,7 @@ namespace ProjetoArtCouro.Model.Models.Cliente
     public class EnderecoModel
     {
         [Display(Name = "Code", ResourceType = typeof(Mensagens))]
-        public int? Codigo { get; set; }
+        public int? EnderecoId { get; set; }
 
         [Display(Name = "Patio", ResourceType = typeof(Mensagens))]
         public string Logradouro { get; set; }

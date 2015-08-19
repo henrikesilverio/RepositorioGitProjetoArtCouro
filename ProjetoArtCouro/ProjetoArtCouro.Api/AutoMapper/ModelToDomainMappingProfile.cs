@@ -36,22 +36,22 @@ namespace ProjetoArtCouro.Api.AutoMapper
                     new MeioComunicacao
                     {
                         Nome = s.Celular,
-                        Codigo = s.CodigoCelular ?? 0
+                        Codigo = s.CelularId ?? 0
                     },
                     new MeioComunicacao
                     {
                         Nome = s.Email,
-                        Codigo = s.CodigoEmail ?? 0
+                        Codigo = s.EmailId ?? 0
                     },
                     new MeioComunicacao
                     {
                         Nome = s.Telefone,
-                        Codigo = s.CodigoTelefone ?? 0
+                        Codigo = s.TelefoneId ?? 0
                     }
                 }));
 
             Mapper.CreateMap<EnderecoModel, Endereco>()
-                .ForMember(d => d.EnderecoCodigo, m => m.MapFrom(s => s.Codigo))
+                .ForMember(d => d.EnderecoCodigo, m => m.MapFrom(s => s.EnderecoId))
                 .ForMember(d => d.Estado, m => m.MapFrom(s => new Estado {Codigo = s.UFId ?? 0}));
 
             Mapper.CreateMap<EnderecoModel, ICollection<Endereco>>()

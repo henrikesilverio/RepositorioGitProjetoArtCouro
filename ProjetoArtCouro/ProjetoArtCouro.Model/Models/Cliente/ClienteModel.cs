@@ -32,6 +32,8 @@ namespace ProjetoArtCouro.Model.Models.Cliente
         [Display(Name = "Contact", ResourceType = typeof(Mensagens))]
         public string Contato { get; set; }
 
+        public bool PessoaFisica { get; set; }
+
         public int PapelPessoa { get; set; }
 
         public EnderecoModel Endereco { get; set; }

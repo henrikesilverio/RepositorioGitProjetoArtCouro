@@ -589,9 +589,6 @@
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Extensions\DataAnnotation\CPFCNPJValidation.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\HtmlPropertiesAttribute.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\MetadataProvider.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\TextBoxForHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -600,8 +597,10 @@
     <Compile Include="Infra\AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infra\AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Infra\AutoMapper\ViewModelToViewModelMappingProfile.cs" />
+    <Compile Include="Infra\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Infra\Service\ServiceRequest.cs" />
     <Compile Include="Infra\Service\TokenModel.cs" />
+    <Compile Include="Infra\WebValidator\HtmlPropertiesAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
