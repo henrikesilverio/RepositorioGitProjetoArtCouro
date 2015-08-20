@@ -47,8 +47,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -634,6 +635,10 @@
     <Folder Include="Views\Funcionario\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoArtCouro.Domain\ProjetoArtCouro.Domain.csproj">
+      <Project>{4EF49AA8-F650-4E7E-B669-7EB09F3C67F1}</Project>
+      <Name>ProjetoArtCouro.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
       <Project>{53a56d12-0d1a-46c3-82c0-f4822dc016ff}</Project>
       <Name>ProjetoArtCouro.Model</Name>

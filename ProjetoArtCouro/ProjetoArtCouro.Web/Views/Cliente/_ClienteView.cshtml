@@ -1,6 +1,5 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
 @using ProjetoArtCouro.Resource.Resources
-@using ProjetoArtCouro.Web.Infra.Extensions
 
 <div class="jarviswidget jarviswidget-sortable"
      data-widget-editbutton="true" data-widget-colorbutton="true"
@@ -15,59 +14,69 @@
     <div role="content">
         <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
-            <form id="formPesquisaCliente" class="smart-form" novalidate="novalidate">
+            <form id="formularioCliente" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.PessoaFisica, new { @class = "label" })
-                            <label class="radio">
-                                @Html.RadioButtonFor(m => m.PessoaFisica, true)
-                                <i></i>@Mensagens.PhysicalPerson
-                            </label>
-                            <label class="radio">
-                                @Html.RadioButtonFor(m => m.PessoaFisica, false)
-                                <i></i>@Mensagens.LegalPerson
-                            </label>
+                            @Html.LabelFor(m => m.PessoaFisica, new { @class = "labe" })
+                            <div class="inline-group">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.PessoaFisica, true, new { @class = "PessoaFisica" })
+                                    <i></i>@Mensagens.PhysicalPerson
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.PessoaFisica, false, new { @class = "PessoaFisica" })
+                                    <i></i>@Mensagens.LegalPerson
+                                </label>
+                            </div>
                             @Html.ValidationMessageFor(m => m.PessoaFisica)
                         </section>
                     </div>
                 </fieldset>
                 <fieldset id="DadosPessoaFisica" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
+                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             @Html.LabelFor(m => m.Nome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Nome, new { placeholder = @Mensagens.Name })
+                                @Html.TextBoxFor(m => m.Nome, new { placeholder = @Mensagens.Name, MaxLength = "80" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Nome)
                         </section>
-                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.CPF, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPF, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CPF, new { placeholder = @Mensagens.CPF, MaxLength = "14", @class = "CpfMask" })
                             </label>
                             @Html.ValidationMessageFor(m => m.CPF)
                         </section>
                     </div>
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.RG, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.RG, new { placeholder = @Mensagens.Email })
+                                @Html.TextBoxFor(m => m.RG, new { placeholder = @Mensagens.RG, MaxLength = "10" })
                             </label>
                             @Html.ValidationMessageFor(m => m.RG)
                         </section>
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.Sexo, new { @class = "label" })
-                            <label class="input">
-                                @Html.TextBoxFor(m => m.Sexo, new { placeholder = @Mensagens.Code })
-                            </label>
+                            <div class="inline-group">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Sexo, "M")
+                                    <i></i>@Mensagens.Male
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Sexo, "F")
+                                    <i></i>@Mensagens.Female
+                                </label>
+                            </div>
                             @Html.ValidationMessageFor(m => m.Sexo)
                         </section>
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.EstadoCivilId, new { @class = "label" })
                             <label class="select">
-                                @Html.DropDownListFor(m => m.EstadoCivilId, new SelectList(ViewBag.BusinessLineList, "Id", "Name"), new { placeholder = @Mensagens.Code })
+                                @Html.DropDownListFor(m => m.EstadoCivilId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome"))
+                                <i></i>
                             </label>
                             @Html.ValidationMessageFor(m => m.EstadoCivilId)
                         </section>
@@ -75,46 +84,40 @@
                 </fieldset>
                 <fieldset id="DadosPessoaJuridica" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.RazaoSocial, new { @class = "label" })
+                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            @Html.LabelFor(m => m.RazaoSocial, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.RazaoSocial, new { placeholder = @Mensagens.Name })
+                                @Html.TextBoxFor(m => m.RazaoSocial, new { placeholder = @Mensagens.Name, MaxLength = "150" })
                             </label>
                             @Html.ValidationMessageFor(m => m.RazaoSocial)
                         </section>
-                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
-                            @Html.LabelFor(m => m.CNPJ, new { @class = "label" })
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.CNPJ, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CNPJ, new { placeholder = @Mensagens.CNPJ, MaxLength = "18", @class = "CnpjMask" })
                             </label>
                             @Html.ValidationMessageFor(m => m.CNPJ)
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Contato, new { @class = "label" })
+                            @Html.LabelFor(m => m.Contato, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Contato, new { placeholder = @Mensagens.Email })
+                                @Html.TextBoxFor(m => m.Contato, new { placeholder = @Mensagens.Contact, MaxLength = "100" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Contato)
                         </section>
                     </div>
                 </fieldset>
+                @Html.Partial("_Endereco", Model)
+                @Html.Partial("_MeioComunicacao", Model)
                 <footer>
                     <a id="SalvarCliente" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-search"></i> @Mensagens.Save
+                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
                     </a>
                 </footer>
             </form>
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <script src="~/js/app/Cliente/Cliente.js"></script>
-    <script>
-        Portal.Mask();
-        Portal.NovoCliente();
-    </script>
-}
 

@@ -35,7 +35,6 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
             try
             {
-                //Criar no banco os papeis, estados e estados civis
                 //Mapeamento
                 var pessoaFisica = Mapper.Map<PessoaFisica>(model);
                 pessoaFisica.Pessoa = Mapper.Map<Pessoa>(model);

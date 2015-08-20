@@ -97,6 +97,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Endereços.
+        /// </summary>
+        public static string Addresses {
+            get {
+                return ResourceManager.GetString("Addresses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Compra.
         /// </summary>
         public static string Buy {
@@ -111,6 +120,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string CellPhone {
             get {
                 return ResourceManager.GetString("CellPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Celulares.
+        /// </summary>
+        public static string CellPhones {
+            get {
+                return ResourceManager.GetString("CellPhones", resourceCulture);
             }
         }
         
@@ -210,6 +228,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emails.
+        /// </summary>
+        public static string Emails {
+            get {
+                return ResourceManager.GetString("Emails", resourceCulture);
             }
         }
         
@@ -475,6 +502,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Telefones.
+        /// </summary>
+        public static string Phones {
+            get {
+                return ResourceManager.GetString("Phones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pessoa Física.
         /// </summary>
         public static string PhysicalPerson {
@@ -583,6 +619,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Selecione.
+        /// </summary>
+        public static string Select {
+            get {
+                return ResourceManager.GetString("Select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selecione o estado civil.
         /// </summary>
         public static string SelectMaritalStatus {
@@ -642,6 +687,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipo de pessoa.
+        /// </summary>
+        public static string TypeOfPerson {
+            get {
+                return ResourceManager.GetString("TypeOfPerson", resourceCulture);
             }
         }
         

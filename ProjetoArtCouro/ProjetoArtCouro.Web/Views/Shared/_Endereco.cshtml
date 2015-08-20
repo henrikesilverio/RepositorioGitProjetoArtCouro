@@ -1,1 +1,62 @@
-﻿
+﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
+@using ProjetoArtCouro.Resource.Resources
+
+<fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            @Html.LabelFor(m => m.Endereco.EnderecoId, new { @class = "label" })
+            <label class="select">
+                @Html.DropDownListFor(m => m.Endereco.EnderecoId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome"), new { placeholder = @Mensagens.Code })
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.EnderecoId)
+        </section>
+    </div>
+    <div class="row NovoEndereco">
+        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            @Html.LabelFor(m => m.Endereco.Logradouro, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Logradouro, new { placeholder = @Mensagens.Patio, MaxLength = "100" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Logradouro)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.Bairro, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Bairro, new { placeholder = @Mensagens.Neighborhood, MaxLength = "50" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Bairro)
+        </section>
+    </div>
+    <div class="row NovoEndereco">
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.Complemento, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Complemento, new { placeholder = @Mensagens.Complement, MaxLength = "30" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Complemento)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.Cidade, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Cidade, new { placeholder = @Mensagens.City, MaxLength = "50" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Cidade)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.Cep, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Cep, new { placeholder = @Mensagens.CEP, MaxLength = "9", @class = "CepMask" })
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Cep)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.UFId, new { @class = "label" })
+            <label class="select">
+                @Html.DropDownListFor(m => m.Endereco.UFId, new SelectList(ViewBag.Estados, "Id", "Name"))
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.UFId)
+        </section>
+    </div>
+</fieldset>

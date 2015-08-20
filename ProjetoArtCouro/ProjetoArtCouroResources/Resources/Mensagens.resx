@@ -315,4 +315,22 @@
   <data name="NewClient" xml:space="preserve">
     <value>Novo cliente</value>
   </data>
+  <data name="TypeOfPerson" xml:space="preserve">
+    <value>Tipo de pessoa</value>
+  </data>
+  <data name="Addresses" xml:space="preserve">
+    <value>Endereços</value>
+  </data>
+  <data name="CellPhones" xml:space="preserve">
+    <value>Celulares</value>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>Emails</value>
+  </data>
+  <data name="Phones" xml:space="preserve">
+    <value>Telefones</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Selecione</value>
+  </data>
 </root>

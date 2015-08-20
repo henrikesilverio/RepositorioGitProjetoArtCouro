@@ -141,6 +141,12 @@
   <data name="EmptySex" xml:space="preserve">
     <value>Sexo vazio</value>
   </data>
+  <data name="InvalidCNPJ" xml:space="preserve">
+    <value>CNPJ inválido</value>
+  </data>
+  <data name="InvalidCPF" xml:space="preserve">
+    <value>CPF inválido</value>
+  </data>
   <data name="InvalidCredentials" xml:space="preserve">
     <value>Credencial inválida</value>
   </data>
@@ -161,5 +167,8 @@
   </data>
   <data name="PaperEmptyPerson" xml:space="preserve">
     <value>Papel pessoa vazio</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Campo Obrigatório</value>
   </data>
 </root>

@@ -372,11 +372,11 @@ function nav_page_height() {
 	//set height
 
 	if (setHeight > windowHeight) {// if content height exceedes actual window height and menuHeight
-		$.left_panel.css('min-height', setHeight + 'px');
+		//$.left_panel.css('min-height', setHeight + 'px');
 		$.root_.css('min-height', setHeight + $.navbar_height + 'px');
 
 	} else {
-		$.left_panel.css('min-height', windowHeight + 'px');
+		//$.left_panel.css('min-height', windowHeight + 'px');
 		$.root_.css('min-height', windowHeight + 'px');
 	}
 }

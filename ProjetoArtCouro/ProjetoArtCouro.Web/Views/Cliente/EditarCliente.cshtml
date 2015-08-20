@@ -1,5 +1,11 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
-@using ProjetoArtCouro.Resource.Resources
 
 @Html.Partial("_ClienteView", Model)
 
+@section Scripts{
+    <script src="~/js/app/Cliente/Cliente.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.EditarCliente();
+    </script>
+}

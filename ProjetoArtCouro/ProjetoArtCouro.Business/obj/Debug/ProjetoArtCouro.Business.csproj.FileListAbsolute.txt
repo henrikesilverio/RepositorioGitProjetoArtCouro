@@ -24,3 +24,16 @@ C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resource.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resource.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.xml
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
