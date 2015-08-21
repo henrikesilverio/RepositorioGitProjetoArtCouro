@@ -599,6 +599,7 @@
     <Compile Include="Infra\AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Infra\AutoMapper\ViewModelToViewModelMappingProfile.cs" />
     <Compile Include="Infra\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Infra\Extensions\SelecteListExtensions.cs" />
     <Compile Include="Infra\Service\ServiceRequest.cs" />
     <Compile Include="Infra\Service\TokenModel.cs" />
     <Compile Include="Infra\WebValidator\HtmlPropertiesAttribute.cs" />
