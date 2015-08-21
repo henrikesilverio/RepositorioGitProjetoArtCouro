@@ -1,20 +1,25 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
 @using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
 
 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="row">
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            @Html.LabelFor(m => m.MeioComunicacao.TelefoneId, new {@class = "label"})
+            @Html.LabelFor(m => m.MeioComunicacao.TelefoneId, new { @class = "label" })
             <label class="select">
-                @Html.DropDownListFor(m => m.MeioComunicacao.TelefoneId, new SelectList(ViewBag.Telefones, "Codigo", "Nome"))
+                @Html.DropDownListFor(m => m.MeioComunicacao.TelefoneId, new SelectList(ViewBag.Telefones, "Codigo", "Nome")
+                         .AddDefaultOption(Mensagens.Select)
+                         .AddDefaultLastOption(Mensagens.New, "-1"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.TelefoneId)
         </section>
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            @Html.LabelFor(m => m.MeioComunicacao.CelularId, new {@class = "label"})
+            @Html.LabelFor(m => m.MeioComunicacao.CelularId, new { @class = "label" })
             <label class="select">
-                @Html.DropDownListFor(m => m.MeioComunicacao.CelularId, new SelectList(ViewBag.Celulares, "Codigo", "Nome"))
+                @Html.DropDownListFor(m => m.MeioComunicacao.CelularId, new SelectList(ViewBag.Celulares, "Codigo", "Nome")
+                         .AddDefaultOption(Mensagens.Select)
+                         .AddDefaultLastOption(Mensagens.New, "-1"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.CelularId)
@@ -22,7 +27,9 @@
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
             @Html.LabelFor(m => m.MeioComunicacao.EmailId, new { @class = "label" })
             <label class="select">
-                @Html.DropDownListFor(m => m.MeioComunicacao.EmailId, new SelectList(ViewBag.Emails, "Codigo", "Nome"))
+                @Html.DropDownListFor(m => m.MeioComunicacao.EmailId, new SelectList(ViewBag.Emails, "Codigo", "Nome")
+                         .AddDefaultOption(Mensagens.Select)
+                         .AddDefaultLastOption(Mensagens.New, "-1"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.EmailId)

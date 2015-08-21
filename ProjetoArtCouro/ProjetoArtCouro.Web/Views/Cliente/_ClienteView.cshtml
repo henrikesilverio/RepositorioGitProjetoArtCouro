@@ -1,5 +1,6 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
 @using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
 
 <div class="jarviswidget jarviswidget-sortable"
      data-widget-editbutton="true" data-widget-colorbutton="true"
@@ -75,7 +76,8 @@
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.EstadoCivilId, new { @class = "label" })
                             <label class="select">
-                                @Html.DropDownListFor(m => m.EstadoCivilId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome"))
+                                @Html.DropDownListFor(m => m.EstadoCivilId, new SelectList(ViewBag.EstadosCivis, "Codigo", "Nome")
+                                         .AddDefaultOption(Mensagens.Select))
                                 <i></i>
                             </label>
                             @Html.ValidationMessageFor(m => m.EstadoCivilId)
@@ -85,14 +87,14 @@
                 <fieldset id="DadosPessoaJuridica" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(m => m.RazaoSocial, new {@class = "label"})
+                            @Html.LabelFor(m => m.RazaoSocial, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.RazaoSocial, new { placeholder = @Mensagens.Name, MaxLength = "150" })
                             </label>
                             @Html.ValidationMessageFor(m => m.RazaoSocial)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.CNPJ, new {@class = "label"})
+                            @Html.LabelFor(m => m.CNPJ, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.CNPJ, new { placeholder = @Mensagens.CNPJ, MaxLength = "18", @class = "CnpjMask" })
                             </label>
@@ -101,7 +103,7 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Contato, new {@class = "label"})
+                            @Html.LabelFor(m => m.Contato, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.Contato, new { placeholder = @Mensagens.Contact, MaxLength = "100" })
                             </label>
@@ -120,4 +122,3 @@
         </div>
     </div>
 </div>
-

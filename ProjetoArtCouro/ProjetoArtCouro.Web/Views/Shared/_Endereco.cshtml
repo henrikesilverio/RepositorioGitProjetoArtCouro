@@ -1,12 +1,16 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
 @using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
 
 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="row">
         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
             @Html.LabelFor(m => m.Endereco.EnderecoId, new { @class = "label" })
             <label class="select">
-                @Html.DropDownListFor(m => m.Endereco.EnderecoId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome"), new { placeholder = @Mensagens.Code })
+                @Html.DropDownListFor(m => m.Endereco.EnderecoId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome")
+                         .AddDefaultOption(Mensagens.Select)
+                         .AddDefaultLastOption(Mensagens.New, "-1")
+                         , new { placeholder = @Mensagens.Code })
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.EnderecoId)
@@ -53,7 +57,9 @@
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
             @Html.LabelFor(m => m.Endereco.UFId, new { @class = "label" })
             <label class="select">
-                @Html.DropDownListFor(m => m.Endereco.UFId, new SelectList(ViewBag.Estados, "Id", "Name"))
+                @Html.DropDownListFor(m => m.Endereco.UFId, new SelectList(ViewBag.Estados, "Id", "Name")
+                         .AddDefaultOption(Mensagens.Select)
+                         .AddDefaultLastOption(Mensagens.New, "-1"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.UFId)

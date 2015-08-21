@@ -29,14 +29,9 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         {
             ViewBag.Title = Mensagens.NewClient;
             ViewBag.SubTitle = Mensagens.SearchCliente;
-            ViewBag.EstadosCivis = new List<LookupModel>();
-            ViewBag.Estados = new List<LookupModel>();
-            var listaBase = new List<LookupModel>
-            {
-                new LookupModel {Nome = Mensagens.Select},
-                new LookupModel {Codigo = -1, Nome = Mensagens.New}
-            };
-
+            var listaBase = new List<LookupModel>();
+            ViewBag.EstadosCivis = listaBase;
+            ViewBag.Estados = listaBase;
             ViewBag.Enderecos = listaBase;
             ViewBag.Telefones = listaBase;
             ViewBag.Celulares = listaBase;
