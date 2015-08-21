@@ -8,12 +8,8 @@ namespace ProjetoArtCouro.Web.Extensions.DataAnnotation
     /// <summary>
     /// Data anotation Valida CPF ou CNPJ 
     /// </summary>
-    public class CPFCNPJValidation : ValidationAttribute, IClientValidatable
+    public class CPFCNPJValidationAttribute : ValidationAttribute, IClientValidatable
     {
-        public CPFCNPJValidation()
-        {
-
-        }
 
         public override bool IsValid(object value)
         {
@@ -40,8 +36,8 @@ namespace ProjetoArtCouro.Web.Extensions.DataAnnotation
 
         public static string RemoveFormat(string text)
         {
-            Regex reg = new Regex(@"[^0-9]");
-            string ret = reg.Replace(text, string.Empty);
+            var reg = new Regex(@"[^0-9]");
+            var ret = reg.Replace(text, string.Empty);
             return ret;
         }
 
@@ -56,24 +52,24 @@ namespace ProjetoArtCouro.Web.Extensions.DataAnnotation
             while (cpf.Length != 11)
                 cpf = '0' + cpf;
 
-            bool igual = true;
-            for (int i = 1; i < 11 && igual; i++)
+            var igual = true;
+            for (var i = 1; i < 11 && igual; i++)
                 if (cpf[i] != cpf[0])
                     igual = false;
 
             if (igual || cpf == "12345678909")
                 return false;
 
-            int[] numeros = new int[11];
+            var numeros = new int[11];
 
-            for (int i = 0; i < 11; i++)
+            for (var i = 0; i < 11; i++)
                 numeros[i] = int.Parse(cpf[i].ToString());
 
-            int soma = 0;
-            for (int i = 0; i < 9; i++)
+            var soma = 0;
+            for (var i = 0; i < 9; i++)
                 soma += (10 - i) * numeros[i];
 
-            int resultado = soma % 11;
+            var resultado = soma % 11;
 
             if (resultado == 1 || resultado == 0)
             {
@@ -84,7 +80,7 @@ namespace ProjetoArtCouro.Web.Extensions.DataAnnotation
                 return false;
 
             soma = 0;
-            for (int i = 0; i < 10; i++)
+            for (var i = 0; i < 10; i++)
                 soma += (11 - i) * numeros[i];
 
             resultado = soma % 11;
@@ -103,67 +99,57 @@ namespace ProjetoArtCouro.Web.Extensions.DataAnnotation
 
         public static bool ValidaCNPJ(string cnpj)
         {
-
-            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-
-            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-
-            int soma;
-
-            int resto;
-
-            string digito;
-
-            string tempCnpj;
-
+            var multiplicador1 = new int[12] {5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
+            var multiplicador2 = new int[13] {6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2};
             cnpj = cnpj.Trim();
-
             cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
-
             if (cnpj.Length != 14)
-
+            {
                 return false;
+            }
 
-            tempCnpj = cnpj.Substring(0, 12);
+            var tempCnpj = cnpj.Substring(0, 12);
 
-            soma = 0;
+            var soma = 0;
 
-            for (int i = 0; i < 12; i++)
+            for (var i = 0; i < 12; i++)
+            {
+                soma += int.Parse(tempCnpj[i].ToString())*multiplicador1[i];
+            }
 
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
-
-            resto = (soma % 11);
+            var resto = (soma%11);
 
             if (resto < 2)
-
+            {
                 resto = 0;
-
+            }
             else
-
+            {
                 resto = 11 - resto;
-
-            digito = resto.ToString();
+            }
+            var digito = resto.ToString();
 
             tempCnpj = tempCnpj + digito;
 
             soma = 0;
 
-            for (int i = 0; i < 13; i++)
-
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+            for (var i = 0; i < 13; i++)
+            {
+                soma += int.Parse(tempCnpj[i].ToString())*multiplicador2[i];
+            }
 
             resto = (soma % 11);
 
             if (resto < 2)
-
+            {
                 resto = 0;
-
+            }
             else
-
+            {
                 resto = 11 - resto;
-
-            digito = digito + resto.ToString();
-
+            }
+                
+            digito = digito + resto;
             return cnpj.EndsWith(digito);
 
         }

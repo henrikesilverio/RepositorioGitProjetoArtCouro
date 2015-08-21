@@ -133,6 +133,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CNPJ inválido.
+        /// </summary>
+        public static string InvalidCNPJ {
+            get {
+                return ResourceManager.GetString("InvalidCNPJ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CPF inválido.
+        /// </summary>
+        public static string InvalidCPF {
+            get {
+                return ResourceManager.GetString("InvalidCPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Credencial inválida.
         /// </summary>
         public static string InvalidCredentials {
@@ -192,6 +210,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string PaperEmptyPerson {
             get {
                 return ResourceManager.GetString("PaperEmptyPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Campo Obrigatório.
+        /// </summary>
+        public static string RequiredField {
+            get {
+                return ResourceManager.GetString("RequiredField", resourceCulture);
             }
         }
     }

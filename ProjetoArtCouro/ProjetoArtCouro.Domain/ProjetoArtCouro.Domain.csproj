@@ -59,7 +59,7 @@
     <Compile Include="Models\Pessoas\Estado.cs" />
     <Compile Include="Models\Pessoas\Endereco.cs" />
     <Compile Include="Models\Pessoas\Pessoa.cs" />
-    <Compile Include="Models\Enums\TipoPessoaEnum.cs" />
+    <Compile Include="Models\Enums\TipoPapelPessoaEnum.cs" />
     <Compile Include="Models\Usuarios\Permissions.cs" />
     <Compile Include="Models\Usuarios\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

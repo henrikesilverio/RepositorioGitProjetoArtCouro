@@ -1,5 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Cliente;
+using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Service;
 
@@ -26,28 +29,27 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         {
             ViewBag.Title = Mensagens.NewClient;
             ViewBag.SubTitle = Mensagens.SearchCliente;
+            ViewBag.EstadosCivis = new List<LookupModel>();
+            ViewBag.Estados = new List<LookupModel>();
+            var listaBase = new List<LookupModel>
+            {
+                new LookupModel {Nome = Mensagens.Select},
+                new LookupModel {Codigo = -1, Nome = Mensagens.New}
+            };
+
+            ViewBag.Enderecos = listaBase;
+            ViewBag.Telefones = listaBase;
+            ViewBag.Celulares = listaBase;
+            ViewBag.Emails = listaBase; 
             return View();
         }
 
         [HttpPost]
-        public ActionResult NovoCliente(ClienteModel model)
+        public JsonResult NovoCliente(ClienteModel model)
         {
-            ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.SearchCliente;
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-
+            model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
             var response = ServiceRequest.Post(model, "api/Cliente/CriarCliente");
-            if (!response.Data.TemErros)
-            {
-                return RedirectToAction("Index", "Cliente");
-            }
-
-            ModelState.AddModelError("Erro", response.Data.Mensagem);
-            
-            return View();
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult EditarCliente()

@@ -1,1 +1,54 @@
-﻿
+﻿@model  ProjetoArtCouro.Model.Models.Cliente.ClienteModel
+@using ProjetoArtCouro.Resource.Resources
+
+<fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.MeioComunicacao.TelefoneId, new {@class = "label"})
+            <label class="select">
+                @Html.DropDownListFor(m => m.MeioComunicacao.TelefoneId, new SelectList(ViewBag.Telefones, "Codigo", "Nome"))
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.TelefoneId)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.MeioComunicacao.CelularId, new {@class = "label"})
+            <label class="select">
+                @Html.DropDownListFor(m => m.MeioComunicacao.CelularId, new SelectList(ViewBag.Celulares, "Codigo", "Nome"))
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.CelularId)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.MeioComunicacao.EmailId, new { @class = "label" })
+            <label class="select">
+                @Html.DropDownListFor(m => m.MeioComunicacao.EmailId, new SelectList(ViewBag.Emails, "Codigo", "Nome"))
+                <i></i>
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.EmailId)
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 NovoTelefone">
+            @Html.LabelFor(m => m.MeioComunicacao.Telefone, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.MeioComunicacao.Telefone, new { placeholder = @Mensagens.NewPhone, @class = "TelefoneMask" })
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.Telefone)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 NovoCelular">
+            @Html.LabelFor(m => m.MeioComunicacao.Celular, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.MeioComunicacao.Celular, new { placeholder = @Mensagens.NewCellPhone, @class = "CelularMask" })
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.Celular)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4 NovoEmail">
+            @Html.LabelFor(m => m.MeioComunicacao.Email, new { @class = "label" })
+            <label class="input">
+                @Html.TextBoxFor(m => m.MeioComunicacao.Email, new { placeholder = @Mensagens.NewEmail, MaxLength = "50" })
+            </label>
+            @Html.ValidationMessageFor(m => m.MeioComunicacao.Email)
+        </section>
+    </div>
+</fieldset>
