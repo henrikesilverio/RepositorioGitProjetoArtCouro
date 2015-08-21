@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
@@ -30,8 +32,22 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             ViewBag.Title = Mensagens.NewClient;
             ViewBag.SubTitle = Mensagens.SearchCliente;
             var listaBase = new List<LookupModel>();
-            ViewBag.EstadosCivis = listaBase;
-            ViewBag.Estados = listaBase;
+            //Obtem do banco os estados e estados civis
+            var response = ServiceRequest.Get(null, "api/Pessoa/ObterListaEstado");
+            if (response.Data.TemErros)
+            {
+                ModelState.AddModelError("Erro", response.Data.Mensagem);
+                ViewBag.Estados = listaBase;
+            }
+            ViewBag.Estados = JsonConvert.DeserializeObject<List<LookupModel>>(response.Data.ObjetoRetorno.ToString());
+            response = ServiceRequest.Get(null, "api/Pessoa/ObterListaEstadoCivil");
+            if (response.Data.TemErros)
+            {
+                ModelState.AddModelError("Erro", response.Data.Mensagem);
+                ViewBag.EstadosCivis = listaBase;
+            }
+            ViewBag.EstadosCivis = JsonConvert.DeserializeObject<List<LookupModel>>(response.Data.ObjetoRetorno.ToString());
+            //Inicia as lista dos dropdowns
             ViewBag.Enderecos = listaBase;
             ViewBag.Telefones = listaBase;
             ViewBag.Celulares = listaBase;
@@ -70,7 +86,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             {
                 return RedirectToAction("Index", "Cliente");
             }
-
             ModelState.AddModelError("Erro", response.Data.Mensagem);
 
             return View("NovoCliente", model);

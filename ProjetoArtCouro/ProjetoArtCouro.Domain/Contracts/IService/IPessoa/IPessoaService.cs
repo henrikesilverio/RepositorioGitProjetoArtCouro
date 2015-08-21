@@ -8,5 +8,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IPessoa
     {
         void CriarPessoaFisica(PessoaFisica pessoaFisica);
         List<PessoaFisica> PesquisarPessoaFisica(int codigo, string nome, string cpf, string email);
+        List<Estado> ObterEstados();
+        List<EstadoCivil> ObterEstadosCivis();
     }
 }

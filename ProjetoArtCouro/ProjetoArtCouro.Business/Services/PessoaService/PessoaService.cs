@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Pessoas;
@@ -45,6 +46,16 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             };
 
             return _pessoaFisicaRepository.ObterLista(codigo, nome, cpf, email);
+        }
+
+        public List<Estado> ObterEstados()
+        {
+            return _estadoRepository.ObterLista();
+        }
+
+        public List<EstadoCivil> ObterEstadosCivis()
+        {
+            return _estadoCivilRepository.ObterLista();
         }
 
         public void Dispose()

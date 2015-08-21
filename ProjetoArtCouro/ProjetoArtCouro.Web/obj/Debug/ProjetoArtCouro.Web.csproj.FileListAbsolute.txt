@@ -80,3 +80,5 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.pdb

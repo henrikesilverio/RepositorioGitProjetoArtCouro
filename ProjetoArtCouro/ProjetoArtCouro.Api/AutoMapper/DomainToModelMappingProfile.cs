@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ProjetoArtCouro.Domain.Models.Pessoas;
+using ProjetoArtCouro.Model.Models.Common;
 
 namespace ProjetoArtCouro.Api.AutoMapper
 {
@@ -12,7 +14,8 @@ namespace ProjetoArtCouro.Api.AutoMapper
         //Configuração de mapeamento do viewModel para o dominio
         protected override void Configure()
         {
-           //Criar
+            Mapper.CreateMap<Estado, LookupModel>();
+            Mapper.CreateMap<EstadoCivil, LookupModel>();
         }
     }
 }
