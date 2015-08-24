@@ -9,7 +9,7 @@
             <label class="select">
                 @Html.DropDownListFor(m => m.Endereco.EnderecoId, new SelectList(ViewBag.Enderecos, "Codigo", "Nome")
                          .AddDefaultOption(Mensagens.Select)
-                         .AddDefaultLastOption(Mensagens.New, "-1")
+                         .AddDefaultLastOption(Mensagens.New, "0")
                          , new { placeholder = @Mensagens.Code })
                 <i></i>
             </label>
@@ -18,35 +18,44 @@
     </div>
     <div class="row NovoEndereco">
         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-            @Html.LabelFor(m => m.Endereco.Logradouro, new { @class = "label" })
+            @Html.LabelFor(m => m.Endereco.Logradouro, new {@class = "label"})
             <label class="input">
-                @Html.TextBoxFor(m => m.Endereco.Logradouro, new { placeholder = @Mensagens.Patio, MaxLength = "100" })
+                @Html.TextBoxFor(m => m.Endereco.Logradouro, new {placeholder = @Mensagens.Patio, MaxLength = "100"})
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.Logradouro)
         </section>
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            @Html.LabelFor(m => m.Endereco.Bairro, new { @class = "label" })
+            @Html.LabelFor(m => m.Endereco.Numero, new { @class = "label" })
             <label class="input">
-                @Html.TextBoxFor(m => m.Endereco.Bairro, new { placeholder = @Mensagens.Neighborhood, MaxLength = "50" })
+                @Html.TextBoxFor(m => m.Endereco.Numero, new { placeholder = @Mensagens.Number, MaxLength = "6" })
             </label>
-            @Html.ValidationMessageFor(m => m.Endereco.Bairro)
+            @Html.ValidationMessageFor(m => m.Endereco.Numero)
         </section>
     </div>
     <div class="row NovoEndereco">
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            @Html.LabelFor(m => m.Endereco.Complemento, new { @class = "label" })
+            @Html.LabelFor(m => m.Endereco.Bairro, new {@class = "label"})
             <label class="input">
-                @Html.TextBoxFor(m => m.Endereco.Complemento, new { placeholder = @Mensagens.Complement, MaxLength = "30" })
+                @Html.TextBoxFor(m => m.Endereco.Bairro, new {placeholder = @Mensagens.Neighborhood, MaxLength = "50"})
+            </label>
+            @Html.ValidationMessageFor(m => m.Endereco.Bairro)
+        </section>
+        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            @Html.LabelFor(m => m.Endereco.Complemento, new {@class = "label"})
+            <label class="input">
+                @Html.TextBoxFor(m => m.Endereco.Complemento, new {placeholder = @Mensagens.Complement, MaxLength = "30"})
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.Complemento)
         </section>
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            @Html.LabelFor(m => m.Endereco.Cidade, new { @class = "label" })
+            @Html.LabelFor(m => m.Endereco.Cidade, new {@class = "label"})
             <label class="input">
-                @Html.TextBoxFor(m => m.Endereco.Cidade, new { placeholder = @Mensagens.City, MaxLength = "50" })
+                @Html.TextBoxFor(m => m.Endereco.Cidade, new {placeholder = @Mensagens.City, MaxLength = "50"})
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.Cidade)
         </section>
+    </div>
+    <div class="row NovoEndereco">
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
             @Html.LabelFor(m => m.Endereco.Cep, new { @class = "label" })
             <label class="input">
@@ -58,8 +67,7 @@
             @Html.LabelFor(m => m.Endereco.UFId, new { @class = "label" })
             <label class="select">
                 @Html.DropDownListFor(m => m.Endereco.UFId, new SelectList(ViewBag.Estados, "Codigo", "Nome")
-                         .AddDefaultOption(Mensagens.Select)
-                         .AddDefaultLastOption(Mensagens.New, "-1"))
+                    .AddDefaultOption(Mensagens.Select))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.UFId)

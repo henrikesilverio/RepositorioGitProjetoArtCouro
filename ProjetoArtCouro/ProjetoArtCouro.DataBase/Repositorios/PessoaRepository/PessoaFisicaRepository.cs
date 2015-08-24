@@ -19,7 +19,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
 
         public PessoaFisica ObterPorId(Guid id)
         {
-            return _context.PessoasFisicas.FirstOrDefault(x => x.PessoaFisicaId.Equals(id));
+            return _context.PessoasFisicas.FirstOrDefault(x => x.PessoaId.Equals(id));
         }
 
         public List<PessoaFisica> ObterLista()
@@ -32,6 +32,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             var query = from pessoa in _context.PessoasFisicas
                 .Include("Pessoa")
                 .Include("Pessoa.MeiosComunicacao")
+                .Include("Pessoa.Enderecos")
                 select pessoa;
 
             if (!codigo.Equals(0))
@@ -53,7 +54,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             {
                 query = query.Where(x =>
                     x.Pessoa.MeiosComunicacao.Any(
-                        a => a.TipoComunicacao == TipoComunicacaoEnum.Email && a.Nome == email));
+                        a => a.TipoComunicacao == TipoComunicacaoEnum.Email && a.MeioComunicacaoNome == email));
             }
 
             return query.ToList();

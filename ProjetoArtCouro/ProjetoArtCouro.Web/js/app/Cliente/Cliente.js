@@ -21,7 +21,7 @@
 
         //Função para mostras ou esconder endereço
         $("#Endereco_EnderecoId").on("change", function() {
-            if (this.value === "-1") {
+            if (this.value === "0") {
                 $(".NovoEndereco").show("slow");
                 $(".NovoEndereco").find("input, select").removeAttr("disabled");
             } else {
@@ -32,7 +32,7 @@
 
         //Função para mostras ou esconder meios de comunicação
         $("#MeioComunicacao_TelefoneId").on("change", function () {
-            if (this.value === "-1") {
+            if (this.value === "0") {
                 $(".NovoTelefone").css("visibility", "visible");
                 $(".NovoTelefone").find("input").removeAttr("disabled");
             } else {
@@ -42,7 +42,7 @@
         });
 
         $("#MeioComunicacao_CelularId").on("change", function () {
-            if (this.value === "-1") {
+            if (this.value === "0") {
                 $(".NovoCelular").css("visibility", "visible");
                 $(".NovoCelular").find("input").removeAttr("disabled");
             } else {
@@ -52,7 +52,7 @@
         });
 
         $("#MeioComunicacao_EmailId").on("change", function () {
-            if (this.value === "-1") {
+            if (this.value === "0") {
                 $(".NovoEmail").css("visibility", "visible");
                 $(".NovoEmail").find("input").removeAttr("disabled");
             } else {
@@ -87,7 +87,7 @@
                         Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
                     }
                 }).error(function(ex) {
-                    Portal.PreencherAlertaErros(ex, settings.AlertaMensagensSeletor);
+                    Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
                 });
             }
         });

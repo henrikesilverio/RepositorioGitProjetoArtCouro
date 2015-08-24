@@ -18,12 +18,12 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
 
         public Estado ObterPorId(Guid id)
         {
-            return _context.Estados.FirstOrDefault(x => x.Id.Equals(id));
+            return _context.Estados.FirstOrDefault(x => x.EstadoId.Equals(id));
         }
 
         public Estado ObterPorCodigo(int codigo)
         {
-            return _context.Estados.FirstOrDefault(x => x.Codigo.Equals(codigo));
+            return _context.Estados.FirstOrDefault(x => x.EstadoCodigo.Equals(codigo));
         }
 
         public List<Estado> ObterLista()

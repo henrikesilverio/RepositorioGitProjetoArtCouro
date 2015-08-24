@@ -10,8 +10,6 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
         public Guid PessoaId { get; set; }
         public int PessoaCodigo { get; set; }
         public string Nome { get; set; }
-        public Guid MeioComunicacaoId { get; set; }
-        public Guid EnderecoId { get; set; }
         public virtual PessoaFisica PessoaFisica { get; set; }
         public virtual PessoaJuridica PessoaJuridica { get; set; }
         public virtual ICollection<Papel> Papeis { get; set; }

@@ -29,34 +29,39 @@ namespace ProjetoArtCouro.Web.Infra.Service
             return true;
         }
 
-        public static IRestResponse<RetornoBase> Post(object objectParameter, string apiEndPoint) 
+        public static IRestResponse<RetornoBase<T>> Post<T>(object objectParameter, string apiEndPoint)
+            where T : new()
         {
-            return ExecuteAction(objectParameter, apiEndPoint, Method.POST);
+            return ExecuteAction<T>(objectParameter, apiEndPoint, Method.POST);
         }
 
-        public static IRestResponse<RetornoBase> Put(object objectParameter, string apiEndPoint) 
+        public static IRestResponse<RetornoBase<T>> Put<T>(object objectParameter, string apiEndPoint)
+            where T : new()
         {
-            return ExecuteAction(objectParameter, apiEndPoint, Method.PUT);
+            return ExecuteAction<T>(objectParameter, apiEndPoint, Method.PUT);
         }
 
-        public static IRestResponse<RetornoBase> Get(object objectParameter, string apiEndPoint)
+        public static IRestResponse<RetornoBase<T>> Get<T>(object objectParameter, string apiEndPoint)
+            where T : new()
         {
-            return ExecuteAction(objectParameter, apiEndPoint, Method.GET);
+            return ExecuteAction<T>(objectParameter, apiEndPoint, Method.GET);
         }
 
-        public static IRestResponse<RetornoBase> Delete(object objectParameter, string apiEndPoint)
+        public static IRestResponse<RetornoBase<T>> Delete<T>(object objectParameter, string apiEndPoint)
+            where T : new()
         {
-            return ExecuteAction(objectParameter, apiEndPoint, Method.DELETE);
+            return ExecuteAction<T>(objectParameter, apiEndPoint, Method.DELETE);
         }
 
-        private static IRestResponse<RetornoBase> ExecuteAction(object objectParameter, string apiEndPoint, Method method)
+        private static IRestResponse<RetornoBase<T>> ExecuteAction<T>(object objectParameter, string apiEndPoint, Method method) 
+            where T : new()
         {
             //Falta pegar o token para enviar na requisição
             var client = new RestClient("http://localhost:5839");
             var request = new RestRequest(apiEndPoint, method);
             var json = JsonConvert.SerializeObject(objectParameter);
             request.AddParameter("text/json", json, ParameterType.RequestBody);
-            var response = client.Execute<RetornoBase>(request);
+            var response = client.Execute<RetornoBase<T>>(request);
             return response;
         }
     }

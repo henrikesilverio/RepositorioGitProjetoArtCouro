@@ -19,18 +19,18 @@
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.PessoaFisica, new { @class = "labe" })
+                            @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.PessoaFisica, true, new { @class = "PessoaFisica" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "PessoaFisica" })
                                     <i></i>@Mensagens.PhysicalPerson
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.PessoaFisica, false, new { @class = "PessoaFisica" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "PessoaFisica" })
                                     <i></i>@Mensagens.LegalPerson
                                 </label>
                             </div>
-                            @Html.ValidationMessageFor(m => m.PessoaFisica)
+                            @Html.ValidationMessageFor(m => m.EPessoaFisica)
                         </section>
                     </div>
                 </fieldset>

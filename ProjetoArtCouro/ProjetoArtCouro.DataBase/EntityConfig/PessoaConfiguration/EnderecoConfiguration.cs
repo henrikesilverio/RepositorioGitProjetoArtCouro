@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 
@@ -16,10 +15,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
 
             Property(x => x.EnderecoCodigo)
                 .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IX_ENDERECO_CODIGO", 1) { IsUnique = true }));
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.CEP)
                 .IsRequired()
@@ -49,15 +45,6 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
                 .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnType("varchar");
-
-            //Relacionamento 1 pra 1 obrigatorio
-            HasRequired(x => x.Estado)
-                .WithOptional(x => x.Endereco);
-
-            //Relacionamento 1 pra N obrigatorio
-            HasRequired(x => x.Pessoa)
-                .WithMany(x => x.Enderecos)
-                .HasForeignKey(x => x.PessoaId);
         }
     }
 }

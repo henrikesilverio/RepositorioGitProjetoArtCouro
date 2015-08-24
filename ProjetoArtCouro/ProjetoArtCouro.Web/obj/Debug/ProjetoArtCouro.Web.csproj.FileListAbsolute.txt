@@ -58,6 +58,7 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Projeto
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
@@ -67,6 +68,7 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
@@ -80,5 +82,3 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.dll
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.pdb

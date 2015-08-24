@@ -57,22 +57,15 @@
     <Compile Include="EntityConfig\PessoaConfiguration\PessoaJuridicaConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\PermissionsConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\UsuarioConfiguration.cs" />
-    <Compile Include="Migrations\201508131423052_InitialCreate.cs" />
-    <Compile Include="Migrations\201508131423052_InitialCreate.Designer.cs">
-      <DependentUpon>201508131423052_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201508132221062_Alteracao de usuario.cs" />
-    <Compile Include="Migrations\201508132221062_Alteracao de usuario.Designer.cs">
-      <DependentUpon>201508132221062_Alteracao de usuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201508150411317_Inclusao do codigo com incremetal.cs" />
-    <Compile Include="Migrations\201508150411317_Inclusao do codigo com incremetal.Designer.cs">
-      <DependentUpon>201508150411317_Inclusao do codigo com incremetal.cs</DependentUpon>
+    <Compile Include="Migrations\201508232147113_Inicio Banco.cs" />
+    <Compile Include="Migrations\201508232147113_Inicio Banco.Designer.cs">
+      <DependentUpon>201508232147113_Inicio Banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\PessoaRepository\EnderecoRepository.cs" />
     <Compile Include="Repositorios\PessoaRepository\EstadoCivilRepository.cs" />
+    <Compile Include="Repositorios\PessoaRepository\PapelRepository.cs" />
     <Compile Include="Repositorios\PessoaRepository\PessoaFisicaRepository.cs" />
     <Compile Include="Repositorios\PessoaRepository\PessoaJuridicaRepository.cs" />
     <Compile Include="Repositorios\PessoaRepository\PessoaRepository.cs" />
@@ -94,14 +87,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508131423052_InitialCreate.resx">
-      <DependentUpon>201508131423052_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508132221062_Alteracao de usuario.resx">
-      <DependentUpon>201508132221062_Alteracao de usuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508150411317_Inclusao do codigo com incremetal.resx">
-      <DependentUpon>201508150411317_Inclusao do codigo com incremetal.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508232147113_Inicio Banco.resx">
+      <DependentUpon>201508232147113_Inicio Banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

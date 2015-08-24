@@ -15,11 +15,11 @@ C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\Pr
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.dll
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.pdb
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resource.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.xml
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb

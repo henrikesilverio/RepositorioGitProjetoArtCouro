@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 
@@ -11,32 +10,28 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
         {
             ToTable("Pessoa");
 
-            Property(person => person.PessoaId)
+            Property(x => x.PessoaId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(state => state.PessoaCodigo)
+            Property(x => x.PessoaCodigo)
                 .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IX_PESSOA_CODIGO", 1) { IsUnique = true }));
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(person => person.Nome)
+            Property(x => x.Nome)
                 .IsRequired()
                 .HasMaxLength(150)
                 .HasColumnType("varchar");
 
             //Relacionamento 1 : N
-            HasMany(x => x.MeiosComunicacao)
-                .WithRequired(x => x.Pessoa)
-                .HasForeignKey(x => x.PessoaId);
-
-            //Relacionamento 1 : N
             HasMany(x => x.Enderecos)
                 .WithRequired(x => x.Pessoa)
-                .HasForeignKey(x => x.PessoaId);
+                .WillCascadeOnDelete();
 
-            //Relacionamento 1 : 0 ou 1
+            //Relacionamento 1 : N
+            HasMany(x => x.MeiosComunicacao)
+                .WithRequired(x => x.Pessoa)
+                .WillCascadeOnDelete();
+
             HasOptional(x => x.PessoaFisica)
                 .WithRequired(x => x.Pessoa);
 
@@ -50,7 +45,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
                 .Map(m =>
                 {
                     m.MapLeftKey("PessoaId");
-                    m.MapRightKey("Id");
+                    m.MapRightKey("PapelId");
                     m.ToTable("PessoaPapel");
                 });
         }

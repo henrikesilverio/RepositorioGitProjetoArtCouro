@@ -24,6 +24,7 @@ namespace ProjetoArtCouro.Startup.DependencyResolver
 
             container.RegisterType<IPessoaService, PessoaService>(new HierarchicalLifetimeManager());
             container.RegisterType<IPessoaRepository, PessoaRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IPapelRepository, PapelRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IPessoaFisicaRepository, PessoaFisicaRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IPessoaJuridicaRepository, PessoaJuridicaRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IEnderecoRepository, EnderecoRepository>(new HierarchicalLifetimeManager());

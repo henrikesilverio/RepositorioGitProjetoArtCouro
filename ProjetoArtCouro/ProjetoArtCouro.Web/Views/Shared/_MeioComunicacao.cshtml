@@ -9,7 +9,7 @@
             <label class="select">
                 @Html.DropDownListFor(m => m.MeioComunicacao.TelefoneId, new SelectList(ViewBag.Telefones, "Codigo", "Nome")
                          .AddDefaultOption(Mensagens.Select)
-                         .AddDefaultLastOption(Mensagens.New, "-1"))
+                         .AddDefaultLastOption(Mensagens.New, "0"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.TelefoneId)
@@ -19,7 +19,7 @@
             <label class="select">
                 @Html.DropDownListFor(m => m.MeioComunicacao.CelularId, new SelectList(ViewBag.Celulares, "Codigo", "Nome")
                          .AddDefaultOption(Mensagens.Select)
-                         .AddDefaultLastOption(Mensagens.New, "-1"))
+                         .AddDefaultLastOption(Mensagens.New, "0"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.CelularId)
@@ -29,7 +29,7 @@
             <label class="select">
                 @Html.DropDownListFor(m => m.MeioComunicacao.EmailId, new SelectList(ViewBag.Emails, "Codigo", "Nome")
                          .AddDefaultOption(Mensagens.Select)
-                         .AddDefaultLastOption(Mensagens.New, "-1"))
+                         .AddDefaultLastOption(Mensagens.New, "0"))
                 <i></i>
             </label>
             @Html.ValidationMessageFor(m => m.MeioComunicacao.EmailId)

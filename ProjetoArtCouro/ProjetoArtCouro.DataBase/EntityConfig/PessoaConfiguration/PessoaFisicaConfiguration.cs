@@ -11,7 +11,9 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
         {
             ToTable("PessoaFisica");
 
-            Property(x => x.PessoaFisicaId)
+            HasKey(x => x.PessoaId);
+
+            Property(x => x.PessoaFisicaCodigo)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.CPF)
@@ -30,18 +32,6 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
                 .IsRequired()
                 .HasColumnType("varchar")
                 .HasMaxLength(10);
-
-            //Relação 1 pra 0 ou 1 pessoa, pessoa fisica
-            HasRequired(x => x.Pessoa)
-                .WithOptional(x => x.PessoaFisica);
-
-            //Relação 1 pra 0 ou 1 pessoa fisica, usuario
-            //HasOptional(x => x.Usuario)
-            //    .WithRequired(x => x.PessoaFisica);
-
-            //Relação 1 pra 0 ou 1 estado civil, pessoa fisica
-            HasRequired(x => x.EstadoCivil)
-                .WithOptional(x => x.PessoaFisica);
         }
     }
 }

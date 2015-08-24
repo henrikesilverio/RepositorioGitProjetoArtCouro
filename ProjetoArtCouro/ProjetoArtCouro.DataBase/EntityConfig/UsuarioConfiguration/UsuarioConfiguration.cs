@@ -36,7 +36,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
                 .Map(m =>
                 {
                     m.MapLeftKey("UsuarioId");
-                    m.MapRightKey("Id");
+                    m.MapRightKey("PermissaoId");
                     m.ToTable("UsuarioPermissao");
                 });
 

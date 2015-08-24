@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IRepository\IPessoa\IEnderecoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoCivilRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IPapelRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaFisicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaRepository.cs" />
@@ -49,7 +50,6 @@
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
     <Compile Include="Contracts\IService\IUsuario\IUsuarioService.cs" />
-    <Compile Include="Models\Common\Lookup.cs" />
     <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
     <Compile Include="Models\Pessoas\MeioComunicacao.cs" />
     <Compile Include="Models\Pessoas\PessoaJuridica.cs" />
@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contracts\IRepository\ICommon\" />
+    <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">

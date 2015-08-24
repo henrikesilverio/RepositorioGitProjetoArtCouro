@@ -2,10 +2,10 @@
 
 namespace ProjetoArtCouro.Model.Models.Common
 {
-    public class RetornoBase
+    public class RetornoBase<T>
     {
         public string Mensagem { get; set; }
         public bool TemErros { get; set; }
-        public Object ObjetoRetorno { get; set; }
+        public T ObjetoRetorno { get; set; }
     }
 }

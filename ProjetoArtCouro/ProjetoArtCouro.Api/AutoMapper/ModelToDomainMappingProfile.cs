@@ -18,10 +18,12 @@ namespace ProjetoArtCouro.Api.AutoMapper
         //Configuração para auto mapeamento de classes
         protected override void Configure()
         {
-            Mapper.CreateMap<PermissaoModel, Permissao>();
+            Mapper.CreateMap<PermissaoModel, Permissao>()
+                .ForMember(d => d.PermissaoId, m => m.MapFrom(s => s.Id))
+                .ForMember(d => d.PermissaoCodigo, m => m.MapFrom(s => s.Codigo))
+                .ForMember(d => d.PermissaoNome, m => m.MapFrom(s => s.Nome));
 
             Mapper.CreateMap<ClienteModel, PessoaFisica>()
-                .ForMember(d => d.Pessoa, m => m.MapFrom(s => s))
                 .ForMember(d => d.EstadoCivil, m => m.MapFrom(s => s));
 
             Mapper.CreateMap<ClienteModel, Pessoa>()
@@ -29,22 +31,22 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 {
                     new MeioComunicacao
                     {
-                        Codigo = s.MeioComunicacao.TelefoneId ?? 0,
-                        Nome = s.MeioComunicacao.Telefone,
+                        MeioComunicacaoCodigo = s.MeioComunicacao.TelefoneId ?? 0,
+                        MeioComunicacaoNome = s.MeioComunicacao.Telefone,
                         TipoComunicacao = TipoComunicacaoEnum.Telefone,
                         Principal = true
                     },
                     new MeioComunicacao
                     {
-                        Codigo = s.MeioComunicacao.CelularId ?? 0,
-                        Nome = s.MeioComunicacao.Celular,
+                        MeioComunicacaoCodigo = s.MeioComunicacao.CelularId ?? 0,
+                        MeioComunicacaoNome = s.MeioComunicacao.Celular,
                         TipoComunicacao = TipoComunicacaoEnum.Celular,
                         Principal = true
                     },
                     new MeioComunicacao
                     {
-                        Codigo = s.MeioComunicacao.EmailId ?? 0,
-                        Nome = s.MeioComunicacao.Email,
+                        MeioComunicacaoCodigo = s.MeioComunicacao.EmailId ?? 0,
+                        MeioComunicacaoNome = s.MeioComunicacao.Email,
                         TipoComunicacao = TipoComunicacaoEnum.Email,
                         Principal = true
                     }
@@ -60,13 +62,15 @@ namespace ProjetoArtCouro.Api.AutoMapper
                         Complemento = s.Endereco.Complemento,
                         Cidade = s.Endereco.Cidade,
                         CEP = s.Endereco.Cep,
-                        Estado = new Estado{Codigo = s.Endereco.UFId??0},
+                        Estado = new Estado{EstadoCodigo = s.Endereco.UFId??0},
                         Principal = true
                     }
                 }));
 
             Mapper.CreateMap<ClienteModel, EstadoCivil>()
-                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.EstadoCivilId));
+                .ForMember(d => d.EstadoCivilId, m => m.Ignore())
+                .ForMember(d => d.EstadoCivilNome, m => m.Ignore())
+                .ForMember(d => d.EstadoCivilCodigo, m => m.MapFrom(s => s.EstadoCivilId));
 
         }
     }

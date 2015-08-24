@@ -26,4 +26,3 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\De
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csproj.GenerateResource.Cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.pdb
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csprojResolveAssemblyReference.cache

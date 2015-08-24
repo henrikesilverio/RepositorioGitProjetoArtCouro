@@ -45,7 +45,7 @@ namespace ProjetoArtCouro.Api.Security
                 //Setando as permissao do usuario
                 foreach (var permissao in user.Permissoes)
                 {
-                    identity.AddClaim(new Claim(ClaimTypes.Role, permissao.Nome));
+                    identity.AddClaim(new Claim(ClaimTypes.Role, permissao.PermissaoNome));
                 }
 
                 var principal = new GenericPrincipal(identity, null);

@@ -18,7 +18,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
 
         public PessoaJuridica ObterPorId(Guid id)
         {
-            return _context.PessoasJuridicas.FirstOrDefault(x => x.PessoaJuridicaId.Equals(id));
+            return _context.PessoasJuridicas.FirstOrDefault(x => x.PessoaId.Equals(id));
         }
 
         public List<PessoaJuridica> ObterLista()

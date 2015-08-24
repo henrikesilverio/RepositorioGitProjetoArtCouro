@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 
@@ -11,17 +10,13 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
         {
             ToTable("Permissao");
 
-            Property(x => x.Id)
+            Property(x => x.PermissaoId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Codigo)
-                .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IX_CODIGO", 1) { IsUnique = true }));
+            Property(x => x.PermissaoCodigo)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Nome)
+            Property(x => x.PermissaoNome)
                 .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnType("varchar");

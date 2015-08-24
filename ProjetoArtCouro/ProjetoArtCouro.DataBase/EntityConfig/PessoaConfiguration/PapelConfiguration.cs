@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 
@@ -11,17 +10,14 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
         {
             ToTable("Papel");
 
-            Property(x => x.Id)
+            Property(x => x.PapelId)
                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Codigo)
+            Property(x => x.PapelCodigo)
                 .IsRequired()
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-                .HasColumnAnnotation(
-                    IndexAnnotation.AnnotationName,
-                    new IndexAnnotation(new IndexAttribute("IX_CODIGO", 1) { IsUnique = true }));
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.Nome)
+            Property(x => x.PapelNome)
                 .IsRequired()
                 .HasMaxLength(250)
                 .HasColumnType("varchar");

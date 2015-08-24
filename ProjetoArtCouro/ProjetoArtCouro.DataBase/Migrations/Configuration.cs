@@ -10,7 +10,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ProjetoArtCouro.DataBase.DataBase.DataBaseContext";
         }
 
         protected override void Seed(ProjetoArtCouro.DataBase.DataBase.DataBaseContext context)

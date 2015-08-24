@@ -18,12 +18,12 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
 
         public EstadoCivil ObterPorId(Guid id)
         {
-            return _context.EstadosCivis.FirstOrDefault(x => x.Id.Equals(id));
+            return _context.EstadosCivis.FirstOrDefault(x => x.EstadoCivilId.Equals(id));
         }
 
         public EstadoCivil ObterPorCodigo(int codigo)
         {
-            return _context.EstadosCivis.FirstOrDefault(x => x.Codigo.Equals(codigo));
+            return _context.EstadosCivis.FirstOrDefault(x => x.EstadoCivilCodigo.Equals(codigo));
         }
 
         public List<EstadoCivil> ObterLista()

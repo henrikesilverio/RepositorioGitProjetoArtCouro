@@ -25,7 +25,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         public Task<HttpResponseMessage> ObterListaEstado()
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase()
+            var retornoBase = new RetornoBase<List<LookupModel>>()
             {
                 Mensagem = Mensagens.ReturnSuccess,
                 TemErros = false,
@@ -52,7 +52,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         public Task<HttpResponseMessage> ObterListaEstadoCivil()
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase()
+            var retornoBase = new RetornoBase<List<LookupModel>>()
             {
                 Mensagem = Mensagens.ReturnSuccess,
                 TemErros = false,

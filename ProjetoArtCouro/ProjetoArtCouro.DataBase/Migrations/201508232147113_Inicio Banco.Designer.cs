@@ -7,13 +7,13 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Alteracaodeusuario : IMigrationMetadata
+    public sealed partial class InicioBanco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Alteracaodeusuario));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InicioBanco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508132221062_Alteracao de usuario"; }
+            get { return "201508232147113_Inicio Banco"; }
         }
         
         string IMigrationMetadata.Source

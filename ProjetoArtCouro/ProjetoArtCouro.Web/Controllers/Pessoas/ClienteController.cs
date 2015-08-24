@@ -23,7 +23,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         [HttpPost]
         public JsonResult PesquisaCliente(PesquisaClienteModel model)
         {
-            var response = ServiceRequest.Post(model, "api/Cliente/PesquisarCliente");
+            var response = ServiceRequest.Post<List<ClienteModel>>(model, "api/Cliente/PesquisarCliente");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
@@ -33,14 +33,14 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             ViewBag.SubTitle = Mensagens.SearchCliente;
             var listaBase = new List<LookupModel>();
             //Obtem do banco os estados e estados civis
-            var response = ServiceRequest.Get(null, "api/Pessoa/ObterListaEstado");
+            var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
             if (response.Data.TemErros)
             {
                 ModelState.AddModelError("Erro", response.Data.Mensagem);
                 ViewBag.Estados = listaBase;
             }
             ViewBag.Estados = JsonConvert.DeserializeObject<List<LookupModel>>(response.Data.ObjetoRetorno.ToString());
-            response = ServiceRequest.Get(null, "api/Pessoa/ObterListaEstadoCivil");
+            response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstadoCivil");
             if (response.Data.TemErros)
             {
                 ModelState.AddModelError("Erro", response.Data.Mensagem);
@@ -59,7 +59,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult NovoCliente(ClienteModel model)
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
-            var response = ServiceRequest.Post(model, "api/Cliente/CriarCliente");
+            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/CriarCliente");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
@@ -81,7 +81,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
                 return View("NovoCliente", model);
             }
 
-            var response = ServiceRequest.Post(model, "api/Cliente/PesquisarCliente");
+            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/PesquisarCliente");
             if (!response.Data.TemErros)
             {
                 return RedirectToAction("Index", "Cliente");

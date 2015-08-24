@@ -6,7 +6,8 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
 {
     public class PessoaFisica
     {
-        public Guid PessoaFisicaId { get; set; }
+        public Guid PessoaId { get; set; }
+        public int PessoaFisicaCodigo { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
         public string Sexo { get; set; }
@@ -18,9 +19,7 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
             AssertionConcern.AssertArgumentNotEmpty(CPF, Erros.EmptyCPF);
             AssertionConcern.AssertArgumentNotEmpty(RG, Erros.EmptyRG);
             AssertionConcern.AssertArgumentNotEmpty(Sexo, Erros.EmptySex);
-            AssertionConcern.AssertArgumentNotNull(Pessoa, Erros.EmptyPerson);
             AssertionConcern.AssertArgumentNotNull(EstadoCivil, Erros.EmptyMaritalStatus);
-            Pessoa.Validar();
         }
     }
 }

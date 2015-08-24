@@ -394,10 +394,13 @@
     <Content Include="js\plugin\colorpicker\bootstrap-colorpicker.min.js" />
     <Content Include="js\plugin\datatables\ColReorder.min.js" />
     <Content Include="js\plugin\datatables\ColVis.min.js" />
+    <Content Include="js\plugin\datatables\dataTables.bootstrap.min.js" />
+    <Content Include="js\plugin\datatables\dataTables.tableTools.min.js" />
     <Content Include="js\plugin\datatables\DT_bootstrap.js" />
     <Content Include="js\plugin\datatables\FixedColumns.min.js" />
     <Content Include="js\plugin\datatables\jquery.dataTables-cust.js" />
     <Content Include="js\plugin\datatables\jquery.dataTables-cust.min.js" />
+    <Content Include="js\plugin\datatables\jquery.dataTables.min.js" />
     <Content Include="js\plugin\datatables\media\css\TableTools.css" />
     <Content Include="js\plugin\datatables\media\css\TableTools_JUI.css" />
     <Content Include="js\plugin\datatables\media\images\background.png" />
@@ -552,6 +555,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="js\plugin\datatables\dataTables.colVis.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -46,7 +46,7 @@ namespace ProjetoArtCouro.Model.Models.Cliente
 
         [Required(ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "RequiredField")]
         [Display(Name = "TypeOfPerson", ResourceType = typeof(Mensagens))]
-        public bool PessoaFisica { get; set; }
+        public bool EPessoaFisica { get; set; }
 
         public int PapelPessoa { get; set; }
 

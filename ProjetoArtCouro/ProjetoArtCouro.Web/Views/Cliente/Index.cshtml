@@ -19,29 +19,29 @@
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.Nome, new {@class = "label"})
+                            @Html.LabelFor(m => m.Nome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Nome, new {placeholder = @Mensagens.Name})
+                                @Html.TextBoxFor(m => m.Nome, new { placeholder = @Mensagens.Name })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
-                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ})
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
                             </label>
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Email, new {@class = "label"})
+                            @Html.LabelFor(m => m.Email, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Email, new {placeholder = @Mensagens.Email})
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = @Mensagens.Email })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.CodigoCliente, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoCliente, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoCliente, new {placeholder = @Mensagens.Code})
+                                @Html.TextBoxFor(m => m.CodigoCliente, new { placeholder = @Mensagens.Code })
                             </label>
                         </section>
                     </div>
@@ -56,38 +56,18 @@
                 </footer>
             </form>
             <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                @*<div class="dt-toolbar">
-                        <div class="col-xs-12 col-sm-6">
-                            <div id="datatable_tabletools_filter" class="dataTables_filter">
-                                <label><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span> <input type="search" class="form-control" placeholder="" aria-controls="datatable_tabletools"></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-xs-6 hidden-xs">
-                            <div class="DTTT btn-group">
-                                <a class="btn btn-default DTTT_button_copy" id="ToolTables_datatable_tabletools_0">
-                                    <span>Copy</span><div style="position: absolute; left: 0px; top: 0px; width: 54px; height: 31px; z-index: 99;">
-                                        <embed id="ZeroClipboard_TableToolsMovie_1" src="/js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="54" height="31" name="ZeroClipboard_TableToolsMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=54&amp;height=31" wmode="transparent">
-                                    </div>
-                                </a><a class="btn btn-default DTTT_button_csv" id="ToolTables_datatable_tabletools_1">
-                                    <span>CSV</span><div style="position: absolute; left: 0px; top: 0px; width: 48px; height: 31px; z-index: 99;">
-                                        <embed id="ZeroClipboard_TableToolsMovie_2" src="/js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="48" height="31" name="ZeroClipboard_TableToolsMovie_2" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=48&amp;height=31" wmode="transparent">
-                                    </div>
-                                </a><a class="btn btn-default DTTT_button_xls" id="ToolTables_datatable_tabletools_2">
-                                    <span>Excel</span><div style="position: absolute; left: 0px; top: 0px; width: 54px; height: 31px; z-index: 99;">
-                                        <embed id="ZeroClipboard_TableToolsMovie_3" src="/js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="54" height="31" name="ZeroClipboard_TableToolsMovie_3" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=54&amp;height=31" wmode="transparent">
-                                    </div>
-                                </a><a class="btn btn-default DTTT_button_pdf" id="ToolTables_datatable_tabletools_3">
-                                    <span>PDF</span><div style="position: absolute; left: 0px; top: 0px; width: 48px; height: 31px; z-index: 99;">
-                                        <embed id="ZeroClipboard_TableToolsMovie_4" src="/js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="48" height="31" name="ZeroClipboard_TableToolsMovie_4" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=48&amp;height=31" wmode="transparent">
-                                    </div>
-                                </a><a class="btn btn-default DTTT_button_print" id="ToolTables_datatable_tabletools_4" title="View print view"><span>Print</span></a>
-                            </div>
-                        </div>
-                    </div>*@
-                <table id="datatableCliente" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" style="width: 100%; display: none">
+                <table id="datatableCliente" class="table table-striped table-bordered table-hover">
                     <thead>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                            <th>Column 4</th>
+                            <th>Column 5</th>
+                        </tr>
                     </thead>
                     <tbody>
+                    
                     </tbody>
                 </table>
             </fieldset>
@@ -98,34 +78,34 @@
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
     <script>
-    Portal.Mask();
-    Portal.Form({
-        Button: $("#Salvar"),
-        Form: $("#smart-form-register")
-    });
-    Portal.Search({
-        AlertaMensagensSeletor: "#AlertaMensagens",
-        BotaoPesquisarSeletor: "#PesquisarCliente",
-        FormularioSeletor: "#formPesquisaCliente",
-        UrlDados: "@Url.Action("PesquisaCliente", "Cliente")",
-        TabelaSeletor: "#datatableCliente",
-        TituloRodape: "",
-        InformacaoTabela: "",
-        OrdenacaoDoCabecalho: [
-            { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "20%" },
-            { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sClass": "center", "sWidth": "20%" },
-            {
-                "sTitle": "@(Mensagens.CPFCNPJ)",
-                "mData": null,
-                "sClass": "center",
-                "sWidth": "20%",
-                "fnRender": function (obj) {
-                    return obj.aData.CPF !== "" ? obj.aData.CPF : obj.aData.CNPJ;
-                }
-            },
-            { "sTitle": "@(Mensagens.Email)", "mData": "Email", "sClass": "center", "sWidth": "20%" },
-            {
-                "sTitle": "@(Mensagens.Actions)",
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.Search({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            BotaoPesquisarSeletor: "#PesquisarCliente",
+            FormularioSeletor: "#formPesquisaCliente",
+            UrlDados: "@Url.Action("PesquisaCliente", "Cliente")",
+            TabelaSeletor: "#datatableCliente",
+            TituloRodape: "",
+            InformacaoTabela: "",
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "20%" },
+                { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sClass": "center", "sWidth": "20%" },
+                {
+                    "sTitle": "@(Mensagens.CPFCNPJ)",
+                    "mData": null,
+                    "sClass": "center",
+                    "sWidth": "20%",
+                    "fnRender": function (obj) {
+                        return obj.aData.CPF !== "" ? obj.aData.CPF : obj.aData.CNPJ;
+                    }
+                },
+                { "sTitle": "@(Mensagens.Email)", "mData": "MeioComunicacao.Email", "sClass": "center", "sWidth": "20%" },
+                {
+                    "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "bSortable": false,
