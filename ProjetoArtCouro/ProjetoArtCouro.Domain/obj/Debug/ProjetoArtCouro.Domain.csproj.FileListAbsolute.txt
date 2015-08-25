@@ -19,3 +19,10 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debu
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.dll
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.pdb
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb

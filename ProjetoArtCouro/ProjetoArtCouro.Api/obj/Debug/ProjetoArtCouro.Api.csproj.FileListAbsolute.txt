@@ -202,3 +202,4 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Projeto
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
