@@ -29,8 +29,8 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
 
         public ActionResult NovoCliente()
         {
-            ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.SearchCliente;
+            ViewBag.Title = Mensagens.Client;
+            ViewBag.SubTitle = Mensagens.NewClient;
             var listaBase = new List<LookupModel>();
             //Obtem do banco os estados e estados civis
             var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
@@ -39,14 +39,14 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
                 ModelState.AddModelError("Erro", response.Data.Mensagem);
                 ViewBag.Estados = listaBase;
             }
-            ViewBag.Estados = JsonConvert.DeserializeObject<List<LookupModel>>(response.Data.ObjetoRetorno.ToString());
+            ViewBag.Estados = response.Data.ObjetoRetorno;
             response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstadoCivil");
             if (response.Data.TemErros)
             {
                 ModelState.AddModelError("Erro", response.Data.Mensagem);
                 ViewBag.EstadosCivis = listaBase;
             }
-            ViewBag.EstadosCivis = JsonConvert.DeserializeObject<List<LookupModel>>(response.Data.ObjetoRetorno.ToString());
+            ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
             //Inicia as lista dos dropdowns
             ViewBag.Enderecos = listaBase;
             ViewBag.Telefones = listaBase;

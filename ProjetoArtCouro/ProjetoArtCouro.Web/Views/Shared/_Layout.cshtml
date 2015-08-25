@@ -191,9 +191,19 @@ else
 }
 
 
-<script src="~/js/libs/jquery-2.1.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        document.write("<script src=\"js/libs/jquery-2.0.2.min.js\"><\/script>");
+    }
+</script>
 
-<script src="~/js/libs/jquery-ui-1.11.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script>
+    if (!window.jQuery.ui) {
+        document.write("<script src=\"js/libs/jquery-ui-1.10.3.min.js\"><\/script>");
+    }
+</script>
 
 <!-- BOOTSTRAP JS -->
 <script src="/js/bootstrap/bootstrap.min.js"></script>
@@ -231,9 +241,12 @@ else
 <script src="~/js/plugin/flot/jquery.flot.cust.js"></script>
 
 <!-- DataTable -->
-<script src="~/js/plugin/datatables/jquery.dataTables-cust.min.js"></script>
-@*<script src="~/js/plugin/datatables/jquery.dataTables.min.js"></script>*@
-<script src="~/js/plugin/datatables/DT_bootstrap.js"></script>
+<script src="~/js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script src="~/js/plugin/datatables/dataTables.colVis.min.js"></script>
+<script src="~/js/plugin/datatables/dataTables.tableTools.min.js"></script>
+<script src="~/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script src="~/js/plugin/datatable-responsive/datatables.responsive.min.js"></script>
+
 <!--[if IE 7]>
 
 
