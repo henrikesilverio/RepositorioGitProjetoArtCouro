@@ -5879,11 +5879,12 @@
 			var nNewCell = document.createElement("td");
 			nNewRow.appendChild( nNewCell );
 			nNewCell.className = sClass;
-			nNewCell.colSpan = _fnVisbleColumns( oSettings );
+			nNewCell.colSpan = _fnVisbleColumns(oSettings);
+			nNewRow.style.display = 'none';
 		
 			if (typeof mHtml === "string")
 			{
-				nNewCell.innerHTML = mHtml;
+			    nNewCell.innerHTML = mHtml;
 			}
 			else
 			{
@@ -5892,9 +5893,8 @@
 		
 			/* If the nTr isn't on the page at the moment - then we don't insert at the moment */
 			var nTrs = $('tr', oSettings.nTBody);
-			if ( $.inArray(nTr, nTrs) != -1  )
-			{
-				$(nNewRow).insertAfter(nTr);
+			if ( $.inArray(nTr, nTrs) != -1  ) {
+			    $(nNewRow).insertAfter(nTr);
 			}
 			
 			oSettings.aoOpenRows.push( {
