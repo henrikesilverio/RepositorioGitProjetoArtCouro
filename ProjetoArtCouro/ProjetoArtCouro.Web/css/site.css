@@ -53,3 +53,12 @@
     width: 100%;
     z-index: 1000;
 }
+
+
+.editable-buttons {
+    margin: 0 !important;
+}
+
+.editable-buttons button {
+    margin-left: 6px !important;
+}

@@ -69,5 +69,46 @@
                 });
             }
         });
+    },
+    TabelaDinamica: function (settings) {
+        var tabela = $(settings.TabelaSeletor).dataTable({
+            "autoWidth": true,
+            "iDisplayLength": 10,
+            "aaData": [],
+            "aoColumns": settings.OrdenacaoDoCabecalho,
+            "aaSorting": [],
+            "oLanguage": {
+                "sInfo": "_START_ a _END_ em _TOTAL_ " + settings.TituloRodape,
+                "sInfoEmpty": settings.TituloRodapeContador,
+                "sEmptyTable": settings.InformacaoTabela,
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sLast": ">>",
+                    "sPrevious": "<",
+                    "sNext": ">"
+                }
+            }
+        });
+
+        $(settings.AdicionaLinhaSeletor).on("click", function () {
+            if ($(settings.LinhaCorrenteSeletor).val() === "") {
+                settings.Codigo++;
+                tabela.fnAddData(settings.ObterCampos(settings.Codigo));
+            } else {
+                var dadosLinhaCorrente = tabela.fnGetData($(settings.LinhaCorrenteSeletor).val());
+                var novosDados = settings.ObterCampos(dadosLinhaCorrente.Codigo)[0];
+                tabela.fnUpdate(novosDados, $(settings.LinhaCorrenteSeletor).val());
+                $(settings.LinhaCorrenteSeletor).val("");
+            }
+            
+            $(settings.BotaoEditarSeletor).off("click").on("click", function () {
+                var obj = tabela.fnGetData($(this).closest("tr"));
+                settings.PreencherCampos(obj);
+                $(settings.LinhaCorrenteSeletor).val($(this).closest("tr")[0]._DT_RowIndex);
+            });
+            $(settings.BotaoExcluirSeletor).off("click").on("click", function () {
+                tabela.fnDeleteRow($(this).closest("tr"));
+            });
+        });
     }
 });

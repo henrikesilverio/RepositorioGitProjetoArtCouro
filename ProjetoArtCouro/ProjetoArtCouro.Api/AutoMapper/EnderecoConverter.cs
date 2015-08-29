@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using ProjetoArtCouro.Domain.Models.Pessoas;
-using ProjetoArtCouro.Model.Models.Cliente;
+using ProjetoArtCouro.Model.Models.Common;
 
 namespace ProjetoArtCouro.Api.AutoMapper
 {

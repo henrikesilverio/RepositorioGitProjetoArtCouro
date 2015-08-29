@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
@@ -16,7 +14,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public ActionResult Index()
         {
             ViewBag.Title = Mensagens.Client;
-            ViewBag.SubTitle = Mensagens.SearchCliente;
+            ViewBag.SubTitle = Mensagens.SearchClient;
             return View();
         }
 
@@ -63,10 +61,31 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult EditarCliente()
+        public ActionResult EditarCliente(int codigoCliente)
         {
             ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.SearchCliente;
+            ViewBag.SubTitle = Mensagens.EditClient;
+            var listaBase = new List<LookupModel>();
+            //Obtem do banco os estados e estados civis
+            var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
+            if (response.Data.TemErros)
+            {
+                ModelState.AddModelError("Erro", response.Data.Mensagem);
+                ViewBag.Estados = listaBase;
+            }
+            ViewBag.Estados = response.Data.ObjetoRetorno;
+            response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstadoCivil");
+            if (response.Data.TemErros)
+            {
+                ModelState.AddModelError("Erro", response.Data.Mensagem);
+                ViewBag.EstadosCivis = listaBase;
+            }
+            ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
+            //Inicia as lista dos dropdowns
+            ViewBag.Enderecos = listaBase;
+            ViewBag.Telefones = listaBase;
+            ViewBag.Celulares = listaBase;
+            ViewBag.Emails = listaBase; 
             var model = new ClienteModel();
             return View("NovoCliente", model);
         }
@@ -75,7 +94,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public ActionResult EditarCliente(ClienteModel model)
         {
             ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.SearchCliente;
+            ViewBag.SubTitle = Mensagens.EditClient;
             if (!ModelState.IsValid)
             {
                 return View("NovoCliente", model);

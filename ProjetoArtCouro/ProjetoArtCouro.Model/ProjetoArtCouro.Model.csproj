@@ -33,7 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
@@ -48,12 +48,19 @@
     <Compile Include="Infra\DataAnnotation\CNPJValidationAttribute.cs" />
     <Compile Include="Infra\DataAnnotation\CPFValidationAttribute.cs" />
     <Compile Include="Models\Cliente\ClienteModel.cs" />
-    <Compile Include="Models\Cliente\MeioComunicacaoModel.cs" />
+    <Compile Include="Models\Common\MeioComunicacaoModel.cs" />
     <Compile Include="Models\Cliente\PesquisaClienteModel.cs" />
     <Compile Include="Models\Common\LookupModel.cs" />
-    <Compile Include="Models\Cliente\EnderecoModel.cs" />
+    <Compile Include="Models\Common\EnderecoModel.cs" />
     <Compile Include="Models\Common\RetornoBase.cs" />
+    <Compile Include="Models\CondicaoPagamento\CondicaoPagamento.cs" />
+    <Compile Include="Models\FormaPagamento\FormaPagamentoModel.cs" />
+    <Compile Include="Models\Fornecedor\FornecedorModel.cs" />
+    <Compile Include="Models\Fornecedor\PesquisaFornecedorModel.cs" />
+    <Compile Include="Models\Funcionario\FuncionarioModel.cs" />
+    <Compile Include="Models\Funcionario\PesquisaFuncionarioModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
+    <Compile Include="Models\Produtos\ProdutoModel.cs" />
     <Compile Include="Models\Usuarios\PermissaoModel.cs" />
     <Compile Include="Models\Usuarios\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,6 +71,7 @@
       <Name>ProjetoArtCouro.Resource</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -134,6 +134,7 @@ C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArt
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 C:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
+C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.dll.config
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.pdb
@@ -202,4 +203,3 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Projeto
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
-C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache

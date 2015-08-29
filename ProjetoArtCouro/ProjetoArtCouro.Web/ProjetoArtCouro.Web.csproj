@@ -160,6 +160,8 @@
     <Content Include="img\sort_desc_disabled.png" />
     <Content Include="js\app.js" />
     <Content Include="js\app\Cliente\Cliente.js" />
+    <Content Include="js\app\Fornecedor\Fornecedor.js" />
+    <Content Include="js\app\Funcionario\Funcionario.js" />
     <Content Include="js\app\Portal.js" />
     <Content Include="js\app\Enums.js" />
     <Content Include="js\app\Search.js" />
@@ -597,11 +599,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CondicoesPagamento\CondicaoPagamentoController.cs" />
+    <Compile Include="Controllers\FormasPagamento\FormaPagamentoController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Login\LoginController.cs" />
     <Compile Include="Controllers\Pessoas\ClienteController.cs" />
     <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
+    <Compile Include="Controllers\Produtos\ProdutoController.cs" />
     <Compile Include="Extensions\DataAnnotation\CPFCNPJValidation.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -635,6 +640,17 @@
     <Content Include="Views\Shared\_Endereco.cshtml" />
     <Content Include="Views\Shared\_MeioComunicacao.cshtml" />
     <Content Include="Views\Cliente\_ClienteView.cshtml" />
+    <Content Include="Views\Fornecedor\_FornecedorView.cshtml" />
+    <Content Include="Views\Fornecedor\EditarFornecedor.cshtml" />
+    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\NovoFornecedor.cshtml" />
+    <Content Include="Views\Funcionario\_FuncionarioView.cshtml" />
+    <Content Include="Views\Funcionario\EditarFuncionario.cshtml" />
+    <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Funcionario\NovoFuncionario.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\CondicaoPagamento\Index.cshtml" />
+    <Content Include="Views\FormaPagamento\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -645,8 +661,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Fornecedor\" />
-    <Folder Include="Views\Funcionario\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoArtCouro.Domain\ProjetoArtCouro.Domain.csproj">

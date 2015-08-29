@@ -1,0 +1,145 @@
+﻿@model ProjetoArtCouro.Model.Models.Produtos.ProdutoModel
+@using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
+
+
+<div class="jarviswidget jarviswidget-sortable"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>@Mensagens.Product </h2>
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+    <div role="content">
+        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+        <div class="widget-body no-padding">
+            <form id="formProduto" class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.UnidadeId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.UnidadeId, new SelectList(ViewBag.Unidades, "Codigo", "Nome")
+                                .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.PrecoCusto, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.PrecoCusto, new { placeholder = @Mensagens.PriceCost })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.PrecoVenda, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.PrecoVenda, new { placeholder = @Mensagens.PriceSale })
+                            </label>
+                        </section>
+                    </div>
+                    @Html.Hidden("LinhaCorrente")
+                </fieldset>
+                <footer>
+                    <a id="AdicionarProduto" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    </a>
+                </footer>
+            </form>
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetFornecedor">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+                     data-widget-colorbutton="false" data-widget-togglebutton="false"
+                     data-widget-deletebutton="false" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Tabela de Produtos</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <table id="datatableProduto" class="table table-striped table-bordered table-hover" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/app/Search.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.TabelaDinamica({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            AdicionaLinhaSeletor: "#AdicionarProduto",
+            TabelaSeletor: "#datatableProduto",
+            TituloRodape: "Produtos",
+            TituloRodapeContador: "Nenhum produto adicionado",
+            InformacaoTabela: "Adicione novos produtos",
+            BotaoEditarSeletor: ".EditarProduto",
+            BotaoExcluirSeletor: ".ExcluirProduto",
+            Codigo: 0,
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
+                { "sTitle": "@(Mensagens.PriceCost )", "mData": "PrecoCusto", "sClass": "center", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.Unit)", "mData": "Unidade", "sClass": "center", "sWidth": "10%" },
+                {
+                    "sTitle": "@(Mensagens.Actions )",
+                    "mData": null,
+                    "sClass": "center",
+                    "sWidth": "10%",
+                    "bSortable": false,
+                    "mRender": function () {
+
+                        return "<div class=\"editable-buttons\">" +
+                            "<button type=\"button\" class=\"btn btn-success btn-sm EditarProduto\" title=\"Editar\">" +
+                            "<i class=\"fa fa-lg fa-pencil-square-o\"></i>" +
+                            "<button type=\"button\" class=\"btn btn-danger btn-sm ExcluirProduto\" title=\"Deletar\">" +
+                            "<i class=\"fa fa-lg fa-trash-o\"></i>" +
+                            "</button>" +
+                            "</div>";
+                    }
+                }
+            ],
+            ObterCampos: function (codigo) {
+                var item = [
+                    {
+                        "Codigo": codigo,
+                        "Descricao": $("#Descricao").val(),
+                        "PrecoCusto": $("#PrecoCusto").val(),
+                        "PrecoVenda": $("#PrecoVenda").val(),
+                        "Unidade": $("#UnidadeId :selected").text()
+                    }
+                ];
+                $("#Descricao").val("");
+                $("#UnidadeId").val("");
+                $("#PrecoCusto").val("");
+                $("#PrecoVenda").val("");
+                return item;
+            },
+            PreencherCampos: function (obj) {
+                $("#Descricao").val(obj["Descricao"]);
+                $("#UnidadeId").val($("#UnidadeId option:contains(" + obj["UnidadeId"] + ")").val());
+                $("#PrecoCusto").val(obj["PrecoCusto"]);
+                $("#PrecoVenda").val(obj["PrecoVenda"]);
+            }
+        });
+    </script>
+}
+

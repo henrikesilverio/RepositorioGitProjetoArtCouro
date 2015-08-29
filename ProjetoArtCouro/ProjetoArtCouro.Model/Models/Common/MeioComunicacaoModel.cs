@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ProjetoArtCouro.Resource.Resources;
 
-namespace ProjetoArtCouro.Model.Models.Cliente
+namespace ProjetoArtCouro.Model.Models.Common
 {
     public class MeioComunicacaoModel
     {

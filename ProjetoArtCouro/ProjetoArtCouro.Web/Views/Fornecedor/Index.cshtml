@@ -1,4 +1,4 @@
-﻿@model ProjetoArtCouro.Model.Models.Cliente.PesquisaClienteModel
+﻿@model ProjetoArtCouro.Model.Models.Fornecedor.PesquisaFornecedorModel
 @using ProjetoArtCouro.Resource.Resources
 
 
@@ -9,13 +9,13 @@
      data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
     <header role="heading">
         <span class="widget-icon"><i class="fa fa-edit"></i></span>
-        <h2>@Mensagens.SearchClient </h2>
+        <h2>@Mensagens.SearchSupplier </h2>
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
         <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
-            <form id="formPesquisaCliente" class="smart-form" novalidate="novalidate">
+            <form id="formPesquisaFornecedor" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
@@ -39,33 +39,33 @@
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.CodigoCliente, new { @class = "label" })
+                            @Html.LabelFor(m => m.CodigoFornecedor, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoCliente, new { placeholder = @Mensagens.Code })
+                                @Html.TextBoxFor(m => m.CodigoFornecedor, new { placeholder = @Mensagens.Code })
                             </label>
                         </section>
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="PesquisarCliente" class="btn btn-primary" href="javascript:void(0);">
+                    <a id="PesquisarFornecedor" class="btn btn-primary" href="javascript:void(0);">
                         <i class="fa fa-search"></i> @Mensagens.Research
                     </a>
-                    <a id="NovoCliente" class="btn btn-success" href="@Url.Action("NovoCliente", "Cliente")">
+                    <a id="NovoFornecedor" class="btn btn-success" href="@Url.Action("NovoFornecedor", "Fornecedor")">
                         <i class="fa fa-file-o"></i> @Mensagens.New
                     </a>
                 </footer>
             </form>
-            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetCliente">
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetFornecedor">
                 <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
                      data-widget-colorbutton="false" data-widget-togglebutton="false"
                      data-widget-deletebutton="false" data-widget-editbutton="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Tabela de Clientes</h2>
+                        <h2>Tabela de Fornecedores</h2>
                     </header>
                     <div>
                         <div class="widget-body no-padding">
-                            <table id="datatableCliente" class="table table-striped table-bordered table-hover" width="100%"></table>
+                            <table id="datatableFornecedor" class="table table-striped table-bordered table-hover" width="100%"></table>
                         </div>
                     </div>
                 </div>
@@ -77,52 +77,52 @@
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
     <script>
-    Portal.Mask();
-    Portal.Form({
-        Button: $("#Salvar"),
-        Form: $("#smart-form-register")
-    });
-    Portal.Search({
-        AlertaMensagensSeletor: "#AlertaMensagens",
-        BotaoPesquisarSeletor: "#PesquisarCliente",
-        FormularioSeletor: "#formPesquisaCliente",
-        UrlDados: "@Url.Action("PesquisaCliente", "Cliente")",
-        TabelaSeletor: "#datatableCliente",
-        WidgetSeletor: ".WidgetCliente",
-        TituloRodape: "",
-        InformacaoTabela: "",
-        OrdenacaoDoCabecalho: [
-            { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
-            { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sClass": "center", "sWidth": "45%" },
-            {
-                "sTitle": "@(Mensagens.CPFCNPJ)",
-                "mData": null,
-                "sClass": "center",
-                "sWidth": "20%",
-                "mRender": function (obj) {
-                    return obj.CPF !== "" ? obj.CPF : obj.CNPJ;
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.Search({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            BotaoPesquisarSeletor: "#PesquisarFornecedor",
+            FormularioSeletor: "#formPesquisaFornecedor",
+            UrlDados: "@Url.Action("PesquisaFornecedor", "Fornecedor")",
+            TabelaSeletor: "#datatableFornecedor",
+            WidgetSeletor: ".WidgetFornecedor",
+            TituloRodape: "",
+            InformacaoTabela: "",
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sClass": "center", "sWidth": "45%" },
+                {
+                    "sTitle": "@(Mensagens.CPFCNPJ)",
+                    "mData": null,
+                    "sClass": "center",
+                    "sWidth": "20%",
+                    "mRender": function (obj) {
+                        return obj.CPF !== "" ? obj.CPF : obj.CNPJ;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.Email)",
+                    "mData": null,
+                    "sClass": "center",
+                    "sWidth": "20%",
+                    "mRender": function (obj) {
+                        return obj.MeioComunicacao.Email === null || "" ? "N/I" : obj.MeioComunicacao.Email;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.Actions)",
+                    "mData": null,
+                    "sClass": "center",
+                    "bSortable": false,
+                    "sWidth": "5%",
+                    "mRender": function () {
+                        return "<a href=\"@Url.Action("EditarFornecedor", "Fornecedor")\" class=\"fa fa-pencil-square-o\" title=\"Editar\"></a>";
+                    }
                 }
-            },
-            {
-                "sTitle": "@(Mensagens.Email)",
-                "mData": null,
-                "sClass": "center",
-                "sWidth": "20%",
-                "mRender": function (obj) {
-                    return obj.MeioComunicacao.Email === null || "" ? "N/I" : obj.MeioComunicacao.Email;
-                }
-            },
-            {
-                "sTitle": "@(Mensagens.Actions)",
-                "mData": null,
-                "sClass": "center",
-                "bSortable": false,
-                "sWidth": "5%",
-                "mRender": function (obj) {
-                    return "<a href=\"@Url.Action("EditarCliente", "Cliente")?codigoCliente=" + obj.Codigo +"\" class=\"fa fa-pencil-square-o\" title=\"Editar\"></a>";
-                }
-            }
-        ]
-    });
+            ]
+        });
     </script>
 }

@@ -306,7 +306,7 @@
   <data name="NewPhone" xml:space="preserve">
     <value>Novo Telefone</value>
   </data>
-  <data name="SearchCliente" xml:space="preserve">
+  <data name="SearchClient" xml:space="preserve">
     <value>Pesquisa de cliente</value>
   </data>
   <data name="ReturnSuccess" xml:space="preserve">
@@ -332,5 +332,56 @@
   </data>
   <data name="Select" xml:space="preserve">
     <value>Selecione</value>
+  </data>
+  <data name="NewProvider" xml:space="preserve">
+    <value>Novo Fornecedor</value>
+  </data>
+  <data name="SearchSupplier" xml:space="preserve">
+    <value>Pesquisa de fornecedor</value>
+  </data>
+  <data name="SearchEmployee" xml:space="preserve">
+    <value>Pesquisa de funcionário</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="PriceCost" xml:space="preserve">
+    <value>Preço custo</value>
+  </data>
+  <data name="PriceSale" xml:space="preserve">
+    <value>Preço venda</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unidade</value>
+  </data>
+  <data name="EditClient" xml:space="preserve">
+    <value>Editar cliente</value>
+  </data>
+  <data name="EditEmployee" xml:space="preserve">
+    <value>Editar funcionário</value>
+  </data>
+  <data name="EditProvider" xml:space="preserve">
+    <value>Editar fornecedor</value>
+  </data>
+  <data name="NewEmployee" xml:space="preserve">
+    <value>Novo funcionário</value>
+  </data>
+  <data name="FormOfPayment" xml:space="preserve">
+    <value>Forma de Pagamento</value>
+  </data>
+  <data name="PaymentTerms" xml:space="preserve">
+    <value>Condição de Pagamento</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Ativo</value>
+  </data>
+  <data name="QuantityOfParcels" xml:space="preserve">
+    <value>Quantidade de parcelas</value>
+  </data>
+  <data name="Not" xml:space="preserve">
+    <value>Não</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sim</value>
   </data>
 </root>

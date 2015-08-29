@@ -1,0 +1,14 @@
+﻿@model  ProjetoArtCouro.Model.Models.Fornecedor.FornecedorModel
+
+@Html.Partial("_FornecedorView", Model)
+
+@section Scripts{
+    <script src="~/js/app/Fornecedor/Fornecedor.js"></script>
+    <script>
+    Portal.Mask();
+    Portal.NovoCliente({
+        AlertaMensagensSeletor: "#AlertaMensagens",
+        UrlDados: "@Url.Action("NovoFornecedor", "Fornecedor")"
+    });
+    </script>
+}

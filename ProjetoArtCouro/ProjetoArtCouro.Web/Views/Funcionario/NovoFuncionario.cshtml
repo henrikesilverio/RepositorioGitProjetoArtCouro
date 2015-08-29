@@ -1,0 +1,14 @@
+﻿@model  ProjetoArtCouro.Model.Models.Funcionario.FuncionarioModel
+
+@Html.Partial("_FuncionarioView", Model)
+
+@section Scripts{
+    <script src="~/js/app/Funcionario/Funcionario.js"></script>
+    <script>
+    Portal.Mask();
+    Portal.NovoCliente({
+        AlertaMensagensSeletor: "#AlertaMensagens",
+        UrlDados: "@Url.Action("NovoFuncionario", "Funcionario")"
+    });
+    </script>
+}
