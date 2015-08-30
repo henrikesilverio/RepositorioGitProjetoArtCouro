@@ -307,13 +307,13 @@
     <value>Novo Telefone</value>
   </data>
   <data name="SearchClient" xml:space="preserve">
-    <value>Pesquisa de cliente</value>
+    <value>Pesquisa de Cliente</value>
   </data>
   <data name="ReturnSuccess" xml:space="preserve">
     <value>Processamento efetuado com sucesso.</value>
   </data>
   <data name="NewClient" xml:space="preserve">
-    <value>Novo cliente</value>
+    <value>Novo Cliente</value>
   </data>
   <data name="TypeOfPerson" xml:space="preserve">
     <value>Tipo de pessoa</value>
@@ -337,10 +337,10 @@
     <value>Novo Fornecedor</value>
   </data>
   <data name="SearchSupplier" xml:space="preserve">
-    <value>Pesquisa de fornecedor</value>
+    <value>Pesquisa de Fornecedor</value>
   </data>
   <data name="SearchEmployee" xml:space="preserve">
-    <value>Pesquisa de funcionário</value>
+    <value>Pesquisa de Funcionário</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Descrição</value>
@@ -364,7 +364,7 @@
     <value>Editar fornecedor</value>
   </data>
   <data name="NewEmployee" xml:space="preserve">
-    <value>Novo funcionário</value>
+    <value>Novo Funcionário</value>
   </data>
   <data name="FormOfPayment" xml:space="preserve">
     <value>Forma de Pagamento</value>
@@ -451,10 +451,10 @@
     <value>Código da Compra</value>
   </data>
   <data name="ProviderCode" xml:space="preserve">
-    <value>Código do fornecedor</value>
+    <value>Código do Fornecedor</value>
   </data>
   <data name="ProviderName" xml:space="preserve">
-    <value>Nome do fornecedor</value>
+    <value>Nome do Fornecedor</value>
   </data>
   <data name="SearchBuy" xml:space="preserve">
     <value>Pesquisa de Compra</value>
@@ -473,5 +473,23 @@
   </data>
   <data name="ValueFreight" xml:space="preserve">
     <value>Valor do Frete</value>
+  </data>
+  <data name="BillsToPay" xml:space="preserve">
+    <value>Contas a Pagar</value>
+  </data>
+  <data name="DueDate" xml:space="preserve">
+    <value>Data de Vencimento</value>
+  </data>
+  <data name="IssuanceDate" xml:space="preserve">
+    <value>Data de Emissão</value>
+  </data>
+  <data name="ValueDocument" xml:space="preserve">
+    <value>Valor do Documento</value>
+  </data>
+  <data name="Received" xml:space="preserve">
+    <value>Recebido</value>
+  </data>
+  <data name="BillsToReceive" xml:space="preserve">
+    <value>Contas a receber</value>
   </data>
 </root>

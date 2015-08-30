@@ -56,6 +56,10 @@
     <Compile Include="Models\Compra\CompraModel.cs" />
     <Compile Include="Models\Compra\PesquisaCompraModel.cs" />
     <Compile Include="Models\CondicaoPagamento\CondicaoPagamento.cs" />
+    <Compile Include="Models\ContaPagar\ContaPagarModel.cs" />
+    <Compile Include="Models\ContaPagar\PesquisaContaPagarModel.cs" />
+    <Compile Include="Models\ContaReceber\ContaReceberModel.cs" />
+    <Compile Include="Models\ContaReceber\PesquisaContaReceberModel.cs" />
     <Compile Include="Models\FormaPagamento\FormaPagamentoModel.cs" />
     <Compile Include="Models\Fornecedor\FornecedorModel.cs" />
     <Compile Include="Models\Fornecedor\PesquisaFornecedorModel.cs" />

@@ -599,8 +599,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Compra\CompraController.cs" />
+    <Compile Include="Controllers\Compras\CompraController.cs" />
     <Compile Include="Controllers\CondicoesPagamento\CondicaoPagamentoController.cs" />
+    <Compile Include="Controllers\ContasPagar\ContaPagarController.cs" />
+    <Compile Include="Controllers\ContasReceber\ContaReceberController.cs" />
     <Compile Include="Controllers\FormasPagamento\FormaPagamentoController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Login\LoginController.cs" />
@@ -661,6 +663,8 @@
     <Content Include="Views\Compra\_CompraView.cshtml" />
     <Content Include="Views\Compra\EditarCompra.cshtml" />
     <Content Include="Views\Venda\EditarVenda.cshtml" />
+    <Content Include="Views\ContaPagar\Index.cshtml" />
+    <Content Include="Views\ContaReceber\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

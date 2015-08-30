@@ -6,7 +6,7 @@ using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Service;
 
-namespace ProjetoArtCouro.Web.Controllers.Compra
+namespace ProjetoArtCouro.Web.Controllers.Compras
 {
     public class CompraController : Controller
     {
@@ -67,8 +67,8 @@ namespace ProjetoArtCouro.Web.Controllers.Compra
 
         public ActionResult NovaCompra()
         {
-            ViewBag.Title = Mensagens.Sale;
-            ViewBag.SubTitle = Mensagens.NewSale;
+            ViewBag.Title = Mensagens.Buy;
+            ViewBag.SubTitle = Mensagens.NewBuy;
             ViewBag.Fornecedores = new List<LookupModel>
             {
                 new LookupModel

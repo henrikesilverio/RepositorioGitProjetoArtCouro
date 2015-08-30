@@ -1,0 +1,177 @@
+﻿@model ProjetoArtCouro.Model.Models.ContaPagar.PesquisaContaPagarModel
+@using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
+
+
+<div class="jarviswidget jarviswidget-sortable"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>@Mensagens.AccountsPayable </h2>
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+    <div role="content">
+        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+        <div class="widget-body no-padding">
+            <form id="formContaPagar" class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.CodigoCompra, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.CodigoCompra, new { placeholder = @Mensagens.CodeBuy })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.CodigoFornecedor, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.CodigoFornecedor, new { placeholder = @Mensagens.ProviderCode })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.DataEmissao, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.DataEmissao, new { placeholder = @Mensagens.IssuanceDate })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.DataVencimento, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.DataVencimento, new { placeholder = @Mensagens.DueDate })
+                            </label>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            @Html.LabelFor(m => m.NomeFornecedor, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.NomeFornecedor, new { placeholder = @Mensagens.ProviderName })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.StatusId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.StatusId, new SelectList(ViewBag.StatusContaPagar, "Codigo", "Nome")
+                                .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <a id="PesquisarContaPagar" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-search"></i> @Mensagens.Research
+                    </a>
+                    <a id="SalvarContaPagar" class="btn btn-success" href="javascript:void(0);">
+                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    </a>
+                </footer>
+            </form>
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetContaPagar">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+                     data-widget-colorbutton="false" data-widget-togglebutton="false"
+                     data-widget-deletebutton="false" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Tabela de Contas a pagar</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <table id="datatableContaPagar" class="table table-striped table-bordered table-hover" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/app/Search.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.Search({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            BotaoPesquisarSeletor: "#PesquisarContaPagar",
+            FormularioSeletor: "#formContaPagar",
+            UrlDados: "@Url.Action("PesquisaContaPagar", "ContaPagar")",
+            TabelaSeletor: "#datatableContaPagar",
+            WidgetSeletor: ".WidgetContaPagar",
+            TituloRodape: "",
+            InformacaoTabela: "",
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.ProviderCode)", "mData": "CodigoFornecedor", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.CodeBuy)", "mData": "CodigoCompra", "sWidth": "15%" },
+                {
+                    "sTitle": "@(Mensagens.IssuanceDate)",
+                    "mData": null,
+                    "sWidth": "15%",
+                    "mRender": function(obj) {
+                        var milesegundos = parseInt(obj.DataEmissao.replace(/[^\d]/g, ""));
+                        var data = new Date(milesegundos);
+                        return Portal.ConverteData(data);
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.DueDate)",
+                    "mData": null,
+                    "sWidth": "15%",
+                    "mRender": function(obj) {
+                        var milesegundos = parseInt(obj.DataVencimento.replace(/[^\d]/g, ""));
+                        var data = new Date(milesegundos);
+                        return Portal.ConverteData(data);
+                    }
+                },
+                { "sTitle": "@(Mensagens.ValueDocument)", "mData": "ValorDocumento", "sWidth": "20%" },
+                { "sTitle": "@(Mensagens.Status)", "mData": "Status", "sWidth": "10%" },
+                {
+                    "sTitle": "@(Mensagens.Received + " ?")",
+                    "mData": null,
+                    "sClass": "smart-form",
+                    "bSortable": false,
+                    "sWidth": "10%",
+                    "mRender": function(obj) {
+                        var div = $("<div>").attr({
+                            "class": "col-12"
+                        });
+
+                        var label = $("<label>").attr({
+                            "class": "checkbox " + (obj.Recebido ? "state-disabled" : "")
+                        });
+
+                        var input = $("<input>").attr({
+                            "type": "checkbox",
+                            "name": "checkbox"
+                        });
+                        if (obj.Recebido) {
+                            $(input).attr({
+                                "checked": "checked",
+                                "disabled": "disabled"
+                            });
+                        }
+
+                        var i = $("<i>");
+
+                        label.append(input);
+                        label.append(i);
+                        div.append(label);
+                        return div[0].outerHTML;
+                    }
+                }
+            ]
+        });
+    </script>
+}

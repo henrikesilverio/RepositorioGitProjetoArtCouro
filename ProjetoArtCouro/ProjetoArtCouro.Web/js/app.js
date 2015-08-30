@@ -201,36 +201,32 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	// LOGOUT BUTTON
-	$('#logout a').click(function(e) {
-		//get the link
-		var $this = $(this);
-		$.loginURL = $this.attr('href');
-		$.logoutMSG = $this.data('logout-msg');
-
-		// ask verification
-		$.SmartMessageBox({
-			title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
-			content : $.logoutMSG || "You can improve your security further after logging out by closing this opened browser",
-			buttons : '[No][Yes]'
-
-		}, function(ButtonPressed) {
-			if (ButtonPressed == "Yes") {
-				$.root_.addClass('animated fadeOutUp');
-				setTimeout(logout, 1000)
-			}
-
-		});
-		e.preventDefault();
-	});
-
-	/*
-	 * LOGOUT ACTION
-	 */
-
 	function logout() {
-		window.location = $.loginURL;
+	    window.location = $.loginURL;
 	}
+
+	// LOGOUT BUTTON
+    $("#logout a").click(function(e) {
+        //get the link
+        var $this = $(this);
+        $.loginURL = $this.attr("href");
+        $.logoutMSG = $this.data("logout-msg");
+
+        // ask verification
+        $.SmartMessageBox({
+            title: "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $("#show-shortcut").text() + "</strong></span> ?",
+            content: $.logoutMSG || "You can improve your security further after logging out by closing this opened browser",
+            buttons: "[Não][Sim]"
+
+        }, function(ButtonPressed) {
+            if (ButtonPressed === "Sim") {
+                $.root_.addClass("animated fadeOutUp");
+                setTimeout(logout, 1000);
+            }
+
+        });
+        e.preventDefault();
+    });
 
 	/*
 	* SHORTCUTS
