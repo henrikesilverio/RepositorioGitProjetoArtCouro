@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProjetoArtCouro.Model.Models.Usuarios
+namespace ProjetoArtCouro.Model.Models.Usuario
 {
     public class UsuarioModel
     {

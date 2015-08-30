@@ -1,0 +1,147 @@
+﻿@model  ProjetoArtCouro.Model.Models.Venda.VendaModel
+@using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
+
+<div class="jarviswidget jarviswidget-sortable"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>@ViewBag.SubTitle </h2>
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+    <div role="content">
+        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+        <div class="widget-body no-padding">
+            <form id="formularioVenda" class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.DataCadastro, new { @class = "label" })
+                            <label class="input state-disabled">
+                                @Html.TextBoxFor(m => m.DataCadastro, new { placeholder = @Mensagens.RegistrationDate, disabled = "disabled" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.DataCadastro)
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.Status, new { @class = "label" })
+                            <label class="input state-disabled">
+                                @Html.TextBoxFor(m => m.Status, new { placeholder = @Mensagens.Status, disabled = "disabled" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.Status)
+                        </section>
+                    </div>
+                </fieldset>
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            @Html.LabelFor(m => m.ClienteId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.ClienteId, new SelectList(ViewBag.Clientes, "Codigo", "Nome")
+                                    .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ClienteId)
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.FormaPagamentoId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.FormaPagamentoId, new SelectList(ViewBag.FormasPagamento, "Codigo", "Nome")
+                                .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                            @Html.ValidationMessageFor(m => m.FormaPagamentoId)
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.CondicaoPagamentoId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.CondicaoPagamentoId, new SelectList(ViewBag.CondicoesPagamento, "Codigo", "Nome")
+                                .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                            @Html.ValidationMessageFor(m => m.CondicaoPagamentoId)
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            @Html.LabelFor(m => m.ProdutoId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.ProdutoId, new SelectList(ViewBag.Produtos, "Codigo", "Nome")
+                                    .AddDefaultOption(Mensagens.Select))
+                                <i></i>
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ProdutoId)
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.Quantidade, new {@class = "label"})
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.Quantidade, new {placeholder = @Mensagens.Quantity})
+                            </label>
+                            @Html.ValidationMessageFor(m => m.Quantidade)
+                        </section>
+                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                            @Html.LabelFor(m => m.ValorDesconto, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.ValorDesconto, new { placeholder = @Mensagens.ValueDiscount })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ValorDesconto)
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <a id="SalvarVenda" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    </a>
+                    <a id="AdicionarProduto" class="btn btn-success" href="javascript:void(0);">
+                        <i class="fa fa-plus"></i> @Mensagens.AddProduct
+                    </a>
+                </footer>
+            </form>
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetProduto">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+                     data-widget-colorbutton="false" data-widget-togglebutton="false"
+                     data-widget-deletebutton="false" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Tabela de Protudos</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <table id="datatableProduto" class="table table-striped table-bordered table-hover" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <form class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.ValorTotalBruto, new {@class = "label"})
+                            <label class="input state-disabled">
+                                @Html.TextBoxFor(m => m.ValorTotalBruto, new {placeholder = @Mensagens.TotalCrudeValue, disabled = "disabled"})
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ValorTotalBruto)
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.ValorTotalDesconto, new {@class = "label"})
+                            <label class="input state-disabled">
+                                @Html.TextBoxFor(m => m.ValorTotalDesconto, new {placeholder = @Mensagens.TotalValueDiscount, disabled = "disabled"})
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ValorTotalDesconto)
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.ValorTotalLiquido, new {@class = "label"})
+                            <label class="input state-disabled">
+                                @Html.TextBoxFor(m => m.ValorTotalLiquido, new {placeholder = @Mensagens.TotalValueLiquid, disabled = "disabled"})
+                            </label>
+                            @Html.ValidationMessageFor(m => m.ValorTotalLiquido)
+                        </section>
+                    </div>
+                </fieldset>
+            </form>
+            @Html.Hidden("LinhaCorrente")
+        </div>
+    </div>
+</div>

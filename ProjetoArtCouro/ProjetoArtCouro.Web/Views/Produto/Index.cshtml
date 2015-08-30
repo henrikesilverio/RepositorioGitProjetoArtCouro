@@ -1,4 +1,4 @@
-﻿@model ProjetoArtCouro.Model.Models.Produtos.ProdutoModel
+﻿@model ProjetoArtCouro.Model.Models.Produto.ProdutoModel
 @using ProjetoArtCouro.Resource.Resources
 @using ProjetoArtCouro.Web.Infra.Extensions
 
@@ -92,6 +92,7 @@
             InformacaoTabela: "Adicione novos produtos",
             BotaoEditarSeletor: ".EditarProduto",
             BotaoExcluirSeletor: ".ExcluirProduto",
+            LinhaCorrenteSeletor: "#LinhaCorrente",
             Codigo: 0,
             OrdenacaoDoCabecalho: [
                 { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
@@ -135,7 +136,7 @@
             },
             PreencherCampos: function (obj) {
                 $("#Descricao").val(obj["Descricao"]);
-                $("#UnidadeId").val($("#UnidadeId option:contains(" + obj["UnidadeId"] + ")").val());
+                $("#UnidadeId").val($("#UnidadeId option:contains(" + obj["Unidade"] + ")").val());
                 $("#PrecoCusto").val(obj["PrecoCusto"]);
                 $("#PrecoVenda").val(obj["PrecoVenda"]);
             }

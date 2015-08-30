@@ -62,3 +62,11 @@
 .editable-buttons button {
     margin-left: 6px !important;
 }
+
+.editable-buttons a {
+    margin-left: 6px !important;
+}
+
+.center {
+    text-align: center;    
+}

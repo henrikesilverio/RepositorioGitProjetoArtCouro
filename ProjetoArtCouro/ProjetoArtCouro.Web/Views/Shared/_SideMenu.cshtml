@@ -67,10 +67,10 @@
                 <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-table"></i><span class="menu-item-parent">@Mensagens.Operations</span><b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b></a>
                 <ul>
                     <li>
-                        <a href="javascript:void(0)">@Mensagens.Buy</a>
+                        @Html.ActionLink(Mensagens.Buy, "Index", "Compra")
                     </li>
                     <li>
-                        <a href="javascript:void(0)">@Mensagens.Sale</a>
+                        @Html.ActionLink(Mensagens.Sale, "Index", "Venda")
                     </li>
                     <li>
                         <a href="javascript:void(0)">@Mensagens.AccountsPayable</a>

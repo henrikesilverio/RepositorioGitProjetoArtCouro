@@ -599,6 +599,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Compra\CompraController.cs" />
     <Compile Include="Controllers\CondicoesPagamento\CondicaoPagamentoController.cs" />
     <Compile Include="Controllers\FormasPagamento\FormaPagamentoController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
@@ -607,6 +608,7 @@
     <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Controllers\Produtos\ProdutoController.cs" />
+    <Compile Include="Controllers\Vendas\VendaController.cs" />
     <Compile Include="Extensions\DataAnnotation\CPFCNPJValidation.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -651,6 +653,14 @@
     <Content Include="Views\Produto\Index.cshtml" />
     <Content Include="Views\CondicaoPagamento\Index.cshtml" />
     <Content Include="Views\FormaPagamento\Index.cshtml" />
+    <Content Include="Views\Venda\Index.cshtml" />
+    <Content Include="Views\Venda\_VendaView.cshtml" />
+    <Content Include="Views\Venda\NovaVenda.cshtml" />
+    <Content Include="Views\Compra\Index.cshtml" />
+    <Content Include="Views\Compra\NovaCompra.cshtml" />
+    <Content Include="Views\Compra\_CompraView.cshtml" />
+    <Content Include="Views\Compra\EditarCompra.cshtml" />
+    <Content Include="Views\Venda\EditarVenda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

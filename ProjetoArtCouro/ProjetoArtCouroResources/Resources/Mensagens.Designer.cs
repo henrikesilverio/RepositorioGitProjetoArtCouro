@@ -97,6 +97,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adicionar Produto.
+        /// </summary>
+        public static string AddProduct {
+            get {
+                return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endereço.
         /// </summary>
         public static string Address {
@@ -169,6 +178,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código do Cliente.
+        /// </summary>
+        public static string ClientCode {
+            get {
+                return ResourceManager.GetString("ClientCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do Cliente.
+        /// </summary>
+        public static string ClientName {
+            get {
+                return ResourceManager.GetString("ClientName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CNPJ.
         /// </summary>
         public static string CNPJ {
@@ -187,6 +214,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código da Compra.
+        /// </summary>
+        public static string CodeBuy {
+            get {
+                return ResourceManager.GetString("CodeBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Razão social.
         /// </summary>
         public static string CompanyName {
@@ -201,6 +237,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Complement {
             get {
                 return ResourceManager.GetString("Complement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Condições de Pagamentos.
+        /// </summary>
+        public static string ConditionsPayments {
+            get {
+                return ResourceManager.GetString("ConditionsPayments", resourceCulture);
             }
         }
         
@@ -232,11 +277,29 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clientes.
+        /// </summary>
+        public static string Customers {
+            get {
+                return ResourceManager.GetString("Customers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Descrição.
         /// </summary>
         public static string Description {
             get {
                 return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Compra.
+        /// </summary>
+        public static string EditBuy {
+            get {
+                return ResourceManager.GetString("EditBuy", resourceCulture);
             }
         }
         
@@ -268,6 +331,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Editar Venda.
+        /// </summary>
+        public static string EditSale {
+            get {
+                return ResourceManager.GetString("EditSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -291,6 +363,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Employee {
             get {
                 return ResourceManager.GetString("Employee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código do Funcionário.
+        /// </summary>
+        public static string EmployeeCode {
+            get {
+                return ResourceManager.GetString("EmployeeCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Funcionários.
+        /// </summary>
+        public static string Employees {
+            get {
+                return ResourceManager.GetString("Employees", resourceCulture);
             }
         }
         
@@ -354,6 +444,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string FormOfPayment {
             get {
                 return ResourceManager.GetString("FormOfPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formas de Pagamento.
+        /// </summary>
+        public static string FormsPayment {
+            get {
+                return ResourceManager.GetString("FormsPayment", resourceCulture);
             }
         }
         
@@ -466,6 +565,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nova Compra.
+        /// </summary>
+        public static string NewBuy {
+            get {
+                return ResourceManager.GetString("NewBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Novo Celular.
         /// </summary>
         public static string NewCellPhone {
@@ -516,6 +624,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string NewProvider {
             get {
                 return ResourceManager.GetString("NewProvider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nova Venda.
+        /// </summary>
+        public static string NewSale {
+            get {
+                return ResourceManager.GetString("NewSale", resourceCulture);
             }
         }
         
@@ -637,11 +754,56 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Produtos.
+        /// </summary>
+        public static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fornecedor.
         /// </summary>
         public static string Provider {
             get {
                 return ResourceManager.GetString("Provider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código do fornecedor.
+        /// </summary>
+        public static string ProviderCode {
+            get {
+                return ResourceManager.GetString("ProviderCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do fornecedor.
+        /// </summary>
+        public static string ProviderName {
+            get {
+                return ResourceManager.GetString("ProviderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fornecedores.
+        /// </summary>
+        public static string Providers {
+            get {
+                return ResourceManager.GetString("Providers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantidade.
+        /// </summary>
+        public static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
             }
         }
         
@@ -660,6 +822,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data de Cadastro.
+        /// </summary>
+        public static string RegistrationDate {
+            get {
+                return ResourceManager.GetString("RegistrationDate", resourceCulture);
             }
         }
         
@@ -709,6 +880,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código da Venda.
+        /// </summary>
+        public static string SaleCode {
+            get {
+                return ResourceManager.GetString("SaleCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salvar.
         /// </summary>
         public static string Save {
@@ -727,6 +907,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pesquisa de Compra.
+        /// </summary>
+        public static string SearchBuy {
+            get {
+                return ResourceManager.GetString("SearchBuy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pesquisa de cliente.
         /// </summary>
         public static string SearchClient {
@@ -741,6 +930,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string SearchEmployee {
             get {
                 return ResourceManager.GetString("SearchEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisa de Venda.
+        /// </summary>
+        public static string SearchSale {
+            get {
+                return ResourceManager.GetString("SearchSale", resourceCulture);
             }
         }
         
@@ -808,6 +1006,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Estoque.
         /// </summary>
         public static string Stock {
@@ -822,6 +1029,33 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor Total Bruto.
+        /// </summary>
+        public static string TotalCrudeValue {
+            get {
+                return ResourceManager.GetString("TotalCrudeValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor Total Desconto.
+        /// </summary>
+        public static string TotalValueDiscount {
+            get {
+                return ResourceManager.GetString("TotalValueDiscount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor Total Liquido.
+        /// </summary>
+        public static string TotalValueLiquid {
+            get {
+                return ResourceManager.GetString("TotalValueLiquid", resourceCulture);
             }
         }
         
@@ -849,6 +1083,42 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Updates {
             get {
                 return ResourceManager.GetString("Updates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor Bruto.
+        /// </summary>
+        public static string ValueCrude {
+            get {
+                return ResourceManager.GetString("ValueCrude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor de Desconto.
+        /// </summary>
+        public static string ValueDiscount {
+            get {
+                return ResourceManager.GetString("ValueDiscount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor do Frete.
+        /// </summary>
+        public static string ValueFreight {
+            get {
+                return ResourceManager.GetString("ValueFreight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor líquido.
+        /// </summary>
+        public static string ValueLiquid {
+            get {
+                return ResourceManager.GetString("ValueLiquid", resourceCulture);
             }
         }
         

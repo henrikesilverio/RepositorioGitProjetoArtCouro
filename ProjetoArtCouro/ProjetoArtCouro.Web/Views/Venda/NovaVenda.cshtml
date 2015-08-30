@@ -1,0 +1,74 @@
+﻿@using ProjetoArtCouro.Resource.Resources
+@model  ProjetoArtCouro.Model.Models.Venda.VendaModel
+
+@Html.Partial("_VendaView", Model)
+
+@section Scripts{
+    <script src="~/js/app/Search.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.TabelaDinamica({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            AdicionaLinhaSeletor: "#AdicionarProduto",
+            TabelaSeletor: "#datatableProduto",
+            TituloRodape: "Produtos",
+            TituloRodapeContador: "Nenhum produto adicionado",
+            InformacaoTabela: "Adicione novos produtos",
+            BotaoEditarSeletor: ".EditarProduto",
+            BotaoExcluirSeletor: ".ExcluirProduto",
+            LinhaCorrenteSeletor: "#LinhaCorrente",
+            Codigo: 0,
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "5%" },
+                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
+                { "sTitle": "@(Mensagens.Quantity )", "mData": "Quantidade", "sClass": "center", "sWidth": "5%" },
+                { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueDiscount)", "mData": "ValorDesconto", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "10%" },
+                {
+                    "sTitle": "@(Mensagens.Actions )",
+                    "mData": null,
+                    "sClass": "center",
+                    "sWidth": "10%",
+                    "bSortable": false,
+                    "mRender": function() {
+                        return "<div class=\"editable-buttons\">" +
+                            "<button type=\"button\" class=\"btn btn-success btn-sm EditarProduto\" title=\"Editar\">" +
+                            "<i class=\"fa fa-lg fa-pencil-square-o\"></i>" +
+                            "<button type=\"button\" class=\"btn btn-danger btn-sm ExcluirProduto\" title=\"Deletar\">" +
+                            "<i class=\"fa fa-lg fa-trash-o\"></i>" +
+                            "</button>" +
+                            "</div>";
+                    }
+                }
+            ],
+            ObterCampos: function() {
+                var item = [
+                    {
+                        "Codigo": $("#ProdutoId").val(),
+                        "Descricao": $("#ProdutoId option:selected").text(),
+                        "Quantidade": $("#Quantidade").val(),
+                        "PrecoVenda": 0,
+                        "ValorBruto": 0,
+                        "ValorDesconto": $("#ValorDesconto").val(),
+                        "ValorLiquido": 0
+                    }
+                ];
+                $("#ProdutoId").val("");
+                $("#Quantidade").val("");
+                $("#ValorDesconto").val("");
+                return item;
+            },
+            PreencherCampos: function(obj) {
+                $("#ProdutoId").val($("#ProdutoId option:contains(" + obj["Descricao"] + ")").val());
+                $("#Quantidade").val(obj["Quantidade"]);
+                $("#ValorDesconto").val(obj["ValorDesconto"]);
+            }
+        });
+    </script>
+}

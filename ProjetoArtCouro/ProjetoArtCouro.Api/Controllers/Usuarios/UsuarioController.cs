@@ -7,7 +7,7 @@ using System.Web.Http;
 using AutoMapper;
 using ProjetoArtCouro.Domain.Contracts.IService.IUsuario;
 using ProjetoArtCouro.Domain.Models.Usuarios;
-using ProjetoArtCouro.Model.Models.Usuarios;
+using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.Controllers.Usuarios
 {

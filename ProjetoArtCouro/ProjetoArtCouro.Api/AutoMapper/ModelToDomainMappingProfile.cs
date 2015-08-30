@@ -4,7 +4,7 @@ using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
-using ProjetoArtCouro.Model.Models.Usuarios;
+using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.AutoMapper
 {

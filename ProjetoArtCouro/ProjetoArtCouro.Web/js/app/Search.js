@@ -70,6 +70,44 @@
             }
         });
     },
+    RequisicaoDeletarLinha: function(url, dados, tabelaSeletor, tr) {
+        $.ajax({
+            url: url,
+            data: dados,
+            type: "POST",
+            traditional: true
+        }).success(function () {
+            var tabela = $(tabelaSeletor).dataTable();
+            tabela.fnDeleteRow(tr);
+        }).error(function (ex) {
+            Portal.PreencherAlertaErros(ex.responseText, "#AlertaMensagens");
+        });
+    },
+    CriarBotoes: function(urlEditar, funcaoExcluir) {
+        var div = $("<div>").attr({
+            "class": "editable-buttons"
+        });
+
+        var botaoEditar = $("<a>").attr({
+            "href": urlEditar,
+            "class": "btn btn-success btn-sm",
+            "title": "Editar"
+        }).append($("<i>").attr({
+            "class": "fa fa-lg fa-pencil-square-o"
+        }));
+
+        var botaoExcluir = $("<a>").attr({
+            "class": "btn btn-danger btn-sm BotaoExcluir",
+            "title": "Editar",
+            "onclick": funcaoExcluir
+        }).append($("<i>").attr({
+            "class": "fa fa-lg fa-trash-o"
+        }));
+
+        div.append(botaoEditar);
+        div.append(botaoExcluir);
+        return div;
+    },
     TabelaDinamica: function (settings) {
         var tabela = $(settings.TabelaSeletor).dataTable({
             "autoWidth": true,

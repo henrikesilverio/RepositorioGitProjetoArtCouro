@@ -384,4 +384,94 @@
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
   </data>
+  <data name="ClientCode" xml:space="preserve">
+    <value>Código do Cliente</value>
+  </data>
+  <data name="EmployeeCode" xml:space="preserve">
+    <value>Código do Funcionário</value>
+  </data>
+  <data name="RegistrationDate" xml:space="preserve">
+    <value>Data de Cadastro</value>
+  </data>
+  <data name="SaleCode" xml:space="preserve">
+    <value>Código da Venda</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="SearchSale" xml:space="preserve">
+    <value>Pesquisa de Venda</value>
+  </data>
+  <data name="NewSale" xml:space="preserve">
+    <value>Nova Venda</value>
+  </data>
+  <data name="ConditionsPayments" xml:space="preserve">
+    <value>Condições de Pagamentos</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>Funcionários</value>
+  </data>
+  <data name="FormsPayment" xml:space="preserve">
+    <value>Formas de Pagamento</value>
+  </data>
+  <data name="TotalCrudeValue" xml:space="preserve">
+    <value>Valor Total Bruto</value>
+  </data>
+  <data name="TotalValueDiscount" xml:space="preserve">
+    <value>Valor Total Desconto</value>
+  </data>
+  <data name="TotalValueLiquid" xml:space="preserve">
+    <value>Valor Total Liquido</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantidade</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Produtos</value>
+  </data>
+  <data name="ValueCrude" xml:space="preserve">
+    <value>Valor Bruto</value>
+  </data>
+  <data name="ValueDiscount" xml:space="preserve">
+    <value>Valor de Desconto</value>
+  </data>
+  <data name="ValueLiquid" xml:space="preserve">
+    <value>Valor líquido</value>
+  </data>
+  <data name="AddProduct" xml:space="preserve">
+    <value>Adicionar Produto</value>
+  </data>
+  <data name="ClientName" xml:space="preserve">
+    <value>Nome do Cliente</value>
+  </data>
+  <data name="CodeBuy" xml:space="preserve">
+    <value>Código da Compra</value>
+  </data>
+  <data name="ProviderCode" xml:space="preserve">
+    <value>Código do fornecedor</value>
+  </data>
+  <data name="ProviderName" xml:space="preserve">
+    <value>Nome do fornecedor</value>
+  </data>
+  <data name="SearchBuy" xml:space="preserve">
+    <value>Pesquisa de Compra</value>
+  </data>
+  <data name="Providers" xml:space="preserve">
+    <value>Fornecedores</value>
+  </data>
+  <data name="NewBuy" xml:space="preserve">
+    <value>Nova Compra</value>
+  </data>
+  <data name="EditSale" xml:space="preserve">
+    <value>Editar Venda</value>
+  </data>
+  <data name="EditBuy" xml:space="preserve">
+    <value>Editar Compra</value>
+  </data>
+  <data name="ValueFreight" xml:space="preserve">
+    <value>Valor do Frete</value>
+  </data>
 </root>
