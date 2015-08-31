@@ -211,12 +211,14 @@ $(document).ready(function() {
         var $this = $(this);
         $.loginURL = $this.attr("href");
         $.logoutMSG = $this.data("logout-msg");
+        $.yesMSG = $this.data("yes");
+        $.notMSG = $this.data("not");
 
         // ask verification
         $.SmartMessageBox({
             title: "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $("#show-shortcut").text() + "</strong></span> ?",
             content: $.logoutMSG || "You can improve your security further after logging out by closing this opened browser",
-            buttons: "[Não][Sim]"
+            buttons: "[" + $.notMSG + "][" + $.yesMSG + "]"
 
         }, function(ButtonPressed) {
             if (ButtonPressed === "Sim") {
