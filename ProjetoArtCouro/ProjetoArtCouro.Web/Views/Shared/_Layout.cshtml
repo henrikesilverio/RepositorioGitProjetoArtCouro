@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProjetoArtCouro.Resource.Resources
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="utf-8">
@@ -106,7 +107,7 @@
                 <!-- logout button -->
                 <div id="logout" class="btn-header transparent pull-right">
                     <span>
-                        <a href="~/Login/SignOut" title="Sign Out" data-action="userLogout" data-logout-msg="Você deseja sair do portal">
+                        <a href="~/Login/SignOut" title="Sign Out" data-action="userLogout" data-logout-msg="Você deseja sair do portal" data-yes="@Mensagens.Yes" data-not="@Mensagens.Not">
                             <i class="fa fa-sign-out"></i>
                         </a>
                     </span>
