@@ -1,31 +1,75 @@
+using ProjetoArtCouro.Domain.Models.Pessoas;
+using System.Data.Entity.Migrations;
+using ProjetoArtCouro.Domain.Models.Usuarios;
+
 namespace ProjetoArtCouro.DataBase.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<ProjetoArtCouro.DataBase.DataBase.DataBaseContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataBase.DataBaseContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ProjetoArtCouro.DataBase.DataBase.DataBaseContext context)
+        protected override void Seed(DataBase.DataBaseContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //Atualização inicial estados
+            context.Estados.AddOrUpdate(
+                e => e.EstadoNome,
+                new Estado {EstadoNome = "Acre"},
+                new Estado {EstadoNome = "Alagoas"},
+                new Estado {EstadoNome = "Amapá"},
+                new Estado {EstadoNome = "Amazonas"},
+                new Estado {EstadoNome = "Bahia"},
+                new Estado {EstadoNome = "Ceará"},
+                new Estado {EstadoNome = "Distrito Federal"},
+                new Estado {EstadoNome = "Espírito Santo"},
+                new Estado {EstadoNome = "Goiás"},
+                new Estado {EstadoNome = "Maranhão"},
+                new Estado {EstadoNome = "Mato Grosso"},
+                new Estado {EstadoNome = "Mato Grosso do Sul"},
+                new Estado {EstadoNome = "Minas Gerais"},
+                new Estado {EstadoNome = "Pará"},
+                new Estado {EstadoNome = "Paraíba"},
+                new Estado {EstadoNome = "Paraná"},
+                new Estado {EstadoNome = "Pernambuco"},
+                new Estado {EstadoNome = "Piauí"},
+                new Estado {EstadoNome = "Rio de Janeiro"},
+                new Estado {EstadoNome = "Rio Grande do Norte"},
+                new Estado {EstadoNome = "Rio Grande do Sul"},
+                new Estado {EstadoNome = "Rondônia"},
+                new Estado {EstadoNome = "Roraima"},
+                new Estado {EstadoNome = "Santa Catarina"},
+                new Estado {EstadoNome = "São Paulo"},
+                new Estado {EstadoNome = "Sergipe"},
+                new Estado {EstadoNome = "Tocantins"}
+                );
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            //Atualização inicial estado civil
+            context.EstadosCivis.AddOrUpdate(
+                ec => ec.EstadoCivilNome,
+                new EstadoCivil { EstadoCivilNome = "Solteiro(a)" },
+                new EstadoCivil { EstadoCivilNome = "Casado(a)" },
+                new EstadoCivil { EstadoCivilNome = "Divorciado(a)" },
+                new EstadoCivil { EstadoCivilNome = "Viúvo(a)" },
+                new EstadoCivil { EstadoCivilNome = "Separado(a)" }
+                );
+
+            //Atualização inicial papel
+            context.Papeis.AddOrUpdate(
+                p => p.PapelNome,
+                new Papel { PapelNome = "Pessoa Fisica" },
+                new Papel { PapelNome = "Pessoa Juridica" },
+                new Papel { PapelNome = "Empregado" },
+                new Papel { PapelNome = "Cliente" },
+                new Papel { PapelNome = "Fornecedor" }
+                );
+
+            //Atualização inicial Permissão
+            context.Permissoes.AddOrUpdate(
+                p => p.PermissaoNome,
+                new Permissao { PermissaoNome = "administrador" }
+                );
         }
     }
 }
