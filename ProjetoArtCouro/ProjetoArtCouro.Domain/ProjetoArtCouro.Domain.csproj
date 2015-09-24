@@ -46,6 +46,7 @@
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IUsuario\IPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IUsuarioRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />

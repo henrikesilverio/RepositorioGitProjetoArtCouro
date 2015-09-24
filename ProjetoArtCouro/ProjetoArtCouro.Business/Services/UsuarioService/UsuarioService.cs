@@ -11,9 +11,11 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
     public class UsuarioService : IUsuarioService
     {
         private readonly IUsuarioRepository _usuarioRepository;
-        public UsuarioService(IUsuarioRepository usuarioRepository)
+        private readonly IPermissaoRepository _permissaoRepository;
+        public UsuarioService(IUsuarioRepository usuarioRepository, IPermissaoRepository permissaoRepository)
         {
             _usuarioRepository = usuarioRepository;
+            _permissaoRepository = permissaoRepository;
         }
 
         public void Registrar(string nome, string senha, string confimaSenha, List<Permissao> permissoes)
@@ -44,6 +46,16 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         public List<Usuario> ObterLista()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Permissao> ObterListaPermissao()
+        {
+            return _permissaoRepository.ObterLista();
+        }
+
+        public List<Usuario> PesquisarUsuario(string nome, int? permissaoId, bool? ativo)
+        {
+            return _usuarioRepository.ObterLista(nome, permissaoId, ativo);
         }
 
         public void Dispose()

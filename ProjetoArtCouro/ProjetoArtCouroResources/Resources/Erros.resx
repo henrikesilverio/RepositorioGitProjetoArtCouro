@@ -165,6 +165,9 @@
   <data name="MeansOfCommunicationEmpty" xml:space="preserve">
     <value>Meio de comunicação vazio</value>
   </data>
+  <data name="NoUsersForTheGivenFilter" xml:space="preserve">
+    <value>Não há usuarios para o filtro informado</value>
+  </data>
   <data name="PaperEmptyPerson" xml:space="preserve">
     <value>Papel pessoa vazio</value>
   </data>

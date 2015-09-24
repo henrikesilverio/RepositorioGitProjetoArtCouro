@@ -160,6 +160,7 @@
     <Content Include="js\app\Portal.js" />
     <Content Include="js\app\Enums.js" />
     <Content Include="js\app\Search.js" />
+    <Content Include="js\app\Usuario\Usuario.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\demo.js" />
     <Content Include="js\extensions\CustomValidation.js" />
@@ -579,6 +580,7 @@
     <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Controllers\Produtos\ProdutoController.cs" />
+    <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
     <Compile Include="Extensions\DataAnnotation\CPFCNPJValidation.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
@@ -634,6 +636,10 @@
     <Content Include="Views\Venda\EditarVenda.cshtml" />
     <Content Include="Views\ContaPagar\Index.cshtml" />
     <Content Include="Views\ContaReceber\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\_UsuarioView.cshtml" />
+    <Content Include="Views\Usuario\EditarUsuario.cshtml" />
+    <Content Include="Views\Usuario\NovoUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

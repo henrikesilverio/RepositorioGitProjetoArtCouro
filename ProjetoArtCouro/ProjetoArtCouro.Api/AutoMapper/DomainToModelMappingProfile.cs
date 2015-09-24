@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using AutoMapper;
 using ProjetoArtCouro.Domain.Models.Pessoas;
+using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.AutoMapper
 {
@@ -17,6 +18,15 @@ namespace ProjetoArtCouro.Api.AutoMapper
         //Configuração de mapeamento do viewModel para o dominio
         protected override void Configure()
         {
+            Mapper.CreateMap<Usuario, UsuarioModel>()
+                .ForMember(d => d.Permissoes, m => m.MapFrom(s => s.Permissoes))
+                .ForMember(d => d.Senha, m => m.Ignore());
+
+            Mapper.CreateMap<Permissao, PermissaoModel>()
+                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.PermissaoCodigo))
+                .ForMember(d => d.Nome, m => m.MapFrom(s => s.PermissaoNome))
+                .ForMember(d => d.Id, m => m.MapFrom(s => s.PermissaoId));
+
             Mapper.CreateMap<Estado, LookupModel>()
                 .ForMember(d => d.Id, m => m.MapFrom(s => s.EstadoId))
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.EstadoCodigo))

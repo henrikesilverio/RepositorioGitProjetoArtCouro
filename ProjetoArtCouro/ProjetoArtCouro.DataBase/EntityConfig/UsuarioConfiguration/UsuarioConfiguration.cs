@@ -30,6 +30,10 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
                 .IsRequired()
                 .IsFixedLength();
 
+            Property(x => x.Ativo)
+                .IsRequired()
+                .HasColumnType("bit");
+
             //Relação n pra n Usuario, Permissão
             HasMany(x => x.Permissoes)
                 .WithMany(x => x.Usuarios)

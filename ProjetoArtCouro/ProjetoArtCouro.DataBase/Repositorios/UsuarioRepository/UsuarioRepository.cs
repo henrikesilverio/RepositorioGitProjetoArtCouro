@@ -35,6 +35,30 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
             return _context.Usuarios.ToList();
         }
 
+        public List<Usuario> ObterLista(string nome, int? permissaoId, bool? ativo)
+        {
+            var query = from usuario in _context.Usuarios
+                .Include("Permissoes")
+                        select usuario;
+
+            if (!string.IsNullOrEmpty(nome))
+            {
+                query = query.Where(x => x.UsuarioNome == nome);
+            }
+
+            if (permissaoId != null && !permissaoId.Equals(0))
+            {
+                query = query.Where(x => x.Permissoes.Any(a => a.PermissaoCodigo == permissaoId));
+            }
+
+            if (ativo != null)
+            {
+                query = query.Where(x => x.Ativo == ativo);
+            }
+
+            return query.ToList();
+        }
+
         public void Criar(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);

@@ -1,0 +1,11 @@
+﻿@model  ProjetoArtCouro.Model.Models.Usuario.UsuarioModel
+
+@Html.Partial("_UsuarioView", Model)
+
+@section Scripts{
+    <script src="~/js/app/Usuario/Usuario.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.EditarUsuario();
+    </script>
+}

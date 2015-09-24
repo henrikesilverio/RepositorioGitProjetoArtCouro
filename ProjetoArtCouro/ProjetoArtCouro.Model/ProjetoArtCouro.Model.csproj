@@ -68,6 +68,7 @@
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\Produto\ProdutoModel.cs" />
     <Compile Include="Models\Usuario\PermissaoModel.cs" />
+    <Compile Include="Models\Usuario\PesquisaUsuarioModel.cs" />
     <Compile Include="Models\Usuario\UsuarioModel.cs" />
     <Compile Include="Models\Venda\PesquisaVendaModel.cs" />
     <Compile Include="Models\Venda\VendaModel.cs" />

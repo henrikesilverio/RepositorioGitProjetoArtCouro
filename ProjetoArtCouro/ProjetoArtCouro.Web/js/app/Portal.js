@@ -44,8 +44,27 @@ $.extend(Portal, {
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
     },
-    PreencherAlertaAtencao: function() {
+    PreencherAlertaAtencao: function (mensagem, selotorLocal) {
+        var div = $("<div>").attr({
+            "class": "alert alert-warning fade in"
+        });
 
+        var button = $("<button>").attr({
+            "class": "close",
+            "data-dismiss": "alert"
+        }).text("x");
+
+        var i = $("<i>").attr({
+            "class": "fa fa-warning fa-fw fa-lg"
+        });
+
+        var strong = $("<strong>").text("Atenção!");
+
+        div.append(button);
+        div.append(i);
+        div.append(strong);
+        div.append((" " + mensagem));
+        $(selotorLocal).html(div[0].outerHTML);
     },
     PreencherAlertaSucesso: function (mensagem, selotorLocal) {
         var div = $("<div>").attr({
@@ -68,6 +87,9 @@ $.extend(Portal, {
         div.append(strong);
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
+    },
+    LimparAlertar: function (selotorLocal) {
+        $(selotorLocal).empty();
     },
     LimparCampos: function(seletor) {
         $(seletor).find("input, select, input[type=\"radio\"]").each(function() {
@@ -150,4 +172,13 @@ $.extend(Portal, {
         var d = new Date(data);
         return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("/");
     }
+});
+
+$(".div-loading").hide();
+$(document).ajaxStart(function () {
+    $(".div-loading").show();
+});
+
+$(document).ajaxStop(function () {
+    $(".div-loading").hide();
 });

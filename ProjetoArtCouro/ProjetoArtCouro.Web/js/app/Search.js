@@ -1,6 +1,57 @@
 ﻿$.extend(Portal, {
     Search: function (settings) {
         $(settings.WidgetSeletor).hide();
+        $(settings.TabelaSeletor).dataTable({
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>" +
+                    "t<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
+            "oTableTools": {
+                "aButtons": [
+                    {
+                        "sExtends": "xls",
+                        "sButtonText": "XLS",
+                        "sToolTip": "Exportar XLS"
+                    },
+                    {
+                        "sExtends": "csv",
+                        "sButtonText": "CSV",
+                        "sToolTip": "Exportar CSV"
+                    },
+                    {
+                        "sExtends": "pdf",
+                        "sButtonText": "PDF",
+                        "sToolTip": "Exportar PDF",
+                        "sPdfMessage": "Exportar PDF",
+                        "sPdfSize": "letter"
+                    },
+                    {
+                        "sExtends": "print",
+                        "sButtonText": "Imprimir",
+                        "sToolTip": "Visualizar para impressão",
+                        "sMessage": "<i>(Preecione Esc para sair)</i>"
+                    }
+                ],
+                "sSwfPath": "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
+            },
+            "autoWidth": true,
+            "iDisplayLength": 15,
+            "aaData": [],
+            "aoColumns": settings.OrdenacaoDoCabecalho,
+            "aaSorting": [],
+            "oLanguage": {
+                "sInfo": "_START_ a _END_ em _TOTAL_ " + settings.TituloRodape,
+                "sInfoEmpty": settings.TituloRodapeContador,
+                "sEmptyTable": settings.InformacaoTabela,
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sLast": ">>",
+                    "sPrevious": "<",
+                    "sNext": ">"
+                }
+            }
+        });
+        $(settings.WidgetSeletor).show();
+        var tableSettings = $(settings.TabelaSeletor).dataTable();
+
         $(settings.BotaoPesquisarSeletor).on("click", function () {
             var listaCampos = $(settings.FormularioSeletor).find("input, select");
             var contador = 0;
@@ -23,56 +74,14 @@
                     type: "POST",
                     traditional: true
                 }).success(function (ret) {
+                    tableSettings.fnClearTable();
                     if (ret.TemErros) {
                         Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
-                    } else {
-                        $(settings.TabelaSeletor).dataTable({
-                            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-6'f><'col-sm-6 col-xs-6 hidden-xs'T>r>" +
-                                    "t<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-sm-6 col-xs-12'p>>",
-                            "oTableTools": {
-                                "aButtons": [
-                                    {
-                                        "sExtends": "xls",
-                                        "sButtonText": "XLS",
-                                        "sToolTip": "Exportar XLS"
-                                    },
-                                    {
-                                        "sExtends": "csv",
-                                        "sButtonText": "CSV",
-                                        "sToolTip": "Exportar CSV"
-                                    },
-                                    {
-                                        "sExtends": "pdf",
-                                        "sButtonText": "PDF",
-                                        "sToolTip": "Exportar PDF",
-                                        "sPdfMessage": "Exportar PDF",
-                                        "sPdfSize": "letter"
-                                    },
-                                    {
-                                        "sExtends": "print",
-                                        "sButtonText": "Imprimir",
-                                        "sToolTip": "Visualizar para impressão",
-                                        "sMessage": "<i>(Preecione Esc para sair)</i>"
-                                    }
-                                ],
-                                "sSwfPath": "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
-                            },
-                            "autoWidth": true,
-                            "iDisplayLength": 15,
-                            "aaData": ret.ObjetoRetorno,
-                            "aoColumns": settings.OrdenacaoDoCabecalho,
-                            "aaSorting": [],
-                            "oLanguage": {
-                                "sInfo": "_START_ a _END_ em _TOTAL_ " + settings.TituloRodape,
-                                "oPaginate": {
-                                    "sFirst": "<<",
-                                    "sLast": ">>",
-                                    "sPrevious": "<",
-                                    "sNext": ">"
-                                }
-                            }
-                        });
-                        $(settings.WidgetSeletor).show();
+                    } else if(ret.ObjetoRetorno.length === 0) {
+                        Portal.PreencherAlertaAtencao(ret.Mensagem, settings.AlertaMensagensSeletor);
+                    } else if (ret.ObjetoRetorno.length > 0) {
+                        Portal.LimparAlertar(settings.AlertaMensagensSeletor);
+                        tableSettings.fnAddData(ret.ObjetoRetorno);
                     }
                 }).error(function (ex) {
                     Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
@@ -108,7 +117,7 @@
 
         var botaoExcluir = $("<a>").attr({
             "class": "btn btn-danger btn-sm BotaoExcluir",
-            "title": "Editar",
+            "title": "Excluir",
             "onclick": funcaoExcluir
         }).append($("<i>").attr({
             "class": "fa fa-lg fa-trash-o"

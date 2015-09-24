@@ -268,6 +268,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comfirmar Senha.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contato.
         /// </summary>
         public static string Contact {
@@ -363,6 +372,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EditSale {
             get {
                 return ResourceManager.GetString("EditSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Editar Usuário.
+        /// </summary>
+        public static string EditUser {
+            get {
+                return ResourceManager.GetString("EditUser", resourceCulture);
             }
         }
         
@@ -673,6 +691,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Novo Usuário.
+        /// </summary>
+        public static string NewUser {
+            get {
+                return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não.
         /// </summary>
         public static string Not {
@@ -723,6 +750,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string PaymentTerms {
             get {
                 return ResourceManager.GetString("PaymentTerms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Permissões.
+        /// </summary>
+        public static string Permissions {
+            get {
+                return ResourceManager.GetString("Permissions", resourceCulture);
             }
         }
         
@@ -997,6 +1033,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pesquisa de Usuário.
+        /// </summary>
+        public static string SearchUser {
+            get {
+                return ResourceManager.GetString("SearchUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selecione.
         /// </summary>
         public static string Select {
@@ -1128,6 +1173,42 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Updates {
             get {
                 return ResourceManager.GetString("Updates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário.
+        /// </summary>
+        public static string User {
+            get {
+                return ResourceManager.GetString("User", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código do Usuário.
+        /// </summary>
+        public static string UserCode {
+            get {
+                return ResourceManager.GetString("UserCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do Usuário.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuários.
+        /// </summary>
+        public static string Users {
+            get {
+                return ResourceManager.GetString("Users", resourceCulture);
             }
         }
         

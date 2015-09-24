@@ -205,6 +205,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não há usuarios para o filtro informado.
+        /// </summary>
+        public static string NoUsersForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoUsersForTheGivenFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Papel pessoa vazio.
         /// </summary>
         public static string PaperEmptyPerson {

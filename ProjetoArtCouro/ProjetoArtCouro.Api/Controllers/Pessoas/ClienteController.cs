@@ -83,7 +83,10 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                retornoBase.ObjetoRetorno = null;
+                retornoBase.TemErros = true;
+                retornoBase.Mensagem = ex.Message;
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();

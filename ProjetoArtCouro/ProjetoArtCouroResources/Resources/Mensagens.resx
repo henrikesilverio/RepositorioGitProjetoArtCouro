@@ -492,4 +492,31 @@
   <data name="BillsToReceive" xml:space="preserve">
     <value>Contas a receber</value>
   </data>
+  <data name="SearchUser" xml:space="preserve">
+    <value>Pesquisa de Usuário</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Usuário</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Comfirmar Senha</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Permissões</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>Editar Usuário</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>Novo Usuário</value>
+  </data>
+  <data name="UserCode" xml:space="preserve">
+    <value>Código do Usuário</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nome do Usuário</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Usuários</value>
+  </data>
 </root>

@@ -10,6 +10,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario
         Usuario ObterPorUsuarioNome(string usuarioNome);
         Usuario ObterComPermissoesPorUsuarioNome(string usuarioNome);
         List<Usuario> ObterLista();
+        List<Usuario> ObterLista(string nome, int? permissaoId, bool? ativo);
         void Criar(Usuario usuario);
         void Atualizar(Usuario usuario);
         void Deletar(Usuario usuario);

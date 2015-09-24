@@ -9,5 +9,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IUsuario
         void Registrar(string nome, string senha, string confirmaSenha, List<Permissao> permissoes);
         void AlterarSenha(Usuario usuario, string senha, string novaSenha, string confirmaNovaSenha);
         List<Usuario> ObterLista();
+        List<Permissao> ObterListaPermissao();
+        List<Usuario> PesquisarUsuario(string nome, int? permissaoId, bool? ativo);
     }
 }

@@ -20,6 +20,7 @@ namespace ProjetoArtCouro.Startup.DependencyResolver
             container.RegisterType<DataBaseContext, DataBaseContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IUsuarioService, UsuarioService>(new HierarchicalLifetimeManager());
             container.RegisterType<IUsuarioRepository, UsuarioRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IPermissaoRepository, PermissaoRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IAutenticacao, AutenticacaoService>(new HierarchicalLifetimeManager());
 
             container.RegisterType<IPessoaService, PessoaService>(new HierarchicalLifetimeManager());

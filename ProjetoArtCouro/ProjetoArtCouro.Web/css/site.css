@@ -70,3 +70,24 @@
 .center {
     text-align: center;    
 }
+
+.smart-form fieldset {
+    padding: 25px 14px 14px !important;
+}
+
+.div-loading {
+    position: relative;
+    z-index: 1001;
+}
+
+.div-loading h1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
