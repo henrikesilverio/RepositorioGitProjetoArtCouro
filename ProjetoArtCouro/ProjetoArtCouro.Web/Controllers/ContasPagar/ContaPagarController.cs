@@ -10,7 +10,7 @@ namespace ProjetoArtCouro.Web.Controllers.ContasPagar
     public class ContaPagarController : Controller
     {
         // GET: ContaPagar
-        public ActionResult Index()
+        public ActionResult PesquisaContaPagar()
         {
             ViewBag.Title = Mensagens.BillsToPay;
             ViewBag.StatusContaPagar = new List<LookupModel>

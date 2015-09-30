@@ -1,0 +1,99 @@
+﻿@model ProjetoArtCouro.Model.Models.Usuario.PesquisaGrupoModel
+@using ProjetoArtCouro.Resource.Resources
+
+<div class="jarviswidget jarviswidget-sortable"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>@ViewBag.SubTitle </h2>
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+    <div role="content">
+        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+        <div class="widget-body no-padding">
+            <form id="formPesquisaGrupo" class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            @Html.LabelFor(m => m.GrupoNome, new { @class = "label" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.GrupoNome, new { placeholder = @Mensagens.GroupName })
+                            </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.GrupoCodigo, new {@class = "label"})
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.GrupoCodigo, new {placeholder = @Mensagens.GroupCode})
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <a id="PesquisarGrupo" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-search"></i> @Mensagens.Research
+                    </a>
+                    <a id="NovoGrupo" class="btn btn-success" href="@Url.Action("NovoGrupo", "Configuracao")">
+                        <i class="fa fa-file-o"></i> @Mensagens.New
+                    </a>
+                </footer>
+            </form>
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetGrupo">
+                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+                     data-widget-colorbutton="false" data-widget-togglebutton="false"
+                     data-widget-deletebutton="false" data-widget-editbutton="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Tabela de Configurações de Grupo</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <table id="datatableGrupo" class="table table-striped table-bordered table-hover" width="100%"></table>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/app/Search.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.Search({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            BotaoPesquisarSeletor: "#PesquisarGrupo",
+            FormularioSeletor: "#formPesquisaGrupo",
+            UrlDados: "@Url.Action("PesquisaGrupo", "Configuracao")",
+            TabelaSeletor: "#datatableGrupo",
+            WidgetSeletor: ".WidgetGrupo",
+            TituloRodape: "Grupos de permissões",
+            InformacaoTabela: "Informe os filtros para pesquisar",
+            TituloRodapeContador: "Nenhum grupo",
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.UserCode)", "mData": "GrupoCodigo", "sWidth": "20%" },
+                { "sTitle": "@(Mensagens.UserName)", "mData": "GrupoNome", "sWidth": "60%" },
+                {
+                    "sTitle": "@(Mensagens.Actions)",
+                    "mData": null,
+                    "sClass": "center",
+                    "bSortable": false,
+                    "sWidth": "10%",
+                    "mRender": function (obj) {
+                        var url = "Configuracao/EditarGrupo" + "?codigoGrupo=" + obj.GrupoCodigo;
+                        var botoes = Portal.CriarBotoes(url,
+                                "Portal.RequisicaoDeletarLinha(\"Configuracao/ExcluirGrupo\",{codigoGrupo:" + obj.GrupoCodigo + "}, \"#datatableGrupo\", $(this).closest(\"tr\"))");
+                        return botoes[0].outerHTML;
+                    }
+                }
+            ]
+        });
+    </script>
+}

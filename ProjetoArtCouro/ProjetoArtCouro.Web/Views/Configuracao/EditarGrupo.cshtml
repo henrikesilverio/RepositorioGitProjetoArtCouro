@@ -1,0 +1,13 @@
+﻿@model  ProjetoArtCouro.Model.Models.Usuario.GrupoModel
+
+@Html.Partial("_GrupoView", Model)
+
+@section Scripts{
+    <script src="~/js/app/Usuario/Grupo.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.EditarGrupo({
+            UrlDados: "@Url.Action("EditarGrupo", "Configuracao")"
+        });
+    </script>
+}

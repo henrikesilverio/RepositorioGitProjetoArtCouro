@@ -14,6 +14,11 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
             _context = context;
         }
 
+        public Permissao ObterPermissaoPorCodigo(int codigo)
+        {
+            return _context.Permissoes.FirstOrDefault(x => x.PermissaoCodigo.Equals(codigo));
+        }
+
         public List<Permissao> ObterLista()
         {
             return _context.Permissoes.ToList();

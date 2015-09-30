@@ -67,7 +67,9 @@
     <Compile Include="Models\Funcionario\PesquisaFuncionarioModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\Produto\ProdutoModel.cs" />
+    <Compile Include="Models\Usuario\GrupoModel.cs" />
     <Compile Include="Models\Usuario\PermissaoModel.cs" />
+    <Compile Include="Models\Usuario\PesquisaGrupoModel.cs" />
     <Compile Include="Models\Usuario\PesquisaUsuarioModel.cs" />
     <Compile Include="Models\Usuario\UsuarioModel.cs" />
     <Compile Include="Models\Venda\PesquisaVendaModel.cs" />

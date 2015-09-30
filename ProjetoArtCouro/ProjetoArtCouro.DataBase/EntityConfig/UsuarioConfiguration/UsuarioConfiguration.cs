@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 
@@ -15,11 +14,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(state => state.UsuarioCodigo)
-               .IsRequired()
-               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity)
-               .HasColumnAnnotation(
-                   IndexAnnotation.AnnotationName,
-                   new IndexAnnotation(new IndexAttribute("IX_USUARIO_CODIGO", 1) { IsUnique = true }));
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.UsuarioNome)
                 .HasMaxLength(60)
@@ -43,11 +38,6 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
                     m.MapRightKey("PermissaoId");
                     m.ToTable("UsuarioPermissao");
                 });
-
-            ////Relação 1 pra ou 0 1 Usuario, Pessoa Fisica
-            //HasRequired(x => x.PessoaFisica)
-            //    .WithOptional(x => x.Usuario);
-
         }
     }
 }

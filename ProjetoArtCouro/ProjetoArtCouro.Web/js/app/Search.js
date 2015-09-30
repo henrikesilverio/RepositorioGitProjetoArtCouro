@@ -30,7 +30,7 @@
                         "sMessage": "<i>(Preecione Esc para sair)</i>"
                     }
                 ],
-                "sSwfPath": "js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
+                "sSwfPath": "../js/plugin/datatables/swf/copy_csv_xls_pdf.swf"
             },
             "autoWidth": true,
             "iDisplayLength": 15,

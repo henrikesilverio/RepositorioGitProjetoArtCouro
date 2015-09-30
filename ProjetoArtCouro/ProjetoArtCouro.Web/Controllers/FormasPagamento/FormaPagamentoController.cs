@@ -5,7 +5,7 @@ namespace ProjetoArtCouro.Web.Controllers.FormasPagamento
     public class FormaPagamentoController : Controller
     {
         // GET: FormaPagamento
-        public ActionResult Index()
+        public ActionResult PesquisaFormaPagamento()
         {
             return View();
         }

@@ -43,6 +43,9 @@
       <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.2.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -160,6 +163,7 @@
     <Content Include="js\app\Portal.js" />
     <Content Include="js\app\Enums.js" />
     <Content Include="js\app\Search.js" />
+    <Content Include="js\app\Usuario\Grupo.js" />
     <Content Include="js\app\Usuario\Usuario.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\demo.js" />
@@ -482,6 +486,7 @@
     <Content Include="js\plugin\noUiSlider\jquery.nouislider.js" />
     <Content Include="js\plugin\noUiSlider\jquery.nouislider.min.js" />
     <Content Include="js\plugin\pace\pace.min.js" />
+    <Content Include="js\plugin\select2\select2.js" />
     <Content Include="js\plugin\select2\select2.min.js" />
     <Content Include="js\plugin\selectToUISlider\selectToUISlider.jQuery.js" />
     <Content Include="js\plugin\selectToUISlider\selectToUISlider.jQuery.min.js" />
@@ -522,6 +527,8 @@
     <Content Include="js\plugin\typeahead\typeahead.min.js" />
     <Content Include="js\plugin\typeahead\typeaheadjs.js" />
     <Content Include="js\plugin\typeahead\typeaheadjs.min.js" />
+    <Content Include="js\plugin\underscore\underscore-min.js" />
+    <Content Include="js\plugin\underscore\underscore.js" />
     <Content Include="js\plugin\vectormap\jquery-jvectormap-1.1.1.css" />
     <Content Include="js\plugin\vectormap\jquery-jvectormap-1.1.1.min.js" />
     <Content Include="js\plugin\vectormap\jquery-jvectormap-1.2.2.css" />
@@ -562,8 +569,6 @@
     <Content Include="js\plugin\datatables\datatables.min.js.map" />
     <Content Include="js\plugin\datatables\DT_bootstrap.min.js.map" />
     <Content Include="Web.config" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
   </ItemGroup>
@@ -580,10 +585,10 @@
     <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Controllers\Produtos\ProdutoController.cs" />
+    <Compile Include="Controllers\Usuarios\ConfiguracaoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
-    <Compile Include="Extensions\DataAnnotation\CPFCNPJValidation.cs" />
-    <Compile Include="Extensions\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Infra\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -609,37 +614,43 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\PesquisaCliente.cshtml" />
     <Content Include="Views\Cliente\EditarCliente.cshtml" />
+    <Content Include="js\plugin\underscore\underscore-min.map" />
     <None Include="Views\Cliente\NovoCliente.cshtml" />
     <Content Include="Views\Shared\_Endereco.cshtml" />
     <Content Include="Views\Shared\_MeioComunicacao.cshtml" />
     <Content Include="Views\Cliente\_ClienteView.cshtml" />
     <Content Include="Views\Fornecedor\_FornecedorView.cshtml" />
     <Content Include="Views\Fornecedor\EditarFornecedor.cshtml" />
-    <Content Include="Views\Fornecedor\Index.cshtml" />
+    <Content Include="Views\Fornecedor\PesquisaFornecedor.cshtml" />
     <Content Include="Views\Fornecedor\NovoFornecedor.cshtml" />
     <Content Include="Views\Funcionario\_FuncionarioView.cshtml" />
     <Content Include="Views\Funcionario\EditarFuncionario.cshtml" />
-    <Content Include="Views\Funcionario\Index.cshtml" />
+    <Content Include="Views\Funcionario\PesquisaFuncionario.cshtml" />
     <Content Include="Views\Funcionario\NovoFuncionario.cshtml" />
-    <Content Include="Views\Produto\Index.cshtml" />
-    <Content Include="Views\CondicaoPagamento\Index.cshtml" />
-    <Content Include="Views\FormaPagamento\Index.cshtml" />
-    <Content Include="Views\Venda\Index.cshtml" />
+    <Content Include="Views\Produto\PesquisaProduto.cshtml" />
+    <Content Include="Views\CondicaoPagamento\PesquisaCondicaoPagamento.cshtml" />
+    <Content Include="Views\FormaPagamento\PesquisaFormaPagamento.cshtml" />
+    <Content Include="Views\Venda\PesquisaVenda.cshtml" />
     <Content Include="Views\Venda\_VendaView.cshtml" />
     <Content Include="Views\Venda\NovaVenda.cshtml" />
-    <Content Include="Views\Compra\Index.cshtml" />
+    <Content Include="Views\Compra\PesquisaCompra.cshtml" />
     <Content Include="Views\Compra\NovaCompra.cshtml" />
     <Content Include="Views\Compra\_CompraView.cshtml" />
     <Content Include="Views\Compra\EditarCompra.cshtml" />
     <Content Include="Views\Venda\EditarVenda.cshtml" />
-    <Content Include="Views\ContaPagar\Index.cshtml" />
-    <Content Include="Views\ContaReceber\Index.cshtml" />
-    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\ContaPagar\PesquisaContaPagar.cshtml" />
+    <Content Include="Views\ContaReceber\PesquisaContaReceber.cshtml" />
+    <Content Include="Views\Usuario\PesquisaUsuario.cshtml" />
     <Content Include="Views\Usuario\_UsuarioView.cshtml" />
     <Content Include="Views\Usuario\EditarUsuario.cshtml" />
     <Content Include="Views\Usuario\NovoUsuario.cshtml" />
+    <Content Include="Views\Configuracao\_GrupoView.cshtml" />
+    <Content Include="Views\Configuracao\EditarGrupo.cshtml" />
+    <Content Include="Views\Configuracao\NovoGrupo.cshtml" />
+    <Content Include="Views\Configuracao\PesquisaGrupo.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

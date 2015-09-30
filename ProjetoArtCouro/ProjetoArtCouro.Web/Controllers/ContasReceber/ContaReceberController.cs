@@ -10,7 +10,7 @@ namespace ProjetoArtCouro.Web.Controllers.ContasReceber
     public class ContaReceberController : Controller
     {
         // GET: ContaReceber
-        public ActionResult Index()
+        public ActionResult PesquisaContaReceber()
         {
             ViewBag.Title = Mensagens.BillsToPay;
             ViewBag.StatusContaReceber = new List<LookupModel>

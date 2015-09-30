@@ -5,7 +5,7 @@ namespace ProjetoArtCouro.Web.Controllers.CondicoesPagamento
     public class CondicaoPagamentoController : Controller
     {
         // GET: CondicaoPagamento
-        public ActionResult Index()
+        public ActionResult PesquisaCondicaoPagamento()
         {
             return View();
         }

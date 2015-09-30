@@ -11,7 +11,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
     public class ClienteController : Controller
     {
         // GET: Cliente
-        public ActionResult Index()
+        public ActionResult PesquisaCliente()
         {
             ViewBag.Title = Mensagens.Client;
             ViewBag.SubTitle = Mensagens.SearchClient;

@@ -54,6 +54,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("PesquisarUsuario")]
+        [Authorize]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarUsuario(PesquisaUsuarioModel model)
         {

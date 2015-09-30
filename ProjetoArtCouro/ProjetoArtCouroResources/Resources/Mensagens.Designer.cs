@@ -178,6 +178,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alterar senha.
+        /// </summary>
+        public static string ChangePassword {
+            get {
+                return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cidade.
         /// </summary>
         public static string City {
@@ -358,6 +367,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Editar Grupo.
+        /// </summary>
+        public static string EditGroup {
+            get {
+                return ResourceManager.GetString("EditGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editar fornecedor.
         /// </summary>
         public static string EditProvider {
@@ -498,6 +516,33 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string FormsPayment {
             get {
                 return ResourceManager.GetString("FormsPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código do grupo.
+        /// </summary>
+        public static string GroupCode {
+            get {
+                return ResourceManager.GetString("GroupCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do grupo.
+        /// </summary>
+        public static string GroupName {
+            get {
+                return ResourceManager.GetString("GroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisa de grupo.
+        /// </summary>
+        public static string GroupSearch {
+            get {
+                return ResourceManager.GetString("GroupSearch", resourceCulture);
             }
         }
         
@@ -660,6 +705,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string NewEmployee {
             get {
                 return ResourceManager.GetString("NewEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Novo Grupo.
+        /// </summary>
+        public static string NewGroup {
+            get {
+                return ResourceManager.GetString("NewGroup", resourceCulture);
             }
         }
         

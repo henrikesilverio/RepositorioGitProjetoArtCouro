@@ -68,7 +68,166 @@ namespace ProjetoArtCouro.DataBase.Migrations
             //Atualização inicial Permissão
             context.Permissoes.AddOrUpdate(
                 p => p.PermissaoNome,
-                new Permissao { PermissaoNome = "administrador" }
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Compra",
+                    AcaoNome = "PesquisaCompra"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Nova Compra",
+                    AcaoNome = "NovaCompra"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Compra",
+                    AcaoNome = "EditarCompra"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Excluir Compra",
+                    AcaoNome = "ExcluirCompra"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Condicao Pagamento",
+                    AcaoNome = "PesquisaCondicaoPagamento"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Conta Receber",
+                    AcaoNome = "PesquisaContaReceber"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Forma Pagamento",
+                    AcaoNome = "PesquisaFormaPagamento"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Cliente",
+                    AcaoNome = "PesquisaCliente"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Cliente",
+                    AcaoNome = "NovoCliente"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Cliente",
+                    AcaoNome = "EditarCliente"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Fornecedor",
+                    AcaoNome = "PesquisaFornecedor"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Fornecedor",
+                    AcaoNome = "NovoFornecedor"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Fornecedor",
+                    AcaoNome = "EditarFornecedor"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Funcionario",
+                    AcaoNome = "PesquisaFuncionario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Funcionario",
+                    AcaoNome = "NovoFuncionario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Funcionario",
+                    AcaoNome = "EditarFuncionario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Produto",
+                    AcaoNome = "PesquisaProduto"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Produto",
+                    AcaoNome = "NovoProduto"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Produto",
+                    AcaoNome = "EditarProduto"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Excluir Produto",
+                    AcaoNome = "ExcluirProduto"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Grupo",
+                    AcaoNome = "PesquisaGrupo"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Grupo",
+                    AcaoNome = "NovoGrupo"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Grupo",
+                    AcaoNome = "EditarGrupo"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Excluir Grupo",
+                    AcaoNome = "ExcluirGrupo"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Usuario",
+                    AcaoNome = "PesquisaUsuario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Novo Usuario",
+                    AcaoNome = "NovoUsuario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Usuario",
+                    AcaoNome = "EditarUsuario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Excluir Usuario",
+                    AcaoNome = "ExcluirUsuario"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Pesquisa Venda",
+                    AcaoNome = "PesquisaVenda"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Nova Venda",
+                    AcaoNome = "NovaVenda"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Editar Venda",
+                    AcaoNome = "EditarVenda"
+                },
+                new Permissao
+                {
+                    PermissaoNome = "Excluir Venda",
+                    AcaoNome = "ExcluirVenda"
+                }
                 );
         }
     }

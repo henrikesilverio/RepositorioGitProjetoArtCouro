@@ -8,7 +8,7 @@ namespace ProjetoArtCouro.Web.Controllers.Produtos
     public class ProdutoController : Controller
     {
         // GET: Produto
-        public ActionResult Index()
+        public ActionResult PesquisaProduto()
         {
             ViewBag.Title = Mensagens.Product;
             ViewBag.Unidades = new List<LookupModel>
@@ -28,19 +28,19 @@ namespace ProjetoArtCouro.Web.Controllers.Produtos
         }
 
         [HttpPost]
-        public JsonResult Novo()
+        public JsonResult NovoProduto()
         {
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult Editar()
+        public JsonResult EditarProduto()
         {
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult Excluir()
+        public JsonResult ExcluirProduto()
         {
             return Json(true, JsonRequestBehavior.AllowGet);
         }

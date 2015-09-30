@@ -46,6 +46,7 @@
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IUsuario\IGrupoPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IUsuarioRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
@@ -61,7 +62,8 @@
     <Compile Include="Models\Pessoas\Endereco.cs" />
     <Compile Include="Models\Pessoas\Pessoa.cs" />
     <Compile Include="Models\Enums\TipoPapelPessoaEnum.cs" />
-    <Compile Include="Models\Usuarios\Permissions.cs" />
+    <Compile Include="Models\Usuarios\GrupoPermissao.cs" />
+    <Compile Include="Models\Usuarios\Permissao.cs" />
     <Compile Include="Models\Usuarios\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +72,10 @@
     <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
+      <Project>{53A56D12-0D1A-46C3-82C0-F4822DC016FF}</Project>
+      <Name>ProjetoArtCouro.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
       <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
       <Name>ProjetoArtCouro.Resource</Name>

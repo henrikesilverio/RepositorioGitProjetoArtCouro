@@ -11,7 +11,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
     public class CompraController : Controller
     {
         // GET: Compra
-        public ActionResult Index()
+        public ActionResult PesquisaCompra()
         {
             ViewBag.Title = Mensagens.Buy;
             ViewBag.SubTitle = Mensagens.SearchBuy;

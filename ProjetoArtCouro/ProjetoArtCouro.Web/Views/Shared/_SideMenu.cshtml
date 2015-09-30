@@ -27,27 +27,27 @@
                         <a href="javascript:void(0)">@Mensagens.Person</a>
                         <ul>
                             <li>
-                                @Html.ActionLink(Mensagens.Client, "Index", "Cliente")
+                                @Html.ActionLink(Mensagens.Client, "PesquisaCliente", "Cliente")
                             </li>
                             <li>
-                                @Html.ActionLink(Mensagens.Provider, "Index", "Fornecedor")
+                                @Html.ActionLink(Mensagens.Provider, "PesquisaFornecedor", "Fornecedor")
                             </li>
                             <li>
-                                @Html.ActionLink(Mensagens.Employee, "Index", "Funcionario")
+                                @Html.ActionLink(Mensagens.Employee, "PesquisaFuncionario", "Funcionario")
                             </li>
                         </ul>
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.Product, "Index", "Produto")
+                        @Html.ActionLink(Mensagens.Product, "PesquisaProduto", "Produto")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.FormOfPayment, "Index", "FormaPagamento")
+                        @Html.ActionLink(Mensagens.FormOfPayment, "PesquisaFormaPagamento", "FormaPagamento")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.PaymentTerms, "Index", "CondicaoPagamento")
+                        @Html.ActionLink(Mensagens.PaymentTerms, "PesquisaCondicaoPagamento", "CondicaoPagamento")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.Users, "Index", "Usuario")
+                        @Html.ActionLink(Mensagens.Users, "PesquisaUsuario", "Usuario")
                     </li>
                 </ul>
             </li>
@@ -59,16 +59,16 @@
                 </a>
                 <ul>
                     <li>
-                        @Html.ActionLink(Mensagens.Buy, "Index", "Compra")
+                        @Html.ActionLink(Mensagens.Buy, "PesquisaCompra", "Compra")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.Sale, "Index", "Venda")
+                        @Html.ActionLink(Mensagens.Sale, "PesquisaVenda", "Venda")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.AccountsPayable, "Index", "ContaPagar")
+                        @Html.ActionLink(Mensagens.AccountsPayable, "PesquisaContaPagar", "ContaPagar")
                     </li>
                     <li>
-                        @Html.ActionLink(Mensagens.AccountsReceivable, "Index", "ContaReceber")
+                        @Html.ActionLink(Mensagens.AccountsReceivable, "PesquisaContaReceber", "ContaReceber")
                     </li>
                     
                 </ul>
@@ -89,10 +89,13 @@
                 <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">@Mensagens.Information</span></a>
                 <ul>
                     <li>
-                        <a href="javascript:void(0)">@Mensagens.GroupSettings</a>
+                        @Html.ActionLink(Mensagens.GroupSettings, "PesquisaGrupo", "Configuracao")
                     </li>
                     <li>
                         <a href="javascript:void(0)">@Mensagens.SettingsForUsers</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)">@Mensagens.ChangePassword</a>
                     </li>
                 </ul>
             </li>

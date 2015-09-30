@@ -14,7 +14,6 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.PapelCodigo)
-                .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.PapelNome)

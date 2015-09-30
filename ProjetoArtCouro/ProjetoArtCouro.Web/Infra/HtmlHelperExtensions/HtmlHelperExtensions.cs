@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjetoArtCouro.Web.Extensions.HtmlHelperExtensions
+namespace ProjetoArtCouro.Web.Infra.HtmlHelperExtensions
 {
     public static class HtmlHelperExtensions
     {

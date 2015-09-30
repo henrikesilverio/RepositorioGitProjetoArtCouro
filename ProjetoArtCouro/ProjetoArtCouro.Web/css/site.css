@@ -91,3 +91,29 @@
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
+.select2-container {
+    width: 100%;   
+}
+
+.select2-hidden-accessible {
+    display: none;
+}
+
+.select2-container-multi .select2-search-choice-close {
+    padding: 1px 4px 1px 6px !important;
+}
+
+.select2-search-choice-close {
+    min-height: 0 !important;
+    -moz-min-width: 0 !important;
+    -ms-min-width: 0 !important;
+    -o-min-width: 0 !important;
+    -webkit-min-width: 0 !important;
+    min-width: 0 !important;
+    font-size: 18px !important;
+}
+
+.text-transform-uppercase {
+    text-transform: uppercase;
+}

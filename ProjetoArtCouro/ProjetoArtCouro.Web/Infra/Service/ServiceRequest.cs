@@ -1,4 +1,5 @@
-﻿using System.Web.Security;
+﻿using System.Web;
+using System.Web.Security;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
 using RestSharp;
@@ -56,13 +57,25 @@ namespace ProjetoArtCouro.Web.Infra.Service
         private static IRestResponse<RetornoBase<T>> ExecuteAction<T>(object objectParameter, string apiEndPoint, Method method) 
             where T : new()
         {
-            //Falta pegar o token para enviar na requisição
             var client = new RestClient("http://localhost:5839");
             var request = new RestRequest(apiEndPoint, method);
-            var json = JsonConvert.SerializeObject(objectParameter);
+            var json = JsonConvert.SerializeObject(objectParameter);            
             request.AddParameter("text/json", json, ParameterType.RequestBody);
+            var token = GetTokenForAuthCookie();
+            request.AddHeader("Authorization", string.Format("Bearer {0}", token));
             var response = client.Execute<RetornoBase<T>>(request);
             return response;
+        }
+
+        private static string GetTokenForAuthCookie()
+        {
+            var cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (cookie == null)
+            {
+                return string.Empty;
+            }
+            var ticket = FormsAuthentication.Decrypt(cookie.Value);
+            return ticket != null ? ticket.Name : string.Empty;
         }
     }
 }

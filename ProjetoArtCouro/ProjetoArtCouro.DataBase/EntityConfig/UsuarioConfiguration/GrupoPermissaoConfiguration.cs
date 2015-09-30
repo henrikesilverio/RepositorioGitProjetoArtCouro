@@ -4,24 +4,24 @@ using ProjetoArtCouro.Domain.Models.Usuarios;
 
 namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
 {
-    public class PermissaoConfiguration : EntityTypeConfiguration<Permissao>
+    public class GrupoPermissaoConfiguration : EntityTypeConfiguration<GrupoPermissao>
     {
-        public PermissaoConfiguration()
+        public GrupoPermissaoConfiguration()
         {
-            ToTable("Permissao");
+            ToTable("GrupoPermissao");
 
-            Property(x => x.PermissaoId)
+            Property(x => x.GrupoPermissaoId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.PermissaoCodigo)
+            Property(x => x.GrupoPermissaoCodigo)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(x => x.PermissaoNome)
+            Property(x => x.GrupoPermissaoNome)
                 .IsRequired()
                 .HasMaxLength(50)
                 .HasColumnType("varchar");
 
-            HasMany(x => x.Usuarios);
+            HasMany(x => x.Permissoes);
         }
     }
 }

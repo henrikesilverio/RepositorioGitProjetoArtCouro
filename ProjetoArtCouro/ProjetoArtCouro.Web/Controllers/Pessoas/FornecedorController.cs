@@ -10,7 +10,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
     public class FornecedorController : Controller
     {
         // GET: Fornecedor
-        public ActionResult Index()
+        public ActionResult PesquisaFornecedor()
         {
             ViewBag.Title = Mensagens.Provider;
             ViewBag.SubTitle = Mensagens.NewProvider;

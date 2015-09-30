@@ -7,18 +7,19 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Usuarios
 {
-    public class UsuarioController : Controller
+    public class ConfiguracaoController : Controller
     {
-        public ActionResult PesquisaUsuario()
+        // GET: Configuracao
+        public ActionResult PesquisaGrupo()
         {
-            CriarViewBags(Mensagens.SearchUser);
+            CriarViewBags(Mensagens.GroupSearch);
             return View();
         }
 
         [HttpPost]
-        public JsonResult PesquisaUsuario(PesquisaUsuarioModel model)
+        public JsonResult PesquisaGrupo(PesquisaGrupoModel model)
         {
-            var response = ServiceRequest.Post<List<UsuarioModel>>(model, "api/Usuario/PesquisarUsuario");
+            var response = ServiceRequest.Post<List<GrupoModel>>(model, "api/Usuario/PesquisarGrupo");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
                 response.Data.Mensagem = Erros.NoUsersForTheGivenFilter;
@@ -26,42 +27,48 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult NovoUsuario()
+        public ActionResult NovoGrupo()
         {
-            CriarViewBags(Mensagens.NewUser);
+            CriarViewBags(Mensagens.NewGroup);
+            CriarViewBagPermissoes();
             return View();
         }
 
         [HttpPost]
-        public JsonResult NovoUsuario(UsuarioModel model)
+        public JsonResult NovoGrupo(GrupoModel model)
         {
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult EditarUsuario(int codigoUsuario)
+        public ActionResult EditarGrupo(int codigoGrupo)
         {
-            CriarViewBags(Mensagens.EditUser);
-            return Json(true, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        public JsonResult EditarUsuario(UsuarioModel model)
-        {
+            CriarViewBags(Mensagens.EditGroup);
+            CriarViewBagPermissoes();
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        public JsonResult ExcluirUsuario(int codigoUsuario)
+        public JsonResult EditarGrupo(GrupoModel model)
+        {
+            return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ExcluirGrupo(int codigoGrupo)
         {
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         private void CriarViewBags(string subTitulo)
         {
+            ViewBag.Title = Mensagens.GroupSettings;
+            ViewBag.SubTitle = subTitulo;
+        }
+
+        private void CriarViewBagPermissoes()
+        {
             var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterListaPermissao");
             ViewBag.Permissoes = response.Data.ObjetoRetorno;
-            ViewBag.Title = Mensagens.User;
-            ViewBag.SubTitle = subTitulo;
         }
     }
 }

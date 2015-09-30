@@ -3,7 +3,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InicioBanco : DbMigration
+    public partial class Bancoinicial : DbMigration
     {
         public override void Up()
         {
@@ -117,12 +117,23 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .Index(t => t.CNPJ, unique: true);
             
             CreateTable(
+                "dbo.GrupoPermissao",
+                c => new
+                    {
+                        GrupoPermissaoId = c.Guid(nullable: false, identity: true),
+                        GrupoPermissaoCodigo = c.Int(nullable: false, identity: true),
+                        GrupoPermissaoNome = c.String(nullable: false, maxLength: 50, unicode: false),
+                    })
+                .PrimaryKey(t => t.GrupoPermissaoId);
+            
+            CreateTable(
                 "dbo.Permissao",
                 c => new
                     {
                         PermissaoId = c.Guid(nullable: false, identity: true),
                         PermissaoCodigo = c.Int(nullable: false, identity: true),
                         PermissaoNome = c.String(nullable: false, maxLength: 50, unicode: false),
+                        AcaoNome = c.String(nullable: false, maxLength: 50, unicode: false),
                     })
                 .PrimaryKey(t => t.PermissaoId);
             
@@ -134,9 +145,9 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         UsuarioCodigo = c.Int(nullable: false, identity: true),
                         UsuarioNome = c.String(nullable: false, maxLength: 60),
                         Senha = c.String(nullable: false, maxLength: 32, fixedLength: true),
+                        Ativo = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.UsuarioId)
-                .Index(t => t.UsuarioCodigo, unique: true, name: "IX_USUARIO_CODIGO");
+                .PrimaryKey(t => t.UsuarioId);
             
             CreateTable(
                 "dbo.PessoaPapel",
@@ -150,6 +161,19 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .ForeignKey("dbo.Papel", t => t.PapelId)
                 .Index(t => t.PessoaId)
                 .Index(t => t.PapelId);
+            
+            CreateTable(
+                "dbo.PermissaoGrupoPermissao",
+                c => new
+                    {
+                        PermissaoId = c.Guid(nullable: false),
+                        GrupoPermissaoId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.PermissaoId, t.GrupoPermissaoId })
+                .ForeignKey("dbo.Permissao", t => t.PermissaoId)
+                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissaoId)
+                .Index(t => t.PermissaoId)
+                .Index(t => t.GrupoPermissaoId);
             
             CreateTable(
                 "dbo.UsuarioPermissao",
@@ -170,6 +194,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
         {
             DropForeignKey("dbo.UsuarioPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.UsuarioPermissao", "UsuarioId", "dbo.Usuario");
+            DropForeignKey("dbo.PermissaoGrupoPermissao", "GrupoPermissaoId", "dbo.GrupoPermissao");
+            DropForeignKey("dbo.PermissaoGrupoPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.PessoaJuridica", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaFisica", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaFisica", "EstadoCivil_EstadoCivilId", "dbo.EstadoCivil");
@@ -180,9 +206,10 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropForeignKey("dbo.Endereco", "Estado_EstadoId", "dbo.Estado");
             DropIndex("dbo.UsuarioPermissao", new[] { "PermissaoId" });
             DropIndex("dbo.UsuarioPermissao", new[] { "UsuarioId" });
+            DropIndex("dbo.PermissaoGrupoPermissao", new[] { "GrupoPermissaoId" });
+            DropIndex("dbo.PermissaoGrupoPermissao", new[] { "PermissaoId" });
             DropIndex("dbo.PessoaPapel", new[] { "PapelId" });
             DropIndex("dbo.PessoaPapel", new[] { "PessoaId" });
-            DropIndex("dbo.Usuario", "IX_USUARIO_CODIGO");
             DropIndex("dbo.PessoaJuridica", new[] { "CNPJ" });
             DropIndex("dbo.PessoaJuridica", new[] { "PessoaId" });
             DropIndex("dbo.PessoaFisica", new[] { "EstadoCivil_EstadoCivilId" });
@@ -192,9 +219,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.Endereco", new[] { "Estado_EstadoId" });
             DropIndex("dbo.Endereco", new[] { "PessoaId" });
             DropTable("dbo.UsuarioPermissao");
+            DropTable("dbo.PermissaoGrupoPermissao");
             DropTable("dbo.PessoaPapel");
             DropTable("dbo.Usuario");
             DropTable("dbo.Permissao");
+            DropTable("dbo.GrupoPermissao");
             DropTable("dbo.PessoaJuridica");
             DropTable("dbo.EstadoCivil");
             DropTable("dbo.PessoaFisica");

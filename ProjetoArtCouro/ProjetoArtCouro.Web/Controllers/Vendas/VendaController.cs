@@ -11,7 +11,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
     public class VendaController : Controller
     {
         // GET: Venda
-        public ActionResult Index()
+        public ActionResult PesquisaVenda()
         {
             ViewBag.Title = Mensagens.Sale;
             ViewBag.SubTitle = Mensagens.SearchSale;

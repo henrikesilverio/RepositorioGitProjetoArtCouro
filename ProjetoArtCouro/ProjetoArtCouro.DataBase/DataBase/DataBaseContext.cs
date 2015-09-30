@@ -18,6 +18,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
         }
 
         public DbSet<Permissao> Permissoes { get; set; }
+        public DbSet<GrupoPermissao> GruposPermissao { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Estado> Estados { get; set; }
@@ -41,6 +42,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
 
             //Setando as configurações para criação dos objetos
             modelBuilder.Configurations.Add(new PermissaoConfiguration());
+            modelBuilder.Configurations.Add(new GrupoPermissaoConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
             modelBuilder.Configurations.Add(new EstadoCivilConfiguration());

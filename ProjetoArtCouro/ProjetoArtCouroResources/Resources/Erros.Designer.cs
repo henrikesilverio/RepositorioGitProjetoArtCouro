@@ -223,6 +223,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Permissões não cadastradas.
+        /// </summary>
+        public static string PermissionsNotRegistered {
+            get {
+                return ResourceManager.GetString("PermissionsNotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campo Obrigatório.
         /// </summary>
         public static string RequiredField {

@@ -10,7 +10,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
     public class FuncionarioController : Controller
     {
         // GET: Funcionario
-        public ActionResult Index()
+        public ActionResult PesquisaFuncionario()
         {
             ViewBag.Title = Mensagens.Employee;
             ViewBag.SubTitle = Mensagens.SearchEmployee;

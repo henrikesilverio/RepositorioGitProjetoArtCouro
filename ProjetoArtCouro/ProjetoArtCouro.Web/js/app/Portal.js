@@ -6,6 +6,7 @@ $.extend(Portal, {
         $(".CepMask").mask("00000-000");
         $(".TelefoneMask").mask("(00) 0000-0000");
         $(".DataMask").mask("00/00/0000");
+        $(".SomenteLetraMask").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         var spMaskBehavior = function(val) {
                 return val.replace(/\D/g, "").length === 11 ? "(00) 00000-0000" : "(00) 0000-00009";
             },
@@ -181,4 +182,8 @@ $(document).ajaxStart(function () {
 
 $(document).ajaxStop(function () {
     $(".div-loading").hide();
+});
+
+$.validator.setDefaults({
+    ignore: ""
 });

@@ -171,6 +171,9 @@
   <data name="PaperEmptyPerson" xml:space="preserve">
     <value>Papel pessoa vazio</value>
   </data>
+  <data name="PermissionsNotRegistered" xml:space="preserve">
+    <value>Permissões não cadastradas</value>
+  </data>
   <data name="RequiredField" xml:space="preserve">
     <value>Campo Obrigatório</value>
   </data>

@@ -519,4 +519,22 @@
   <data name="Users" xml:space="preserve">
     <value>Usuários</value>
   </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Alterar senha</value>
+  </data>
+  <data name="GroupSearch" xml:space="preserve">
+    <value>Pesquisa de grupo</value>
+  </data>
+  <data name="GroupCode" xml:space="preserve">
+    <value>Código do grupo</value>
+  </data>
+  <data name="GroupName" xml:space="preserve">
+    <value>Nome do grupo</value>
+  </data>
+  <data name="EditGroup" xml:space="preserve">
+    <value>Editar Grupo</value>
+  </data>
+  <data name="NewGroup" xml:space="preserve">
+    <value>Novo Grupo</value>
+  </data>
 </root>
