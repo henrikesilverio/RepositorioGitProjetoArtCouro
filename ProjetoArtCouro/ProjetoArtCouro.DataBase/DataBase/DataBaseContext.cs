@@ -36,9 +36,9 @@ namespace ProjetoArtCouro.DataBase.DataBase
             //Removendo pluralização dos nomes das tabelas
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             //Removendo delete em cascate dos relacionamentos 1:N
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<OneToManyCascadeDeleteConvention>();
             //Removendo delete em cascate dos relacionamentos N:N
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Add<ManyToManyCascadeDeleteConvention>();
 
             //Setando as configurações para criação dos objetos
             modelBuilder.Configurations.Add(new PermissaoConfiguration());

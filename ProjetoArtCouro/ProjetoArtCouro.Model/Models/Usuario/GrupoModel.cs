@@ -16,7 +16,7 @@ namespace ProjetoArtCouro.Model.Models.Usuario
 
         [Required(ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "RequiredField")]
         [Display(Name = "Permissions", ResourceType = typeof(Mensagens))]
-        public int? PermissaoId { get; set; }
+        public string PermissaoId { get; set; }
 
         public List<PermissaoModel> Permissoes { get; set; }
     }

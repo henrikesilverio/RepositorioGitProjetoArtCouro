@@ -29,7 +29,7 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             var temUsuario = _usuarioRepository.ObterPorUsuarioNome(nome.ToLower());
             if (temUsuario != null)
             {
-                throw new Exception(Erros.DuplicateName);
+                throw new Exception(Erros.DuplicateUserName);
             };
 
             var listaPermissao =
@@ -68,6 +68,36 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         public List<Usuario> PesquisarUsuario(string nome, int? permissaoId, bool? ativo)
         {
             return _usuarioRepository.ObterLista(nome, permissaoId, ativo);
+        }
+
+        public List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo)
+        {
+            return _grupoPermissaoRepository.ObterLista(nome, codigo);
+        }
+
+        public void CriarGrupoPermissao(GrupoPermissao grupoPermissao)
+        {
+            AssertionConcern.AssertArgumentNotEmpty(grupoPermissao.GrupoPermissaoNome, Erros.EmptyGroupName);
+            var temGrupo = _grupoPermissaoRepository.ObterPorGrupoPermissaoNome(grupoPermissao.GrupoPermissaoNome.ToLower());
+            if (temGrupo != null)
+            {
+                throw new Exception(Erros.DuplicateGruopName);
+            };
+            var listaPermissao = _permissaoRepository.ObterLista();
+            if (!listaPermissao.Any())
+            {
+                throw new Exception(Erros.PermissionsNotRegistered);
+            }
+            grupoPermissao.Permissoes = grupoPermissao.Permissoes.Select(x => 
+                listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
+            grupoPermissao.GrupoPermissaoNome = grupoPermissao.GrupoPermissaoNome.ToUpper();
+            _grupoPermissaoRepository.Criar(grupoPermissao);
+        }
+
+        public void ExcluirGrupoPermissao(int codigoGrupoPermissao)
+        {
+            var grupoPermissao = _grupoPermissaoRepository.ObterPorCodigo(codigoGrupoPermissao);
+            _grupoPermissaoRepository.Deletar(grupoPermissao);
         }
 
         public void Dispose()

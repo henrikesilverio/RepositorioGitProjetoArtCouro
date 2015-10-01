@@ -27,6 +27,11 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Nome, m => m.MapFrom(s => s.PermissaoNome))
                 .ForMember(d => d.Id, m => m.MapFrom(s => s.PermissaoId));
 
+            Mapper.CreateMap<GrupoPermissao, GrupoModel>()
+                .ForMember(d => d.GrupoCodigo, m => m.MapFrom(s => s.GrupoPermissaoCodigo))
+                .ForMember(d => d.GrupoNome, m => m.MapFrom(s => s.GrupoPermissaoNome))
+                .ForMember(d => d.Permissoes, m => m.MapFrom(s => s.Permissoes));
+
             Mapper.CreateMap<Estado, LookupModel>()
                 .ForMember(d => d.Id, m => m.MapFrom(s => s.EstadoId))
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.EstadoCodigo))

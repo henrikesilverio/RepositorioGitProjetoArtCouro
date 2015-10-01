@@ -61,11 +61,20 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome duplicado, já existe um grupo com esse nome.
+        /// </summary>
+        public static string DuplicateGruopName {
+            get {
+                return ResourceManager.GetString("DuplicateGruopName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome duplicado, já existe um usuário com esse nome.
         /// </summary>
-        public static string DuplicateName {
+        public static string DuplicateUserName {
             get {
-                return ResourceManager.GetString("DuplicateName", resourceCulture);
+                return ResourceManager.GetString("DuplicateUserName", resourceCulture);
             }
         }
         
@@ -84,6 +93,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EmptyCPF {
             get {
                 return ResourceManager.GetString("EmptyCPF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nome do grupo vazio.
+        /// </summary>
+        public static string EmptyGroupName {
+            get {
+                return ResourceManager.GetString("EmptyGroupName", resourceCulture);
             }
         }
         
@@ -201,6 +219,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string MeansOfCommunicationEmpty {
             get {
                 return ResourceManager.GetString("MeansOfCommunicationEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Não há grupo para o filtro informado.
+        /// </summary>
+        public static string NoGruopForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoGruopForTheGivenFilter", resourceCulture);
             }
         }
         

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Service;
@@ -22,7 +23,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             var response = ServiceRequest.Post<List<GrupoModel>>(model, "api/Usuario/PesquisarGrupo");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                response.Data.Mensagem = Erros.NoUsersForTheGivenFilter;
+                response.Data.Mensagem = Erros.NoGruopForTheGivenFilter;
             }
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
@@ -37,7 +38,8 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         [HttpPost]
         public JsonResult NovoGrupo(GrupoModel model)
         {
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Usuario/CriarGrupo");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult EditarGrupo(int codigoGrupo)
@@ -56,6 +58,8 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         [HttpPost]
         public JsonResult ExcluirGrupo(int codigoGrupo)
         {
+            var response = ServiceRequest.Get<RetornoBase<int?>>(null,
+                string.Format("api/Usuario/ExcluirGrupo?codigoGrupo={0}", codigoGrupo));
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 

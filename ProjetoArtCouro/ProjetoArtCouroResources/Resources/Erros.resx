@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DuplicateName" xml:space="preserve">
+  <data name="DuplicateGruopName" xml:space="preserve">
+    <value>Nome duplicado, já existe um grupo com esse nome</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
     <value>Nome duplicado, já existe um usuário com esse nome</value>
   </data>
   <data name="EmptyAddress" xml:space="preserve">
@@ -125,6 +128,9 @@
   </data>
   <data name="EmptyCPF" xml:space="preserve">
     <value>CPF vazio</value>
+  </data>
+  <data name="EmptyGroupName" xml:space="preserve">
+    <value>Nome do grupo vazio</value>
   </data>
   <data name="EmptyMaritalStatus" xml:space="preserve">
     <value>Estado civil vazio</value>
@@ -164,6 +170,9 @@
   </data>
   <data name="MeansOfCommunicationEmpty" xml:space="preserve">
     <value>Meio de comunicação vazio</value>
+  </data>
+  <data name="NoGruopForTheGivenFilter" xml:space="preserve">
+    <value>Não há grupo para o filtro informado</value>
   </data>
   <data name="NoUsersForTheGivenFilter" xml:space="preserve">
     <value>Não há usuarios para o filtro informado</value>

@@ -87,9 +87,9 @@
                     "bSortable": false,
                     "sWidth": "10%",
                     "mRender": function (obj) {
-                        var url = "Configuracao/EditarGrupo" + "?codigoGrupo=" + obj.GrupoCodigo;
+                        var url = "/Configuracao/EditarGrupo" + "?codigoGrupo=" + obj.GrupoCodigo;
                         var botoes = Portal.CriarBotoes(url,
-                                "Portal.RequisicaoDeletarLinha(\"Configuracao/ExcluirGrupo\",{codigoGrupo:" + obj.GrupoCodigo + "}, \"#datatableGrupo\", $(this).closest(\"tr\"))");
+                                "Portal.RequisicaoDeletarLinha(\"/Configuracao/ExcluirGrupo\",{codigoGrupo:" + obj.GrupoCodigo + "}, \"#datatableGrupo\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

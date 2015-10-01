@@ -86,6 +86,99 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             return tsc.Task;
         }
 
+        [Route("PesquisarGrupo")]
+        [HttpPost]
+        public Task<HttpResponseMessage> PesquisarGrupo(PesquisaGrupoModel model)
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var retornoBase = new RetornoBase<List<GrupoModel>>()
+                {
+                    Mensagem = Mensagens.ReturnSuccess,
+                    TemErros = false
+                };
+                var listaGrupo = _usuarioService.PesquisarGrupo(model.GrupoNome, model.GrupoCodigo);
+                retornoBase.ObjetoRetorno = Mapper.Map<List<GrupoModel>>(listaGrupo);
+                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+            }
+            catch (Exception ex)
+            {
+                var retornoBase = new RetornoBase<string>()
+                {
+                    Mensagem = Mensagens.ReturnSuccess,
+                    ObjetoRetorno = ex.Message,
+                    TemErros = true
+                };
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("CriarGrupo")]
+        [HttpPost]
+        public Task<HttpResponseMessage> CriarGrupo(GrupoModel model)
+        {
+            HttpResponseMessage response;
+            var retornoBase = new RetornoBase<string>()
+            {
+                Mensagem = Mensagens.ReturnSuccess,
+                TemErros = false,
+            };
+
+            try
+            {
+                var grupoPermissao = Mapper.Map<GrupoPermissao>(model);
+                _usuarioService.CriarGrupoPermissao(grupoPermissao);
+                retornoBase.ObjetoRetorno = model.GrupoNome;
+                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+            }
+            catch (Exception ex)
+            {
+                retornoBase.ObjetoRetorno = null;
+                retornoBase.TemErros = true;
+                retornoBase.Mensagem = ex.Message;
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("ExcluirGrupo")]
+        [HttpGet]
+        public Task<HttpResponseMessage> ExcluirGrupo(int codigoGrupo)
+        {
+            HttpResponseMessage response;
+            var retornoBase = new RetornoBase<int?>()
+            {
+                Mensagem = Mensagens.ReturnSuccess,
+                TemErros = false,
+            };
+
+            try
+            {
+                _usuarioService.ExcluirGrupoPermissao(codigoGrupo);
+                retornoBase.ObjetoRetorno = codigoGrupo;
+                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+            }
+            catch (Exception ex)
+            {
+                retornoBase.ObjetoRetorno = null;
+                retornoBase.TemErros = true;
+                retornoBase.Mensagem = ex.Message;
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         [Route("ObterListaPermissao")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaPermissao()
