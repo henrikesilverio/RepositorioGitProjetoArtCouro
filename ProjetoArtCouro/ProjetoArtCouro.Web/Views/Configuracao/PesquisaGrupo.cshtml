@@ -29,6 +29,15 @@
                                 @Html.TextBoxFor(m => m.GrupoCodigo, new {placeholder = @Mensagens.GroupCode})
                             </label>
                         </section>
+                        <section class="col col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                            @Html.LabelFor(m => m.Todos, new { @class = "label" })
+                            <div class="inline-group">
+                                <label class="checkbox">
+                                    @Html.CheckBoxFor(m => m.Todos, true)
+                                    <i></i>
+                                </label>
+                            </div>
+                        </section>
                     </div>
                 </fieldset>
                 <footer>

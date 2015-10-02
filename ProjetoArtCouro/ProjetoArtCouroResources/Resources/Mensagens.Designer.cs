@@ -493,6 +493,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Todos os grupos.
+        /// </summary>
+        public static string EveryoneGroup {
+            get {
+                return ResourceManager.GetString("EveryoneGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Feminino.
         /// </summary>
         public static string Female {

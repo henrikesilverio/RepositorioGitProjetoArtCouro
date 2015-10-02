@@ -1,14 +1,18 @@
 ﻿@model  ProjetoArtCouro.Model.Models.Usuario.GrupoModel
-
+@{
+    var jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+    var permissoes = jss.Serialize(Model.Permissoes);
+}
 @Html.Partial("_GrupoView", Model)
 
 @section Scripts{
     <script src="~/js/app/Usuario/Grupo.js"></script>
     <script>
-        Portal.Mask();
-        Portal.EditarGrupo({
-            UrlDados: "@Url.Action("EditarGrupo", "Configuracao")",
-            AlertaMensagensSeletor: "#AlertaMensagens"
-        });
+    Portal.Mask();
+    Portal.EditarGrupo({
+        UrlDados: "@Url.Action("EditarGrupo", "Configuracao")",
+        AlertaMensagensSeletor: "#AlertaMensagens",
+        ListaPermissao: JSON.parse('@(Html.Raw(permissoes))')
+    });
     </script>
 }

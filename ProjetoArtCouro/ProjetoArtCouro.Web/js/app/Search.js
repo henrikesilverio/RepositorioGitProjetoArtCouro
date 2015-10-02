@@ -53,10 +53,12 @@
         var tableSettings = $(settings.TabelaSeletor).dataTable();
 
         $(settings.BotaoPesquisarSeletor).on("click", function () {
-            var listaCampos = $(settings.FormularioSeletor).find("input, select");
+            var listaCampos = $(settings.FormularioSeletor).find("input:not(:hidden), select");
             var contador = 0;
             $(listaCampos).each(function () {
-                if (this.value === "") {
+                if (this.value === "" && this.type !== "checkbox") {
+                    contador++;
+                } else if (this.type === "checkbox" && !this.checked) {
                     contador++;
                 }
             });

@@ -46,21 +46,23 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         {
             CriarViewBags(Mensagens.EditGroup);
             CriarViewBagPermissoes();
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Post<GrupoModel>(new { codigoGrupo = codigoGrupo }, "api/Usuario/PesquisarGrupoPorCodigo");
+            return View(response.Data.ObjetoRetorno);
         }
 
         [HttpPost]
         public JsonResult EditarGrupo(GrupoModel model)
         {
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarGrupo");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
         public JsonResult ExcluirGrupo(int codigoGrupo)
         {
-            var response = ServiceRequest.Get<RetornoBase<int?>>(null,
-                string.Format("api/Usuario/ExcluirGrupo?codigoGrupo={0}", codigoGrupo));
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Delete<RetornoBase<int?>>(new {codigoGrupo = codigoGrupo},
+                "api/Usuario/ExcluirGrupo");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         private void CriarViewBags(string subTitulo)

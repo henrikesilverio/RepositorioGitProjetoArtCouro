@@ -1,6 +1,6 @@
 ﻿var Portal = Portal || {};
 $.extend(Portal, {
-    Mask: function () {
+    Mask: function() {
         $(".CpfMask").mask("000.000.000-00");
         $(".CnpjMask").mask("00.000.000/0000-00");
         $(".CepMask").mask("00000-000");
@@ -18,19 +18,19 @@ $.extend(Portal, {
 
         $(".CelularMask").mask(spMaskBehavior, spOptions);
     },
-    Form: function (obj) {
+    Form: function(obj) {
         $(obj.Button).click(function() {
             $(obj.Form).submit();
         });
     },
-    PreencherAlertaErros: function (mensagem, selotorLocal) {
+    PreencherAlertaErros: function(mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-danger fade in"
         });
 
         var button = $("<button>").attr({
             "class": "close",
-            "data-dismiss":"alert"
+            "data-dismiss": "alert"
         }).text("x");
 
         var i = $("<i>").attr({
@@ -45,7 +45,7 @@ $.extend(Portal, {
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
     },
-    PreencherAlertaAtencao: function (mensagem, selotorLocal) {
+    PreencherAlertaAtencao: function(mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-warning fade in"
         });
@@ -67,7 +67,7 @@ $.extend(Portal, {
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
     },
-    PreencherAlertaSucesso: function (mensagem, selotorLocal) {
+    PreencherAlertaSucesso: function(mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-success fade in"
         });
@@ -89,7 +89,7 @@ $.extend(Portal, {
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
     },
-    LimparAlertar: function (selotorLocal) {
+    LimparAlertar: function(selotorLocal) {
         $(selotorLocal).empty();
     },
     LimparCampos: function(seletor) {
@@ -101,9 +101,9 @@ $.extend(Portal, {
             }
         });
     },
-    ConfiguracaoNovaPessoa: function () {
+    ConfiguracaoNovaPessoa: function() {
         //Função para mostrar ou esconder dados pessoa fisica ou juridica
-        $(".PessoaFisica").on("change", function () {
+        $(".PessoaFisica").on("change", function() {
             if (this.value === "True") {
                 $("#DadosPessoaFisica").show("slow");
                 $("#DadosPessoaJuridica").hide("slow");
@@ -122,7 +122,7 @@ $.extend(Portal, {
         $(".PessoaFisica:checked").trigger("change");
 
         //Função para mostras ou esconder endereço
-        $("#Endereco_EnderecoId").on("change", function () {
+        $("#Endereco_EnderecoId").on("change", function() {
             if (this.value === "0") {
                 $(".NovoEndereco").show("slow");
                 $(".NovoEndereco").find("input, select").removeAttr("disabled");
@@ -133,7 +133,7 @@ $.extend(Portal, {
         });
 
         //Função para mostras ou esconder meios de comunicação
-        $("#MeioComunicacao_TelefoneId").on("change", function () {
+        $("#MeioComunicacao_TelefoneId").on("change", function() {
             if (this.value === "0") {
                 $(".NovoTelefone").css("visibility", "visible");
                 $(".NovoTelefone").find("input").removeAttr("disabled");
@@ -143,7 +143,7 @@ $.extend(Portal, {
             }
         });
 
-        $("#MeioComunicacao_CelularId").on("change", function () {
+        $("#MeioComunicacao_CelularId").on("change", function() {
             if (this.value === "0") {
                 $(".NovoCelular").css("visibility", "visible");
                 $(".NovoCelular").find("input").removeAttr("disabled");
@@ -153,7 +153,7 @@ $.extend(Portal, {
             }
         });
 
-        $("#MeioComunicacao_EmailId").on("change", function () {
+        $("#MeioComunicacao_EmailId").on("change", function() {
             if (this.value === "0") {
                 $(".NovoEmail").css("visibility", "visible");
                 $(".NovoEmail").find("input").removeAttr("disabled");
@@ -170,8 +170,17 @@ $.extend(Portal, {
     },
     ConverteData: function(data) {
         function pad(s) { return (s < 10) ? "0" + s : s; }
+
         var d = new Date(data);
         return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("/");
+    },
+    DesbilitarCampo: function(seletorCampo) {
+        $(seletorCampo).attr("disabled", "disabled");
+        $(seletorCampo).closest("label").addClass("state-disabled");
+    },
+    HabilitarCampo: function (seletorCampo) {
+        $(seletorCampo).removeAttr("disabled");
+        $(seletorCampo).closest("label").removeClass("state-disabled");
     }
 });
 

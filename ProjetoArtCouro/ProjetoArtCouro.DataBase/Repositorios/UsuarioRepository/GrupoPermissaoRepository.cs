@@ -25,6 +25,11 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
             return _context.GruposPermissao.FirstOrDefault(x => x.GrupoPermissaoCodigo.Equals(codigo));
         }
 
+        public GrupoPermissao ObterPorCodigoComPermissao(int codigo)
+        {
+            return _context.GruposPermissao.Include("Permissoes").FirstOrDefault(x => x.GrupoPermissaoCodigo.Equals(codigo));
+        }
+
         public GrupoPermissao ObterPorGrupoPermissaoNome(string nome)
         {
             return _context.GruposPermissao.FirstOrDefault(x => x.GrupoPermissaoNome.Equals(nome));

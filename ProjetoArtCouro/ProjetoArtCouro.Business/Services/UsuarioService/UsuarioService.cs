@@ -70,9 +70,14 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             return _usuarioRepository.ObterLista(nome, permissaoId, ativo);
         }
 
-        public List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo)
+        public GrupoPermissao ObterGrupoPermissaoPorCodigo(int codigo)
         {
-            return _grupoPermissaoRepository.ObterLista(nome, codigo);
+            return _grupoPermissaoRepository.ObterPorCodigoComPermissao(codigo);
+        }
+
+        public List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo, bool todos)
+        {
+            return todos ? _grupoPermissaoRepository.ObterLista() : _grupoPermissaoRepository.ObterLista(nome, codigo);
         }
 
         public void CriarGrupoPermissao(GrupoPermissao grupoPermissao)
@@ -83,21 +88,45 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             {
                 throw new Exception(Erros.DuplicateGruopName);
             };
+            AtualizarListaPermissao(grupoPermissao);
+            _grupoPermissaoRepository.Criar(grupoPermissao);
+        }
+
+        public void EditarGrupoPermissao(GrupoPermissao grupoPermissao)
+        {
+            AssertionConcern.AssertArgumentNotEmpty(grupoPermissao.GrupoPermissaoNome, Erros.EmptyGroupName);
+            var bdGrupoPermissao = _grupoPermissaoRepository.ObterPorCodigoComPermissao(grupoPermissao.GrupoPermissaoCodigo);
             var listaPermissao = _permissaoRepository.ObterLista();
             if (!listaPermissao.Any())
             {
                 throw new Exception(Erros.PermissionsNotRegistered);
             }
-            grupoPermissao.Permissoes = grupoPermissao.Permissoes.Select(x => 
+            bdGrupoPermissao.Permissoes.Clear();
+            var listaAdicionar = grupoPermissao.Permissoes.Select(x =>
                 listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
-            grupoPermissao.GrupoPermissaoNome = grupoPermissao.GrupoPermissaoNome.ToUpper();
-            _grupoPermissaoRepository.Criar(grupoPermissao);
+            listaAdicionar.ForEach(x =>
+            {
+                bdGrupoPermissao.Permissoes.Add(x);
+            });
+            _grupoPermissaoRepository.Atualizar(bdGrupoPermissao);
         }
 
         public void ExcluirGrupoPermissao(int codigoGrupoPermissao)
         {
             var grupoPermissao = _grupoPermissaoRepository.ObterPorCodigo(codigoGrupoPermissao);
             _grupoPermissaoRepository.Deletar(grupoPermissao);
+        }
+
+        private void AtualizarListaPermissao(GrupoPermissao grupoPermissao)
+        {
+            var listaPermissao = _permissaoRepository.ObterLista();
+            if (!listaPermissao.Any())
+            {
+                throw new Exception(Erros.PermissionsNotRegistered);
+            }
+            grupoPermissao.Permissoes = grupoPermissao.Permissoes.Select(x =>
+                listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
+            grupoPermissao.GrupoPermissaoNome = grupoPermissao.GrupoPermissaoNome.ToUpper();
         }
 
         public void Dispose()

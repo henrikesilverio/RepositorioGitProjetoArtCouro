@@ -27,13 +27,14 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            @Html.LabelFor(m => m.PermissaoId, new { @class = "label" })
+                            @Html.LabelFor(m => m.PermissaoId, new {@class = "label"})
                             <label class="select">
-                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new { multiple = "multiple" })
+                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new {multiple = "multiple"})
                             </label>
                             @Html.ValidationMessageFor(m => m.PermissaoId)
                         </section>
                     </div>
+                    @Html.HiddenFor(m => m.GrupoCodigo)
                 </fieldset>
                 <footer>
                     <a id="SalvarGrupo" class="btn btn-primary" href="javascript:void(0);">

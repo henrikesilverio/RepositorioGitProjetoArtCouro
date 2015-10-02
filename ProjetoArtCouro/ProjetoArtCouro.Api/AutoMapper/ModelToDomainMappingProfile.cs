@@ -19,7 +19,6 @@ namespace ProjetoArtCouro.Api.AutoMapper
         protected override void Configure()
         {
             Mapper.CreateMap<PermissaoModel, Permissao>()
-                .ForMember(d => d.PermissaoId, m => m.MapFrom(s => s.Id))
                 .ForMember(d => d.PermissaoCodigo, m => m.MapFrom(s => s.Codigo))
                 .ForMember(d => d.PermissaoNome, m => m.MapFrom(s => s.Nome));
 

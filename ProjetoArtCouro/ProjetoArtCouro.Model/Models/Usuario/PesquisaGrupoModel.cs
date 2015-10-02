@@ -10,5 +10,8 @@ namespace ProjetoArtCouro.Model.Models.Usuario
 
         [Display(Name = "GroupName", ResourceType = typeof(Mensagens))]
         public string GrupoNome { get; set; }
+
+        [Display(Name = "EveryoneGroup", ResourceType = typeof(Mensagens))]
+        public bool Todos { get; set; }
     }
 }

@@ -6,7 +6,6 @@ namespace ProjetoArtCouro.Model.Models.Usuario
 {
     public class GrupoModel
     {
-        [Required(ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "RequiredField")]
         [Display(Name = "GroupCode", ResourceType = typeof(Mensagens))]
         public int? GrupoCodigo { get; set; }
 

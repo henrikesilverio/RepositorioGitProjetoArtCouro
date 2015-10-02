@@ -8,6 +8,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario
     {
         GrupoPermissao ObterPorId(Guid id);
         GrupoPermissao ObterPorCodigo(int codigo);
+        GrupoPermissao ObterPorCodigoComPermissao(int codigo);
         GrupoPermissao ObterPorGrupoPermissaoNome(string nome);
         List<GrupoPermissao> ObterLista();
         List<GrupoPermissao> ObterLista(string nome, int? codigo);

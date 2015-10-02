@@ -537,4 +537,7 @@
   <data name="NewGroup" xml:space="preserve">
     <value>Novo Grupo</value>
   </data>
+  <data name="EveryoneGroup" xml:space="preserve">
+    <value>Todos os grupos</value>
+  </data>
 </root>

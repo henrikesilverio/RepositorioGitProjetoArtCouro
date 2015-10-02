@@ -46,6 +46,9 @@
 @if (Request.IsAuthenticated)
 {
     <body class="desktop-detected" style="">
+        <div class="div-loading">
+            <span class="ajax-loading-animation"><i class="fa fa-cog fa-spin"></i> Por favor, aguarder...</span>
+        </div>
         <header id="header">
             <div id="logo-group">
                 <span id="logo"> <img src="/img/logoartcouro.png" alt="SmartAdmin"> </span>
@@ -102,9 +105,7 @@
                 </ol>
             </div>
             <div id="content" style="opacity: 1;">
-                <div class="div-loading">
-                    <h1 class="ajax-loading-animation"><i class="fa fa-cog fa-spin"></i> Por favor, aguarder...</h1>
-                </div>
+
                 <section id="widget-grid" class="">
                     <div class="row">
                         <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">

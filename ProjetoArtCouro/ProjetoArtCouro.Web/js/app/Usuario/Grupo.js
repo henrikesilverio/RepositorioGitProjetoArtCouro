@@ -1,31 +1,17 @@
 ﻿$.extend(Portal, {
-    NovoGrupo: function (settings) {
+    NovoGrupo: function(settings) {
         Portal.SalvarDados(settings);
-        $("#PermissaoId").select2({
-            formatNoMatches: "Permissão nao encontrada",
-            placeholder: "Clique para selecionar uma permissão"
-        }).change(function () {
-            if ($("#PermissaoId").val() == null) {
-                Portal.AdicionaErro();
-            } else {
-                Portal.RemoveErro();
-            }
-        });
+        Portal.ConfigurarSelect2();
     },
-    EditarGrupo: function () {
-        $("#PermissaoId").select2({
-            formatNoMatches: "Permissão nao encontrada",
-            placeholder: "Clique para selecionar uma permissão"
-        }).change(function () {
-            if ($("#PermissaoId").val() == null) {
-                Portal.AdicionaErro();
-            } else {
-                Portal.RemoveErro();
-            }
-        });
+    EditarGrupo: function(settings) {
+        Portal.SalvarDados(settings);
+        Portal.DesbilitarCampo("#GrupoNome");
+        Portal.ConfigurarSelect2();
+        $("#PermissaoId").select2("val", _.map(settings.ListaPermissao, function(obj) { return obj.Codigo }));
     },
-    SalvarDados: function (settings) {
+    SalvarDados: function(settings) {
         $("#SalvarGrupo").on("click", function () {
+            Portal.HabilitarCampo("#GrupoNome");
             var formularioDados = $("#formularioGrupo").serializeArray();
             if ($("#formularioGrupo").valid()) {
                 var permissoes = $("#PermissaoId").select2("data");
@@ -35,15 +21,17 @@
                     data: formularioDados,
                     type: "POST",
                     traditional: true
-                }).success(function (ret) {
+                }).success(function(ret) {
                     if (ret.TemErros) {
                         Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
                     } else {
                         Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
                     }
-                }).error(function (ex) {
+                }).error(function(ex) {
                     Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
                 });
+            } else {
+                Portal.DesbilitarCampo("#GrupoNome");
             }
         });
     },
@@ -53,7 +41,7 @@
             formularioDados.push({ "name": "Permissoes[" + index + "].Nome", "value": obj.text });
         });
     },
-    AdicionaErro: function () {
+    AdicionaErro: function() {
         var $select2Container = $(".select2-container");
         var $spanPermissaoId = $("span[data-valmsg-for=\"PermissaoId\"]");
         $select2Container.addClass("input-validation-error");
@@ -62,7 +50,7 @@
         $spanPermissaoId.addClass("field-validation-error");
         $spanPermissaoId.append("<span for=\"PermissaoId\">Campo Obrigatório</span>");
     },
-    RemoveErro: function () {
+    RemoveErro: function() {
         var $select2Container = $(".select2-container");
         var $spanPermissaoId = $("span[data-valmsg-for=\"PermissaoId\"]");
         $select2Container.removeClass("input-validation-error");
@@ -71,5 +59,17 @@
         $spanPermissaoId.removeClass("field-validation-error");
         $spanPermissaoId.addClass("field-validation-valid");
         $spanPermissaoId.html("");
+    },
+    ConfigurarSelect2: function() {
+        $("#PermissaoId").select2({
+            formatNoMatches: "Permissão nao encontrada",
+            placeholder: "Clique para selecionar uma permissão"
+        }).change(function () {
+            if ($("#PermissaoId").val() == null) {
+                Portal.AdicionaErro();
+            } else {
+                Portal.RemoveErro();
+            }
+        });
     }
 });

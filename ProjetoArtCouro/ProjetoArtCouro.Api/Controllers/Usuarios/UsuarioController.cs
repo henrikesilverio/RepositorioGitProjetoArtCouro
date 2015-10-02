@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
+using Newtonsoft.Json.Linq;
 using ProjetoArtCouro.Domain.Contracts.IService.IUsuario;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Common;
@@ -37,7 +38,6 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             {
                 var permissoes = Mapper.Map<List<Permissao>>(model.Permissoes);
                 _usuarioService.Registrar(model.UsuarioNome, model.Senha, model.ConfirmarSenha, permissoes);
-                retornoBase.ObjetoRetorno = model.UsuarioNome;
                 response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
             }
             catch (Exception ex)
@@ -98,7 +98,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
                     Mensagem = Mensagens.ReturnSuccess,
                     TemErros = false
                 };
-                var listaGrupo = _usuarioService.PesquisarGrupo(model.GrupoNome, model.GrupoCodigo);
+                var listaGrupo = _usuarioService.PesquisarGrupo(model.GrupoNome, model.GrupoCodigo, model.Todos);
                 retornoBase.ObjetoRetorno = Mapper.Map<List<GrupoModel>>(listaGrupo);
                 response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
             }
@@ -110,6 +110,37 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
                     ObjetoRetorno = ex.Message,
                     TemErros = true
                 };
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("PesquisarGrupoPorCodigo")]
+        [HttpPost]
+        public Task<HttpResponseMessage> PesquisarGrupoPorCodigo([FromBody]JObject jObject)
+        {
+            var codigoGrupo = jObject["codigoGrupo"].ToObject<int>();
+            HttpResponseMessage response;
+            var retornoBase = new RetornoBase<GrupoModel>()
+            {
+                Mensagem = Mensagens.ReturnSuccess,
+                TemErros = false,
+            };
+
+            try
+            {
+                var grupoPermissao = _usuarioService.ObterGrupoPermissaoPorCodigo(codigoGrupo);
+                retornoBase.ObjetoRetorno = Mapper.Map<GrupoModel>(grupoPermissao);
+                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+            }
+            catch (Exception ex)
+            {
+                retornoBase.ObjetoRetorno = null;
+                retornoBase.TemErros = true;
+                retornoBase.Mensagem = ex.Message;
                 response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
             }
 
@@ -133,7 +164,36 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             {
                 var grupoPermissao = Mapper.Map<GrupoPermissao>(model);
                 _usuarioService.CriarGrupoPermissao(grupoPermissao);
-                retornoBase.ObjetoRetorno = model.GrupoNome;
+                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+            }
+            catch (Exception ex)
+            {
+                retornoBase.ObjetoRetorno = null;
+                retornoBase.TemErros = true;
+                retornoBase.Mensagem = ex.Message;
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("EditarGrupo")]
+        [HttpPut]
+        public Task<HttpResponseMessage> EditarGrupo(GrupoModel model)
+        {
+            HttpResponseMessage response;
+            var retornoBase = new RetornoBase<string>()
+            {
+                Mensagem = Mensagens.ReturnSuccess,
+                TemErros = false,
+            };
+
+            try
+            {
+                var grupoPermissao = Mapper.Map<GrupoPermissao>(model);
+                _usuarioService.EditarGrupoPermissao(grupoPermissao);
                 response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
             }
             catch (Exception ex)
@@ -150,11 +210,12 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ExcluirGrupo")]
-        [HttpGet]
-        public Task<HttpResponseMessage> ExcluirGrupo(int codigoGrupo)
+        [HttpDelete]
+        public Task<HttpResponseMessage> ExcluirGrupo([FromBody]JObject jObject)
         {
+            var codigoGrupo = jObject["codigoGrupo"].ToObject<int>();
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<int?>()
+            var retornoBase = new RetornoBase<string>()
             {
                 Mensagem = Mensagens.ReturnSuccess,
                 TemErros = false,
@@ -163,7 +224,6 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             try
             {
                 _usuarioService.ExcluirGrupoPermissao(codigoGrupo);
-                retornoBase.ObjetoRetorno = codigoGrupo;
                 response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
             }
             catch (Exception ex)
