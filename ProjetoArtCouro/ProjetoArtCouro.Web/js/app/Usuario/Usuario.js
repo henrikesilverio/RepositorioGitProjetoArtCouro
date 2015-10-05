@@ -2,8 +2,10 @@
     NovoUsuario: function (settings) {
         Portal.SalvarDados(settings);
     },
-    EditarUsuario: function () {
-
+    EditarUsuario: function (settings) {
+        Portal.SalvarDados(settings);
+        Portal.DesbilitarCampo("#ConfirmarSenha");
+        Portal.DesbilitarCampo("#Senha");
     },
     SalvarDados: function (settings) {
         $("#SalvarUsuario").on("click", function () {

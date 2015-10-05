@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
+using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IUsuario;
 using ProjetoArtCouro.Domain.Models.Usuarios;
-using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
 using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Api.Controllers.Usuarios
 {
     [RoutePrefix("api/Usuario")]
-    public class UsuarioController : ApiController
+    public class UsuarioController : ApiControllerBase
     {
         private readonly IUsuarioService _usuarioService;
+
         public UsuarioController(IUsuarioService usuarioService)
         {
             _usuarioService = usuarioService;
@@ -28,24 +28,60 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         public Task<HttpResponseMessage> CriarUsuario(UsuarioModel model)
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<string>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
-                var permissoes = Mapper.Map<List<Permissao>>(model.Permissoes);
-                _usuarioService.Registrar(model.UsuarioNome, model.Senha, model.ConfirmarSenha, permissoes);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                if (model.GrupoId == null)
+                {
+                    throw new Exception(string.Format(Erros.NullParameter, "GrupoId"));
+                }
+                _usuarioService.Registrar(model.UsuarioNome, model.Senha, model.ConfirmarSenha, model.GrupoId.Value);
+                response = ReturnSuccess();
             }
             catch (Exception ex)
             {
-                retornoBase.ObjetoRetorno = null;
-                retornoBase.TemErros = true;
-                retornoBase.Mensagem = ex.Message;
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("EditarUsuario")]
+        [HttpPut]
+        public Task<HttpResponseMessage> EditarUsuario(UsuarioModel model)
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var usuario = Mapper.Map<Usuario>(model);
+                _usuarioService.EditarUsuario(usuario);
+                response = ReturnSuccess();
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("ExcluirUsuario")]
+        [HttpDelete]
+        public Task<HttpResponseMessage> ExcluirUsuario([FromBody]JObject jObject)
+        {
+            var codigoUsuario = jObject["codigoUsuario"].ToObject<int>();
+            HttpResponseMessage response;
+            try
+            {
+                _usuarioService.ExcluirUsuario(codigoUsuario);
+                response = ReturnSuccess();
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -61,24 +97,78 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             HttpResponseMessage response;
             try
             {
-                var retornoBase = new RetornoBase<List<UsuarioModel>>()
-                {
-                    Mensagem = Mensagens.ReturnSuccess,
-                    TemErros = false
-                };
-                var listaUsuario = _usuarioService.PesquisarUsuario(model.UsuarioNome, model.PermissaoId, model.Ativo);
-                retornoBase.ObjetoRetorno = Mapper.Map<List<UsuarioModel>>(listaUsuario);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                var listaUsuario = _usuarioService.PesquisarUsuario(model.UsuarioNome, model.GrupoId, model.Ativo);
+                response = ReturnSuccess(Mapper.Map<List<UsuarioModel>>(listaUsuario));
             }
             catch (Exception ex)
             {
-                var retornoBase = new RetornoBase<string>()
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("PesquisarUsuarioPorCodigo")]
+        [HttpPost]
+        public Task<HttpResponseMessage> PesquisarUsuarioPorCodigo([FromBody]JObject jObject)
+        {
+            var codigoUsuario = jObject["codigoUsuario"].ToObject<int>();
+            HttpResponseMessage response;
+            try
+            {
+                var usuario = _usuarioService.PesquisarUsuarioPorCodigo(codigoUsuario);
+                response = ReturnSuccess(Mapper.Map<UsuarioModel>(usuario));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("ObterListaUsuario")]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterListaUsuario()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var listaUsuario = _usuarioService.ObterListaUsuario();
+                response = ReturnSuccess(Mapper.Map<List<UsuarioModel>>(listaUsuario));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("EditarPermissaoUsuario")]
+        [HttpPut]
+        public Task<HttpResponseMessage> EditarPermissaoUsuario(ConfiguracaoUsuarioModel model)
+        {
+            HttpResponseMessage response;
+            try
+            {
+                if (!model.UsuarioId.HasValue)
                 {
-                    ObjetoRetorno = ex.Message,
-                    Mensagem = Mensagens.ReturnSuccess,
-                    TemErros = true,
-                };
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                    throw new Exception(string.Format(Erros.NullParameter, "UsuarioId"));
+                }
+                _usuarioService.EditarPermissaoUsuario(model.UsuarioId.Value,
+                    Mapper.Map<List<Permissao>>(model.Permissoes));
+                response = ReturnSuccess();
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -93,24 +183,12 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             HttpResponseMessage response;
             try
             {
-                var retornoBase = new RetornoBase<List<GrupoModel>>()
-                {
-                    Mensagem = Mensagens.ReturnSuccess,
-                    TemErros = false
-                };
                 var listaGrupo = _usuarioService.PesquisarGrupo(model.GrupoNome, model.GrupoCodigo, model.Todos);
-                retornoBase.ObjetoRetorno = Mapper.Map<List<GrupoModel>>(listaGrupo);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess(Mapper.Map<List<GrupoModel>>(listaGrupo));
             }
             catch (Exception ex)
             {
-                var retornoBase = new RetornoBase<string>()
-                {
-                    Mensagem = Mensagens.ReturnSuccess,
-                    ObjetoRetorno = ex.Message,
-                    TemErros = true
-                };
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -124,24 +202,14 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         {
             var codigoGrupo = jObject["codigoGrupo"].ToObject<int>();
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<GrupoModel>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 var grupoPermissao = _usuarioService.ObterGrupoPermissaoPorCodigo(codigoGrupo);
-                retornoBase.ObjetoRetorno = Mapper.Map<GrupoModel>(grupoPermissao);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess(Mapper.Map<GrupoModel>(grupoPermissao));
             }
             catch (Exception ex)
             {
-                retornoBase.ObjetoRetorno = null;
-                retornoBase.TemErros = true;
-                retornoBase.Mensagem = ex.Message;
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -154,24 +222,15 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         public Task<HttpResponseMessage> CriarGrupo(GrupoModel model)
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<string>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 var grupoPermissao = Mapper.Map<GrupoPermissao>(model);
                 _usuarioService.CriarGrupoPermissao(grupoPermissao);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess();
             }
             catch (Exception ex)
             {
-                retornoBase.ObjetoRetorno = null;
-                retornoBase.TemErros = true;
-                retornoBase.Mensagem = ex.Message;
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -184,24 +243,15 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         public Task<HttpResponseMessage> EditarGrupo(GrupoModel model)
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<string>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 var grupoPermissao = Mapper.Map<GrupoPermissao>(model);
                 _usuarioService.EditarGrupoPermissao(grupoPermissao);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess();
             }
             catch (Exception ex)
             {
-                retornoBase.ObjetoRetorno = null;
-                retornoBase.TemErros = true;
-                retornoBase.Mensagem = ex.Message;
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -215,23 +265,34 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         {
             var codigoGrupo = jObject["codigoGrupo"].ToObject<int>();
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<string>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 _usuarioService.ExcluirGrupoPermissao(codigoGrupo);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess();
             }
             catch (Exception ex)
             {
-                retornoBase.ObjetoRetorno = null;
-                retornoBase.TemErros = true;
-                retornoBase.Mensagem = ex.Message;
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("ObterListaGrupo")]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterListaGrupo()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var listaGrupo = _usuarioService.ObterListaGrupoPermissao();
+                response = ReturnSuccess(Mapper.Map<List<GrupoModel>>(listaGrupo));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -247,23 +308,11 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             try
             {
                 var listaPermissao = _usuarioService.ObterListaPermissao();
-                var retornoBase = new RetornoBase<List<PermissaoModel>>()
-                {
-                    Mensagem = Mensagens.ReturnSuccess,
-                    ObjetoRetorno = Mapper.Map<List<PermissaoModel>>(listaPermissao),
-                    TemErros = false
-                };
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess(Mapper.Map<List<PermissaoModel>>(listaPermissao));
             }
             catch (Exception ex)
             {
-                var retornoBase = new RetornoBase<string>()
-                {
-                    Mensagem = Mensagens.ReturnSuccess,
-                    ObjetoRetorno =  ex.Message,
-                    TemErros = true
-                };
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, retornoBase);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();

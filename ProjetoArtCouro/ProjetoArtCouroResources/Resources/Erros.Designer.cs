@@ -61,6 +61,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirmar senha e Senha não conferem.
+        /// </summary>
+        public static string ConfirmPasswordAndPasswordNotMatch {
+            get {
+                return ResourceManager.GetString("ConfirmPasswordAndPasswordNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome duplicado, já existe um grupo com esse nome.
         /// </summary>
         public static string DuplicateGruopName {
@@ -84,6 +93,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EmptyAddress {
             get {
                 return ResourceManager.GetString("EmptyAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lista de permissão vazia.
+        /// </summary>
+        public static string EmptyAllowList {
+            get {
+                return ResourceManager.GetString("EmptyAllowList", resourceCulture);
             }
         }
         
@@ -147,6 +165,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EmptySex {
             get {
                 return ResourceManager.GetString("EmptySex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grupo não existe.
+        /// </summary>
+        public static string GroupDoesNotExist {
+            get {
+                return ResourceManager.GetString("GroupDoesNotExist", resourceCulture);
             }
         }
         
@@ -241,6 +268,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O parâmetro {0} está nulo.
+        /// </summary>
+        public static string NullParameter {
+            get {
+                return ResourceManager.GetString("NullParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Papel pessoa vazio.
         /// </summary>
         public static string PaperEmptyPerson {
@@ -264,6 +300,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string RequiredField {
             get {
                 return ResourceManager.GetString("RequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não existe.
+        /// </summary>
+        public static string UserDoesNotExist {
+            get {
+                return ResourceManager.GetString("UserDoesNotExist", resourceCulture);
             }
         }
     }

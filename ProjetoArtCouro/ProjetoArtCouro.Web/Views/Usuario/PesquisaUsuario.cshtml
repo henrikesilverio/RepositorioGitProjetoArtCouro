@@ -19,15 +19,15 @@
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.UsuarioNome, new { @class = "label" })
+                            @Html.LabelFor(m => m.UsuarioNome, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.UsuarioNome, new { placeholder = @Mensagens.UserName })
+                                @Html.TextBoxFor(m => m.UsuarioNome, new {placeholder = @Mensagens.UserName})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.PermissaoId, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoId, new { @class = "label" })
                             <label class="select">
-                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome")
+                                @Html.DropDownListFor(m => m.GrupoId, new SelectList(ViewBag.Grupos, "GrupoCodigo", "GrupoNome")
                                     .AddDefaultOption(Mensagens.Select))
                                 <i></i>
                             </label>
@@ -35,9 +35,13 @@
                         <section class="col col-xs-12 col-sm-2 col-md-2 col-lg-2">
                             @Html.LabelFor(m => m.Ativo, new { @class = "label" })
                             <div class="inline-group">
-                                <label class="checkbox">
-                                    @Html.CheckBoxFor(m => m.Ativo, true)
-                                    <i></i>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Ativo, true)
+                                    <i></i>@Mensagens.Yes
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.Ativo, false)
+                                    <i></i>@Mensagens.Not
                                 </label>
                             </div>
                         </section>
@@ -104,17 +108,17 @@
                         });
 
                         var label = $("<label>").attr({
-                            "class": "checkbox " + (obj.Ativo ? "state-disabled" : "")
+                            "class": "checkbox state-disabled"
                         });
 
                         var input = $("<input>").attr({
                             "type": "checkbox",
-                            "name": "checkbox"
+                            "name": "checkbox",
+                            "disabled": "disabled"
                         });
                         if (obj.Ativo) {
                             $(input).attr({
-                                "checked": "checked",
-                                "disabled": "disabled"
+                                "checked": "checked"
                             });
                         }
 
@@ -133,9 +137,9 @@
                     "bSortable": false,
                     "sWidth": "10%",
                     "mRender": function (obj) {
-                        var url = "Usuario/EditarUsuario" + "?codigoUsuario=" + obj.UsuarioCodigo;
+                        var url = "/Usuario/EditarUsuario" + "?codigoUsuario=" + obj.UsuarioCodigo;
                         var botoes = Portal.CriarBotoes(url,
-                                "Portal.RequisicaoDeletarLinha(\"Usuario/ExcluirUsuario\",{codigoUsuario:" + obj.UsuarioCodigo + "}, \"#datatableUsuario\", $(this).closest(\"tr\"))");
+                                "Portal.RequisicaoDeletarLinha(\"/Usuario/ExcluirUsuario\",{codigoUsuario:" + obj.UsuarioCodigo + "}, \"#datatableUsuario\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

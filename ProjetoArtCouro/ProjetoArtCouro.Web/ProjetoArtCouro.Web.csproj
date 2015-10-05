@@ -163,6 +163,7 @@
     <Content Include="js\app\Portal.js" />
     <Content Include="js\app\Enums.js" />
     <Content Include="js\app\Search.js" />
+    <Content Include="js\app\Usuario\ConfiguracaoUsuario.js" />
     <Content Include="js\app\Usuario\Grupo.js" />
     <Content Include="js\app\Usuario\Usuario.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
@@ -651,6 +652,7 @@
     <Content Include="Views\Configuracao\NovoGrupo.cshtml" />
     <Content Include="Views\Configuracao\PesquisaGrupo.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Configuracao\ConfiguracaoUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

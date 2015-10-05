@@ -3,7 +3,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Bancoinicial : DbMigration
+    public partial class BancoInicial : DbMigration
     {
         public override void Up()
         {
@@ -146,8 +146,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         UsuarioNome = c.String(nullable: false, maxLength: 60),
                         Senha = c.String(nullable: false, maxLength: 32, fixedLength: true),
                         Ativo = c.Boolean(nullable: false),
+                        GrupoPermissao_GrupoPermissaoId = c.Guid(nullable: false),
                     })
-                .PrimaryKey(t => t.UsuarioId);
+                .PrimaryKey(t => t.UsuarioId)
+                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissao_GrupoPermissaoId, cascadeDelete: true)
+                .Index(t => t.GrupoPermissao_GrupoPermissaoId);
             
             CreateTable(
                 "dbo.PessoaPapel",
@@ -157,8 +160,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         PapelId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PessoaId, t.PapelId })
-                .ForeignKey("dbo.Pessoa", t => t.PessoaId)
-                .ForeignKey("dbo.Papel", t => t.PapelId)
+                .ForeignKey("dbo.Pessoa", t => t.PessoaId, cascadeDelete: true)
+                .ForeignKey("dbo.Papel", t => t.PapelId, cascadeDelete: true)
                 .Index(t => t.PessoaId)
                 .Index(t => t.PapelId);
             
@@ -170,8 +173,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         GrupoPermissaoId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PermissaoId, t.GrupoPermissaoId })
-                .ForeignKey("dbo.Permissao", t => t.PermissaoId)
-                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissaoId)
+                .ForeignKey("dbo.Permissao", t => t.PermissaoId, cascadeDelete: true)
+                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissaoId, cascadeDelete: true)
                 .Index(t => t.PermissaoId)
                 .Index(t => t.GrupoPermissaoId);
             
@@ -183,8 +186,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         PermissaoId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UsuarioId, t.PermissaoId })
-                .ForeignKey("dbo.Usuario", t => t.UsuarioId)
-                .ForeignKey("dbo.Permissao", t => t.PermissaoId)
+                .ForeignKey("dbo.Usuario", t => t.UsuarioId, cascadeDelete: true)
+                .ForeignKey("dbo.Permissao", t => t.PermissaoId, cascadeDelete: true)
                 .Index(t => t.UsuarioId)
                 .Index(t => t.PermissaoId);
             
@@ -192,6 +195,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Usuario", "GrupoPermissao_GrupoPermissaoId", "dbo.GrupoPermissao");
             DropForeignKey("dbo.UsuarioPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.UsuarioPermissao", "UsuarioId", "dbo.Usuario");
             DropForeignKey("dbo.PermissaoGrupoPermissao", "GrupoPermissaoId", "dbo.GrupoPermissao");
@@ -210,6 +214,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.PermissaoGrupoPermissao", new[] { "PermissaoId" });
             DropIndex("dbo.PessoaPapel", new[] { "PapelId" });
             DropIndex("dbo.PessoaPapel", new[] { "PessoaId" });
+            DropIndex("dbo.Usuario", new[] { "GrupoPermissao_GrupoPermissaoId" });
             DropIndex("dbo.PessoaJuridica", new[] { "CNPJ" });
             DropIndex("dbo.PessoaJuridica", new[] { "PessoaId" });
             DropIndex("dbo.PessoaFisica", new[] { "EstadoCivil_EstadoCivilId" });

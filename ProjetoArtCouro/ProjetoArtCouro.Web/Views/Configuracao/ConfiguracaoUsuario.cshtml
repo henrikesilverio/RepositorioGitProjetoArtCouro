@@ -1,0 +1,58 @@
+﻿@model  ProjetoArtCouro.Model.Models.Usuario.ConfiguracaoUsuarioModel
+@using ProjetoArtCouro.Resource.Resources
+@using ProjetoArtCouro.Web.Infra.Extensions
+
+<div class="jarviswidget jarviswidget-sortable"
+     data-widget-editbutton="true" data-widget-colorbutton="true"
+     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+     data-widget-custombutton="true" data-widget-togglebutton="true"
+     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+    <header role="heading">
+        <span class="widget-icon"><i class="fa fa-edit"></i></span>
+        <h2>@Mensagens.SettingsForUsers </h2>
+        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+    </header>
+    <div role="content">
+        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+        <div class="widget-body no-padding">
+            <form id="formularioConfiguracaoUsuario" class="smart-form" novalidate="novalidate">
+                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            @Html.LabelFor(m => m.UsuarioId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.UsuarioId, new SelectList(ViewBag.Usuarios, "UsuarioCodigo", "UsuarioNome").AddDefaultOption(Mensagens.Select))
+                            </label>
+                            @Html.ValidationMessageFor(m => m.UsuarioId)
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            @Html.LabelFor(m => m.PermissaoId, new { @class = "label" })
+                            <label class="select">
+                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new { multiple = "multiple" })
+                            </label>
+                            @Html.ValidationMessageFor(m => m.PermissaoId)
+                        </section>
+                    </div>
+                </fieldset>
+                <footer>
+                    <a id="SalvarConfiguracaoUsuario" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    </a>
+                </footer>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/app/Usuario/ConfiguracaoUsuario.js"></script>
+    <script>
+        Portal.Mask();
+        Portal.ConfiguracaoUsuario({
+            UrlDados: '@Url.Action("ConfiguracaoUsuario", "Configuracao")',
+            AlertaMensagensSeletor: "#AlertaMensagens"
+        });
+    </script>
+}

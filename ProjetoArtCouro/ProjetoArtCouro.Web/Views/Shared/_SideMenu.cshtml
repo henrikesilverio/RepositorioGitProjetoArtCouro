@@ -20,7 +20,6 @@
                 <a href="javascript:void(0)">
                     <i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
                     <span class="menu-item-parent">@Mensagens.Register</span>
-                    <b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b>
                 </a>
                 <ul>
                     <li>
@@ -55,7 +54,6 @@
                 <a href="javascript:void(0)">
                     <i class="fa fa-lg fa-fw fa-table"></i>
                     <span class="menu-item-parent">@Mensagens.Operations</span>
-                    <b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b>
                 </a>
                 <ul>
                     <li>
@@ -77,7 +75,6 @@
                 <a href="javascript:void(0)">
                     <i class="fa fa-lg fa-fw fa-pencil-square-o"></i>
                     <span class="menu-item-parent">@Mensagens.Report</span>
-                    <b class="collapse-sign"><em class="fa fa-plus-square-o"></em></b>
                 </a>
                 <ul>
                     <li>
@@ -86,13 +83,16 @@
                 </ul>
             </li>
             <li>
-                <a href="javascript:void(0)"><i class="fa fa-lg fa-fw fa-calendar"></i> <span class="menu-item-parent">@Mensagens.Information</span></a>
+                <a href="javascript:void(0)">
+                    <i class="fa fa-lg fa-fw fa-calendar"></i>
+                    <span class="menu-item-parent">@Mensagens.Information</span>
+                </a>
                 <ul>
                     <li>
                         @Html.ActionLink(Mensagens.GroupSettings, "PesquisaGrupo", "Configuracao")
                     </li>
                     <li>
-                        <a href="javascript:void(0)">@Mensagens.SettingsForUsers</a>
+                        @Html.ActionLink(Mensagens.SettingsForUsers, "ConfiguracaoUsuario", "Configuracao")
                     </li>
                     <li>
                         <a href="javascript:void(0)">@Mensagens.ChangePassword</a>

@@ -499,7 +499,7 @@
     <value>Usuário</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
-    <value>Comfirmar Senha</value>
+    <value>Confirmar Senha</value>
   </data>
   <data name="Permissions" xml:space="preserve">
     <value>Permissões</value>
@@ -539,5 +539,11 @@
   </data>
   <data name="EveryoneGroup" xml:space="preserve">
     <value>Todos os grupos</value>
+  </data>
+  <data name="PermissionsGroups" xml:space="preserve">
+    <value>Grupos de permissões</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Grupos</value>
   </data>
 </root>

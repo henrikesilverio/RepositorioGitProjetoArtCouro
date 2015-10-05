@@ -6,6 +6,9 @@
     <script src="~/js/app/Usuario/Usuario.js"></script>
     <script>
         Portal.Mask();
-        Portal.EditarUsuario();
+        Portal.NovoUsuario({
+            UrlDados: '@Url.Action("NovoUsuario", "Usuario")',
+            AlertaMensagensSeletor: "#AlertaMensagens"
+        });
     </script>
 }

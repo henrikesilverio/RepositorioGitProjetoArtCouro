@@ -18,6 +18,10 @@ namespace ProjetoArtCouro.Api.AutoMapper
         //Configuração para auto mapeamento de classes
         protected override void Configure()
         {
+            Mapper.CreateMap<UsuarioModel, Usuario>()
+                .ForMember(d => d.GrupoPermissao,
+                    m => m.MapFrom(s => new GrupoPermissao {GrupoPermissaoCodigo = s.GrupoId.Value}));
+
             Mapper.CreateMap<PermissaoModel, Permissao>()
                 .ForMember(d => d.PermissaoCodigo, m => m.MapFrom(s => s.Codigo))
                 .ForMember(d => d.PermissaoNome, m => m.MapFrom(s => s.Nome));

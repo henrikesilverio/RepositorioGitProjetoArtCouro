@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfirmPasswordAndPasswordNotMatch" xml:space="preserve">
+    <value>Confirmar senha e Senha não conferem</value>
+  </data>
   <data name="DuplicateGruopName" xml:space="preserve">
     <value>Nome duplicado, já existe um grupo com esse nome</value>
   </data>
@@ -125,6 +128,9 @@
   </data>
   <data name="EmptyAddress" xml:space="preserve">
     <value>Endereço vazio</value>
+  </data>
+  <data name="EmptyAllowList" xml:space="preserve">
+    <value>Lista de permissão vazia</value>
   </data>
   <data name="EmptyCPF" xml:space="preserve">
     <value>CPF vazio</value>
@@ -146,6 +152,9 @@
   </data>
   <data name="EmptySex" xml:space="preserve">
     <value>Sexo vazio</value>
+  </data>
+  <data name="GroupDoesNotExist" xml:space="preserve">
+    <value>Grupo não existe</value>
   </data>
   <data name="InvalidCNPJ" xml:space="preserve">
     <value>CNPJ inválido</value>
@@ -177,6 +186,9 @@
   <data name="NoUsersForTheGivenFilter" xml:space="preserve">
     <value>Não há usuarios para o filtro informado</value>
   </data>
+  <data name="NullParameter" xml:space="preserve">
+    <value>O parâmetro {0} está nulo</value>
+  </data>
   <data name="PaperEmptyPerson" xml:space="preserve">
     <value>Papel pessoa vazio</value>
   </data>
@@ -185,5 +197,8 @@
   </data>
   <data name="RequiredField" xml:space="preserve">
     <value>Campo Obrigatório</value>
+  </data>
+  <data name="UserDoesNotExist" xml:space="preserve">
+    <value>Usuário não existe</value>
   </data>
 </root>

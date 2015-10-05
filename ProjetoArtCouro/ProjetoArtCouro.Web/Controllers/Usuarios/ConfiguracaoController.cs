@@ -65,6 +65,27 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult ConfiguracaoUsuario()
+        {
+            ViewBag.Usuarios = new List<UsuarioModel>();
+            ViewBag.Title = Mensagens.SettingsForUsers;
+            CriarViewBagPermissoes();
+            return View();
+        }
+
+        public JsonResult ObterListaUsuario()
+        {
+            var response = ServiceRequest.Get<List<UsuarioModel>>(null, "api/Usuario/ObterListaUsuario");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ConfiguracaoUsuario(ConfiguracaoUsuarioModel model)
+        {
+            var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarPermissaoUsuario");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
         private void CriarViewBags(string subTitulo)
         {
             ViewBag.Title = Mensagens.GroupSettings;
