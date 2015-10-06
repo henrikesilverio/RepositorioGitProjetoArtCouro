@@ -3,7 +3,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class BancoIncial : DbMigration
+    public partial class Bancoinicial : DbMigration
     {
         public override void Up()
         {
@@ -157,8 +157,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         PapelId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PessoaId, t.PapelId })
-                .ForeignKey("dbo.Pessoa", t => t.PessoaId, cascadeDelete: true)
-                .ForeignKey("dbo.Papel", t => t.PapelId, cascadeDelete: true)
+                .ForeignKey("dbo.Pessoa", t => t.PessoaId)
+                .ForeignKey("dbo.Papel", t => t.PapelId)
                 .Index(t => t.PessoaId)
                 .Index(t => t.PapelId);
             
@@ -170,8 +170,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         GrupoPermissaoId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.PermissaoId, t.GrupoPermissaoId })
-                .ForeignKey("dbo.Permissao", t => t.PermissaoId, cascadeDelete: true)
-                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissaoId, cascadeDelete: true)
+                .ForeignKey("dbo.Permissao", t => t.PermissaoId)
+                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissaoId)
                 .Index(t => t.PermissaoId)
                 .Index(t => t.GrupoPermissaoId);
             
@@ -183,8 +183,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         PermissaoId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UsuarioId, t.PermissaoId })
-                .ForeignKey("dbo.Usuario", t => t.UsuarioId, cascadeDelete: true)
-                .ForeignKey("dbo.Permissao", t => t.PermissaoId, cascadeDelete: true)
+                .ForeignKey("dbo.Usuario", t => t.UsuarioId)
+                .ForeignKey("dbo.Permissao", t => t.PermissaoId)
                 .Index(t => t.UsuarioId)
                 .Index(t => t.PermissaoId);
             
