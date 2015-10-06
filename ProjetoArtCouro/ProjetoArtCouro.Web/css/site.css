@@ -125,3 +125,8 @@
 .text-transform-uppercase {
     text-transform: uppercase;
 }
+
+.select2-container .select2-choice abbr {
+    right: 41px !important;
+    top: 8px !important;
+}

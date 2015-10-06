@@ -22,6 +22,10 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
                 .HasColumnType("varchar");
 
             HasMany(x => x.Permissoes);
+
+            //Relacionamento 1 : N
+            HasMany(x => x.Usuarios)
+                .WithRequired(x => x.GrupoPermissao);
         }
     }
 }

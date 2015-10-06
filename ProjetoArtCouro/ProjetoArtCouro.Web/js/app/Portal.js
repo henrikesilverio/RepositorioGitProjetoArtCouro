@@ -181,6 +181,12 @@ $.extend(Portal, {
     HabilitarCampo: function (seletorCampo) {
         $(seletorCampo).removeAttr("disabled");
         $(seletorCampo).closest("label").removeClass("state-disabled");
+    },
+    IncluirListaPermissaoNoEnvio: function (formularioDados, permissoes) {
+        _.each(permissoes, function (obj, index) {
+            formularioDados.push({ "name": "Permissoes[" + index + "].Codigo", "value": obj.id });
+            formularioDados.push({ "name": "Permissoes[" + index + "].Nome", "value": obj.text });
+        });
     }
 });
 

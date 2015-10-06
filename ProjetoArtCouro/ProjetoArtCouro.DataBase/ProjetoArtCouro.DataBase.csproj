@@ -61,13 +61,9 @@
     <Compile Include="EntityConfig\UsuarioConfiguration\GrupoPermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\PermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\UsuarioConfiguration.cs" />
-    <Compile Include="Migrations\201509271931093_Banco inicial.cs" />
-    <Compile Include="Migrations\201509271931093_Banco inicial.Designer.cs">
-      <DependentUpon>201509271931093_Banco inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201509300157001_Teste.cs" />
-    <Compile Include="Migrations\201509300157001_Teste.Designer.cs">
-      <DependentUpon>201509300157001_Teste.cs</DependentUpon>
+    <Compile Include="Migrations\201510032353366_Banco Inicial.cs" />
+    <Compile Include="Migrations\201510032353366_Banco Inicial.Designer.cs">
+      <DependentUpon>201510032353366_Banco Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,13 +91,14 @@
       <Project>{4ef49aa8-f650-4e7e-b669-7eb09f3c67f1}</Project>
       <Name>ProjetoArtCouro.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+      <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
+      <Name>ProjetoArtCouro.Resource</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201509271931093_Banco inicial.resx">
-      <DependentUpon>201509271931093_Banco inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509300157001_Teste.resx">
-      <DependentUpon>201509300157001_Teste.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510032353366_Banco Inicial.resx">
+      <DependentUpon>201510032353366_Banco Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

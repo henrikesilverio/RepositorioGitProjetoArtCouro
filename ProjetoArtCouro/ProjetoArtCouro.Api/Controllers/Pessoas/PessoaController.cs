@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
+using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Model.Models.Common;
-using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Pessoa")]
-    public class PessoaController : ApiController
+    public class PessoaController : ApiControllerBase
     {
         private readonly IPessoaService _pessoaService;
         public PessoaController(IPessoaService pessoaService)
@@ -25,21 +24,14 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         public Task<HttpResponseMessage> ObterListaEstado()
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<List<LookupModel>>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 var listaEstado = _pessoaService.ObterEstados();
-                retornoBase.ObjetoRetorno = Mapper.Map<List<LookupModel>>(listaEstado);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess(Mapper.Map<List<LookupModel>>(listaEstado));
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -52,21 +44,14 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         public Task<HttpResponseMessage> ObterListaEstadoCivil()
         {
             HttpResponseMessage response;
-            var retornoBase = new RetornoBase<List<LookupModel>>()
-            {
-                Mensagem = Mensagens.ReturnSuccess,
-                TemErros = false,
-            };
-
             try
             {
                 var listaEstadoCivil = _pessoaService.ObterEstadosCivis();
-                retornoBase.ObjetoRetorno = Mapper.Map<List<LookupModel>>(listaEstadoCivil);
-                response = Request.CreateResponse(HttpStatusCode.OK, retornoBase);
+                response = ReturnSuccess(Mapper.Map<List<LookupModel>>(listaEstadoCivil));
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                response = ReturnError(ex);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();

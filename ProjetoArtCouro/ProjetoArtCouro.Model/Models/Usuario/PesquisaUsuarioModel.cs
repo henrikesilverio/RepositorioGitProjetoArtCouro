@@ -9,9 +9,9 @@ namespace ProjetoArtCouro.Model.Models.Usuario
         public string UsuarioNome { get; set; }
 
         [Display(Name = "Active", ResourceType = typeof(Mensagens))]
-        public bool Ativo { get; set; }
+        public bool? Ativo { get; set; }
 
-        [Display(Name = "Permissions", ResourceType = typeof(Mensagens))]
-        public int? PermissaoId { get; set; }
+        [Display(Name = "Groups", ResourceType = typeof(Mensagens))]
+        public int? GrupoId { get; set; }
     }
 }

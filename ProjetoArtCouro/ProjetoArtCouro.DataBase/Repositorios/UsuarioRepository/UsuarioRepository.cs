@@ -20,6 +20,25 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
             return _context.Usuarios.FirstOrDefault(x => x.UsuarioId.Equals(id));
         }
 
+        public Usuario ObterPorCodigo(int codigo)
+        {
+            return _context.Usuarios.FirstOrDefault(x => x.UsuarioCodigo.Equals(codigo));
+        }
+
+        public Usuario ObterPorCodigoComPermissoes(int codigo)
+        {
+            return _context.Usuarios.Include("Permissoes").FirstOrDefault(x => x.UsuarioCodigo.Equals(codigo));
+        }
+
+        public Usuario ObterPorCodigoComPermissoesEGrupo(int codigo)
+        {
+            return
+                _context.Usuarios
+                    .Include("Permissoes")
+                    .Include("GrupoPermissao")
+                    .FirstOrDefault(x => x.UsuarioCodigo.Equals(codigo));
+        }
+
         public Usuario ObterPorUsuarioNome(string usuarioNome)
         {
             return _context.Usuarios.FirstOrDefault(x => x.UsuarioNome.Equals(usuarioNome));
@@ -35,10 +54,15 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
             return _context.Usuarios.ToList();
         }
 
-        public List<Usuario> ObterLista(string nome, int? permissaoId, bool? ativo)
+        public List<Usuario> ObterListaComPermissoes()
+        {
+            return _context.Usuarios.Include("Permissoes").ToList();
+        }
+
+        public List<Usuario> ObterLista(string nome, int? codigoGrupo, bool? ativo)
         {
             var query = from usuario in _context.Usuarios
-                .Include("Permissoes")
+                .Include("GrupoPermissao")
                         select usuario;
 
             if (!string.IsNullOrEmpty(nome))
@@ -46,9 +70,9 @@ namespace ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository
                 query = query.Where(x => x.UsuarioNome == nome);
             }
 
-            if (permissaoId != null && !permissaoId.Equals(0))
+            if (codigoGrupo != null && !codigoGrupo.Equals(0))
             {
-                query = query.Where(x => x.Permissoes.Any(a => a.PermissaoCodigo == permissaoId));
+                query = query.Where(x => x.GrupoPermissao.GrupoPermissaoCodigo == codigoGrupo);
             }
 
             if (ativo != null)

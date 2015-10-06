@@ -35,12 +35,6 @@
             }
         });
     },
-    IncluirListaPermissaoNoEnvio: function(formularioDados, permissoes) {
-        _.each(permissoes, function(obj, index) {
-            formularioDados.push({ "name": "Permissoes[" + index + "].Codigo", "value": obj.id });
-            formularioDados.push({ "name": "Permissoes[" + index + "].Nome", "value": obj.text });
-        });
-    },
     AdicionaErro: function() {
         var $select2Container = $(".select2-container");
         var $spanPermissaoId = $("span[data-valmsg-for=\"PermissaoId\"]");

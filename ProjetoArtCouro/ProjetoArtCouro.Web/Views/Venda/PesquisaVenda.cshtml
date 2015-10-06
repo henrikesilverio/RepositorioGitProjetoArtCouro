@@ -128,9 +128,9 @@
                     "bSortable": false,
                     "sWidth": "10%",
                     "mRender": function (obj) {
-                        var url = "Venda/EditarVenda" + "?codigoVenda=" + obj.CodigoVenda;
+                        var url = "/Venda/EditarVenda" + "?codigoVenda=" + obj.CodigoVenda;
                         var botoes = Portal.CriarBotoes(url,
-                                "Portal.RequisicaoDeletarLinha(\"Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + "}, \"#datatableVenda\", $(this).closest(\"tr\"))");
+                                "Portal.RequisicaoDeletarLinha(\"/Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + "}, \"#datatableVenda\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

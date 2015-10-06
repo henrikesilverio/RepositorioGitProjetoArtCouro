@@ -277,7 +277,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comfirmar Senha.
+        ///   Looks up a localized string similar to Confirmar Senha.
         /// </summary>
         public static string ConfirmPassword {
             get {
@@ -543,6 +543,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string GroupName {
             get {
                 return ResourceManager.GetString("GroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grupos.
+        /// </summary>
+        public static string Groups {
+            get {
+                return ResourceManager.GetString("Groups", resourceCulture);
             }
         }
         
@@ -822,6 +831,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Permissions {
             get {
                 return ResourceManager.GetString("Permissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Grupos de permissões.
+        /// </summary>
+        public static string PermissionsGroups {
+            get {
+                return ResourceManager.GetString("PermissionsGroups", resourceCulture);
             }
         }
         

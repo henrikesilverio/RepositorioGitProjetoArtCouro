@@ -18,7 +18,7 @@
             <form id="formularioUsuario" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.UsuarioNome, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.UsuarioNome, new { placeholder = @Mensagens.UserName, MaxLength = "80" })
@@ -42,16 +42,16 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.PermissaoId, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoId, new {@class = "label"})
                             <label class="select">
-                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome")
+                                @Html.DropDownListFor(m => m.GrupoId, new SelectList(ViewBag.Grupos, "GrupoCodigo", "GrupoNome")
                                     .AddDefaultOption(Mensagens.Select))
                                 <i></i>
                             </label>
-                            @Html.ValidationMessageFor(m => m.PermissaoId)
+                            @Html.ValidationMessageFor(m => m.GrupoId)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
+                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
                             <div class="inline-group">
                                 <label class="radio">
                                     @Html.RadioButtonFor(m => m.Ativo, true)
@@ -65,6 +65,7 @@
                             @Html.ValidationMessageFor(m => m.Ativo)
                         </section>
                     </div>
+                    @Html.HiddenFor(m => m.UsuarioCodigo)
                 </fieldset>
                 <footer>
                     <a id="SalvarUsuario" class="btn btn-primary" href="javascript:void(0);">

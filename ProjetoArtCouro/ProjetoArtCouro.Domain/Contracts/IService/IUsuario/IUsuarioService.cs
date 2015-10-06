@@ -6,15 +6,20 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IUsuario
 {
     public interface IUsuarioService : IDisposable
     {
-        void Registrar(string nome, string senha, string confirmaSenha, List<Permissao> permissoes);
+        void Registrar(string nome, string senha, string confirmaSenha, int codigoGrupo);
         void AlterarSenha(Usuario usuario, string senha, string novaSenha, string confirmaNovaSenha);
-        List<Usuario> ObterLista();
+        void EditarUsuario(Usuario usuario);
+        void ExcluirUsuario(int codigoUsuario);
+        List<Usuario> ObterListaUsuario();
         List<Permissao> ObterListaPermissao();
         List<Usuario> PesquisarUsuario(string nome, int? permissaoId, bool? ativo);
+        Usuario PesquisarUsuarioPorCodigo(int codigoUsuario);
         GrupoPermissao ObterGrupoPermissaoPorCodigo(int codigo);
         List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo, bool todos);
+        List<GrupoPermissao> ObterListaGrupoPermissao();
         void CriarGrupoPermissao(GrupoPermissao grupoPermissao);
         void EditarGrupoPermissao(GrupoPermissao grupoPermissao);
+        void EditarPermissaoUsuario(int codigoUsuario, List<Permissao> permissoes);
         void ExcluirGrupoPermissao(int codigoGrupoPermissao);
     }
 }

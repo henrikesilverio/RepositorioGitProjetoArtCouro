@@ -169,6 +169,7 @@
     <Compile Include="Controllers\Pessoas\ClienteController.cs" />
     <Compile Include="Controllers\Pessoas\PessoaController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
+    <Compile Include="Helpers\ApiControllerBase.cs" />
     <Compile Include="Helpers\UnityResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthorizationServerProvider.cs" />
