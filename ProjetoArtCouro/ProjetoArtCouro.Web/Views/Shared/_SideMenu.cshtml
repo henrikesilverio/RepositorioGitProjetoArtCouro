@@ -13,8 +13,11 @@
     </div>
     <nav>
         <ul>
-            <li class="active">
-                <a href="/" title="Home"><i class="fa fa-lg fa-fw fa-home"></i><span class="menu-item-parent">@Mensagens.Home</span></a>
+            <li>
+                <a href="/" title="Home">
+                    <i class="fa fa-lg fa-fw fa-home"></i>
+                    <span class="menu-item-parent">@Mensagens.Home</span>
+                </a>
             </li>
             <li>
                 <a href="javascript:void(0)">
@@ -95,7 +98,7 @@
                         @Html.ActionLink(Mensagens.SettingsForUsers, "ConfiguracaoUsuario", "Configuracao")
                     </li>
                     <li>
-                        <a href="javascript:void(0)">@Mensagens.ChangePassword</a>
+                        @Html.ActionLink(Mensagens.ChangePassword, "AlterarSenha", "Usuario")
                     </li>
                 </ul>
             </li>

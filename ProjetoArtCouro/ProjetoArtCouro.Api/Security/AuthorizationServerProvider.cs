@@ -1,17 +1,20 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Owin.Security.OAuth;
+using Microsoft.Practices.Unity;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Startup.DependencyResolver;
 
 namespace ProjetoArtCouro.Api.Security
 {
     public class AuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
-        private readonly IAutenticacao _autenticacaoService;
+        private IAutenticacao _autenticacaoService;
 
         public AuthorizationServerProvider(IAutenticacao autenticacaoService)
         {
@@ -29,6 +32,9 @@ namespace ProjetoArtCouro.Api.Security
 
             try
             {
+                var container = new UnityContainer();
+                DependencyResolver.Resolve(container);
+                _autenticacaoService = container.Resolve<IAutenticacao>();
                 var user = _autenticacaoService.AutenticarUsuario(context.UserName, context.Password);
 
                 if (user == null)
@@ -40,6 +46,7 @@ namespace ProjetoArtCouro.Api.Security
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
                 identity.AddClaim(new Claim(ClaimTypes.Name, user.Senha));
+                identity.AddClaim(new Claim(ClaimTypes.Sid, user.UsuarioId.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.GivenName, user.UsuarioNome));
 
                 //Setando as permissao do usuario

@@ -7,7 +7,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IUsuario
     public interface IUsuarioService : IDisposable
     {
         void Registrar(string nome, string senha, string confirmaSenha, int codigoGrupo);
-        void AlterarSenha(Usuario usuario, string senha, string novaSenha, string confirmaNovaSenha);
+        void AlterarSenha(Usuario usuario);
         void EditarUsuario(Usuario usuario);
         void ExcluirUsuario(int codigoUsuario);
         List<Usuario> ObterListaUsuario();

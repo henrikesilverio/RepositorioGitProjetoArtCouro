@@ -52,16 +52,21 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             _usuarioRepository.Criar(usuario);
         }
 
-        public void AlterarSenha(Usuario usuario, string senha, string novaSenha, string confirmaNovaSenha)
+        public void AlterarSenha(Usuario usuario)
         {
-            throw new NotImplementedException();
+            AssertionConcern.AssertArgumentNotEmpty(usuario.UsuarioNome, Erros.InvalidUserName);
+            var usuarioAtual = _usuarioRepository.ObterComPermissoesPorUsuarioNome(usuario.UsuarioNome);
+            usuarioAtual.Senha = PasswordAssertionConcern.Encrypt(usuario.Senha);
+            usuarioAtual.Validar();
+            _usuarioRepository.Atualizar(usuarioAtual);
         }
 
         public void EditarUsuario(Usuario usuario)
         {
             var usuarioAtual = _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(usuario.UsuarioCodigo);
             AssertionConcern.AssertArgumentNotNull(usuarioAtual, Erros.UserDoesNotExist);
-            var grupoAtual = _grupoPermissaoRepository.ObterPorCodigoComPermissao(usuarioAtual.GrupoPermissao.GrupoPermissaoCodigo);
+            //var grupoAtual = _grupoPermissaoRepository.ObterPorCodigoComPermissao(usuarioAtual.GrupoPermissao.GrupoPermissaoCodigo);
+            var grupoAtual = usuarioAtual.GrupoPermissao;
             var novoGrupo =
                 _grupoPermissaoRepository.ObterPorCodigoComPermissao(usuario.GrupoPermissao.GrupoPermissaoCodigo);
             AssertionConcern.AssertArgumentNotNull(novoGrupo, Erros.GroupDoesNotExist);
@@ -75,7 +80,12 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             usuarioAtual.UsuarioNome = usuario.UsuarioNome;
             usuarioAtual.Permissoes.Clear();
             usuarioAtual.Permissoes = permissoes;
+            usuarioAtual.GrupoPermissao = null;
             usuarioAtual.GrupoPermissao = novoGrupo;
+            if (!string.IsNullOrEmpty(usuario.Senha))
+            {
+                usuarioAtual.Senha = PasswordAssertionConcern.Encrypt(usuario.Senha);
+            }
             _usuarioRepository.Atualizar(usuarioAtual);
         }
 

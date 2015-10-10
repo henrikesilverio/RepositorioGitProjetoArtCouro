@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
@@ -56,6 +59,34 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             {
                 var usuario = Mapper.Map<Usuario>(model);
                 _usuarioService.EditarUsuario(usuario);
+                response = ReturnSuccess();
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("AlterarSenha")]
+        [HttpPut]
+        public Task<HttpResponseMessage> AlterarSenha(UsuarioModel model)
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var identity = (ClaimsPrincipal) Thread.CurrentPrincipal;
+                var usuarioNome = identity.Claims.Where(c => c.Type == ClaimTypes.GivenName)
+                    .Select(c => c.Value).SingleOrDefault();
+                var usuario = new Usuario
+                {
+                    UsuarioNome = usuarioNome,
+                    Senha = model.Senha
+                };
+                _usuarioService.AlterarSenha(usuario);
                 response = ReturnSuccess();
             }
             catch (Exception ex)

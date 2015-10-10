@@ -22,5 +22,10 @@ namespace ProjetoArtCouro.Business.Services.AutenticacaoService
             }
             return usuario;
         }
+
+        public void Dispose()
+        {
+            _usuarioRepository.Dispose();
+        }
     }
 }

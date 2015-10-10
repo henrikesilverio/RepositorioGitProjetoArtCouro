@@ -653,6 +653,7 @@
     <Content Include="Views\Configuracao\PesquisaGrupo.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Configuracao\ConfiguracaoUsuario.cshtml" />
+    <Content Include="Views\Usuario\AlterarSenha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

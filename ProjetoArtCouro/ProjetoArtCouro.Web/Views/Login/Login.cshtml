@@ -4,11 +4,11 @@
 @{
     ViewBag.Title = "Login";
 }
-<div id="main" role="main">
+<div role="main">
     <!-- MAIN CONTENT -->
     <div id="content" class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+            <div class="col col-md-7 col-lg-8 hidden-xs hidden-sm">
                 <h1 class="txt-color-red login-header-big">Art Couro</h1>
                 <div class="hero">
                     <div class="pull-left login-desc-box-l">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+            <div class="col col-xs-12 col-sm-12 col-md-5 col-lg-4">
                 <div class="well no-padding">
                     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @id = "login-for", @class = "smart-form client-form" }))
                     {

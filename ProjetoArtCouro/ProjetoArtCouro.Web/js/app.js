@@ -76,7 +76,15 @@ $(document).ready(function() {
 	}
 
 	//TODO: was moved from window.load due to IE not firing consist
-	nav_page_height()
+	nav_page_height();
+
+    //Aciva o menu corrente
+	var url = location.pathname.split("/");
+	if (url.length > 2) {
+	    $("nav a[href*=" + url[2] + "]").closest("li").addClass("active");
+	} else {
+	    $("nav a[href='/']").closest("li").addClass("active");
+	}
 
 	// INITIALIZE LEFT NAV
 	if (!null) {
@@ -86,8 +94,6 @@ $(document).ready(function() {
 			closedSign: "<em class=\"fa fa-plus-square-o\"></em>",
 			openedSign: "<em class=\"fa fa-minus-square-o\"></em>"
 		});
-	} else {
-		alert("Error - menu anchor does not exist");
 	}
 
 	// COLLAPSE LEFT NAV
@@ -263,9 +269,9 @@ $(document).ready(function() {
 
 	// SHORTCUT ANIMATE SHOW
 	function shortcut_buttons_show() {
-		$.shortcut_dropdown.animate({
-			height : "show"
-		}, 200, "easeOutCirc")
+	    $.shortcut_dropdown.animate({
+	        height: "show"
+	    }, 200, "easeOutCirc");
 		$.root_.addClass('shortcut-on');
 	}
 
@@ -471,7 +477,7 @@ $.fn.extend({
 		$this.find("li.active").each(function() {
 			$(this).parents("ul").slideDown(opts.speed);
 			$(this).parents("ul").parent("li").find("b:first").html(opts.openedSign);
-			$(this).parents("ul").parent("li").addClass("open")
+		    $(this).parents("ul").parent("li").addClass("open");
 		});
 
 		$this.find("li a").click(function() {
@@ -1138,11 +1144,11 @@ function loadScript(scriptName, callback) {
 if($.navAsAjax)
 {
     // fire this on page load if nav exists
-    if ($('nav').length) {
+    if ($("nav").length) {
 	    checkURL();
     };
 
-    $(document).on('click', 'nav a[href!="#"]', function(e) {
+    $(document).on("click", "nav a[href!=\"#\"]", function(e) {
 	    e.preventDefault();
 	    var $this = $(e.currentTarget);
 
@@ -1210,14 +1216,14 @@ function checkURL() {
 	//get the url by removing the hash
 	var url = location.hash.replace(/^#/, '');
 
-	container = $('#content');
+	var container = $("#content");
 	// Do this if url exists (for page refresh, etc...)
 	if (url) {
 		// remove all active class
 		$('nav li.active').removeClass("active");
 		// match the url and add the active class
 		$('nav li:has(a[href="' + url + '"])').addClass("active");
-		var title = ($('nav a[href="' + url + '"]').attr('title'))
+	    var title = ($('nav a[href="' + url + '"]').attr('title'));
 
 		// change page title from global var
 		document.title = (title || document.title);

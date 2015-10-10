@@ -17,12 +17,16 @@ namespace ProjetoArtCouro.Web.Infra.Service
             request.AddParameter("password", password);
 
             var response = client.Execute<TokenModel>(request);
+            if (response.Data == null)
+            {
+                return false;
+            }
             var token = response.Data.access_token;
-
             if (string.IsNullOrEmpty(token))
             {
                 return false;
             }
+
 
             //Salva o token de acesso ao serviço no Cookie
             FormsAuthentication.SetAuthCookie(token, false);

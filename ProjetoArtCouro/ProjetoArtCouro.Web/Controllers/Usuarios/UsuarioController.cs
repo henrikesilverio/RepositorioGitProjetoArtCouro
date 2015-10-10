@@ -53,6 +53,18 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult AlterarSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult AlterarSenha(UsuarioModel model)
+        {
+            var response = ServiceRequest.Put<UsuarioModel>(model, "api/Usuario/AlterarSenha");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public JsonResult ExcluirUsuario(int codigoUsuario)
         {
