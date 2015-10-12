@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Funcionario;
 using ProjetoArtCouro.Resource.Resources;
@@ -20,17 +22,77 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         [HttpPost]
         public JsonResult PesquisaFuncionario(PesquisaFuncionarioModel model)
         {
-            //var response = ServiceRequest.Post<List<FornecedorModel>>(model, "api/Cliente/PesquisarFornecedore");
-            //return Json(response.Data, JsonRequestBehavior.AllowGet);
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Post<List<FuncionarioModel>>(model, "api/Funcionario/PesquisarFuncionario");
+            if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
+            {
+                response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
+            }
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult NovoFuncionario()
         {
-            ViewBag.Title = Mensagens.Employee;
-            ViewBag.SubTitle = Mensagens.NewEmployee;
+            CriarViewBags(Mensagens.NewEmployee);
             var listaBase = new List<LookupModel>();
-            //Obtem do banco os estados e estados civis
+            ViewBag.Enderecos = listaBase;
+            ViewBag.Telefones = listaBase;
+            ViewBag.Celulares = listaBase;
+            ViewBag.Emails = listaBase;
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult NovoFuncionario(FuncionarioModel model)
+        {
+            model.PapelPessoa = (int)TipoPapelPessoaEnum.Funcionario;
+            var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Funcionario/CriarFuncionario");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EditarFuncionario(int codigoFuncionario)
+        {
+            CriarViewBags(Mensagens.EditEmployee);
+            var response = ServiceRequest.Post<FuncionarioModel>(new { codigoFuncionario = codigoFuncionario }, "api/Funcionario/PesquisarFuncionarioPorCodigo");
+            var model = response.Data.ObjetoRetorno;
+            //TODO Criar tratamentoo de exceção
+            if (model == null)
+            {
+                return View(response.Data.ObjetoRetorno);
+            }
+
+            var listaBase = new List<LookupModel>();
+            ViewBag.Enderecos = model.Enderecos.Select(x => new LookupModel
+            {
+                Codigo = x.EnderecoId ?? 0,
+                Nome = string.Format("Logradouro: {0}, N: {1}, Cidade: {2}, CEP: {3}", x.Logradouro, x.Numero, x.Cidade, x.Cep)
+            }).ToList();
+            ViewBag.Telefones = model.MeioComunicacao.Telefones ?? listaBase;
+            ViewBag.Celulares = model.MeioComunicacao.Celulares ?? listaBase;
+            ViewBag.Emails = model.MeioComunicacao.Emalis ?? listaBase;
+
+            return View(response.Data.ObjetoRetorno);
+        }
+
+        [HttpPost]
+        public JsonResult EditarFuncionario(FuncionarioModel model)
+        {
+            var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Funcionario/EditarFuncionario");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ExcluirFuncionario(int codigoFuncionario)
+        {
+            var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoFuncionario = codigoFuncionario }, "api/Funcionario/ExcluirFuncionario");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        private void CriarViewBags(string subTitle)
+        {
+            ViewBag.Title = Mensagens.Employee;
+            ViewBag.SubTitle = subTitle;
+
+            var listaBase = new List<LookupModel>();
             var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
             if (response.Data.TemErros)
             {
@@ -45,49 +107,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
                 ViewBag.EstadosCivis = listaBase;
             }
             ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
-            //Inicia as lista dos dropdowns
-            ViewBag.Enderecos = listaBase;
-            ViewBag.Telefones = listaBase;
-            ViewBag.Celulares = listaBase;
-            ViewBag.Emails = listaBase;
-            return View();
-        }
-
-        [HttpPost]
-        public JsonResult NovoFuncionario(FuncionarioModel model)
-        {
-            //model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
-            //var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/CriarFornecedor");
-            //return Json(response.Data, JsonRequestBehavior.AllowGet);
-            return Json(true, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult EditarFuncionario()
-        {
-            ViewBag.Title = Mensagens.Employee;
-            ViewBag.SubTitle = Mensagens.EditEmployee;
-            var model = new FuncionarioModel();
-            return View("NovoFuncionario", model);
-        }
-
-        [HttpPost]
-        public ActionResult EditarFuncionario(FuncionarioModel model)
-        {
-            ViewBag.Title = Mensagens.Employee;
-            ViewBag.SubTitle = Mensagens.EditEmployee;
-            if (!ModelState.IsValid)
-            {
-                return View("NovoFuncionario", model);
-            }
-
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/PesquisarFuncionario");
-            if (!response.Data.TemErros)
-            {
-                return RedirectToAction("Index", "Funcionario");
-            }
-            ModelState.AddModelError("Erro", response.Data.Mensagem);
-
-            return View("NovoFuncionario", model);
         }
     }
 }

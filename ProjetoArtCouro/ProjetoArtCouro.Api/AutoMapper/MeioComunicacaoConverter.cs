@@ -19,16 +19,37 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 {
                     meioComunicacaoModel.TelefoneId = item.MeioComunicacaoCodigo;
                     meioComunicacaoModel.Telefone = item.MeioComunicacaoNome;
+                    meioComunicacaoModel.Telefones =
+                        listaMeioComunicacao.Where(x => x.TipoComunicacao.Equals(TipoComunicacaoEnum.Telefone))
+                            .Select(x => new LookupModel
+                            {
+                                Codigo = x.MeioComunicacaoCodigo,
+                                Nome = x.MeioComunicacaoNome
+                            }).ToList();
                 }
                 else if (item.TipoComunicacao.Equals(TipoComunicacaoEnum.Celular))
                 {
                     meioComunicacaoModel.CelularId = item.MeioComunicacaoCodigo;
                     meioComunicacaoModel.Celular = item.MeioComunicacaoNome;
+                    meioComunicacaoModel.Celulares =
+                        listaMeioComunicacao.Where(x => x.TipoComunicacao.Equals(TipoComunicacaoEnum.Celular))
+                            .Select(x => new LookupModel
+                            {
+                                Codigo = x.MeioComunicacaoCodigo,
+                                Nome = x.MeioComunicacaoNome
+                            }).ToList();
                 }
                 else if (item.TipoComunicacao.Equals(TipoComunicacaoEnum.Email))
                 {
                     meioComunicacaoModel.EmailId = item.MeioComunicacaoCodigo;
                     meioComunicacaoModel.Email = item.MeioComunicacaoNome;
+                    meioComunicacaoModel.Emalis =
+                        listaMeioComunicacao.Where(x => x.TipoComunicacao.Equals(TipoComunicacaoEnum.Celular))
+                            .Select(x => new LookupModel
+                            {
+                                Codigo = x.MeioComunicacaoCodigo,
+                                Nome = x.MeioComunicacaoNome
+                            }).ToList();
                 }
             }
             return meioComunicacaoModel;

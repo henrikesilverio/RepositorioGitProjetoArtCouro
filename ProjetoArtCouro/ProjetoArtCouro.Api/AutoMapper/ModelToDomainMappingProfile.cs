@@ -4,6 +4,7 @@ using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
+using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.AutoMapper
@@ -31,10 +32,16 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.GrupoPermissaoNome, m => m.MapFrom(s => s.GrupoNome))
                 .ForMember(d => d.Permissoes, m => m.MapFrom(s => s.Permissoes));
 
-            Mapper.CreateMap<ClienteModel, PessoaFisica>()
-                .ForMember(d => d.EstadoCivil, m => m.MapFrom(s => s));
+            Mapper.CreateMap<PessoaModel, PessoaFisica>()
+                .ForMember(d => d.EstadoCivil, m => m.MapFrom(s => s))
+                .Include<ClienteModel, PessoaFisica>();
 
-            Mapper.CreateMap<ClienteModel, Pessoa>()
+            Mapper.CreateMap<PessoaModel, PessoaJuridica>()
+                .Include<ClienteModel, PessoaJuridica>();
+
+            Mapper.CreateMap<PessoaModel, Pessoa>()
+                .ForMember(d => d.PessoaCodigo, m => m.MapFrom(s => s.Codigo))
+                .ForMember(d => d.Nome, m => m.MapFrom(s => s.EPessoaFisica ? s.Nome : s.RazaoSocial))
                 .ForMember(d => d.MeiosComunicacao, m => m.MapFrom(s => new List<MeioComunicacao>
                 {
                     new MeioComunicacao
@@ -70,15 +77,17 @@ namespace ProjetoArtCouro.Api.AutoMapper
                         Complemento = s.Endereco.Complemento,
                         Cidade = s.Endereco.Cidade,
                         CEP = s.Endereco.Cep,
-                        Estado = new Estado{EstadoCodigo = s.Endereco.UFId??0},
+                        Estado = new Estado {EstadoCodigo = s.Endereco.UFId ?? 0},
                         Principal = true
                     }
-                }));
+                }))
+                .Include<ClienteModel, Pessoa>();
 
-            Mapper.CreateMap<ClienteModel, EstadoCivil>()
+            Mapper.CreateMap<PessoaModel, EstadoCivil>()
                 .ForMember(d => d.EstadoCivilId, m => m.Ignore())
                 .ForMember(d => d.EstadoCivilNome, m => m.Ignore())
-                .ForMember(d => d.EstadoCivilCodigo, m => m.MapFrom(s => s.EstadoCivilId));
+                .ForMember(d => d.EstadoCivilCodigo, m => m.MapFrom(s => s.EstadoCivilId))
+                .Include<ClienteModel, EstadoCivil>();
 
         }
     }

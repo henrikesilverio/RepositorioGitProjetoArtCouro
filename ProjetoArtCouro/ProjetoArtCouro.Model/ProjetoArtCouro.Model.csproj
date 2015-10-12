@@ -47,11 +47,14 @@
   <ItemGroup>
     <Compile Include="Infra\DataAnnotation\CNPJValidationAttribute.cs" />
     <Compile Include="Infra\DataAnnotation\CPFValidationAttribute.cs" />
-    <Compile Include="Models\Cliente\ClienteModel.cs" />
+    <Compile Include="Models\Cliente\ClienteModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\Common\MeioComunicacaoModel.cs" />
     <Compile Include="Models\Cliente\PesquisaClienteModel.cs" />
     <Compile Include="Models\Common\LookupModel.cs" />
     <Compile Include="Models\Common\EnderecoModel.cs" />
+    <Compile Include="Models\Common\PessoaModel.cs" />
     <Compile Include="Models\Common\RetornoBase.cs" />
     <Compile Include="Models\Compra\CompraModel.cs" />
     <Compile Include="Models\Compra\PesquisaCompraModel.cs" />

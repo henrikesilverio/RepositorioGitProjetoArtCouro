@@ -97,10 +97,15 @@
             data: dados,
             type: "POST",
             traditional: true
-        }).success(function () {
-            Portal.LimparAlertar("#AlertaMensagens");
-            var tabela = $(tabelaSeletor).dataTable();
-            tabela.fnDeleteRow(tr);
+        }).success(function (ret) {
+            if (ret.TemErros) {
+                Portal.PreencherAlertaErros(ret.Mensagem, "#AlertaMensagens");
+            } else {
+                Portal.PreencherAlertaSucesso(ret.Mensagem, "#AlertaMensagens");
+                Portal.LimparAlertar("#AlertaMensagens");
+                var tabela = $(tabelaSeletor).dataTable();
+                tabela.fnDeleteRow(tr);
+            }
         }).error(function (ex) {
             Portal.PreencherAlertaErros(ex.responseText, "#AlertaMensagens");
         });

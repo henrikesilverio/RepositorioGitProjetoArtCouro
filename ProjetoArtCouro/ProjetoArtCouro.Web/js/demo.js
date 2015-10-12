@@ -1,7 +1,7 @@
-$('#ribbon')
-    .append(
-        '<div class="demo"><span id="demo-setting"><i class="fa fa-cog txt-color-blueDark"></i></span> <form><legend class="no-padding margin-bottom-10">Layout</legend><section><label><input type="checkbox" name="terms" id="smart-fixed-ribbon" class="checkbox style-0"><span>Fixed Ribbon</span></label><label><input type="checkbox" name="terms" id="smart-fixed-navigation" class="checkbox style-0"><span>Fixed Navigation</span></label><label><input type="checkbox" name="terms" id="smart-fixed-container" class="checkbox style-0"><span>Inside <b>.container</b> <div class="font-xs text-right">(non-responsive)</div></span></label><label style="display:none;"><input type="checkbox" name="terms" id="smart-rtl" class="checkbox style-0"><span>Right to left <b>(rtl)</b></span></label> <span id="smart-bgimages"></span></section><section><h6 class="margin-top-10 semi-bold margin-bottom-5">Clear Localstorage</h6><a href="javascript:void(0);" class="btn btn-xs btn-block btn-primary" id="reset-smart-widget"><i class="fa fa-refresh"></i> Widget Reset</a></section> <h6 class="margin-top-10 semi-bold margin-bottom-5">Skins</h6><section id="smart-styles"><a href="javascript:void(0);" id="smart-style-0" data-skinlogo="img/logo.png" class="btn btn-block btn-xs txt-color-white margin-right-5" style="background-color:#4E463F;"><i class="fa fa-check fa-fw" id="skin-checked"></i>Default</a><a href="javascript:void(0);" id="smart-style-1" data-skinlogo="img/logo-white.png" class="btn btn-block btn-xs txt-color-white" style="background:#3A4558;">Dark Elegance</a><a href="javascript:void(0);" id="smart-style-2" data-skinlogo="img/logo-blue.png" class="btn btn-xs btn-block txt-color-darken margin-top-5" style="background:#fff;">Ultra Light</a></section></form> </div>'
-)
+//$("#ribbon")
+//    .append(
+//        "<div class=\"demo\"><span id=\"demo-setting\"><i class=\"fa fa-cog txt-color-blueDark\"></i></span> <form><legend class=\"no-padding margin-bottom-10\">Layout</legend><section><label><input type=\"checkbox\" name=\"terms\" id=\"smart-fixed-ribbon\" class=\"checkbox style-0\"><span>Fixed Ribbon</span></label><label><input type=\"checkbox\" name=\"terms\" id=\"smart-fixed-navigation\" class=\"checkbox style-0\"><span>Fixed Navigation</span></label><label><input type=\"checkbox\" name=\"terms\" id=\"smart-fixed-container\" class=\"checkbox style-0\"><span>Inside <b>.container</b> <div class=\"font-xs text-right\">(non-responsive)</div></span></label><label style=\"display:none;\"><input type=\"checkbox\" name=\"terms\" id=\"smart-rtl\" class=\"checkbox style-0\"><span>Right to left <b>(rtl)</b></span></label> <span id=\"smart-bgimages\"></span></section><section><h6 class=\"margin-top-10 semi-bold margin-bottom-5\">Clear Localstorage</h6><a href=\"javascript:void(0);\" class=\"btn btn-xs btn-block btn-primary\" id=\"reset-smart-widget\"><i class=\"fa fa-refresh\"></i> Widget Reset</a></section> <h6 class=\"margin-top-10 semi-bold margin-bottom-5\">Skins</h6><section id=\"smart-styles\"><a href=\"javascript:void(0);\" id=\"smart-style-0\" data-skinlogo=\"img/logo.png\" class=\"btn btn-block btn-xs txt-color-white margin-right-5\" style=\"background-color:#4E463F;\"><i class=\"fa fa-check fa-fw\" id=\"skin-checked\"></i>Default</a><a href=\"javascript:void(0);\" id=\"smart-style-1\" data-skinlogo=\"img/logo-white.png\" class=\"btn btn-block btn-xs txt-color-white\" style=\"background:#3A4558;\">Dark Elegance</a><a href=\"javascript:void(0);\" id=\"smart-style-2\" data-skinlogo=\"img/logo-blue.png\" class=\"btn btn-xs btn-block txt-color-darken margin-top-5\" style=\"background:#fff;\">Ultra Light</a></section></form> </div>"
+//    );
 
 // hide bg options
 var smartbgimage =
@@ -9,12 +9,12 @@ var smartbgimage =
 $("#smart-bgimages")
     .fadeOut();
 
-$('#demo-setting')
-    .click(function () {
+$("#demo-setting")
+    .click(function() {
         //console.log('setting');
-        $('#ribbon .demo')
-            .toggleClass('activate');
-    })
+        $("#ribbon .demo")
+            .toggleClass("activate");
+    });
 
 /*
  * FIXED HEADER

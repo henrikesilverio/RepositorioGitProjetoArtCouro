@@ -1,29 +1,38 @@
 ﻿var Portal = Portal || {};
 $.extend(Portal, {
-    Mask: function() {
+    Mask: function () {
         $(".CpfMask").mask("000.000.000-00");
         $(".CnpjMask").mask("00.000.000/0000-00");
+        function cpfCnpjMaskBehavior(val) {
+            return val.replace(/\D/g, "").length > 11 ? "00.000.000/0000-00" : "000.000.000-00999";
+        };
+        var documentoOptions = {
+            onKeyPress: function (val, e, field, options) {
+                field.mask(cpfCnpjMaskBehavior.apply({}, arguments), options);
+            }
+        };
+        $(".CpfCnpjMask").mask(cpfCnpjMaskBehavior, documentoOptions);
         $(".CepMask").mask("00000-000");
         $(".TelefoneMask").mask("(00) 0000-0000");
         $(".DataMask").mask("00/00/0000");
         $(".SomenteLetraMask").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-        var spMaskBehavior = function(val) {
-                return val.replace(/\D/g, "").length === 11 ? "(00) 00000-0000" : "(00) 0000-00009";
-            },
+        var spMaskBehavior = function (val) {
+            return val.replace(/\D/g, "").length === 11 ? "(00) 00000-0000" : "(00) 0000-00009";
+        },
             spOptions = {
-                onKeyPress: function(val, e, field, options) {
+                onKeyPress: function (val, e, field, options) {
                     field.mask(spMaskBehavior.apply({}, arguments), options);
                 }
             };
 
         $(".CelularMask").mask(spMaskBehavior, spOptions);
     },
-    Form: function(obj) {
-        $(obj.Button).click(function() {
+    Form: function (obj) {
+        $(obj.Button).click(function () {
             $(obj.Form).submit();
         });
     },
-    PreencherAlertaErros: function(mensagem, selotorLocal) {
+    PreencherAlertaErros: function (mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-danger fade in"
         });
@@ -44,8 +53,9 @@ $.extend(Portal, {
         div.append(strong);
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
+        $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
-    PreencherAlertaAtencao: function(mensagem, selotorLocal) {
+    PreencherAlertaAtencao: function (mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-warning fade in"
         });
@@ -66,8 +76,9 @@ $.extend(Portal, {
         div.append(strong);
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
+        $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
-    PreencherAlertaSucesso: function(mensagem, selotorLocal) {
+    PreencherAlertaSucesso: function (mensagem, selotorLocal) {
         var div = $("<div>").attr({
             "class": "alert alert-success fade in"
         });
@@ -88,12 +99,13 @@ $.extend(Portal, {
         div.append(strong);
         div.append((" " + mensagem));
         $(selotorLocal).html(div[0].outerHTML);
+        $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
-    LimparAlertar: function(selotorLocal) {
+    LimparAlertar: function (selotorLocal) {
         $(selotorLocal).empty();
     },
-    LimparCampos: function(seletor) {
-        $(seletor).find("input, select, input[type=\"radio\"]").each(function() {
+    LimparCampos: function (seletor) {
+        $(seletor).find("input, select, input[type=\"radio\"]").each(function () {
             if (this.type === "radio") {
                 this.checked = false;
             } else {
@@ -101,9 +113,9 @@ $.extend(Portal, {
             }
         });
     },
-    ConfiguracaoNovaPessoa: function() {
+    ConfiguracaoNovaPessoa: function () {
         //Função para mostrar ou esconder dados pessoa fisica ou juridica
-        $(".PessoaFisica").on("change", function() {
+        $(".TipoPessoa").on("change", function () {
             if (this.value === "True") {
                 $("#DadosPessoaFisica").show("slow");
                 $("#DadosPessoaJuridica").hide("slow");
@@ -118,11 +130,10 @@ $.extend(Portal, {
                 $("#DadosPessoaFisica").find("input, select, input[type='radio']").attr("disabled", "disabled");
             }
         });
-        $(".PessoaFisica[value=\"True\"]")[0].checked = true;
-        $(".PessoaFisica:checked").trigger("change");
+        $(".TipoPessoa:checked").trigger("change");
 
         //Função para mostras ou esconder endereço
-        $("#Endereco_EnderecoId").on("change", function() {
+        $("#Endereco_EnderecoId").on("change", function () {
             if (this.value === "0") {
                 $(".NovoEndereco").show("slow");
                 $(".NovoEndereco").find("input, select").removeAttr("disabled");
@@ -133,7 +144,7 @@ $.extend(Portal, {
         });
 
         //Função para mostras ou esconder meios de comunicação
-        $("#MeioComunicacao_TelefoneId").on("change", function() {
+        $("#MeioComunicacao_TelefoneId").on("change", function () {
             if (this.value === "0") {
                 $(".NovoTelefone").css("visibility", "visible");
                 $(".NovoTelefone").find("input").removeAttr("disabled");
@@ -143,7 +154,7 @@ $.extend(Portal, {
             }
         });
 
-        $("#MeioComunicacao_CelularId").on("change", function() {
+        $("#MeioComunicacao_CelularId").on("change", function () {
             if (this.value === "0") {
                 $(".NovoCelular").css("visibility", "visible");
                 $(".NovoCelular").find("input").removeAttr("disabled");
@@ -153,7 +164,7 @@ $.extend(Portal, {
             }
         });
 
-        $("#MeioComunicacao_EmailId").on("change", function() {
+        $("#MeioComunicacao_EmailId").on("change", function () {
             if (this.value === "0") {
                 $(".NovoEmail").css("visibility", "visible");
                 $(".NovoEmail").find("input").removeAttr("disabled");
@@ -168,13 +179,13 @@ $.extend(Portal, {
         $("#MeioComunicacao_CelularId").trigger("change");
         $("#MeioComunicacao_EmailId").trigger("change");
     },
-    ConverteData: function(data) {
+    ConverteData: function (data) {
         function pad(s) { return (s < 10) ? "0" + s : s; }
 
         var d = new Date(data);
         return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear()].join("/");
     },
-    DesbilitarCampo: function(seletorCampo) {
+    DesbilitarCampo: function (seletorCampo) {
         $(seletorCampo).attr("disabled", "disabled");
         $(seletorCampo).closest("label").addClass("state-disabled");
     },

@@ -26,6 +26,19 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             return _context.Pessoas.FirstOrDefault(x => x.PessoaCodigo.Equals(codigo));
         }
 
+        public Pessoa ObterPorCodigoComPessoaCompleta(int codigo)
+        {
+            return _context.Pessoas
+                .Include("PessoaFisica")
+                .Include("PessoaFisica.EstadoCivil")
+                .Include("PessoaJuridica")
+                .Include("Papeis")
+                .Include("MeiosComunicacao")
+                .Include("Enderecos")
+                .Include("Enderecos.Estado")
+                .FirstOrDefault(x => x.PessoaCodigo.Equals(codigo));
+        }
+
         public List<Pessoa> ObterLista()
         {
             return _context.Pessoas.ToList();

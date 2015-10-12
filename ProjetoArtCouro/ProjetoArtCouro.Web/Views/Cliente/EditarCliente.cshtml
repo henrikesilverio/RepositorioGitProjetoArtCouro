@@ -6,6 +6,9 @@
     <script src="~/js/app/Cliente/Cliente.js"></script>
     <script>
         Portal.Mask();
-        Portal.EditarCliente();
+        Portal.EditarCliente({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            UrlDados: "@Url.Action("EditarCliente", "Cliente")"
+        });
     </script>
 }

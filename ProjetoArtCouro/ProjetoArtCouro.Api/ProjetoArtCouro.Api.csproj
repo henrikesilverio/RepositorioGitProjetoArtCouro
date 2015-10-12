@@ -167,6 +167,8 @@
     <Compile Include="AutoMapper\EnderecoConverter.cs" />
     <Compile Include="AutoMapper\MeioComunicacaoConverter.cs" />
     <Compile Include="Controllers\Pessoas\ClienteController.cs" />
+    <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
+    <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Controllers\Pessoas\PessoaController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Helpers\ApiControllerBase.cs" />

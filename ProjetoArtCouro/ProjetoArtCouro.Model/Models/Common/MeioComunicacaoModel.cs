@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Common
@@ -13,16 +14,22 @@ namespace ProjetoArtCouro.Model.Models.Common
         [Display(Name = "NewPhone", ResourceType = typeof(Mensagens))]
         public string Telefone { get; set; }
 
+        public List<LookupModel> Telefones { get; set; }
+
         [Display(Name = "CellPhones", ResourceType = typeof(Mensagens))]
         public int? CelularId { get; set; }
 
         [Display(Name = "NewCellPhone", ResourceType = typeof(Mensagens))]
         public string Celular { get; set; }
 
+        public List<LookupModel> Celulares { get; set; }
+
         [Display(Name = "Emails", ResourceType = typeof(Mensagens))]
         public int? EmailId { get; set; }
 
         [Display(Name = "NewEmail", ResourceType = typeof(Mensagens))]
         public string Email { get; set; }
+
+        public List<LookupModel> Emalis { get; set; }
     }
 }

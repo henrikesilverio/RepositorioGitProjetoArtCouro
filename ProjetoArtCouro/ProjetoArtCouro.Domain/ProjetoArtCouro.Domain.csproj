@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IRepository\IPessoa\IEnderecoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoCivilRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPessoa\IMeioComunicacaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPapelRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaFisicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />

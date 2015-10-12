@@ -16,5 +16,8 @@ namespace ProjetoArtCouro.Model.Models.Fornecedor
 
         [Display(Name = "Email", ResourceType = typeof(Mensagens))]
         public string Email { get; set; }
+
+        [Display(Name = "TypeOfPerson", ResourceType = typeof(Mensagens))]
+        public bool EPessoaFisica { get; set; }
     }
 }

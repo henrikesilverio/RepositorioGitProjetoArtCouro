@@ -61,7 +61,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 p => p.PapelNome,
                 new Papel { PapelNome = "Pessoa Fisica" },
                 new Papel { PapelNome = "Pessoa Juridica" },
-                new Papel { PapelNome = "Empregado" },
+                new Papel { PapelNome = "Funcionario" },
                 new Papel { PapelNome = "Cliente" },
                 new Papel { PapelNome = "Fornecedor" });
 

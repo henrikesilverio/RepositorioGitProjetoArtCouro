@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Cliente;
@@ -22,34 +23,21 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult PesquisaCliente(PesquisaClienteModel model)
         {
             var response = ServiceRequest.Post<List<ClienteModel>>(model, "api/Cliente/PesquisarCliente");
+            if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
+            {
+                response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
+            }
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult NovoCliente()
         {
-            ViewBag.Title = Mensagens.Client;
-            ViewBag.SubTitle = Mensagens.NewClient;
+            CriarViewBags(Mensagens.NewClient);
             var listaBase = new List<LookupModel>();
-            //Obtem do banco os estados e estados civis
-            var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
-            if (response.Data.TemErros)
-            {
-                ModelState.AddModelError("Erro", response.Data.Mensagem);
-                ViewBag.Estados = listaBase;
-            }
-            ViewBag.Estados = response.Data.ObjetoRetorno;
-            response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstadoCivil");
-            if (response.Data.TemErros)
-            {
-                ModelState.AddModelError("Erro", response.Data.Mensagem);
-                ViewBag.EstadosCivis = listaBase;
-            }
-            ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
-            //Inicia as lista dos dropdowns
             ViewBag.Enderecos = listaBase;
             ViewBag.Telefones = listaBase;
             ViewBag.Celulares = listaBase;
-            ViewBag.Emails = listaBase; 
+            ViewBag.Emails = listaBase;
             return View();
         }
 
@@ -57,16 +45,54 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult NovoCliente(ClienteModel model)
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/CriarCliente");
+            var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Cliente/CriarCliente");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult EditarCliente(int codigoCliente)
         {
-            ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.EditClient;
+            CriarViewBags(Mensagens.EditClient);
+            var response = ServiceRequest.Post<ClienteModel>(new { codigoCliente = codigoCliente }, "api/Cliente/PesquisarClientePorCodigo");
+            var model = response.Data.ObjetoRetorno;
+            //TODO Criar tratamentoo de exceção
+            if (model == null)
+            {
+                return View(response.Data.ObjetoRetorno);
+            }
+
             var listaBase = new List<LookupModel>();
-            //Obtem do banco os estados e estados civis
+            ViewBag.Enderecos = model.Enderecos.Select(x => new LookupModel
+            {
+                Codigo = x.EnderecoId ?? 0,
+                Nome = string.Format("Logradouro: {0}, N: {1}, Cidade: {2}, CEP: {3}", x.Logradouro, x.Numero, x.Cidade, x.Cep)
+            }).ToList();
+            ViewBag.Telefones = model.MeioComunicacao.Telefones ?? listaBase;
+            ViewBag.Celulares = model.MeioComunicacao.Celulares ?? listaBase;
+            ViewBag.Emails = model.MeioComunicacao.Emalis ?? listaBase;
+
+            return View(response.Data.ObjetoRetorno);
+        }
+
+        [HttpPost]
+        public JsonResult EditarCliente(ClienteModel model)
+        {
+            var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Cliente/EditarCliente");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ExcluirCliente(int codigoCliente)
+        {
+            var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoCliente = codigoCliente }, "api/Cliente/ExcluirCliente");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        private void CriarViewBags(string subTitle)
+        {
+            ViewBag.Title = Mensagens.Client;
+            ViewBag.SubTitle = subTitle;
+
+            var listaBase = new List<LookupModel>();
             var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
             if (response.Data.TemErros)
             {
@@ -81,33 +107,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
                 ViewBag.EstadosCivis = listaBase;
             }
             ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
-            //Inicia as lista dos dropdowns
-            ViewBag.Enderecos = listaBase;
-            ViewBag.Telefones = listaBase;
-            ViewBag.Celulares = listaBase;
-            ViewBag.Emails = listaBase; 
-            var model = new ClienteModel();
-            return View("NovoCliente", model);
-        }
-
-        [HttpPost]
-        public ActionResult EditarCliente(ClienteModel model)
-        {
-            ViewBag.Title = Mensagens.NewClient;
-            ViewBag.SubTitle = Mensagens.EditClient;
-            if (!ModelState.IsValid)
-            {
-                return View("NovoCliente", model);
-            }
-
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/PesquisarCliente");
-            if (!response.Data.TemErros)
-            {
-                return RedirectToAction("Index", "Cliente");
-            }
-            ModelState.AddModelError("Erro", response.Data.Mensagem);
-
-            return View("NovoCliente", model);
         }
     }
 }

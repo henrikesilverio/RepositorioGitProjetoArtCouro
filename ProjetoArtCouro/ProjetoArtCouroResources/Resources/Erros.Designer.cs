@@ -106,6 +106,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CNPJ vazio.
+        /// </summary>
+        public static string EmptyCNPJ {
+            get {
+                return ResourceManager.GetString("EmptyCNPJ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contato vazio.
+        /// </summary>
+        public static string EmptyContact {
+            get {
+                return ResourceManager.GetString("EmptyContact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CPF vazio.
         /// </summary>
         public static string EmptyCPF {
@@ -133,6 +151,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nome vazio.
+        /// </summary>
+        public static string EmptyName {
+            get {
+                return ResourceManager.GetString("EmptyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Parametros vazios.
         /// </summary>
         public static string EmptyParameters {
@@ -147,6 +174,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EmptyPerson {
             get {
                 return ResourceManager.GetString("EmptyPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefone vazio.
+        /// </summary>
+        public static string EmptyPhone {
+            get {
+                return ResourceManager.GetString("EmptyPhone", resourceCulture);
             }
         }
         
@@ -183,6 +219,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string InvalidCNPJ {
             get {
                 return ResourceManager.GetString("InvalidCNPJ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código inválido.
+        /// </summary>
+        public static string InvalidCode {
+            get {
+                return ResourceManager.GetString("InvalidCode", resourceCulture);
             }
         }
         
@@ -250,6 +295,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não há clientes para o filtro informado.
+        /// </summary>
+        public static string NoClientForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoClientForTheGivenFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não há grupo para o filtro informado.
         /// </summary>
         public static string NoGruopForTheGivenFilter {
@@ -291,6 +345,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string PermissionsNotRegistered {
             get {
                 return ResourceManager.GetString("PermissionsNotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pessoa não existe.
+        /// </summary>
+        public static string PersonDoesNotExist {
+            get {
+                return ResourceManager.GetString("PersonDoesNotExist", resourceCulture);
             }
         }
         

@@ -112,7 +112,7 @@ function ValidationCNPJ(value) {
         }
     }
     var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado !== digitos.charAt(0)) {
+    if (resultado.toString() !== digitos.charAt(0)) {
         return false;
     }
 
@@ -128,7 +128,7 @@ function ValidationCNPJ(value) {
     }
 
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-    if (resultado !== digitos.charAt(1)) {
+    if (resultado.toString() !== digitos.charAt(1)) {
         return false;
     }
 

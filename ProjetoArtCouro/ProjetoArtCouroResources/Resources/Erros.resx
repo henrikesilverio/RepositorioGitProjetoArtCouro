@@ -159,6 +159,9 @@
   <data name="InvalidCNPJ" xml:space="preserve">
     <value>CNPJ inválido</value>
   </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Código inválido</value>
+  </data>
   <data name="InvalidCPF" xml:space="preserve">
     <value>CPF inválido</value>
   </data>
@@ -200,5 +203,23 @@
   </data>
   <data name="UserDoesNotExist" xml:space="preserve">
     <value>Usuário não existe</value>
+  </data>
+  <data name="PersonDoesNotExist" xml:space="preserve">
+    <value>Pessoa não existe</value>
+  </data>
+  <data name="EmptyPhone" xml:space="preserve">
+    <value>Telefone vazio</value>
+  </data>
+  <data name="NoClientForTheGivenFilter" xml:space="preserve">
+    <value>Não há clientes para o filtro informado</value>
+  </data>
+  <data name="EmptyCNPJ" xml:space="preserve">
+    <value>CNPJ vazio</value>
+  </data>
+  <data name="EmptyContact" xml:space="preserve">
+    <value>Contato vazio</value>
+  </data>
+  <data name="EmptyName" xml:space="preserve">
+    <value>Nome vazio</value>
   </data>
 </root>

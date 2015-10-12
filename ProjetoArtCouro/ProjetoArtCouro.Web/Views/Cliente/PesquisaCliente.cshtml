@@ -27,22 +27,35 @@
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
                             @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ, @class = "CpfCnpjMask" })
                             </label>
                         </section>
                     </div>
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.Email, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.Email, new { placeholder = @Mensagens.Email })
                             </label>
                         </section>
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.CodigoCliente, new { @class = "label" })
                             <label class="input">
                                 @Html.TextBoxFor(m => m.CodigoCliente, new { placeholder = @Mensagens.Code })
                             </label>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
+                            <div class="inline-group">
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "TipoPessoa" })
+                                    <i></i>@Mensagens.PhysicalPerson
+                                </label>
+                                <label class="radio">
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "TipoPessoa" })
+                                    <i></i>@Mensagens.LegalPerson
+                                </label>
+                            </div>
                         </section>
                     </div>
                 </fieldset>
@@ -55,7 +68,7 @@
                     </a>
                 </footer>
             </form>
-            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetCliente">
+            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetCliente ScrollWidgetTable">
                 <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
                      data-widget-colorbutton="false" data-widget-togglebutton="false"
                      data-widget-deletebutton="false" data-widget-editbutton="false">
@@ -77,52 +90,55 @@
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
     <script>
-    Portal.Mask();
-    Portal.Form({
-        Button: $("#Salvar"),
-        Form: $("#smart-form-register")
-    });
-    Portal.Search({
-        AlertaMensagensSeletor: "#AlertaMensagens",
-        BotaoPesquisarSeletor: "#PesquisarCliente",
-        FormularioSeletor: "#formPesquisaCliente",
-        UrlDados: "@Url.Action("PesquisaCliente", "Cliente")",
-        TabelaSeletor: "#datatableCliente",
-        WidgetSeletor: ".WidgetCliente",
-        TituloRodape: "",
-        InformacaoTabela: "",
-        OrdenacaoDoCabecalho: [
-            { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
-            { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sClass": "center", "sWidth": "45%" },
-            {
-                "sTitle": "@(Mensagens.CPFCNPJ)",
-                "mData": null,
-                "sClass": "center",
-                "sWidth": "20%",
-                "mRender": function (obj) {
-                    return obj.CPF !== "" ? obj.CPF : obj.CNPJ;
+        Portal.Mask();
+        Portal.Form({
+            Button: $("#Salvar"),
+            Form: $("#smart-form-register")
+        });
+        Portal.Search({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            BotaoPesquisarSeletor: "#PesquisarCliente",
+            FormularioSeletor: "#formPesquisaCliente",
+            UrlDados: "@Url.Action("PesquisaCliente", "Cliente")",
+            TabelaSeletor: "#datatableCliente",
+            WidgetSeletor: ".WidgetCliente",
+            TituloRodape: "Clientes",
+            InformacaoTabela: "Informe os filtros para pesquisar",
+            TituloRodapeContador: "Nenhum cliente",
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sWidth": "40%" },
+                {
+                    "sTitle": "@(Mensagens.CPFCNPJ)",
+                    "mData": null,
+                    "sWidth": "20%",
+                    "mRender": function (obj) {
+                        return obj.CPF != null && obj.CPF !== "" ? obj.CPF : obj.CNPJ;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.Email)",
+                    "mData": null,
+                    "sWidth": "20%",
+                    "mRender": function (obj) {
+                        return obj.MeioComunicacao.Email === null || "" ? "N/I" : obj.MeioComunicacao.Email;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.Actions)",
+                    "mData": null,
+                    "sClass": "center",
+                    "bSortable": false,
+                    "sWidth": "10%",
+                    "mRender": function (obj) {
+                        var url = "/Cliente/EditarCliente" + "?codigoCliente=" + obj.Codigo;
+                        var botoes = Portal.CriarBotoes(url,
+                                "Portal.RequisicaoDeletarLinha(\"/Cliente/ExcluirCliente\",{codigoCliente:" + obj.Codigo + "}, \"#datatableCliente\", $(this).closest(\"tr\"))");
+                        return botoes[0].outerHTML;
+                    }
                 }
-            },
-            {
-                "sTitle": "@(Mensagens.Email)",
-                "mData": null,
-                "sClass": "center",
-                "sWidth": "20%",
-                "mRender": function (obj) {
-                    return obj.MeioComunicacao.Email === null || "" ? "N/I" : obj.MeioComunicacao.Email;
-                }
-            },
-            {
-                "sTitle": "@(Mensagens.Actions)",
-                "mData": null,
-                "sClass": "center",
-                "bSortable": false,
-                "sWidth": "5%",
-                "mRender": function (obj) {
-                    return "<a href=\"@Url.Action("EditarCliente", "Cliente")?codigoCliente=" + obj.Codigo +"\" class=\"fa fa-pencil-square-o\" title=\"Editar\"></a>";
-                }
-            }
-        ]
-    });
+            ]
+        });
+        $(".TipoPessoa[value=\"True\"]")[0].checked = true;
     </script>
 }

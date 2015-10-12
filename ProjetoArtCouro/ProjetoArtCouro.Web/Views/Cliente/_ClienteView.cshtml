@@ -22,11 +22,11 @@
                             @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "PessoaFisica" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.PhysicalPerson
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "PessoaFisica" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.LegalPerson
                                 </label>
                             </div>
@@ -113,6 +113,7 @@
                 </fieldset>
                 @Html.Partial("_Endereco", Model)
                 @Html.Partial("_MeioComunicacao", Model)
+                @Html.HiddenFor(m => m.Codigo)
                 <footer>
                     <a id="SalvarCliente" class="btn btn-primary" href="javascript:void(0);">
                         <i class="fa fa-floppy-o"></i> @Mensagens.Save

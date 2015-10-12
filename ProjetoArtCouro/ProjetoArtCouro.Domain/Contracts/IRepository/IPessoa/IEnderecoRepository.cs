@@ -8,7 +8,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
     {
         Endereco ObterPorId(Guid id);
         List<Endereco> ObterLista();
-        void Criar(Endereco endereco);
+        Endereco Criar(Endereco endereco);
         void Atualizar(Endereco endereco);
         void Deletar(Endereco endereco);
     }

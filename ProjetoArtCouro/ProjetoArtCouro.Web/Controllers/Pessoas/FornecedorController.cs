@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Fornecedor;
 using ProjetoArtCouro.Resource.Resources;
@@ -20,17 +22,77 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         [HttpPost]
         public JsonResult PesquisaFornecedor(PesquisaFornecedorModel model)
         {
-            //var response = ServiceRequest.Post<List<FornecedorModel>>(model, "api/Cliente/PesquisarFornecedore");
-            //return Json(response.Data, JsonRequestBehavior.AllowGet);
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Post<List<FornecedorModel>>(model, "api/Fornecedor/PesquisarFornecedor");
+            if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
+            {
+                response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
+            }
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult NovoFornecedor()
         {
-            ViewBag.Title = Mensagens.Provider;
-            ViewBag.SubTitle = Mensagens.NewProvider;
+            CriarViewBags(Mensagens.NewProvider);
             var listaBase = new List<LookupModel>();
-            //Obtem do banco os estados e estados civis
+            ViewBag.Enderecos = listaBase;
+            ViewBag.Telefones = listaBase;
+            ViewBag.Celulares = listaBase;
+            ViewBag.Emails = listaBase; 
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult NovoFornecedor(FornecedorModel model)
+        {
+            model.PapelPessoa = (int)TipoPapelPessoaEnum.Fornecedor;
+            var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Fornecedor/CriarFornecedor");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EditarFornecedor(int codigoFornecedor)
+        {
+            CriarViewBags(Mensagens.EditProvider);
+            var response = ServiceRequest.Post<FornecedorModel>(new { codigoFornecedor = codigoFornecedor }, "api/Fornecedor/PesquisarFornecedorPorCodigo");
+            var model = response.Data.ObjetoRetorno;
+            //TODO Criar tratamentoo de exceção
+            if (model == null)
+            {
+                return View(response.Data.ObjetoRetorno);
+            }
+
+            var listaBase = new List<LookupModel>();
+            ViewBag.Enderecos = model.Enderecos.Select(x => new LookupModel
+            {
+                Codigo = x.EnderecoId ?? 0,
+                Nome = string.Format("Logradouro: {0}, N: {1}, Cidade: {2}, CEP: {3}", x.Logradouro, x.Numero, x.Cidade, x.Cep)
+            }).ToList();
+            ViewBag.Telefones = model.MeioComunicacao.Telefones ?? listaBase;
+            ViewBag.Celulares = model.MeioComunicacao.Celulares ?? listaBase;
+            ViewBag.Emails = model.MeioComunicacao.Emalis ?? listaBase;
+
+            return View(response.Data.ObjetoRetorno);
+        }
+
+        [HttpPost]
+        public ActionResult EditarFornecedor(FornecedorModel model)
+        {
+            var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Fornecedor/EditarFornecedor");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ExcluirFornecedor(int codigoFornecedor)
+        {
+            var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoFornecedor = codigoFornecedor }, "api/Fornecedor/ExcluirFornecedor");
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
+        }
+
+        private void CriarViewBags(string subTitle)
+        {
+            ViewBag.Title = Mensagens.Provider;
+            ViewBag.SubTitle = subTitle;
+
+            var listaBase = new List<LookupModel>();
             var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
             if (response.Data.TemErros)
             {
@@ -45,49 +107,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
                 ViewBag.EstadosCivis = listaBase;
             }
             ViewBag.EstadosCivis = response.Data.ObjetoRetorno;
-            //Inicia as lista dos dropdowns
-            ViewBag.Enderecos = listaBase;
-            ViewBag.Telefones = listaBase;
-            ViewBag.Celulares = listaBase;
-            ViewBag.Emails = listaBase; 
-            return View();
-        }
-
-        [HttpPost]
-        public JsonResult NovoFornecedor(FornecedorModel model)
-        {
-            //model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
-            //var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/CriarFornecedor");
-            //return Json(response.Data, JsonRequestBehavior.AllowGet);
-            return Json(true, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult EditarFornecedor()
-        {
-            ViewBag.Title = Mensagens.Provider;
-            ViewBag.SubTitle = Mensagens.EditProvider;
-            var model = new FornecedorModel();
-            return View("NovoFornecedor", model);
-        }
-
-        [HttpPost]
-        public ActionResult EditarFornecedor(FornecedorModel model)
-        {
-            ViewBag.Title = Mensagens.Provider;
-            ViewBag.SubTitle = Mensagens.EditProvider;
-            if (!ModelState.IsValid)
-            {
-                return View("NovoFornecedor", model);
-            }
-
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Cliente/PesquisarFornecedor");
-            if (!response.Data.TemErros)
-            {
-                return RedirectToAction("Index", "Fornecedor");
-            }
-            ModelState.AddModelError("Erro", response.Data.Mensagem);
-
-            return View("NovoFornecedor", model);
         }
     }
 }

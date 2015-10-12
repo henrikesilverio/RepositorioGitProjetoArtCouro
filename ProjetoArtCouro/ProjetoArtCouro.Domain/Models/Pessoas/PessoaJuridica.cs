@@ -1,4 +1,6 @@
 ﻿using System;
+using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Domain.Models.Pessoas
 {
@@ -9,5 +11,11 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
         public string CNPJ { get; set; }
         public string Contato { get; set; }
         public virtual Pessoa Pessoa { get; set; }
+
+        public void Validar()
+        {
+            AssertionConcern.AssertArgumentNotEmpty(CNPJ, Erros.EmptyCNPJ);
+            AssertionConcern.AssertArgumentNotEmpty(Contato, Erros.EmptyContact);
+        }
     }
 }

@@ -130,3 +130,15 @@
     right: 41px !important;
     top: 8px !important;
 }
+
+.ScrollWidgetTable div[role='content'] {
+    overflow: auto;
+}
+
+.ScrollWidgetTable .widget-body {
+    -moz-min-width: 1000px;
+    -ms-min-width: 1000px;
+    -o-min-width: 1000px;
+    -webkit-min-width: 1000px;
+    min-width: 1000px;
+}

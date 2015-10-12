@@ -18,7 +18,7 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
 
         public void Validar()
         {
-            AssertionConcern.AssertArgumentNotEmpty(Nome, Erros.EmptyCPF);
+            AssertionConcern.AssertArgumentNotEmpty(Nome, Erros.EmptyName);
             AssertionConcern.AssertArgumentNotNull(Papeis, Erros.PaperEmptyPerson);
             AssertionConcern.AssertArgumentNotNull(MeiosComunicacao, Erros.MeansOfCommunicationEmpty);
             AssertionConcern.AssertArgumentNotNull(Enderecos, Erros.EmptyAddress);

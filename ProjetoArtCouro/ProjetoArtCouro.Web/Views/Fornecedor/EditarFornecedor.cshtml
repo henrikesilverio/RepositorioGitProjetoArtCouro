@@ -6,6 +6,9 @@
     <script src="~/js/app/Fornecedor/Fornecedor.js"></script>
     <script>
         Portal.Mask();
-        Portal.EditarFornecedor();
+        Portal.EditarFornecedor({
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            UrlDados: "@Url.Action("EditarFornecedor", "Fornecedor")"
+        });
     </script>
 }

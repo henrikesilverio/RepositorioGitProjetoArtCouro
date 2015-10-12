@@ -8,6 +8,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
     {
         Pessoa ObterPorId(Guid id);
         Pessoa ObterPorCodigo(int codigo);
+        Pessoa ObterPorCodigoComPessoaCompleta(int codigo);
         List<Pessoa> ObterLista();
         void Criar(Pessoa pessoa);
         void Atualizar(Pessoa pessoa);

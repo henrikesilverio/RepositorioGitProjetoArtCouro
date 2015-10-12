@@ -565,7 +565,6 @@
     <Content Include="js\plugin\datatables\media\images\psd\printer.psd" />
     <Content Include="js\plugin\datatables\media\js\TableTools.min.js.gz" />
     <Content Include="js\plugin\slickgrid\slick.editors.js--" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="js\plugin\datatables\dataTables.colVis.min.js" />
     <Content Include="js\plugin\datatables\datatables.min.js.map" />
     <Content Include="js\plugin\datatables\DT_bootstrap.min.js.map" />

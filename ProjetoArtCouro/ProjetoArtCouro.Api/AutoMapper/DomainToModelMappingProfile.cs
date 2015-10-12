@@ -47,13 +47,28 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Cep, m => m.MapFrom(s => s.CEP))
                 .ForMember(d => d.UFId, m => m.MapFrom(s => s.Estado.EstadoCodigo));
 
-            Mapper.CreateMap<PessoaFisica, ClienteModel>()
+            Mapper.CreateMap<PessoaFisica, PessoaModel>()
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.Pessoa.PessoaCodigo))
                 .ForMember(d => d.Nome, m => m.MapFrom(s => s.Pessoa.Nome))
                 .ForMember(d => d.EstadoCivilId, m => m.MapFrom(s => s.EstadoCivil.EstadoCivilCodigo))
                 .ForMember(d => d.EPessoaFisica, m => m.UseValue(true))
                 .ForMember(d => d.Endereco, m => m.MapFrom(s => s.Pessoa.Enderecos))
-                .ForMember(d => d.MeioComunicacao, m => m.MapFrom(s => s.Pessoa.MeiosComunicacao));
+                .ForMember(d => d.MeioComunicacao, m => m.MapFrom(s => s.Pessoa.MeiosComunicacao))
+                .ForMember(d => d.Enderecos, m => m.MapFrom(s => s.Pessoa.Enderecos))
+                .Include<PessoaFisica, ClienteModel>();
+
+            Mapper.CreateMap<PessoaFisica, ClienteModel>();
+
+            Mapper.CreateMap<PessoaJuridica, PessoaModel>()
+                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.Pessoa.PessoaCodigo))
+                .ForMember(d => d.RazaoSocial, m => m.MapFrom(s => s.Pessoa.Nome))
+                .ForMember(d => d.EPessoaFisica, m => m.UseValue(false))
+                .ForMember(d => d.Endereco, m => m.MapFrom(s => s.Pessoa.Enderecos))
+                .ForMember(d => d.MeioComunicacao, m => m.MapFrom(s => s.Pessoa.MeiosComunicacao))
+                .ForMember(d => d.Enderecos, m => m.MapFrom(s => s.Pessoa.Enderecos))
+                .Include<PessoaJuridica, ClienteModel>();
+
+            Mapper.CreateMap<PessoaJuridica, ClienteModel>();
 
             Mapper.CreateMap<ICollection<MeioComunicacao>, MeioComunicacaoModel>()
                 .ConvertUsing<MeioComunicacaoConverter>();

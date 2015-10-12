@@ -26,10 +26,15 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             return _context.Enderecos.ToList();
         }
 
-        public void Criar(Endereco endereco)
+        public Endereco Criar(Endereco endereco)
         {
             _context.Enderecos.Add(endereco);
             _context.SaveChanges();
+            return
+                _context.Enderecos.LastOrDefault(
+                    x =>
+                        x.CEP.Equals(endereco.CEP) && x.Logradouro.Equals(endereco.Logradouro) &&
+                        x.Numero.Equals(endereco.Numero));
         }
 
         public void Atualizar(Endereco endereco)
@@ -40,7 +45,8 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
 
         public void Deletar(Endereco endereco)
         {
-            _context.Dispose();
+            _context.Enderecos.Remove(endereco);
+            _context.SaveChanges();
         }
 
         public void Dispose()

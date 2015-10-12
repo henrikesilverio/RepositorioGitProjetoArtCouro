@@ -22,15 +22,21 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             return _context.PessoasFisicas.FirstOrDefault(x => x.PessoaId.Equals(id));
         }
 
+        public PessoaFisica ObterPorCPF(string cpf)
+        {
+            return _context.PessoasFisicas.FirstOrDefault(x => x.CPF.Equals(cpf));
+        }
+
         public List<PessoaFisica> ObterLista()
         {
             return _context.PessoasFisicas.ToList();
         }
 
-        public List<PessoaFisica> ObterLista(int codigo, string nome, string cpf, string email)
+        public List<PessoaFisica> ObterLista(int codigo, string nome, string cpf, string email, TipoPapelPessoaEnum papelCodigo)
         {
             var query = from pessoa in _context.PessoasFisicas
                 .Include("Pessoa")
+                .Include("Pessoa.Papeis")
                 .Include("Pessoa.MeiosComunicacao")
                 .Include("Pessoa.Enderecos")
                 select pessoa;
@@ -38,6 +44,11 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
             if (!codigo.Equals(0))
             {
                 query = query.Where(x => x.Pessoa.PessoaCodigo == codigo);
+            }
+
+            if (papelCodigo != TipoPapelPessoaEnum.Nenhum)
+            {
+                query = query.Where(x => x.Pessoa.Papeis.Any(a => a.PapelCodigo == (int)papelCodigo));
             }
 
             if (!string.IsNullOrEmpty(nome))

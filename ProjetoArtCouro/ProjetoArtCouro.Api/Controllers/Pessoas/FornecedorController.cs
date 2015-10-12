@@ -9,22 +9,22 @@ using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
-using ProjetoArtCouro.Model.Models.Cliente;
+using ProjetoArtCouro.Model.Models.Fornecedor;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
-    [RoutePrefix("api/Cliente")]
-    public class ClienteController : ApiControllerBase
+    [RoutePrefix("api/Fornecedor")]
+    public class FornecedorController : ApiControllerBase
     {
         private readonly IPessoaService _pessoaService;
-        public ClienteController(IPessoaService pessoaService)
+        public FornecedorController(IPessoaService pessoaService)
         {
             _pessoaService = pessoaService;
         }
 
-        [Route("CriarCliente")]
+        [Route("CriarFornecedor")]
         [HttpPost]
-        public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
+        public Task<HttpResponseMessage> CriarFornecedor(FornecedorModel model)
         {
             HttpResponseMessage response;
             try
@@ -57,24 +57,24 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
-        [Route("PesquisarCliente")]
+        [Route("PesquisarFornecedor")]
         [HttpPost]
-        public Task<HttpResponseMessage> PesquisarCliente(PesquisaClienteModel model)
+        public Task<HttpResponseMessage> PesquisarFornecedor(PesquisaFornecedorModel model)
         {
             HttpResponseMessage response;
             try
             {
                 if (model.EPessoaFisica)
                 {
-                    var listaPessoaFisica = _pessoaService.PesquisarPessoaFisica(model.CodigoCliente ?? 0, model.Nome,
-                    model.CPFCNPJ, model.Email, TipoPapelPessoaEnum.Cliente);
-                    response = ReturnSuccess(Mapper.Map<List<ClienteModel>>(listaPessoaFisica));
+                    var listaPessoaFisica = _pessoaService.PesquisarPessoaFisica(model.CodigoFornecedor ?? 0, model.Nome,
+                    model.CPFCNPJ, model.Email, TipoPapelPessoaEnum.Fornecedor);
+                    response = ReturnSuccess(Mapper.Map<List<FornecedorModel>>(listaPessoaFisica));
                 }
                 else
                 {
-                    var listaPessoaJuridica = _pessoaService.PesquisarPessoaJuridica(model.CodigoCliente ?? 0, model.Nome,
-                    model.CPFCNPJ, model.Email, TipoPapelPessoaEnum.Cliente);
-                    response = ReturnSuccess(Mapper.Map<List<ClienteModel>>(listaPessoaJuridica));
+                    var listaPessoaJuridica = _pessoaService.PesquisarPessoaJuridica(model.CodigoFornecedor ?? 0, model.Nome,
+                    model.CPFCNPJ, model.Email, TipoPapelPessoaEnum.Fornecedor);
+                    response = ReturnSuccess(Mapper.Map<List<FornecedorModel>>(listaPessoaJuridica));
                 }
             }
             catch (Exception ex)
@@ -87,19 +87,19 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
-        [Route("PesquisarClientePorCodigo")]
+        [Route("PesquisarFornecedorPorCodigo")]
         [HttpPost]
-        public Task<HttpResponseMessage> PesquisarClientePorCodigo([FromBody]JObject jObject)
+        public Task<HttpResponseMessage> PesquisarFornecedorPorCodigo([FromBody]JObject jObject)
         {
-            var codigoCliente = jObject["codigoCliente"].ToObject<int>();
+            var codigoFornecedor = jObject["codigoFornecedor"].ToObject<int>();
             HttpResponseMessage response;
             try
             {
-                var pessoa = _pessoaService.ObterPessoaPorCodigo(codigoCliente);
+                var pessoa = _pessoaService.ObterPessoaPorCodigo(codigoFornecedor);
                 response =
                     ReturnSuccess(pessoa.PessoaFisica != null
-                        ? Mapper.Map<ClienteModel>(pessoa.PessoaFisica)
-                        : Mapper.Map<ClienteModel>(pessoa.PessoaJuridica));
+                        ? Mapper.Map<FornecedorModel>(pessoa.PessoaFisica)
+                        : Mapper.Map<FornecedorModel>(pessoa.PessoaJuridica));
             }
             catch (Exception ex)
             {
@@ -111,9 +111,9 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
-        [Route("EditarCliente")]
+        [Route("EditarFornecedor")]
         [HttpPut]
-        public Task<HttpResponseMessage> EditarCliente(ClienteModel model)
+        public Task<HttpResponseMessage> EditarFornecedor(FornecedorModel model)
         {
             HttpResponseMessage response;
 
@@ -144,15 +144,15 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
-        [Route("ExcluirCliente")]
+        [Route("ExcluirFornecedor")]
         [HttpDelete]
-        public Task<HttpResponseMessage> ExcluirCliente([FromBody]JObject jObject)
+        public Task<HttpResponseMessage> ExcluirFornecedor([FromBody]JObject jObject)
         {
-            var codigoCliente = jObject["codigoCliente"].ToObject<int>();
+            var codigoFornecedor = jObject["codigoFornecedor"].ToObject<int>();
             HttpResponseMessage response;
             try
             {
-                _pessoaService.ExcluirPessoa(codigoCliente);
+                _pessoaService.ExcluirPessoa(codigoFornecedor);
                 response = ReturnSuccess();
             }
             catch (Exception ex)
