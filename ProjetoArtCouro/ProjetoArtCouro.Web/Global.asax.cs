@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using ProjetoArtCouro.Model.Models.Usuario;
+using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web
 {

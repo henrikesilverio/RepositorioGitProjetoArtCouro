@@ -594,6 +594,7 @@
     <Compile Include="Infra\Extensions\HttpResponseBaseExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Infra\Authorization\CustomAuthorize.cs" />
     <Compile Include="Infra\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

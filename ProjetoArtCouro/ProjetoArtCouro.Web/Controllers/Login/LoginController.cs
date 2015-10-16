@@ -14,6 +14,7 @@ namespace ProjetoArtCouro.Web.Controllers.Login
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(LoginModel model)
         {

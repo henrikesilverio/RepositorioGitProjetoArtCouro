@@ -116,6 +116,12 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             return _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(codigoUsuario);
         }
 
+        public List<Permissao> ObterPermissoesUsuarioLogado(string usuarioNome)
+        {
+            var usuario = _usuarioRepository.ObterComPermissoesPorUsuarioNome(usuarioNome);
+            return usuario.Permissoes.ToList();
+        }
+
         public GrupoPermissao ObterGrupoPermissaoPorCodigo(int codigo)
         {
             return _grupoPermissaoRepository.ObterPorCodigoComPermissao(codigo);
