@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using ProjetoArtCouro.Model.Models.Usuario;
+using Newtonsoft.Json;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web
@@ -32,12 +31,14 @@ namespace ProjetoArtCouro.Web
             }
             var formsIdentity = new FormsIdentity(ticket);
             var claimsIdentity = new ClaimsIdentity(formsIdentity);
+            var tokenModel = JsonConvert.DeserializeObject<TokenModel>(ticket.UserData);
+            var roles = JsonConvert.DeserializeObject<string[]>(tokenModel.roles);
 
-            //foreach (var role in user.Roles)
-            //{
-            claimsIdentity.AddClaim(
-                new Claim(ClaimTypes.Role, "Admin"));
-            //}
+            foreach (var role in roles)
+            {
+                claimsIdentity.AddClaim(
+                    new Claim(ClaimTypes.Role, role));
+            }
             var principal = new ClaimsPrincipal(claimsIdentity);
             HttpContext.Current.User = principal;
         }

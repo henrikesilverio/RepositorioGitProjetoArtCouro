@@ -70,7 +70,12 @@ namespace ProjetoArtCouro.Web.Infra.Service
                 return string.Empty;
             }
             var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            return ticket != null ? ticket.Name : string.Empty;
+            TokenModel tokenModel = null;
+            if (ticket != null)
+            {
+                tokenModel = JsonConvert.DeserializeObject<TokenModel>(ticket.UserData);
+            }
+            return tokenModel != null ? tokenModel.access_token : string.Empty;
         }
     }
 }
