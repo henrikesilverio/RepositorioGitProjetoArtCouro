@@ -8,7 +8,7 @@ namespace ProjetoArtCouro.Web.Infra.Service
 {
     public static class ServiceRequest
     {
-        public static bool SetAuthenticationToken(string userName, string password)
+        public static TokenModel GetAuthenticationToken(string userName, string password)
         {
             var client = new RestClient("http://localhost:5839");
             var request = new RestRequest("/api/security/token", Method.POST);
@@ -19,19 +19,10 @@ namespace ProjetoArtCouro.Web.Infra.Service
             var response = client.Execute<TokenModel>(request);
             if (response.Data == null)
             {
-                return false;
+                return null;
             }
             var token = response.Data.access_token;
-            if (string.IsNullOrEmpty(token))
-            {
-                return false;
-            }
-
-
-            //Salva o token de acesso ao serviço no Cookie
-            FormsAuthentication.SetAuthCookie(token, false);
-
-            return true;
+            return string.IsNullOrEmpty(token) ? null : response.Data;
         }
 
         public static IRestResponse<RetornoBase<T>> Post<T>(object objectParameter, string apiEndPoint)

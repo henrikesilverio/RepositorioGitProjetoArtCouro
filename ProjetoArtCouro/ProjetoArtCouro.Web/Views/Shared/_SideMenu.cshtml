@@ -22,9 +22,12 @@
                     <li>
                         <a href="javascript:void(0)">@Mensagens.Person</a>
                         <ul>
-                            <li>
-                                @Html.ActionLink(Mensagens.Client, "PesquisaCliente", "Cliente")
-                            </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    @Html.ActionLink(Mensagens.Client, "PesquisaCliente", "Cliente")
+                                </li>
+                            }
                             <li>
                                 @Html.ActionLink(Mensagens.Provider, "PesquisaFornecedor", "Fornecedor")
                             </li>
@@ -65,7 +68,7 @@
                     <li>
                         @Html.ActionLink(Mensagens.AccountsReceivable, "PesquisaContaReceber", "ContaReceber")
                     </li>
-                    
+
                 </ul>
             </li>
             <li>

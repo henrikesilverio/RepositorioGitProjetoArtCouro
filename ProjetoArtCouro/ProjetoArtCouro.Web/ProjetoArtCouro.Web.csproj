@@ -46,9 +46,9 @@
     <Reference Include="MoreLinq">
       <HintPath>..\packages\morelinq.1.2.0\lib\net35\MoreLinq.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -588,6 +588,12 @@
     <Compile Include="Controllers\Usuarios\ConfiguracaoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
+    <Compile Include="Infra\Authorization\CustomAuthorize.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infra\Extensions\HttpResponseBaseExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Infra\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
