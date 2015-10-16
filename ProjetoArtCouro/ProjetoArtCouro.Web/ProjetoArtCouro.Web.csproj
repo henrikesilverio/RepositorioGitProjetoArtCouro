@@ -588,6 +588,7 @@
     <Compile Include="Controllers\Usuarios\ConfiguracaoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
+    <Compile Include="Infra\Authorization\CustomAuthorize.cs" />
     <Compile Include="Infra\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

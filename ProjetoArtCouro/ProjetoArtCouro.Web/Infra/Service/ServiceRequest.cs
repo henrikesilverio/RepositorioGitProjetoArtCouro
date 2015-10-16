@@ -27,10 +27,7 @@ namespace ProjetoArtCouro.Web.Infra.Service
                 return false;
             }
 
-
-            //Salva o token de acesso ao serviço no Cookie
             FormsAuthentication.SetAuthCookie(token, false);
-
             return true;
         }
 

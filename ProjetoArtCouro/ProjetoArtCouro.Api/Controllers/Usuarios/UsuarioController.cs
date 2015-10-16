@@ -27,6 +27,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("CriarUsuario")]
+        [Authorize(Roles = "NovoUsuario")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarUsuario(UsuarioModel model)
         {
@@ -51,6 +52,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("EditarUsuario")]
+        [Authorize(Roles = "EditarUsuario")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarUsuario(UsuarioModel model)
         {
@@ -72,6 +74,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("AlterarSenha")]
+        [Authorize(Roles = "AlterarSenha")]
         [HttpPut]
         public Task<HttpResponseMessage> AlterarSenha(UsuarioModel model)
         {
@@ -99,7 +102,32 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
             return tsc.Task;
         }
 
+        [Route("ObterPermissoesUsuarioLogado")]
+        [Authorize]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterPermissoesUsuarioLogado()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var identity = (ClaimsPrincipal)Thread.CurrentPrincipal;
+                var usuarioNome = identity.Claims.Where(c => c.Type == ClaimTypes.GivenName)
+                    .Select(c => c.Value).SingleOrDefault();
+                var listaPermissao = _usuarioService.ObterPermissoesUsuarioLogado(usuarioNome);
+                response = ReturnSuccess(Mapper.Map<List<PermissaoModel>>(listaPermissao));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         [Route("ExcluirUsuario")]
+        [Authorize(Roles = "ExcluirUsuario")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirUsuario([FromBody]JObject jObject)
         {
@@ -121,7 +149,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("PesquisarUsuario")]
-        [Authorize]
+        [Authorize(Roles = "PesquisaUsuario")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarUsuario(PesquisaUsuarioModel model)
         {
@@ -142,6 +170,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("PesquisarUsuarioPorCodigo")]
+        [Authorize(Roles = "EditarUsuario")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarUsuarioPorCodigo([FromBody]JObject jObject)
         {
@@ -163,6 +192,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ObterListaUsuario")]
+        [Authorize(Roles = "ObterListaUsuario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaUsuario()
         {
@@ -183,6 +213,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("EditarPermissaoUsuario")]
+        [Authorize(Roles = "ConfiguracaoUsuario")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarPermissaoUsuario(ConfiguracaoUsuarioModel model)
         {
@@ -208,6 +239,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("PesquisarGrupo")]
+        [Authorize(Roles = "PesquisaGrupo")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarGrupo(PesquisaGrupoModel model)
         {
@@ -228,6 +260,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("PesquisarGrupoPorCodigo")]
+        [Authorize(Roles = "EditarGrupo")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarGrupoPorCodigo([FromBody]JObject jObject)
         {
@@ -249,6 +282,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("CriarGrupo")]
+        [Authorize(Roles = "NovoGrupo")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarGrupo(GrupoModel model)
         {
@@ -270,6 +304,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("EditarGrupo")]
+        [Authorize(Roles = "EditarGrupo")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarGrupo(GrupoModel model)
         {
@@ -291,6 +326,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ExcluirGrupo")]
+        [Authorize(Roles = "ExcluirGrupo")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirGrupo([FromBody]JObject jObject)
         {
@@ -312,6 +348,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ObterListaGrupo")]
+        [Authorize(Roles = "PesquisaUsuario, NovoUsuario, EditarUsuario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaGrupo()
         {
@@ -332,6 +369,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ObterListaPermissao")]
+        [Authorize(Roles = "NovoGrupo, EditarGrupo, ConfiguracaoUsuario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaPermissao()
         {

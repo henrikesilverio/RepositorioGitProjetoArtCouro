@@ -1,11 +1,14 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Startup.DependencyResolver;
@@ -28,7 +31,7 @@ namespace ProjetoArtCouro.Api.Security
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new [] { "*" });
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
             try
             {
@@ -55,15 +58,39 @@ namespace ProjetoArtCouro.Api.Security
                     identity.AddClaim(new Claim(ClaimTypes.Role, permissao.PermissaoNome));
                 }
 
+                //Inclui as o nome e as permissões do usuario no retorno da autenticação
+                var properties = CreateProperties(user.UsuarioNome, JsonConvert.SerializeObject(user.Permissoes.Select(x => x.AcaoNome).ToArray()));
+                var ticket = new AuthenticationTicket(identity, properties);
+                
                 var principal = new GenericPrincipal(identity, null);
                 Thread.CurrentPrincipal = principal;
-
-                context.Validated(identity);
+                
+                context.Validated(ticket);
             }
             catch (Exception)
             {
                 context.SetError("invalid_grant", Erros.InvalidCredentials);
             }
+        }
+
+        public override Task TokenEndpoint(OAuthTokenEndpointContext context)
+        {
+            foreach (var property in context.Properties.Dictionary)
+            {
+                context.AdditionalResponseParameters.Add(property.Key, property.Value);
+            }
+
+            return Task.FromResult<object>(null);
+        }
+
+        private static AuthenticationProperties CreateProperties(string userName, string roles)
+        {
+            IDictionary<string, string> data = new Dictionary<string, string>
+            {
+                {"user_name", userName},
+                {"roles", roles}
+            };
+            return new AuthenticationProperties(data);
         }
     }
 }

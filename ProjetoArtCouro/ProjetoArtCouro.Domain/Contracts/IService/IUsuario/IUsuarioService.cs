@@ -14,6 +14,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IUsuario
         List<Permissao> ObterListaPermissao();
         List<Usuario> PesquisarUsuario(string nome, int? permissaoId, bool? ativo);
         Usuario PesquisarUsuarioPorCodigo(int codigoUsuario);
+        List<Permissao> ObterPermissoesUsuarioLogado(string usuarioNome);
         GrupoPermissao ObterGrupoPermissaoPorCodigo(int codigo);
         List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo, bool todos);
         List<GrupoPermissao> ObterListaGrupoPermissao();
