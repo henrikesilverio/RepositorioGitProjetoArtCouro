@@ -3,6 +3,7 @@ using System.Web.Security;
 using ProjetoArtCouro.Web.Infra.Service;
 using ProjetoArtCouro.Model.Models.Login;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Extensions;
 
 namespace ProjetoArtCouro.Web.Controllers.Login
 {
@@ -22,8 +23,10 @@ namespace ProjetoArtCouro.Web.Controllers.Login
                 return View();
             }
 
-            if (ServiceRequest.SetAuthenticationToken(model.UsuarioNome, model.Senha))
+            var tokenModel = ServiceRequest.GetAuthenticationToken(model.UsuarioNome, model.Senha);
+            if (tokenModel != null)
             {
+                Response.SetAuthCookie(model.UsuarioNome, false, tokenModel);
                 return RedirectToAction("Index", "Home");
             }
 
@@ -34,7 +37,7 @@ namespace ProjetoArtCouro.Web.Controllers.Login
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Login", "Login");
         }
     }
 }

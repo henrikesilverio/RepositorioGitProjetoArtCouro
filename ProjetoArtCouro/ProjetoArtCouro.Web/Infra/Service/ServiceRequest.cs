@@ -8,7 +8,7 @@ namespace ProjetoArtCouro.Web.Infra.Service
 {
     public static class ServiceRequest
     {
-        public static bool SetAuthenticationToken(string userName, string password)
+        public static TokenModel GetAuthenticationToken(string userName, string password)
         {
             var client = new RestClient("http://localhost:5839");
             var request = new RestRequest("/api/security/token", Method.POST);
@@ -19,16 +19,10 @@ namespace ProjetoArtCouro.Web.Infra.Service
             var response = client.Execute<TokenModel>(request);
             if (response.Data == null)
             {
-                return false;
+                return null;
             }
             var token = response.Data.access_token;
-            if (string.IsNullOrEmpty(token))
-            {
-                return false;
-            }
-
-            FormsAuthentication.SetAuthCookie(token, false);
-            return true;
+            return string.IsNullOrEmpty(token) ? null : response.Data;
         }
 
         public static IRestResponse<RetornoBase<T>> Post<T>(object objectParameter, string apiEndPoint)
@@ -76,7 +70,12 @@ namespace ProjetoArtCouro.Web.Infra.Service
                 return string.Empty;
             }
             var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            return ticket != null ? ticket.Name : string.Empty;
+            TokenModel tokenModel = null;
+            if (ticket != null)
+            {
+                tokenModel = JsonConvert.DeserializeObject<TokenModel>(ticket.UserData);
+            }
+            return tokenModel != null ? tokenModel.access_token : string.Empty;
         }
     }
 }

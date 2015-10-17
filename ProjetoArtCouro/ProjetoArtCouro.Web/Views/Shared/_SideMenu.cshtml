@@ -24,9 +24,9 @@
                         <ul>
                             @if (User.IsInRole("PesquisaCliente"))
                             {
-                                <li>
-                                    @Html.ActionLink(Mensagens.Client, "PesquisaCliente", "Cliente")
-                                </li>
+                            <li>
+                                @Html.ActionLink(Mensagens.Client, "PesquisaCliente", "Cliente")
+                            </li>
                             }
                             <li>
                                 @Html.ActionLink(Mensagens.Provider, "PesquisaFornecedor", "Fornecedor")

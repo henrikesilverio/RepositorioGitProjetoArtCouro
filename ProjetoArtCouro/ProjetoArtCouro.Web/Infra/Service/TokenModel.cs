@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ProjetoArtCouro.Web.Infra.Service
+﻿namespace ProjetoArtCouro.Web.Infra.Service
 {
     public class TokenModel
     {

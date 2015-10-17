@@ -15,7 +15,7 @@ namespace ProjetoArtCouro.Web.Infra.Authorization
             {
                 filterContext.Result = new ViewResult
                 {
-                    ViewName = "~/Views/Shared/Unauthorized.cshtml"
+                    ViewName = "~/Views/Shared/Authorize.cshtml"
                 };
             }
             else

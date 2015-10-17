@@ -5,6 +5,7 @@ using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Pessoas
@@ -12,6 +13,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
     public class ClienteController : Controller
     {
         // GET: Cliente
+        [CustomAuthorize(Roles = "Admin")]
         public ActionResult PesquisaCliente()
         {
             ViewBag.Title = Mensagens.Client;

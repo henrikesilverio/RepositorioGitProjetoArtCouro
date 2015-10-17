@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using ProjetoArtCouro.Model.Models.Usuario;
+using Newtonsoft.Json;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web
@@ -18,9 +17,9 @@ namespace ProjetoArtCouro.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
-        protected void Application_AuthenticateRequest(object sender, EventArgs e)
+        protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
         {
-            var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
             if (authCookie == null)
             {
                 return;
@@ -32,15 +31,13 @@ namespace ProjetoArtCouro.Web
             }
             var formsIdentity = new FormsIdentity(ticket);
             var claimsIdentity = new ClaimsIdentity(formsIdentity);
-            var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterPermissoesUsuarioLogado");
-            if (response.Data == null)
-            {
-                return;
-            }
-            foreach (var permissao in response.Data.ObjetoRetorno)
+            var tokenModel = JsonConvert.DeserializeObject<TokenModel>(ticket.UserData);
+            var roles = JsonConvert.DeserializeObject<string[]>(tokenModel.roles);
+
+            foreach (var role in roles)
             {
                 claimsIdentity.AddClaim(
-                    new Claim(ClaimTypes.Role, permissao.AcaoNome));
+                    new Claim(ClaimTypes.Role, role));
             }
             var principal = new ClaimsPrincipal(claimsIdentity);
             HttpContext.Current.User = principal;
