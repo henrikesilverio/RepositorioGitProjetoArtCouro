@@ -13,7 +13,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
     public class ClienteController : Controller
     {
         // GET: Cliente
-        [CustomAuthorize(Roles = "Admin")]
+        [CustomAuthorize(Roles = "AA")]
         public ActionResult PesquisaCliente()
         {
             ViewBag.Title = Mensagens.Client;

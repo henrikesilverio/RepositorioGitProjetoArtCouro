@@ -19,9 +19,10 @@ namespace ProjetoArtCouro.Web
 
         protected void Application_PostAuthenticateRequest(object sender, EventArgs e)
         {
-            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
             if (authCookie == null)
             {
+                HttpContext.Current.Request.Cookies.Remove(".ASPXROLES");
                 return;
             }
             var ticket = FormsAuthentication.Decrypt(authCookie.Value);
@@ -31,13 +32,19 @@ namespace ProjetoArtCouro.Web
             }
             var formsIdentity = new FormsIdentity(ticket);
             var claimsIdentity = new ClaimsIdentity(formsIdentity);
-            var tokenModel = JsonConvert.DeserializeObject<TokenModel>(ticket.UserData);
-            var roles = JsonConvert.DeserializeObject<string[]>(tokenModel.roles);
-
-            foreach (var role in roles)
+            var rolesCookie = HttpContext.Current.Request.Cookies[".ASPXROLES"];
+            if (rolesCookie != null)
             {
-                claimsIdentity.AddClaim(
-                    new Claim(ClaimTypes.Role, role));
+                var ticketRoles = FormsAuthentication.Decrypt(rolesCookie.Value);
+                if (ticketRoles != null)
+                {
+                    var roles = JsonConvert.DeserializeObject<string[]>(ticketRoles.UserData);
+                    foreach (var role in roles)
+                    {
+                        claimsIdentity.AddClaim(
+                            new Claim(ClaimTypes.Role, role));
+                    }
+                }
             }
             var principal = new ClaimsPrincipal(claimsIdentity);
             HttpContext.Current.User = principal;

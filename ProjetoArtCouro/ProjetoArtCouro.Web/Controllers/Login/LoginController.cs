@@ -9,7 +9,6 @@ namespace ProjetoArtCouro.Web.Controllers.Login
 {
     public class LoginController : Controller
     {
-        // GET: Login
         public ActionResult Login()
         {
             return View();
@@ -26,7 +25,7 @@ namespace ProjetoArtCouro.Web.Controllers.Login
             var tokenModel = ServiceRequest.GetAuthenticationToken(model.UsuarioNome, model.Senha);
             if (tokenModel != null)
             {
-                Response.SetAuthCookie(model.UsuarioNome, false, tokenModel);
+                Response.SetAuthCookie(model.UsuarioNome, false, tokenModel.access_token, tokenModel.roles);
                 return RedirectToAction("Index", "Home");
             }
 

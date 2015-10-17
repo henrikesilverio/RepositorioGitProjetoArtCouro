@@ -207,15 +207,11 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	function logout() {
-	    window.location = $.loginURL;
-	}
-
 	// LOGOUT BUTTON
     $("#logout a").click(function(e) {
         //get the link
         var $this = $(this);
-        $.loginURL = $this.attr("href");
+        $.loginURL = $this.data("href");
         $.logoutMSG = $this.data("logout-msg");
         $.yesMSG = $this.data("yes");
         $.notMSG = $this.data("not");
@@ -223,13 +219,13 @@ $(document).ready(function() {
         // ask verification
         $.SmartMessageBox({
             title: "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $("#show-shortcut").text() + "</strong></span> ?",
-            content: $.logoutMSG || "You can improve your security further after logging out by closing this opened browser",
+            content: $.logoutMSG,
             buttons: "[" + $.notMSG + "][" + $.yesMSG + "]"
 
-        }, function(ButtonPressed) {
-            if (ButtonPressed === "Sim") {
+        }, function(buttonPressed) {
+            if (buttonPressed === "Sim") {
                 $.root_.addClass("animated fadeOutUp");
-                setTimeout(logout, 1000);
+                setTimeout(function () { window.location = $.loginURL; }, 1000);
             }
 
         });
