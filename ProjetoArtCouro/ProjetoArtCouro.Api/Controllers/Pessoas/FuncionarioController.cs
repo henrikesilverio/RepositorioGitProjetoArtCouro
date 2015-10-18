@@ -23,6 +23,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("CriarFuncionario")]
+        [Authorize(Roles = "NovoFuncionario")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarFuncionario(FuncionarioModel model)
         {
@@ -58,6 +59,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarFuncionario")]
+        [Authorize(Roles = "PesquisaFuncionario")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarFuncionario(PesquisaFuncionarioModel model)
         {
@@ -88,6 +90,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarFuncionarioPorCodigo")]
+        [Authorize(Roles = "EditarFuncionario")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarFuncionarioPorCodigo([FromBody]JObject jObject)
         {
@@ -112,6 +115,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("EditarFuncionario")]
+        [Authorize(Roles = "EditarFuncionario")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarFuncionario(FuncionarioModel model)
         {
@@ -145,6 +149,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("ExcluirFuncionario")]
+        [Authorize(Roles = "ExcluirFuncionario")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirFuncionario([FromBody]JObject jObject)
         {

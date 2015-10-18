@@ -4,13 +4,14 @@ using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Compras
 {
     public class CompraController : Controller
     {
-        // GET: Compra
+        [CustomAuthorize(Roles = "PesquisaCompra")]
         public ActionResult PesquisaCompra()
         {
             ViewBag.Title = Mensagens.Buy;
@@ -37,6 +38,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaCompra")]
         public JsonResult PesquisaCompra(PesquisaCompraModel model)
         {
             //var response = ServiceRequest.Post<List<CompraModel>>(model, "api/Compra/PesquisaCompra");
@@ -65,6 +67,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
             return Json(new { ObjetoRetorno = resultado }, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "NovaCompra")]
         public ActionResult NovaCompra()
         {
             ViewBag.Title = Mensagens.Buy;
@@ -159,12 +162,14 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "NovaCompra")]
         public JsonResult NovaCompra(CompraModel model)
         {
             var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Compra/CriarCompra");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "EditarCompra")]
         public ActionResult EditarCompra(int codigoCompra)
         {
             ViewBag.Title = Mensagens.Buy;
@@ -259,6 +264,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "EditarCompra")]
         public ActionResult EditarCompra(CompraModel model)
         {
             ViewBag.Title = Mensagens.Buy;
@@ -279,6 +285,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ExcluirCompra")]
         public JsonResult ExcluirCompra(int codigoCompra)
         {
             return Json(true, JsonRequestBehavior.AllowGet);

@@ -5,13 +5,14 @@ using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Funcionario;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Pessoas
 {
     public class FuncionarioController : Controller
     {
-        // GET: Funcionario
+        [CustomAuthorize(Roles = "PesquisaFuncionario")]
         public ActionResult PesquisaFuncionario()
         {
             ViewBag.Title = Mensagens.Employee;
@@ -20,6 +21,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaFuncionario")]
         public JsonResult PesquisaFuncionario(PesquisaFuncionarioModel model)
         {
             var response = ServiceRequest.Post<List<FuncionarioModel>>(model, "api/Funcionario/PesquisarFuncionario");
@@ -30,6 +32,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "NovoFuncionario")]
         public ActionResult NovoFuncionario()
         {
             CriarViewBags(Mensagens.NewEmployee);
@@ -42,6 +45,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "NovoFuncionario")]
         public JsonResult NovoFuncionario(FuncionarioModel model)
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Funcionario;
@@ -49,6 +53,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "EditarFuncionario")]
         public ActionResult EditarFuncionario(int codigoFuncionario)
         {
             CriarViewBags(Mensagens.EditEmployee);
@@ -74,6 +79,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "EditarFuncionario")]
         public JsonResult EditarFuncionario(FuncionarioModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Funcionario/EditarFuncionario");
@@ -81,6 +87,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ExcluirFuncionario")]
         public JsonResult ExcluirFuncionario(int codigoFuncionario)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoFuncionario = codigoFuncionario }, "api/Funcionario/ExcluirFuncionario");

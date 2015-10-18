@@ -106,6 +106,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         },
                         new Permissao
                         {
+                            PermissaoNome = "Pesquisa Conta Pagar",
+                            AcaoNome = "PesquisaContaPagar"
+                        },
+                        new Permissao
+                        {
                             PermissaoNome = "Pesquisa Conta Receber",
                             AcaoNome = "PesquisaContaReceber"
                         },
@@ -131,6 +136,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         },
                         new Permissao
                         {
+                            PermissaoNome = "Excluir Cliente",
+                            AcaoNome = "ExcluirCliente"
+                        },
+                        new Permissao
+                        {
                             PermissaoNome = "Pesquisa Fornecedor",
                             AcaoNome = "PesquisaFornecedor"
                         },
@@ -146,6 +156,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         },
                         new Permissao
                         {
+                            PermissaoNome = "Excluir Fornecedor",
+                            AcaoNome = "ExcluirFornecedor"
+                        },
+                        new Permissao
+                        {
                             PermissaoNome = "Pesquisa Funcionario",
                             AcaoNome = "PesquisaFuncionario"
                         },
@@ -158,6 +173,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         {
                             PermissaoNome = "Editar Funcionario",
                             AcaoNome = "EditarFuncionario"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Excluir Funcionario",
+                            AcaoNome = "ExcluirFuncionario"
                         },
                         new Permissao
                         {
@@ -201,6 +221,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         },
                         new Permissao
                         {
+                            PermissaoNome = "Configuracao Usuario",
+                            AcaoNome = "ConfiguracaoUsuario"
+                        },
+                        new Permissao
+                        {
                             PermissaoNome = "Pesquisa Usuario",
                             AcaoNome = "PesquisaUsuario"
                         },
@@ -218,6 +243,11 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         {
                             PermissaoNome = "Excluir Usuario",
                             AcaoNome = "ExcluirUsuario"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Alterar Senha",
+                            AcaoNome = "AlterarSenha"
                         },
                         new Permissao
                         {

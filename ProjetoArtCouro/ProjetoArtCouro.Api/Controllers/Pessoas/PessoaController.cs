@@ -20,6 +20,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("ObterListaEstado")]
+        [Authorize(Roles = "NovoCliente, EditarCliente, NovoFornecedor, EditarFornecedor, NovoFuncionario, EditarFuncionario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaEstado()
         {
@@ -40,6 +41,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("ObterListaEstadoCivil")]
+        [Authorize(Roles = "NovoCliente, EditarCliente, NovoFornecedor, EditarFornecedor, NovoFuncionario, EditarFuncionario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaEstadoCivil()
         {

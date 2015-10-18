@@ -4,13 +4,14 @@ using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Usuarios
 {
     public class ConfiguracaoController : Controller
     {
-        // GET: Configuracao
+        [CustomAuthorize(Roles = "PesquisaGrupo")]
         public ActionResult PesquisaGrupo()
         {
             CriarViewBags(Mensagens.GroupSearch);
@@ -18,6 +19,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaGrupo")]
         public JsonResult PesquisaGrupo(PesquisaGrupoModel model)
         {
             var response = ServiceRequest.Post<List<GrupoModel>>(model, "api/Usuario/PesquisarGrupo");
@@ -28,6 +30,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "NovoGrupo")]
         public ActionResult NovoGrupo()
         {
             CriarViewBags(Mensagens.NewGroup);
@@ -36,12 +39,14 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "NovoGrupo")]
         public JsonResult NovoGrupo(GrupoModel model)
         {
             var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Usuario/CriarGrupo");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "EditarGrupo")]
         public ActionResult EditarGrupo(int codigoGrupo)
         {
             CriarViewBags(Mensagens.EditGroup);
@@ -51,6 +56,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "EditarGrupo")]
         public JsonResult EditarGrupo(GrupoModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarGrupo");
@@ -58,6 +64,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ExcluirGrupo")]
         public JsonResult ExcluirGrupo(int codigoGrupo)
         {
             var response = ServiceRequest.Delete<RetornoBase<int?>>(new {codigoGrupo = codigoGrupo},
@@ -65,6 +72,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "ConfiguracaoUsuario")]
         public ActionResult ConfiguracaoUsuario()
         {
             ViewBag.Usuarios = new List<UsuarioModel>();
@@ -73,6 +81,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             return View();
         }
 
+        [CustomAuthorize(Roles = "ConfiguracaoUsuario")]
         public JsonResult ObterListaUsuario()
         {
             var response = ServiceRequest.Get<List<UsuarioModel>>(null, "api/Usuario/ObterListaUsuario");
@@ -80,6 +89,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ConfiguracaoUsuario")]
         public JsonResult ConfiguracaoUsuario(ConfiguracaoUsuarioModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarPermissaoUsuario");

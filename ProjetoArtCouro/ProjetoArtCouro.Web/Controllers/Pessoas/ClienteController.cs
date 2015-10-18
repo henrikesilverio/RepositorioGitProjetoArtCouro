@@ -12,8 +12,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
 {
     public class ClienteController : Controller
     {
-        // GET: Cliente
-        [CustomAuthorize(Roles = "AA")]
+        [CustomAuthorize(Roles = "PesquisaCliente")]
         public ActionResult PesquisaCliente()
         {
             ViewBag.Title = Mensagens.Client;
@@ -22,6 +21,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaCliente")]
         public JsonResult PesquisaCliente(PesquisaClienteModel model)
         {
             var response = ServiceRequest.Post<List<ClienteModel>>(model, "api/Cliente/PesquisarCliente");
@@ -32,6 +32,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "NovoCliente")]
         public ActionResult NovoCliente()
         {
             CriarViewBags(Mensagens.NewClient);
@@ -44,6 +45,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "NovoCliente")]
         public JsonResult NovoCliente(ClienteModel model)
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
@@ -51,6 +53,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "EditarCliente")]
         public ActionResult EditarCliente(int codigoCliente)
         {
             CriarViewBags(Mensagens.EditClient);
@@ -76,6 +79,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "EditarCliente")]
         public JsonResult EditarCliente(ClienteModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Cliente/EditarCliente");
@@ -83,6 +87,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ExcluirCliente")]
         public JsonResult ExcluirCliente(int codigoCliente)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoCliente = codigoCliente }, "api/Cliente/ExcluirCliente");

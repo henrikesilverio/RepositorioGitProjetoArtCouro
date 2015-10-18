@@ -192,7 +192,7 @@ namespace ProjetoArtCouro.Api.Controllers.Usuarios
         }
 
         [Route("ObterListaUsuario")]
-        [Authorize(Roles = "ObterListaUsuario")]
+        [Authorize(Roles = "ConfiguracaoUsuario")]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaUsuario()
         {

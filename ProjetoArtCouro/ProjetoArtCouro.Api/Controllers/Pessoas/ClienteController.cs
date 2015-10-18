@@ -23,6 +23,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("CriarCliente")]
+        [Authorize(Roles = "NovoCliente")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {
@@ -58,6 +59,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarCliente")]
+        [Authorize(Roles = "PesquisaCliente")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarCliente(PesquisaClienteModel model)
         {
@@ -88,6 +90,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarClientePorCodigo")]
+        [Authorize(Roles = "EditarCliente")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarClientePorCodigo([FromBody]JObject jObject)
         {
@@ -112,6 +115,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("EditarCliente")]
+        [Authorize(Roles = "EditarCliente")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarCliente(ClienteModel model)
         {
@@ -145,6 +149,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("ExcluirCliente")]
+        [Authorize(Roles = "ExcluirCliente")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirCliente([FromBody]JObject jObject)
         {

@@ -23,6 +23,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("CriarFornecedor")]
+        [Authorize(Roles = "NovoFornecedor")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarFornecedor(FornecedorModel model)
         {
@@ -58,6 +59,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarFornecedor")]
+        [Authorize(Roles = "PesquisaFornecedor")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarFornecedor(PesquisaFornecedorModel model)
         {
@@ -88,6 +90,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("PesquisarFornecedorPorCodigo")]
+        [Authorize(Roles = "EditarFornecedor")]
         [HttpPost]
         public Task<HttpResponseMessage> PesquisarFornecedorPorCodigo([FromBody]JObject jObject)
         {
@@ -112,6 +115,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("EditarFornecedor")]
+        [Authorize(Roles = "EditarFornecedor")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarFornecedor(FornecedorModel model)
         {
@@ -145,6 +149,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         }
 
         [Route("ExcluirFornecedor")]
+        [Authorize(Roles = "ExcluirFornecedor")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirFornecedor([FromBody]JObject jObject)
         {

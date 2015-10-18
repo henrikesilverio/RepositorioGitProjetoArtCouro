@@ -4,12 +4,13 @@ using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.ContaPagar;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 
 namespace ProjetoArtCouro.Web.Controllers.ContasPagar
 {
     public class ContaPagarController : Controller
     {
-        // GET: ContaPagar
+        [CustomAuthorize(Roles = "PesquisaContaPagar")]
         public ActionResult PesquisaContaPagar()
         {
             ViewBag.Title = Mensagens.BillsToPay;
@@ -30,6 +31,7 @@ namespace ProjetoArtCouro.Web.Controllers.ContasPagar
             return View();
         }
 
+        [CustomAuthorize(Roles = "PesquisaContaPagar")]
         public JsonResult PesquisaContaPagar(PesquisaContaPagarModel model)
         {
             var resultado = new List<ContaPagarModel>

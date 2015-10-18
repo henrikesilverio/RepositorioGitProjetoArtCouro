@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Venda;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Vendas
@@ -11,6 +12,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
     public class VendaController : Controller
     {
         // GET: Venda
+        [CustomAuthorize(Roles = "PesquisaVenda")]
         public ActionResult PesquisaVenda()
         {
             ViewBag.Title = Mensagens.Sale;
@@ -37,6 +39,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaVenda")]
         public JsonResult PesquisaVenda(PesquisaVendaModel model)
         {
             //var response = ServiceRequest.Post<List<VendaModel>>(model, "api/Venda/PesquisaVenda");
@@ -65,6 +68,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
             return Json(new {ObjetoRetorno = resultado}, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "NovaVenda")]
         public ActionResult NovaVenda()
         {
             ViewBag.Title = Mensagens.Sale;
@@ -159,12 +163,14 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "NovaVenda")]
         public JsonResult NovaVenda(VendaModel model)
         {
             var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Venda/CriarVenda");
             return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
 
+        [CustomAuthorize(Roles = "EditarVenda")]
         public ActionResult EditarVenda(int codigoVenda)
         {
             ViewBag.Title = Mensagens.Sale;
@@ -259,6 +265,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "EditarVenda")]
         public ActionResult EditarVenda(VendaModel model)
         {
             ViewBag.Title = Mensagens.NewSale;
@@ -279,6 +286,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         }
 
         [HttpPost]
+        [CustomAuthorize(Roles = "ExcluirVenda")]
         public JsonResult ExcluirVenda(int codigoVenda)
         {
             return Json(true, JsonRequestBehavior.AllowGet);
