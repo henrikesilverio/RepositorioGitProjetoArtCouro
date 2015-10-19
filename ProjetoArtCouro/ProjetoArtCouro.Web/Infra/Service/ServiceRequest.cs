@@ -1,7 +1,7 @@
 ﻿using System.Web;
-using System.Web.Security;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using RestSharp;
 
 namespace ProjetoArtCouro.Web.Infra.Service
@@ -64,13 +64,13 @@ namespace ProjetoArtCouro.Web.Infra.Service
 
         private static string GetTokenForAuthCookie()
         {
-            var cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            var cookie = HttpContext.Current.Request.Cookies[".ASPXTOKEN"];
             if (cookie == null)
             {
                 return string.Empty;
             }
-            var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            return ticket != null ? ticket.UserData: string.Empty;
+            var token = EncryptionMD5.Decrypt(cookie.Value);
+            return token ?? string.Empty;
         }
     }
 }

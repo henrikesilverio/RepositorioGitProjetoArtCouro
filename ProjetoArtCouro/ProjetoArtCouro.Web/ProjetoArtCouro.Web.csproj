@@ -589,6 +589,9 @@
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
     <Compile Include="Infra\Authorization\CustomAuthorize.cs" />
+    <Compile Include="Infra\Authorization\EncryptionMD5.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Infra\Extensions\HttpResponseBaseExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -596,7 +599,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infra\Authorization\ProjetoArtCouroRoleProvider.cs" />
     <Compile Include="Infra\AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="Infra\AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Infra\AutoMapper\ViewModelToDomainMappingProfile.cs" />

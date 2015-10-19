@@ -1,33 +1,40 @@
 ﻿using System.Web;
 using System.Web.Security;
-using Newtonsoft.Json;
+using ProjetoArtCouro.Web.Infra.Authorization;
 
 namespace ProjetoArtCouro.Web.Infra.Extensions
 {
     public static class HttpResponseBaseExtensions
     {
-        public static int SetAuthCookie(this HttpResponseBase responseBase, string name, bool rememberMe, string token, string roles)
+        public static int SetAuthCookie(this HttpResponseBase responseBase, string userName, string token, string roles, bool rememberMe)
         {
-            var cookie = FormsAuthentication.GetAuthCookie(name, rememberMe);
-            var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            if (ticket == null)
+            var cookieAuth = FormsAuthentication.GetAuthCookie(userName, rememberMe);
+            var ticketAuth = FormsAuthentication.Decrypt(cookieAuth.Value);
+            if (ticketAuth == null)
             {
                 return 0;
             }
-            var newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration,
-                ticket.IsPersistent, JsonConvert.SerializeObject(token), ticket.CookiePath);
-            var encTicket = FormsAuthentication.Encrypt(newTicket);
-            cookie.Value = encTicket;
+            var newTicketAuth = new FormsAuthenticationTicket(ticketAuth.Version, userName, ticketAuth.IssueDate, ticketAuth.Expiration,
+                ticketAuth.IsPersistent, string.Empty, ticketAuth.CookiePath);
+            var encTicketAuth = FormsAuthentication.Encrypt(newTicketAuth);
+            cookieAuth.Value = encTicketAuth;
             
             var cookieRoles = new HttpCookie(".ASPXROLES");
-            var ticketRoles = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration,
-                ticket.IsPersistent, roles, ticket.CookiePath);
+            var ticketRoles = new FormsAuthenticationTicket(ticketAuth.Version, userName, ticketAuth.IssueDate, ticketAuth.Expiration,
+                ticketAuth.IsPersistent, roles, "/ROLES");
             var encTickeRoles = FormsAuthentication.Encrypt(ticketRoles);
             cookieRoles.Value = encTickeRoles;
 
-            responseBase.Cookies.Add(cookie);
+            var cookieToken = new HttpCookie(".ASPXTOKEN")
+            {
+                Value = EncryptionMD5.Encrypt(token),
+                Expires = ticketAuth.Expiration
+            };
+
+            responseBase.Cookies.Add(cookieAuth);
+            responseBase.Cookies.Add(cookieToken);
             responseBase.Cookies.Add(cookieRoles);
-            return encTicket != null ? encTicket.Length : 0;
+            return encTicketAuth != null ? encTicketAuth.Length : 0;
         }
     }
 }

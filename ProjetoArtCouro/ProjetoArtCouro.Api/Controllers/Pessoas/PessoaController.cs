@@ -4,13 +4,17 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
+using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Model.Models.Common;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Pessoa")]
+    [DeflateCompression]
+    [CacheOutput(ClientTimeSpan = 10000, ServerTimeSpan = 10000)]
     public class PessoaController : ApiControllerBase
     {
         private readonly IPessoaService _pessoaService;

@@ -55,7 +55,7 @@ namespace ProjetoArtCouro.Api.Security
                 //Setando as permissao do usuario
                 foreach (var permissao in user.Permissoes)
                 {
-                    identity.AddClaim(new Claim(ClaimTypes.Role, permissao.PermissaoNome));
+                    identity.AddClaim(new Claim(ClaimTypes.Role, permissao.AcaoNome));
                 }
 
                 //Inclui as o nome e as permissões do usuario no retorno da autenticação

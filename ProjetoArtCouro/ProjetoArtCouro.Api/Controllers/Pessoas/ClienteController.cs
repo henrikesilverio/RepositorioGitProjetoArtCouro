@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
+using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
@@ -14,6 +15,7 @@ using ProjetoArtCouro.Model.Models.Cliente;
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Cliente")]
+    [DeflateCompression]
     public class ClienteController : ApiControllerBase
     {
         private readonly IPessoaService _pessoaService;
@@ -24,6 +26,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("CriarCliente")]
         [Authorize(Roles = "NovoCliente")]
+        //[CacheOutput(ClientTimeSpan = 100, ServerTimeSpan = 100)]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {

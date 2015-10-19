@@ -25,7 +25,7 @@ namespace ProjetoArtCouro.Web.Controllers.Login
             var tokenModel = ServiceRequest.GetAuthenticationToken(model.UsuarioNome, model.Senha);
             if (tokenModel != null)
             {
-                Response.SetAuthCookie(model.UsuarioNome, false, tokenModel.access_token, tokenModel.roles);
+                Response.SetAuthCookie(model.UsuarioNome, tokenModel.access_token, tokenModel.roles, false);
                 return RedirectToAction("Index", "Home");
             }
 

@@ -5,7 +5,6 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using Newtonsoft.Json;
-using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web
 {
@@ -22,6 +21,7 @@ namespace ProjetoArtCouro.Web
             var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
             if (authCookie == null)
             {
+                HttpContext.Current.Request.Cookies.Remove(".ASPXTOKEN");
                 HttpContext.Current.Request.Cookies.Remove(".ASPXROLES");
                 return;
             }

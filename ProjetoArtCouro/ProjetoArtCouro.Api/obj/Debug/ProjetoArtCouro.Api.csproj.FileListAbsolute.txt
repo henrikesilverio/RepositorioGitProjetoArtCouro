@@ -270,3 +270,6 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Projeto
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Ionic.Zip.Reduced.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\WebApi.OutputCache.Core.dll
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\WebApi.OutputCache.V2.dll

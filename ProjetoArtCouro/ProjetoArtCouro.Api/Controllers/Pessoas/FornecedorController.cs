@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
+using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
@@ -14,6 +15,7 @@ using ProjetoArtCouro.Model.Models.Fornecedor;
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Fornecedor")]
+    [DeflateCompression]
     public class FornecedorController : ApiControllerBase
     {
         private readonly IPessoaService _pessoaService;
