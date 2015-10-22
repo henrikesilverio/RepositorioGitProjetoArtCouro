@@ -1,5 +1,4 @@
-﻿using System;
-using ProjetoArtCouro.Resource.Resources;
+﻿using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Common
 {

@@ -177,8 +177,9 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             }
             var temUsuario = _usuarioRepository.ObterPorCodigoComPermissoes(codigoUsuario);
             AssertionConcern.AssertArgumentNotEquals(temUsuario, null, Erros.UserDoesNotExist);
+            var listaPermissao = _permissaoRepository.ObterLista();
             permissoes = permissoes.Select(x =>
-                permissoes.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
+                listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
             temUsuario.Permissoes.Clear();
             temUsuario.Permissoes = permissoes;
             _usuarioRepository.Atualizar(temUsuario);

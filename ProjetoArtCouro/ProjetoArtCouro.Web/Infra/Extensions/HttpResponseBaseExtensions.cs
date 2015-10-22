@@ -36,5 +36,24 @@ namespace ProjetoArtCouro.Web.Infra.Extensions
             responseBase.Cookies.Add(cookieRoles);
             return encTicketAuth != null ? encTicketAuth.Length : 0;
         }
+
+        public static void UpdateRolesCookie(this HttpResponseBase responseBase, string roles)
+        {
+            var cookieRoles = HttpContext.Current.Request.Cookies[".ASPXROLES"];
+            if (cookieRoles == null)
+            {
+                return;
+            }
+            var ticketRoles = FormsAuthentication.Decrypt(cookieRoles.Value);
+            if (ticketRoles == null)
+            {
+                return;
+            }
+            var newTicketRoles = new FormsAuthenticationTicket(ticketRoles.Version, ticketRoles.Name, ticketRoles.IssueDate, ticketRoles.Expiration,
+                ticketRoles.IsPersistent, roles, "/ROLES");
+            var encTickeRoles = FormsAuthentication.Encrypt(newTicketRoles);
+            cookieRoles.Value = encTickeRoles;
+            responseBase.Cookies.Add(cookieRoles);
+        }
     }
 }

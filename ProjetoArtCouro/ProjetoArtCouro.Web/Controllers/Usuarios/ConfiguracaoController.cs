@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
+using ProjetoArtCouro.Web.Infra.Extensions;
 using ProjetoArtCouro.Web.Infra.Service;
+using RestSharp;
 
 namespace ProjetoArtCouro.Web.Controllers.Usuarios
 {
@@ -93,7 +97,20 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult ConfiguracaoUsuario(ConfiguracaoUsuarioModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarPermissaoUsuario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                return ReturnResponse(response);
+            }
+            var ret = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterPermissoesUsuarioLogado");
+            if (ret.StatusCode != HttpStatusCode.OK || ret.Data == null)
+            {
+                return ReturnResponse(response);
+            }
+            var roles =
+                JsonConvert.SerializeObject(
+                    ret.Data.ObjetoRetorno.Select(x => x.AcaoNome).ToArray());
+            Response.UpdateRolesCookie(roles);
+            return ReturnResponse(response);
         }
 
         private void CriarViewBags(string subTitulo)
@@ -106,6 +123,19 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         {
             var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterListaPermissao");
             ViewBag.Permissoes = response.Data.ObjetoRetorno;
+        }
+
+        //TODO incluir tratamento de exeção globalizado
+        private JsonResult ReturnResponse<T>(IRestResponse<T> response)
+        {
+            HttpContext.Response.Clear();
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                return Json(response.Data, JsonRequestBehavior.AllowGet);
+            }
+            HttpContext.Response.TrySkipIisCustomErrors = true;
+            HttpContext.Response.StatusCode = (int)response.StatusCode;
+            return Json(response.Data, JsonRequestBehavior.AllowGet);
         }
     }
 }
