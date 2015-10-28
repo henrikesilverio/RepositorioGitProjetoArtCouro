@@ -10,7 +10,7 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Pessoas
 {
-    public class FuncionarioController : Controller
+    public class FuncionarioController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaFuncionario")]
         public ActionResult PesquisaFuncionario()
@@ -29,7 +29,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             {
                 response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
             }
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovoFuncionario")]
@@ -50,7 +50,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Funcionario;
             var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Funcionario/CriarFuncionario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarFuncionario")]
@@ -59,7 +59,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             CriarViewBags(Mensagens.EditEmployee);
             var response = ServiceRequest.Post<FuncionarioModel>(new { codigoFuncionario = codigoFuncionario }, "api/Funcionario/PesquisarFuncionarioPorCodigo");
             var model = response.Data.ObjetoRetorno;
-            //TODO Criar tratamentoo de exceção
             if (model == null)
             {
                 return View(response.Data.ObjetoRetorno);
@@ -83,7 +82,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult EditarFuncionario(FuncionarioModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Funcionario/EditarFuncionario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -91,7 +90,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult ExcluirFuncionario(int codigoFuncionario)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoFuncionario = codigoFuncionario }, "api/Funcionario/ExcluirFuncionario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         private void CriarViewBags(string subTitle)

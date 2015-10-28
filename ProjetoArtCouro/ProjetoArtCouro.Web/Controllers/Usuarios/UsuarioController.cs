@@ -8,7 +8,7 @@ using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 namespace ProjetoArtCouro.Web.Controllers.Usuarios
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaUsuario")]
         public ActionResult PesquisaUsuario()
@@ -26,7 +26,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             {
                 response.Data.Mensagem = Erros.NoUsersForTheGivenFilter;
             }
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovoUsuario")]
@@ -41,7 +41,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult NovoUsuario(UsuarioModel model)
         {
             var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Usuario/CriarUsuario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarUsuario")]
@@ -57,7 +57,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult EditarUsuario(UsuarioModel model)
         {
             var response = ServiceRequest.Put<UsuarioModel>(model, "api/Usuario/EditarUsuario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "AlterarSenha")]
@@ -71,7 +71,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult AlterarSenha(UsuarioModel model)
         {
             var response = ServiceRequest.Put<UsuarioModel>(model, "api/Usuario/AlterarSenha");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult ExcluirUsuario(int codigoUsuario)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoUsuario = codigoUsuario }, "api/Usuario/ExcluirUsuario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         private void CriarViewBags(string subTitulo)

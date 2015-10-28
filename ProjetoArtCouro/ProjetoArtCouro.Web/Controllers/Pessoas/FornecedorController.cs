@@ -10,7 +10,7 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Pessoas
 {
-    public class FornecedorController : Controller
+    public class FornecedorController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaFornecedor")]
         public ActionResult PesquisaFornecedor()
@@ -29,7 +29,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             {
                 response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
             }
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovoFornecedor")]
@@ -50,7 +50,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Fornecedor;
             var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Fornecedor/CriarFornecedor");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarFornecedor")]
@@ -59,7 +59,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             CriarViewBags(Mensagens.EditProvider);
             var response = ServiceRequest.Post<FornecedorModel>(new { codigoFornecedor = codigoFornecedor }, "api/Fornecedor/PesquisarFornecedorPorCodigo");
             var model = response.Data.ObjetoRetorno;
-            //TODO Criar tratamentoo de exceção
             if (model == null)
             {
                 return View(response.Data.ObjetoRetorno);
@@ -83,7 +82,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public ActionResult EditarFornecedor(FornecedorModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Fornecedor/EditarFornecedor");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -91,7 +90,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult ExcluirFornecedor(int codigoFornecedor)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoFornecedor = codigoFornecedor }, "api/Fornecedor/ExcluirFornecedor");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         private void CriarViewBags(string subTitle)

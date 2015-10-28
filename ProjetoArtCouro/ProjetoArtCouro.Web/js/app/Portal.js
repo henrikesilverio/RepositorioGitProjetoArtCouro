@@ -198,6 +198,42 @@ $.extend(Portal, {
             formularioDados.push({ "name": "Permissoes[" + index + "].Codigo", "value": obj.id });
             formularioDados.push({ "name": "Permissoes[" + index + "].Nome", "value": obj.text });
         });
+    },
+    AntesDeSerializar: function () { },
+    AntesDeEnviar: function () { },
+    DepoisDeValidar: function () { },
+    FurmularioInvalido: function() {},
+    SalvarDados: function (settings) {
+        settings.$BotaoSalvar.on("click", function () {
+            if ($.isFunction(Portal.AntesDeSerializar)) {
+                Portal.AntesDeSerializar.call(this);
+            }
+            var formularioDados = settings.$Formulario.serializeArray();
+            if ($.isFunction(Portal.AntesDeEnviar)) {
+                Portal.AntesDeEnviar.call(this, formularioDados);
+            }
+            if (settings.$Formulario.valid()) {
+                if ($.isFunction(Portal.DepoisDeValidar)) {
+                    Portal.DepoisDeValidar.call(this, formularioDados);
+                }
+                $.ajax({
+                    url: settings.UrlDados,
+                    data: formularioDados,
+                    type: "POST",
+                    traditional: true
+                }).success(function (ret) {
+                    if (ret.TemErros) {
+                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
+                    } else {
+                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
+                    }
+                }).error(function (ex) {
+                    Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor);
+                });
+            } else if ($.isFunction(FurmularioInvalido)) {
+                Portal.FurmularioInvalido.call(this, formularioDados);
+            }
+        });
     }
 });
 

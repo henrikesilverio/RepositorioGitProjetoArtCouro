@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -9,11 +10,10 @@ using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Extensions;
 using ProjetoArtCouro.Web.Infra.Service;
-using RestSharp;
 
 namespace ProjetoArtCouro.Web.Controllers.Usuarios
 {
-    public class ConfiguracaoController : Controller
+    public class ConfiguracaoController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaGrupo")]
         public ActionResult PesquisaGrupo()
@@ -31,7 +31,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             {
                 response.Data.Mensagem = Erros.NoGruopForTheGivenFilter;
             }
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovoGrupo")]
@@ -47,7 +47,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult NovoGrupo(GrupoModel model)
         {
             var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Usuario/CriarGrupo");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarGrupo")]
@@ -64,7 +64,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult EditarGrupo(GrupoModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarGrupo");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -73,7 +73,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         {
             var response = ServiceRequest.Delete<RetornoBase<int?>>(new {codigoGrupo = codigoGrupo},
                 "api/Usuario/ExcluirGrupo");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "ConfiguracaoUsuario")]
@@ -89,7 +89,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult ObterListaUsuario()
         {
             var response = ServiceRequest.Get<List<UsuarioModel>>(null, "api/Usuario/ObterListaUsuario");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -121,21 +121,15 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
 
         private void CriarViewBagPermissoes()
         {
-            var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterListaPermissao");
-            ViewBag.Permissoes = response.Data.ObjetoRetorno;
-        }
-
-        //TODO incluir tratamento de exeção globalizado
-        private JsonResult ReturnResponse<T>(IRestResponse<T> response)
-        {
-            HttpContext.Response.Clear();
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                return Json(response.Data, JsonRequestBehavior.AllowGet);
+                var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterListaPermissao");
+                ViewBag.Permissoes = response.Data.ObjetoRetorno;
             }
-            HttpContext.Response.TrySkipIisCustomErrors = true;
-            HttpContext.Response.StatusCode = (int)response.StatusCode;
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            catch (Exception e)
+            {
+                throw new Exception(Erros.FailedToLoadPermissions);
+            }
         }
     }
 }

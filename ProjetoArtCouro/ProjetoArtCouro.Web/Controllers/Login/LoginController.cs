@@ -3,11 +3,12 @@ using System.Web.Security;
 using ProjetoArtCouro.Web.Infra.Service;
 using ProjetoArtCouro.Model.Models.Login;
 using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Extensions;
 
 namespace ProjetoArtCouro.Web.Controllers.Login
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         public ActionResult Login()
         {

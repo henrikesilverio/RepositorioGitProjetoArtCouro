@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
-using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IUsuario;
 using ProjetoArtCouro.Domain.Models.Usuarios;
@@ -18,7 +17,6 @@ using ProjetoArtCouro.Resource.Resources;
 namespace ProjetoArtCouro.Api.Controllers.Usuarios
 {
     [RoutePrefix("api/Usuario")]
-    [DeflateCompression]
     public class UsuarioController : ApiControllerBase
     {
         private readonly IUsuarioService _usuarioService;

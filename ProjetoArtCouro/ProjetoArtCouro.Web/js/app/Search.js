@@ -86,7 +86,7 @@
                         tableSettings.fnAddData(ret.ObjetoRetorno);
                     }
                 }).error(function (ex) {
-                    Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
+                    Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor);
                 });
             }
         });
@@ -107,7 +107,7 @@
                 tabela.fnDeleteRow(tr);
             }
         }).error(function (ex) {
-            Portal.PreencherAlertaErros(ex.responseText, "#AlertaMensagens");
+            Portal.PreencherAlertaErros(ex.responseJSON.message, "#AlertaMensagens");
         });
     },
     CriarBotoes: function(urlEditar, funcaoExcluir) {

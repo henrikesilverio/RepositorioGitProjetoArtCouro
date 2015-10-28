@@ -9,7 +9,7 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Compras
 {
-    public class CompraController : Controller
+    public class CompraController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaCompra")]
         public ActionResult PesquisaCompra()

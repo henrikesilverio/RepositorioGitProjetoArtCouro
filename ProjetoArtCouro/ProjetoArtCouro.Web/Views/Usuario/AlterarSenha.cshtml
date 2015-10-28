@@ -49,7 +49,9 @@
         Portal.Mask();
         Portal.AlterarSenha({
             UrlDados: '@Url.Action("AlterarSenha", "Usuario")',
-            AlertaMensagensSeletor: "#AlertaMensagens"
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            $BotaoSalvar: $("#AlterarSenha"),
+            $Formulario: $("#formularioAlterarSenha")
         });
     </script>
 }

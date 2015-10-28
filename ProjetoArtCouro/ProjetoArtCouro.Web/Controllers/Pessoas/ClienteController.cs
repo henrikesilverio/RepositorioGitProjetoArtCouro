@@ -10,7 +10,7 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Pessoas
 {
-    public class ClienteController : Controller
+    public class ClienteController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaCliente")]
         public ActionResult PesquisaCliente()
@@ -29,7 +29,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             {
                 response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
             }
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovoCliente")]
@@ -50,7 +50,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         {
             model.PapelPessoa = (int)TipoPapelPessoaEnum.Cliente;
             var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Cliente/CriarCliente");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarCliente")]
@@ -59,7 +59,6 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             CriarViewBags(Mensagens.EditClient);
             var response = ServiceRequest.Post<ClienteModel>(new { codigoCliente = codigoCliente }, "api/Cliente/PesquisarClientePorCodigo");
             var model = response.Data.ObjetoRetorno;
-            //TODO Criar tratamentoo de exceção
             if (model == null)
             {
                 return View(response.Data.ObjetoRetorno);
@@ -83,7 +82,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult EditarCliente(ClienteModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Cliente/EditarCliente");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         [HttpPost]
@@ -91,7 +90,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
         public JsonResult ExcluirCliente(int codigoCliente)
         {
             var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoCliente = codigoCliente }, "api/Cliente/ExcluirCliente");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            return ReturnResponse(response);
         }
 
         private void CriarViewBags(string subTitle)

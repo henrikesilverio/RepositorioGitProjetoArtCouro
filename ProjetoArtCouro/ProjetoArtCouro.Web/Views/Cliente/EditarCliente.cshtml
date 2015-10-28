@@ -8,7 +8,9 @@
         Portal.Mask();
         Portal.EditarCliente({
             AlertaMensagensSeletor: "#AlertaMensagens",
-            UrlDados: "@Url.Action("EditarCliente", "Cliente")"
+            UrlDados: "@Url.Action("EditarCliente", "Cliente")",
+            $BotaoSalvar: $("#SalvarCliente"),
+            $Formulario: $("#formularioCliente")
         });
     </script>
 }

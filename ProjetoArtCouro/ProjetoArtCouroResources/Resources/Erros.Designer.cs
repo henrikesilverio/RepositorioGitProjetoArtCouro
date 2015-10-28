@@ -205,6 +205,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Falha ao carregar permissões.
+        /// </summary>
+        public static string FailedToLoadPermissions {
+            get {
+                return ResourceManager.GetString("FailedToLoadPermissions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Grupo não existe.
         /// </summary>
         public static string GroupDoesNotExist {

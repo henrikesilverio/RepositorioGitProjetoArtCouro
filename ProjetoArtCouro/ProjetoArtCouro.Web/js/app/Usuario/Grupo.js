@@ -1,5 +1,5 @@
 ﻿$.extend(Portal, {
-    NovoGrupo: function(settings) {
+    NovoGrupo: function (settings) {
         Portal.SalvarDados(settings);
         Portal.ConfigurarSelect2();
     },
@@ -9,31 +9,15 @@
         Portal.ConfigurarSelect2();
         $("#PermissaoId").select2("val", _.map(settings.ListaPermissao, function(obj) { return obj.Codigo }));
     },
-    SalvarDados: function(settings) {
-        $("#SalvarGrupo").on("click", function () {
-            Portal.HabilitarCampo("#GrupoNome");
-            var formularioDados = $("#formularioGrupo").serializeArray();
-            if ($("#formularioGrupo").valid()) {
-                var permissoes = $("#PermissaoId").select2("data");
-                Portal.IncluirListaPermissaoNoEnvio(formularioDados, permissoes);
-                $.ajax({
-                    url: settings.UrlDados,
-                    data: formularioDados,
-                    type: "POST",
-                    traditional: true
-                }).success(function(ret) {
-                    if (ret.TemErros) {
-                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
-                    } else {
-                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
-                    }
-                }).error(function(ex) {
-                    Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
-                });
-            } else {
-                Portal.DesbilitarCampo("#GrupoNome");
-            }
-        });
+    AntesDeSerializar: function () {
+        Portal.HabilitarCampo("#GrupoNome");
+    },
+    DepoisDeValidar: function(formularioDados) {
+        var permissoes = $("#PermissaoId").select2("data");
+        Portal.IncluirListaPermissaoNoEnvio(formularioDados, permissoes);
+    },
+    FurmularioInvalido: function() {
+        Portal.DesbilitarCampo("#GrupoNome");
     },
     AdicionaErro: function() {
         var $select2Container = $(".select2-container");

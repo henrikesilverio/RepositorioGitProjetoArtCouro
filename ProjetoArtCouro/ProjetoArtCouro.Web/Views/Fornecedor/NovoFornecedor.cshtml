@@ -8,7 +8,9 @@
         Portal.Mask();
         Portal.NovoFornecedor({
             AlertaMensagensSeletor: "#AlertaMensagens",
-            UrlDados: "@Url.Action("NovoFornecedor", "Fornecedor")"
+            UrlDados: "@Url.Action("NovoFornecedor", "Fornecedor")",
+            $BotaoSalvar: $("#SalvarFornecedor"),
+            $Formulario: $("#formularioFornecedor")
         });
     </script>
 }

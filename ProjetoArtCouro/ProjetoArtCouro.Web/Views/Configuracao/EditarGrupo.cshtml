@@ -12,7 +12,9 @@
     Portal.EditarGrupo({
         UrlDados: "@Url.Action("EditarGrupo", "Configuracao")",
         AlertaMensagensSeletor: "#AlertaMensagens",
-        ListaPermissao: JSON.parse('@(Html.Raw(permissoes))')
+        ListaPermissao: JSON.parse('@(Html.Raw(permissoes))'),
+        $BotaoSalvar: $("#SalvarGrupo"),
+        $Formulario: $("#formularioGrupo")
     });
     </script>
 }

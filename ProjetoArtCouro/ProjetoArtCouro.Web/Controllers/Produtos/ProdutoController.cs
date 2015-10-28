@@ -6,7 +6,7 @@ using ProjetoArtCouro.Web.Infra.Authorization;
 
 namespace ProjetoArtCouro.Web.Controllers.Produtos
 {
-    public class ProdutoController : Controller
+    public class ProdutoController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaProduto")]
         public ActionResult PesquisaProduto()

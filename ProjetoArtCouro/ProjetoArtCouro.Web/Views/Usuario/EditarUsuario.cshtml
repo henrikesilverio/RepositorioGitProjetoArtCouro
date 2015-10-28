@@ -8,7 +8,9 @@
         Portal.Mask();
         Portal.EditarUsuario({
             UrlDados: '@Url.Action("EditarUsuario", "Usuario")',
-            AlertaMensagensSeletor: "#AlertaMensagens"
+            AlertaMensagensSeletor: "#AlertaMensagens",
+            $BotaoSalvar: $("#SalvarUsuario"),
+            $Formulario: $("#formularioUsuario")
         });
     </script>
 }

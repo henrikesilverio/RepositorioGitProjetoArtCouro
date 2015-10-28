@@ -8,7 +8,7 @@ using ProjetoArtCouro.Web.Infra.Authorization;
 
 namespace ProjetoArtCouro.Web.Controllers.ContasReceber
 {
-    public class ContaReceberController : Controller
+    public class ContaReceberController : BaseController
     {
         [CustomAuthorize(Roles = "PesquisaContaReceber")]
         public ActionResult PesquisaContaReceber()
@@ -31,6 +31,7 @@ namespace ProjetoArtCouro.Web.Controllers.ContasReceber
             return View();
         }
 
+        [HttpPost]
         [CustomAuthorize(Roles = "PesquisaContaReceber")]
         public JsonResult PesquisaContaReceber(PesquisaContaReceberModel model)
         {

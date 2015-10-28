@@ -9,9 +9,8 @@ using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.Vendas
 {
-    public class VendaController : Controller
+    public class VendaController : BaseController
     {
-        // GET: Venda
         [CustomAuthorize(Roles = "PesquisaVenda")]
         public ActionResult PesquisaVenda()
         {
