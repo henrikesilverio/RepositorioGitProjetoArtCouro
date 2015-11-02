@@ -97,6 +97,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adicionar.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adicionar Produto.
         /// </summary>
         public static string AddProduct {
@@ -219,6 +228,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string ClientName {
             get {
                 return ResourceManager.GetString("ClientName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fechar.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
             }
         }
         

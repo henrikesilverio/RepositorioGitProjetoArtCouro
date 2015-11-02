@@ -21,10 +21,10 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         Cidade = c.String(nullable: false, maxLength: 50, unicode: false),
                         Principal = c.Boolean(nullable: false),
                         PessoaId = c.Guid(nullable: false),
-                        Estado_EstadoId = c.Guid(),
+                        Estado_EstadoId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.EnderecoId)
-                .ForeignKey("dbo.Estado", t => t.Estado_EstadoId)
+                .ForeignKey("dbo.Estado", t => t.Estado_EstadoId, cascadeDelete: true)
                 .ForeignKey("dbo.Pessoa", t => t.PessoaId, cascadeDelete: true)
                 .Index(t => t.PessoaId)
                 .Index(t => t.Estado_EstadoId);
@@ -83,10 +83,10 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         CPF = c.String(nullable: false, maxLength: 8000, unicode: false),
                         RG = c.String(nullable: false, maxLength: 15, unicode: false),
                         Sexo = c.String(nullable: false, maxLength: 10, unicode: false),
-                        EstadoCivil_EstadoCivilId = c.Guid(),
+                        EstadoCivil_EstadoCivilId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.PessoaId)
-                .ForeignKey("dbo.EstadoCivil", t => t.EstadoCivil_EstadoCivilId)
+                .ForeignKey("dbo.EstadoCivil", t => t.EstadoCivil_EstadoCivilId, cascadeDelete: true)
                 .ForeignKey("dbo.Pessoa", t => t.PessoaId)
                 .Index(t => t.PessoaId)
                 .Index(t => t.CPF, unique: true)
@@ -153,6 +153,31 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .Index(t => t.GrupoPermissao_GrupoPermissaoId);
             
             CreateTable(
+                "dbo.Produto",
+                c => new
+                    {
+                        ProdutoId = c.Guid(nullable: false, identity: true),
+                        ProdutoCodigo = c.Int(nullable: false, identity: true),
+                        ProdutoNome = c.String(nullable: false, maxLength: 200, unicode: false),
+                        PrecoCusto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PrecoVenda = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Unidade_UnidadeId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProdutoId)
+                .ForeignKey("dbo.Unidade", t => t.Unidade_UnidadeId, cascadeDelete: true)
+                .Index(t => t.Unidade_UnidadeId);
+            
+            CreateTable(
+                "dbo.Unidade",
+                c => new
+                    {
+                        UnidadeId = c.Guid(nullable: false, identity: true),
+                        UnidadeCodigo = c.Int(nullable: false, identity: true),
+                        UnidadeNome = c.String(nullable: false, maxLength: 30, unicode: false),
+                    })
+                .PrimaryKey(t => t.UnidadeId);
+            
+            CreateTable(
                 "dbo.PessoaPapel",
                 c => new
                     {
@@ -195,6 +220,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Produto", "Unidade_UnidadeId", "dbo.Unidade");
             DropForeignKey("dbo.Usuario", "GrupoPermissao_GrupoPermissaoId", "dbo.GrupoPermissao");
             DropForeignKey("dbo.UsuarioPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.UsuarioPermissao", "UsuarioId", "dbo.Usuario");
@@ -214,6 +240,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.PermissaoGrupoPermissao", new[] { "PermissaoId" });
             DropIndex("dbo.PessoaPapel", new[] { "PapelId" });
             DropIndex("dbo.PessoaPapel", new[] { "PessoaId" });
+            DropIndex("dbo.Produto", new[] { "Unidade_UnidadeId" });
             DropIndex("dbo.Usuario", new[] { "GrupoPermissao_GrupoPermissaoId" });
             DropIndex("dbo.PessoaJuridica", new[] { "CNPJ" });
             DropIndex("dbo.PessoaJuridica", new[] { "PessoaId" });
@@ -226,6 +253,8 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.UsuarioPermissao");
             DropTable("dbo.PermissaoGrupoPermissao");
             DropTable("dbo.PessoaPapel");
+            DropTable("dbo.Unidade");
+            DropTable("dbo.Produto");
             DropTable("dbo.Usuario");
             DropTable("dbo.Permissao");
             DropTable("dbo.GrupoPermissao");

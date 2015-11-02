@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjetoArtCouro.Domain.Models.Pessoas
 {
@@ -7,6 +8,6 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
         public Guid EstadoId { get; set; }
         public int EstadoCodigo { get; set; }
         public string EstadoNome { get; set; }
-        public virtual Endereco Endereco { get; set; }
+        public virtual ICollection<Endereco> Endereco { get; set; }
     }
 }

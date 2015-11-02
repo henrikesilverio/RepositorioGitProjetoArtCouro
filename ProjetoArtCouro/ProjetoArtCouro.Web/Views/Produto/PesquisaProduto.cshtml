@@ -22,37 +22,40 @@
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             @Html.LabelFor(m => m.Descricao, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description })
+                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = "200" })
                             </label>
+                            @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.UnidadeId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.UnidadeId, new SelectList(ViewBag.Unidades, "Codigo", "Nome")
-                                .AddDefaultOption(Mensagens.Select))
+                                    .AddDefaultOption(Mensagens.Select))
                                 <i></i>
                             </label>
+                            @Html.ValidationMessageFor(m => m.UnidadeId)
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.PrecoCusto, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.PrecoCusto, new { placeholder = @Mensagens.PriceCost })
+                                @Html.TextBoxFor(m => m.PrecoCusto, new { placeholder = @Mensagens.PriceCost, @class = "DinheiroMask", maxlength = "12" })
                             </label>
+                            @Html.ValidationMessageFor(m => m.PrecoCusto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.PrecoVenda, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.PrecoVenda, new { placeholder = @Mensagens.PriceSale })
+                                @Html.TextBoxFor(m => m.PrecoVenda, new { placeholder = @Mensagens.PriceSale, @class = "DinheiroMask", maxlength = "12" })
                             </label>
+                            @Html.ValidationMessageFor(m => m.PrecoVenda)
                         </section>
                     </div>
-                    @Html.Hidden("LinhaCorrente")
                 </fieldset>
                 <footer>
                     <a id="AdicionarProduto" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                        <i class="fa fa-plus"></i> @Mensagens.Add
                     </a>
                 </footer>
             </form>
@@ -84,7 +87,6 @@
             Form: $("#smart-form-register")
         });
         Portal.TabelaDinamica({
-            AlertaMensagensSeletor: "#AlertaMensagens",
             AdicionaLinhaSeletor: "#AdicionarProduto",
             TabelaSeletor: "#datatableProduto",
             TituloRodape: "Produtos",
@@ -93,54 +95,48 @@
             BotaoEditarSeletor: ".EditarProduto",
             BotaoExcluirSeletor: ".ExcluirProduto",
             LinhaCorrenteSeletor: "#LinhaCorrente",
+            $Formulario: $("#formProduto"),
             Codigo: 0,
+            UrlLista: "@Url.Action("ObterListaProduto", "Produto")",
+            UrlCriar: "@Url.Action("NovoProduto", "Produto")",
             OrdenacaoDoCabecalho: [
-                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
-                { "sTitle": "@(Mensagens.PriceCost )", "mData": "PrecoCusto", "sClass": "center", "sWidth": "15%" },
-                { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "15%" },
-                { "sTitle": "@(Mensagens.Unit)", "mData": "Unidade", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Code)", "mData": "ProdutoCodigo", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sWidth": "40%" },
+                { "sTitle": "@(Mensagens.PriceCost )", "mData": "PrecoCusto", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.Unit)", "mData": "UnidadeNome", "sClass": "center", "sWidth": "10%" },
                 {
-                    "sTitle": "@(Mensagens.Actions )",
+                    "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function () {
-
-                        return "<div class=\"editable-buttons\">" +
-                            "<button type=\"button\" class=\"btn btn-success btn-sm EditarProduto\" title=\"Editar\">" +
-                            "<i class=\"fa fa-lg fa-pencil-square-o\"></i>" +
-                            "<button type=\"button\" class=\"btn btn-danger btn-sm ExcluirProduto\" title=\"Deletar\">" +
-                            "<i class=\"fa fa-lg fa-trash-o\"></i>" +
-                            "</button>" +
-                            "</div>";
+                    "mRender": function(obj) {
+                        var settings = JSON.stringify({
+                            "objetoAdicional": { "name": "ProdutoCodigo", "value": obj.ProdutoCodigo },
+                            "objetoExcluir": { "codigoProduto": obj.ProdutoCodigo },
+                            "urlEditar": "/Produto/EditarProduto",
+                            "urlExcluir": "/Produto/ExcluirProduto",
+                            "seletorTabela": "#datatableProduto",
+                            "seletorBotaoModalAtualizar": "#AtualizarProduto",
+                            "seletorFormulario": "#formModalProduto",
+                            "seletorModal": "#modalProduto"
+                        });
+                        var botoes = Portal.CriarBotoesTabelaDinamica(
+                            "Portal.EditarItemTabelaDinamica(this, " + settings + ")",
+                            "Portal.ExcluirItemTabelaDinamica(this, " + settings + ")",
+                            "#modalProduto");
+                        return botoes[0].outerHTML;
                     }
                 }
-            ],
-            ObterCampos: function (codigo) {
-                var item = [
-                    {
-                        "Codigo": codigo,
-                        "Descricao": $("#Descricao").val(),
-                        "PrecoCusto": $("#PrecoCusto").val(),
-                        "PrecoVenda": $("#PrecoVenda").val(),
-                        "Unidade": $("#UnidadeId :selected").text()
-                    }
-                ];
-                $("#Descricao").val("");
-                $("#UnidadeId").val("");
-                $("#PrecoCusto").val("");
-                $("#PrecoVenda").val("");
-                return item;
-            },
-            PreencherCampos: function (obj) {
-                $("#Descricao").val(obj["Descricao"]);
-                $("#UnidadeId").val($("#UnidadeId option:contains(" + obj["Unidade"] + ")").val());
-                $("#PrecoCusto").val(obj["PrecoCusto"]);
-                $("#PrecoVenda").val(obj["PrecoVenda"]);
-            }
+            ]
         });
+        Portal.PreencherCamposModal = function(obj) {
+            $("#ModalDescricao").val(obj["Descricao"]);
+            $("#ModalUnidadeId").val(obj["UnidadeId"]);
+            $("#ModalPrecoCusto").val(obj["PrecoCusto"].replace(/[a-zA-Z][$]/g, "").trim());
+            $("#ModalPrecoVenda").val(obj["PrecoVenda"].replace(/[a-zA-Z][$]/g, "").trim());
+        }
     </script>
 }
 

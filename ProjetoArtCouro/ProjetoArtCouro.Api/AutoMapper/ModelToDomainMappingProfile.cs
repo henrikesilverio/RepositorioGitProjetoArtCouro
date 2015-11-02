@@ -2,9 +2,11 @@
 using AutoMapper;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
+using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.AutoMapper
@@ -89,6 +91,12 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.EstadoCivilCodigo, m => m.MapFrom(s => s.EstadoCivilId))
                 .Include<ClienteModel, EstadoCivil>();
 
+            Mapper.CreateMap<ProdutoModel, Produto>()
+                .ForMember(d => d.ProdutoId, m => m.Ignore())
+                .ForMember(d => d.ProdutoNome, m => m.MapFrom(s => s.Descricao))
+                .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => decimal.Parse(s.PrecoCusto)))
+                .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => decimal.Parse(s.PrecoVenda)))
+                .ForMember(d => d.Unidade, m => m.MapFrom(s => new Unidade {UnidadeCodigo = s.UnidadeId}));
         }
     }
 }

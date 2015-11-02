@@ -47,11 +47,14 @@
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaJuridicaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IPessoaRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IProduto\IProdutoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IProduto\IUnidadeRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IGrupoPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IUsuarioRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
+    <Compile Include="Contracts\IService\IProduto\IProdutoService.cs" />
     <Compile Include="Contracts\IService\IUsuario\IUsuarioService.cs" />
     <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
     <Compile Include="Models\Pessoas\MeioComunicacao.cs" />
@@ -63,6 +66,8 @@
     <Compile Include="Models\Pessoas\Endereco.cs" />
     <Compile Include="Models\Pessoas\Pessoa.cs" />
     <Compile Include="Models\Enums\TipoPapelPessoaEnum.cs" />
+    <Compile Include="Models\Produtos\Produto.cs" />
+    <Compile Include="Models\Produtos\Unidade.cs" />
     <Compile Include="Models\Usuarios\GrupoPermissao.cs" />
     <Compile Include="Models\Usuarios\Permissao.cs" />
     <Compile Include="Models\Usuarios\Usuario.cs" />

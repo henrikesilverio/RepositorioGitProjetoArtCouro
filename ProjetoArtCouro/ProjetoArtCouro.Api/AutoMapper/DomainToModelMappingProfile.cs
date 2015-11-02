@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using ProjetoArtCouro.Domain.Models.Pessoas;
+using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
 namespace ProjetoArtCouro.Api.AutoMapper
@@ -69,6 +71,19 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .Include<PessoaJuridica, ClienteModel>();
 
             Mapper.CreateMap<PessoaJuridica, ClienteModel>();
+
+            Mapper.CreateMap<Produto, ProdutoModel>()
+                .ForMember(d => d.Descricao, m => m.MapFrom(s => s.ProdutoNome))
+                .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => s.PrecoCusto.ToString("C2")))
+                .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToString("C2")))
+                .ForMember(d => d.UnidadeId, m => m.MapFrom(s => s.Unidade.UnidadeCodigo))
+                .ForMember(d => d.ProdutoCodigo, m => m.MapFrom(s => s.ProdutoCodigo))
+                .ForMember(d => d.UnidadeNome, m => m.MapFrom(s => s.Unidade.UnidadeNome));
+
+            Mapper.CreateMap<Unidade, LookupModel>()
+                .ForMember(d => d.Id, m => m.MapFrom(s => s.UnidadeId))
+                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.UnidadeCodigo))
+                .ForMember(d => d.Nome, m => m.MapFrom(s => s.UnidadeNome));
 
             Mapper.CreateMap<ICollection<MeioComunicacao>, MeioComunicacaoModel>()
                 .ConvertUsing<MeioComunicacaoConverter>();

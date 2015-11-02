@@ -59,16 +59,16 @@
     margin: 0 !important;
 }
 
-.editable-buttons button {
-    margin-left: 6px !important;
-}
+    .editable-buttons button {
+        margin-left: 6px !important;
+    }
 
-.editable-buttons a {
-    margin-left: 6px !important;
-}
+    .editable-buttons a {
+        margin-left: 6px !important;
+    }
 
 .center {
-    text-align: center;    
+    text-align: center;
 }
 
 .smart-form fieldset {
@@ -76,7 +76,7 @@
 }
 
 .div-loading {
-    z-index: 10;
+    z-index: 1051;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -101,7 +101,7 @@
     }
 
 .select2-container {
-    width: 100%;   
+    width: 100%;
 }
 
 .select2-hidden-accessible {
@@ -149,40 +149,63 @@
     background-color: #1f8dd1;
 }
 
-.page-err .err-status {
-    background-color: #f3f3f3;
-}
+    .page-err .err-status {
+        background-color: #f3f3f3;
+    }
 
-.page-err .err-status h1 {
-    margin: 5px 0 -30px;
-    color: #1C7EBB;
-    font-size: 200px;
-}
+        .page-err .err-status h1 {
+            margin: 5px 0 -30px;
+            color: #1C7EBB;
+            font-size: 200px;
+        }
 
-.page-err .err-message {
-    background-color: #1C7EBB;
-    padding: 24px;
-    text-transform: uppercase;
-}
+    .page-err .err-message {
+        background-color: #1C7EBB;
+        padding: 24px;
+        text-transform: uppercase;
+    }
 
-.page-err .err-message h2 {
-    font-size: 50px;
-    color: #fff;
-    font-weight: 300;
-}
+        .page-err .err-message h2 {
+            font-size: 50px;
+            color: #fff;
+            font-weight: 300;
+        }
 
-.page-err .err-body {
-    padding: 100px 10px 20px;
-}
+    .page-err .err-body {
+        padding: 100px 10px 20px;
+    }
 
-.page-err .btn-goback {
-    color: #fff;
-    background-color: transparent;
-    border-color: #fff;
-}
+    .page-err .btn-goback {
+        color: #fff;
+        background-color: transparent;
+        border-color: #fff;
+    }
 
 #content-authorize {
     z-index: 2;
     top: 0;
     left: 0;
 }
+
+.modal-footer {
+    background-color: #F1F0F0 !important;
+    padding: 10px !important;
+}
+
+.modal-header {
+    border-color: #45474b !important;
+    background: #4c4f53 !important;
+    color: #fff !important;
+}
+
+    .modal-header button.close {
+        font-size: 27.5px !important;
+        color: #fff !important;
+        -ms-opacity: 0.5 !important;
+        opacity: 0.5 !important;
+    }
+
+        .modal-header button.close:focus, button.close:hover {
+            -ms-opacity: 1 !important;
+            opacity: 1 !important;
+        }

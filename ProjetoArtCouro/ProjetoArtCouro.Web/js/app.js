@@ -143,7 +143,7 @@ $(document).ready(function() {
 			$this.addClass('active');
 		} else {
 			$this.next('.ajax-dropdown').fadeOut(150);
-			$this.removeClass('active')
+		    $this.removeClass('active');
 		}
 
 		var mytest = $this.next('.ajax-dropdown').find('.btn-group > .active > input').attr('id');

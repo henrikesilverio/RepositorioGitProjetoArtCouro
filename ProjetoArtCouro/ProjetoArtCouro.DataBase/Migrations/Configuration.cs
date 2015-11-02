@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Resource.Validation;
 
@@ -64,6 +65,15 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 new Papel { PapelNome = "Funcionario" },
                 new Papel { PapelNome = "Cliente" },
                 new Papel { PapelNome = "Fornecedor" });
+
+            //Atualização inicial unidades
+            context.Unidades.AddOrUpdate(u => u.UnidadeNome,
+                new Unidade { UnidadeNome = "KG – Quilograma" },
+                new Unidade { UnidadeNome = "LT – Litro" },
+                new Unidade { UnidadeNome = "UN – Unidade" },
+                new Unidade { UnidadeNome = "MT – Metro linear" },
+                new Unidade { UnidadeNome = "M2 – Metro quadrado" },
+                new Unidade { UnidadeNome = "M3 – Metro cúbico" });
 
             //Atualização inicial Usuario
             context.Usuarios.AddOrUpdate(

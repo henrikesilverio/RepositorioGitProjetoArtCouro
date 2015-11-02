@@ -21,8 +21,9 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration
                 .HasMaxLength(250)
                 .HasColumnType("varchar");
 
-            HasOptional(x => x.Endereco)
-                .WithOptionalPrincipal(x => x.Estado);
+            //Relacionamento 1 : N
+            HasMany(x => x.Endereco)
+                .WithRequired(x => x.Estado);
         }
     }
 }

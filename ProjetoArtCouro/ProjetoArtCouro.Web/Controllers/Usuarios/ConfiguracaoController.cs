@@ -88,7 +88,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         [CustomAuthorize(Roles = "ConfiguracaoUsuario")]
         public JsonResult ObterListaUsuario()
         {
-            var response = ServiceRequest.Get<List<UsuarioModel>>(null, "api/Usuario/ObterListaUsuario");
+            var response = ServiceRequest.Get<List<UsuarioModel>>("api/Usuario/ObterListaUsuario");
             return ReturnResponse(response);
         }
 
@@ -101,7 +101,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
             {
                 return ReturnResponse(response);
             }
-            var ret = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterPermissoesUsuarioLogado");
+            var ret = ServiceRequest.Get<List<PermissaoModel>>("api/Usuario/ObterPermissoesUsuarioLogado");
             if (ret.StatusCode != HttpStatusCode.OK || ret.Data == null)
             {
                 return ReturnResponse(response);
@@ -123,7 +123,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         {
             try
             {
-                var response = ServiceRequest.Get<List<PermissaoModel>>(null, "api/Usuario/ObterListaPermissao");
+                var response = ServiceRequest.Get<List<PermissaoModel>>("api/Usuario/ObterListaPermissao");
                 ViewBag.Permissoes = response.Data.ObjetoRetorno;
             }
             catch (Exception e)

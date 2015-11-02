@@ -99,14 +99,14 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             ViewBag.SubTitle = subTitle;
 
             var listaBase = new List<LookupModel>();
-            var response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstado");
+            var response = ServiceRequest.Get<List<LookupModel>>("api/Pessoa/ObterListaEstado");
             if (response.Data.TemErros)
             {
                 ModelState.AddModelError("Erro", response.Data.Mensagem);
                 ViewBag.Estados = listaBase;
             }
             ViewBag.Estados = response.Data.ObjetoRetorno;
-            response = ServiceRequest.Get<List<LookupModel>>(null, "api/Pessoa/ObterListaEstadoCivil");
+            response = ServiceRequest.Get<List<LookupModel>>("api/Pessoa/ObterListaEstadoCivil");
             if (response.Data.TemErros)
             {
                 ModelState.AddModelError("Erro", response.Data.Mensagem);

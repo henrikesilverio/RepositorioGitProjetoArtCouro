@@ -37,6 +37,12 @@ namespace ProjetoArtCouro.Web.Infra.Service
             return ExecuteAction<T>(objectParameter, apiEndPoint, Method.PUT);
         }
 
+        public static IRestResponse<RetornoBase<T>> Get<T>(string apiEndPoint)
+            where T : new()
+        {
+            return ExecuteAction<T>(null, apiEndPoint, Method.GET);
+        }
+
         public static IRestResponse<RetornoBase<T>> Get<T>(object objectParameter, string apiEndPoint)
             where T : new()
         {

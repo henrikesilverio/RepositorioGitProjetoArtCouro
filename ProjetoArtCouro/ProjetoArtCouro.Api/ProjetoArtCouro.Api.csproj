@@ -181,9 +181,10 @@
     <Compile Include="Controllers\Pessoas\FornecedorController.cs" />
     <Compile Include="Controllers\Pessoas\FuncionarioController.cs" />
     <Compile Include="Controllers\Pessoas\PessoaController.cs" />
+    <Compile Include="Controllers\Produtos\ProdutoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Extensions\DeflateCompressionAttribute.cs" />
-    <Compile Include="Helpers\ApiControllerBase.cs" />
+    <Compile Include="Helpers\BaseApiController.cs" />
     <Compile Include="Helpers\CompressionHelper.cs" />
     <Compile Include="Helpers\UnityResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -84,7 +84,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
 
         private void CriarViewBags(string subTitulo)
         {
-            var response = ServiceRequest.Get<List<GrupoModel>>(null, "api/Usuario/ObterListaGrupo");
+            var response = ServiceRequest.Get<List<GrupoModel>>("api/Usuario/ObterListaGrupo");
             ViewBag.Grupos = response.Data.ObjetoRetorno;
             ViewBag.Title = Mensagens.User;
             ViewBag.SubTitle = subTitulo;

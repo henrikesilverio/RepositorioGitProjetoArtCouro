@@ -546,4 +546,10 @@
   <data name="Groups" xml:space="preserve">
     <value>Grupos</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
 </root>

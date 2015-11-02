@@ -1,0 +1,67 @@
+﻿@using ProjetoArtCouro.Resource.Resources
+<div class="modal fade" id="modalProduto" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formModalProduto" class="smart-form" novalidate="novalidate">
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <label class="label" for="ModalDescricao">@Mensagens.Description</label>
+                            <label class="input">
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalDescricao"
+                                       name="Descricao" placeholder="@Mensagens.Description" maxlength="200" type="text" value="">
+                            </label>
+                            <span class="field-validation-valid" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="label" for="ModalUnidadeId">@Mensagens.Description</label>
+                            <label class="select">
+                                <select data-val="true" data-val-required="@Erros.RequiredField" id="ModalUnidadeId" name="UnidadeId">
+                                    <option value="">@Mensagens.Select</option>
+                                    <option value="1">KG – Quilograma</option>
+                                    <option value="2">LT – Litro</option>
+                                    <option value="3">UN – Unidade</option>
+                                    <option value="4">MT – Metro linear</option>
+                                    <option value="5">M2 – Metro quadrado</option>
+                                    <option value="6">M3 – Metro cúbico</option>
+                                </select>
+                                <i></i>
+                            </label>
+                            <span class="field-validation-valid" data-valmsg-for="UnidadeId" data-valmsg-replace="true"></span>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="label" for="ModalPrecoCusto">@Mensagens.PriceCost</label>
+                            <label class="input">
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalPrecoCusto"
+                                       name="PrecoCusto" placeholder="@Mensagens.PriceCost" class="DinheiroMask" maxlength="12" type="text" value="">
+                            </label>
+                            <span class="field-validation-valid" data-valmsg-for="PrecoCusto" data-valmsg-replace="true"></span>
+                        </section>
+                        <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <label class="label" for="ModalPrecoVenda">@Mensagens.PriceSale</label>
+                            <label class="input">
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalPrecoVenda"
+                                       name="PrecoVenda" placeholder="@Mensagens.PriceSale" class="DinheiroMask" maxlength="12" type="text" value="">
+                            </label>
+                            <span class="field-validation-valid" data-valmsg-for="PrecoVenda" data-valmsg-replace="true"></span>
+                        </section>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-default" href="javascript:void(0);" data-dismiss="modal">
+                    <i class="fa fa-times"></i> @Mensagens.Close
+                </a>
+                <a id="AtualizarProduto" class="btn btn-primary" href="javascript:void(0);">
+                    <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

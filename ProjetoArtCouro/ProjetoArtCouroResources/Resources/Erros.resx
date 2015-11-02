@@ -225,4 +225,19 @@
   <data name="FailedToLoadPermissions" xml:space="preserve">
     <value>Falha ao carregar permissões</value>
   </data>
+  <data name="EmptyParameter" xml:space="preserve">
+    <value>O parâmetro {0} está vazio</value>
+  </data>
+  <data name="NotZeroParameter" xml:space="preserve">
+    <value>O parâmetro {0} não pode ser zero</value>
+  </data>
+  <data name="UnitDoesNotExist" xml:space="preserve">
+    <value>Unidade não existe</value>
+  </data>
+  <data name="ProductDoesNotExist" xml:space="preserve">
+    <value>Produto não existe</value>
+  </data>
+  <data name="CouldNotLoadUnits" xml:space="preserve">
+    <value>Não foi possível carregar as unidades.</value>
+  </data>
 </root>

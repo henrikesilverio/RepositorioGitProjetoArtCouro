@@ -70,6 +70,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não foi possível carregar as unidades..
+        /// </summary>
+        public static string CouldNotLoadUnits {
+            get {
+                return ResourceManager.GetString("CouldNotLoadUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome duplicado, já existe um grupo com esse nome.
         /// </summary>
         public static string DuplicateGruopName {
@@ -156,6 +165,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string EmptyName {
             get {
                 return ResourceManager.GetString("EmptyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O parâmetro {0} está vazio.
+        /// </summary>
+        public static string EmptyParameter {
+            get {
+                return ResourceManager.GetString("EmptyParameter", resourceCulture);
             }
         }
         
@@ -322,6 +340,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O parâmetro {0} não pode ser zero.
+        /// </summary>
+        public static string NotZeroParameter {
+            get {
+                return ResourceManager.GetString("NotZeroParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não há usuarios para o filtro informado.
         /// </summary>
         public static string NoUsersForTheGivenFilter {
@@ -367,11 +394,29 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Produto não existe.
+        /// </summary>
+        public static string ProductDoesNotExist {
+            get {
+                return ResourceManager.GetString("ProductDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campo Obrigatório.
         /// </summary>
         public static string RequiredField {
             get {
                 return ResourceManager.GetString("RequiredField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unidade não existe.
+        /// </summary>
+        public static string UnitDoesNotExist {
+            get {
+                return ResourceManager.GetString("UnitDoesNotExist", resourceCulture);
             }
         }
         

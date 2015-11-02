@@ -26,6 +26,7 @@ $.extend(Portal, {
             };
 
         $(".CelularMask").mask(spMaskBehavior, spOptions);
+        $(".DinheiroMask").mask("0.000.000,00", { reverse: true });
     },
     Form: function (obj) {
         $(obj.Button).click(function () {
