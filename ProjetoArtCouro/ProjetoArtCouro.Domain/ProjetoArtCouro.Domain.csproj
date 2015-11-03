@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IRepository\IPagamento\ICondicaoPagamentoRepository.cs" />
+    <Compile Include="Contracts\IRepository\IPagamento\IFormaPagamentoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEnderecoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEstadoCivilRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IMeioComunicacaoRepository.cs" />
@@ -53,10 +55,14 @@
     <Compile Include="Contracts\IRepository\IUsuario\IPermissaoRepository.cs" />
     <Compile Include="Contracts\IRepository\IUsuario\IUsuarioRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
+    <Compile Include="Contracts\IService\IPagamento\ICondicaoPagamentoService.cs" />
+    <Compile Include="Contracts\IService\IPagamento\IFormaPagamentoService.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
     <Compile Include="Contracts\IService\IProduto\IProdutoService.cs" />
     <Compile Include="Contracts\IService\IUsuario\IUsuarioService.cs" />
     <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
+    <Compile Include="Models\Pagamentos\CondicaoPagamento.cs" />
+    <Compile Include="Models\Pagamentos\FormaPagamento.cs" />
     <Compile Include="Models\Pessoas\MeioComunicacao.cs" />
     <Compile Include="Models\Pessoas\PessoaJuridica.cs" />
     <Compile Include="Models\Pessoas\EstadoCivil.cs" />

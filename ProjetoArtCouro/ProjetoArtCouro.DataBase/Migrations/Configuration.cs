@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using System.Data.Entity.Migrations;
-using System.Linq;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Resource.Validation;
@@ -116,6 +115,21 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         },
                         new Permissao
                         {
+                            PermissaoNome = "Nova Condicao Pagamento",
+                            AcaoNome = "NovaCondicaoPagamento"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Editar Condicao Pagamento",
+                            AcaoNome = "EditarCondicaoPagamento"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Excluir Condicao Pagamento",
+                            AcaoNome = "ExcluirCondicaoPagamento"
+                        },
+                        new Permissao
+                        {
                             PermissaoNome = "Pesquisa Conta Pagar",
                             AcaoNome = "PesquisaContaPagar"
                         },
@@ -128,6 +142,21 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         {
                             PermissaoNome = "Pesquisa Forma Pagamento",
                             AcaoNome = "PesquisaFormaPagamento"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Nova Forma Pagamento",
+                            AcaoNome = "NovaFormaPagamento"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Editar Forma Pagamento",
+                            AcaoNome = "EditarFormaPagamento"
+                        },
+                        new Permissao
+                        {
+                            PermissaoNome = "Excluir Forma Pagamento",
+                            AcaoNome = "ExcluirFormaPagamento"
                         },
                         new Permissao
                         {

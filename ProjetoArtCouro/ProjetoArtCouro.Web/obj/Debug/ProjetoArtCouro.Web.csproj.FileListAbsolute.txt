@@ -114,7 +114,6 @@ C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\RepositorioGitProjet
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.xml
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll.config
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
@@ -175,5 +174,6 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.DataBase.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Business.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\EntityFramework.xml
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb

@@ -232,6 +232,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Forma de pagamento não existe.
+        /// </summary>
+        public static string FormOfPaymentDoesNotExist {
+            get {
+                return ResourceManager.GetString("FormOfPaymentDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Grupo não existe.
         /// </summary>
         public static string GroupDoesNotExist {
@@ -372,6 +381,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string PaperEmptyPerson {
             get {
                 return ResourceManager.GetString("PaperEmptyPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Condição de pagamento não existe.
+        /// </summary>
+        public static string PaymentConditionDoesNotExist {
+            get {
+                return ResourceManager.GetString("PaymentConditionDoesNotExist", resourceCulture);
             }
         }
         

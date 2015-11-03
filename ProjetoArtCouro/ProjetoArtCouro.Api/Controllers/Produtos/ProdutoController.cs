@@ -14,7 +14,7 @@ using ProjetoArtCouro.Model.Models.Produto;
 namespace ProjetoArtCouro.Api.Controllers.Produtos
 {
     [RoutePrefix("api/Produto")]
-    public class ProdutoController : ApiControllerBase
+    public class ProdutoController : BaseApiController
     {
         private readonly IProdutoService _produtoService;
         public ProdutoController(IProdutoService produtoService)

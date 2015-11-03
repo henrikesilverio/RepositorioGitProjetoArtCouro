@@ -14,7 +14,7 @@ using ProjetoArtCouro.Model.Models.Cliente;
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Cliente")]
-    public class ClienteController : ApiControllerBase
+    public class ClienteController : BaseApiController
     {
         private readonly IPessoaService _pessoaService;
         public ClienteController(IPessoaService pessoaService)

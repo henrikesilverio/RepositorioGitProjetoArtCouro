@@ -13,7 +13,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Pessoa")]
     [CacheOutput(ClientTimeSpan = 10000, ServerTimeSpan = 10000)]
-    public class PessoaController : ApiControllerBase
+    public class PessoaController : BaseApiController
     {
         private readonly IPessoaService _pessoaService;
         public PessoaController(IPessoaService pessoaService)

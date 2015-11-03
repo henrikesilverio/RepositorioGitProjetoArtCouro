@@ -14,7 +14,7 @@ using ProjetoArtCouro.Model.Models.Funcionario;
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Funcionario")]
-    public class FuncionarioController : ApiControllerBase
+    public class FuncionarioController : BaseApiController
     {
         private readonly IPessoaService _pessoaService;
         public FuncionarioController(IPessoaService pessoaService)

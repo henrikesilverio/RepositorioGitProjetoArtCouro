@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using ProjetoArtCouro.Domain.Models.Enums;
+using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
@@ -13,6 +16,11 @@ namespace ProjetoArtCouro.Api.AutoMapper
 {
     public class ModelToDomainMappingProfile : Profile
     {
+        public override string ProfileName
+        {
+            get { return "ModelToDomainMappingProfile"; }
+        }
+
         //Configuração para auto mapeamento de classes
         protected override void Configure()
         {
@@ -92,6 +100,10 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => decimal.Parse(s.PrecoCusto)))
                 .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => decimal.Parse(s.PrecoVenda)))
                 .ForMember(d => d.Unidade, m => m.MapFrom(s => new Unidade {UnidadeCodigo = s.UnidadeId}));
+
+            Mapper.CreateMap<CondicaoPagamentoModel, CondicaoPagamento>();
+
+            Mapper.CreateMap<FormaPagamentoModel, FormaPagamento>();
         }
     }
 }

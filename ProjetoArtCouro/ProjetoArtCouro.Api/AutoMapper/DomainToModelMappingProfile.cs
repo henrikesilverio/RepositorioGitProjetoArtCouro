@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
+using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
@@ -12,6 +15,11 @@ namespace ProjetoArtCouro.Api.AutoMapper
 {
     public class DomainToModelMappingProfile : Profile
     {
+        public override string ProfileName
+        {
+            get { return "DomainToModelMappingProfile"; }
+        }
+
         //Configuração de mapeamento do viewModel para o dominio
         protected override void Configure()
         {
@@ -79,6 +87,10 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Id, m => m.MapFrom(s => s.UnidadeId))
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.UnidadeCodigo))
                 .ForMember(d => d.Nome, m => m.MapFrom(s => s.UnidadeNome));
+
+            Mapper.CreateMap<CondicaoPagamento, CondicaoPagamentoModel>();
+
+            Mapper.CreateMap<FormaPagamento, FormaPagamentoModel>();
 
             Mapper.CreateMap<ICollection<MeioComunicacao>, MeioComunicacaoModel>()
                 .ConvertUsing<MeioComunicacaoConverter>();

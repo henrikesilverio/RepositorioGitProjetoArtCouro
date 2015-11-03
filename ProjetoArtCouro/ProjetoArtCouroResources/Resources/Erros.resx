@@ -240,4 +240,10 @@
   <data name="CouldNotLoadUnits" xml:space="preserve">
     <value>Não foi possível carregar as unidades.</value>
   </data>
+  <data name="FormOfPaymentDoesNotExist" xml:space="preserve">
+    <value>Forma de pagamento não existe</value>
+  </data>
+  <data name="PaymentConditionDoesNotExist" xml:space="preserve">
+    <value>Condição de pagamento não existe</value>
+  </data>
 </root>

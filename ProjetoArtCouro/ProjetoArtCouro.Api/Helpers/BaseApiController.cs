@@ -8,7 +8,7 @@ using ProjetoArtCouro.Model.Models.Common;
 namespace ProjetoArtCouro.Api.Helpers
 {
     [DeflateCompression]
-    public class ApiControllerBase : ApiController
+    public class BaseApiController : ApiController
     {
         public HttpResponseMessage ReturnError(Exception ex)
         {

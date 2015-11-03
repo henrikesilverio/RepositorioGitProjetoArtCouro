@@ -667,6 +667,7 @@
     <Content Include="Views\Usuario\AlterarSenha.cshtml" />
     <Content Include="Views\Shared\Authorize.cshtml" />
     <Content Include="Views\Shared\_ModalProduto.cshtml" />
+    <Content Include="Views\Shared\_ModalCondicaoPagamento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,7 +17,7 @@ using ProjetoArtCouro.Resource.Resources;
 namespace ProjetoArtCouro.Api.Controllers.Usuarios
 {
     [RoutePrefix("api/Usuario")]
-    public class UsuarioController : ApiControllerBase
+    public class UsuarioController : BaseApiController
     {
         private readonly IUsuarioService _usuarioService;
 

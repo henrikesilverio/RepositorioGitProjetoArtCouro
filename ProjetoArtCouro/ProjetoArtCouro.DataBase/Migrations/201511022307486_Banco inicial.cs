@@ -3,10 +3,22 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class BancoInicial : DbMigration
+    public partial class Bancoinicial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.CondicaoPagamento",
+                c => new
+                    {
+                        CondicaoPagamentoId = c.Guid(nullable: false, identity: true),
+                        CondicaoPagamentoCodigo = c.Int(nullable: false, identity: true),
+                        Descricao = c.String(nullable: false, maxLength: 30, unicode: false),
+                        Ativo = c.Boolean(nullable: false),
+                        QuantidadeParcelas = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CondicaoPagamentoId);
+            
             CreateTable(
                 "dbo.Endereco",
                 c => new
@@ -115,6 +127,17 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .ForeignKey("dbo.Pessoa", t => t.PessoaId)
                 .Index(t => t.PessoaId)
                 .Index(t => t.CNPJ, unique: true);
+            
+            CreateTable(
+                "dbo.FormaPagamento",
+                c => new
+                    {
+                        FormaPagamentoId = c.Guid(nullable: false, identity: true),
+                        FormaPagamentoCodigo = c.Int(nullable: false, identity: true),
+                        Descricao = c.String(nullable: false, maxLength: 30, unicode: false),
+                        Ativo = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.FormaPagamentoId);
             
             CreateTable(
                 "dbo.GrupoPermissao",
@@ -258,6 +281,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.Usuario");
             DropTable("dbo.Permissao");
             DropTable("dbo.GrupoPermissao");
+            DropTable("dbo.FormaPagamento");
             DropTable("dbo.PessoaJuridica");
             DropTable("dbo.EstadoCivil");
             DropTable("dbo.PessoaFisica");
@@ -266,6 +290,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.Pessoa");
             DropTable("dbo.Estado");
             DropTable("dbo.Endereco");
+            DropTable("dbo.CondicaoPagamento");
         }
     }
 }

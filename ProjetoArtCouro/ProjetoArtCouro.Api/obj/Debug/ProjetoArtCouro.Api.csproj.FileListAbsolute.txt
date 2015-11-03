@@ -202,7 +202,6 @@ C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\Proj
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 C:\RepositorioProjetoArtCouro\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
-D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.dll.config
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Api.pdb
@@ -271,5 +270,6 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.Web.WebPages.Razor.xml
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.DataBase.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Business.pdb
+D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb

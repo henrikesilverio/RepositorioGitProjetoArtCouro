@@ -14,7 +14,7 @@ using ProjetoArtCouro.Model.Models.Fornecedor;
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Fornecedor")]
-    public class FornecedorController : ApiControllerBase
+    public class FornecedorController : BaseApiController
     {
         private readonly IPessoaService _pessoaService;
         public FornecedorController(IPessoaService pessoaService)
