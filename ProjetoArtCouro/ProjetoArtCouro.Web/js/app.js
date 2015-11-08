@@ -1376,4 +1376,11 @@ $('body').on('click', function(e) {
 			$(this).popover('hide');
 		}
 	});
-}); 
+});
+
+// ReSharper disable once NativeTypePrototypeExtending
+String.prototype.capitalize = function () {
+    return this.toLowerCase().replace(/\b\w/g, function (m) {
+        return m.toUpperCase();
+    });
+};

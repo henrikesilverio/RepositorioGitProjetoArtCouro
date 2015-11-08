@@ -96,14 +96,21 @@
                 { "sTitle": "@(Mensagens.Code)", "mData": "CondicaoPagamentoCodigo", "sWidth": "10%" },
                 { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sWidth": "40%" },
                 { "sTitle": "@(Mensagens.QuantityOfParcels)", "mData": "QuantidadeParcelas", "sWidth": "15%" },
-                { "sTitle": "@(Mensagens.Active)", "mData": "Ativo", "sClass": "center", "sWidth": "15%" },
+                {
+                    "sTitle": "@(Mensagens.Active)",
+                    "mData": null,
+                    "sWidth": "15%",
+                    "mRender": function(obj) {
+                        return obj.Ativo ? "Sim" : "Não";
+                    }
+                },
                 {
                     "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function (obj) {
+                    "mRender": function(obj) {
                         var settings = JSON.stringify({
                             "objetoAdicional": { "name": "CondicaoPagamentoCodigo", "value": obj.CondicaoPagamentoCodigo },
                             "objetoExcluir": { "codigoCondicaoPagamento": obj.CondicaoPagamentoCodigo },
@@ -121,26 +128,17 @@
                         return botoes[0].outerHTML;
                     }
                 }
-            ],
-            ObterCampos: function (codigo) {
-                var item = [
-                    {
-                        "Codigo": codigo,
-                        "Descricao": $("#Descricao").val(),
-                        "QuantidadeParcelas": $("#QuantidadeParcelas").val(),
-                        "Ativo": $("#Ativo").closest(".inline-group").find(":checked").attr("data-text")
-                    }
-                ];
-                $("#Descricao").val("");
-                $("#Ativo").closest(".inline-group").find(":checked")[0].checked = false;
-                $("#QuantidadeParcelas").val("");
-                return item;
-            }
+            ]
         });
-        Portal.PreencherCamposModal = function (obj) {
-            $("#ModalDescricao").val(obj["Descricao"]);
-            $("#ModalAtivo").closest(".inline-group").find(":contains(" + obj["Ativo"] + ")").find("input")[0].checked = true;
-            $("#ModalQuantidadeParcelas").val(obj["QuantidadeParcelas"]);
+        Portal.LimparCampos = function () {
+            $("#Descricao").val("");
+            $("#Ativo").closest(".inline-group").find(":checked")[0].checked = false;
+            $("#QuantidadeParcelas").val("");
+        }
+        Portal.PreencherCamposModal = function(obj) {
+            $("#ModalCondicaoPagamentoDescricao").val(obj["Descricao"]);
+            $("#ModalCondicaoPagamentoAtivo").closest(".inline-group").find("input[value=" + obj["Ativo"].toString().capitalize() + "]")[0].checked = true;
+            $("#ModalCondicaoPagamentoQuantidadeParcelas").val(obj["QuantidadeParcelas"]);
         }
     </script>
 }

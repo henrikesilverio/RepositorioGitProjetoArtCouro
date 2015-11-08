@@ -38,7 +38,6 @@
                             </div>
                         </section>
                     </div>
-                    @Html.Hidden("LinhaCorrente")
                 </fieldset>
                 <footer>
                     <a id="AdicionarFormaPagamento" class="btn btn-primary" href="javascript:void(0);">
@@ -74,53 +73,60 @@
             Form: $("#smart-form-register")
         });
         Portal.TabelaDinamica({
-            AlertaMensagensSeletor: "#AlertaMensagens",
             AdicionaLinhaSeletor: "#AdicionarFormaPagamento",
             TabelaSeletor: "#datatableFormaPagamento",
-            TituloRodape: "Formas de Pagamento",
-            TituloRodapeContador: "Nenhuma forma de pagamento",
-            InformacaoTabela: "Adicione novas formas de pagamento",
+            TituloRodape: "Condição de Pagamento",
+            TituloRodapeContador: "Nenhuma condição de pagamento",
+            InformacaoTabela: "Adicione novas condição de pagamento",
             BotaoEditarSeletor: ".EditarFormaPagamento",
             BotaoExcluirSeletor: ".ExcluirFormaPagamento",
-            LinhaCorrenteSeletor: "#LinhaCorrente",
-            Codigo: 0,
+            $Formulario: $("#formFormaPagamento"),
+            UrlLista: "@Url.Action("ObterListaFormaPagamento", "FormaPagamento")",
+            UrlCriar: "@Url.Action("NovaFormaPagamento", "FormaPagamento")",
             OrdenacaoDoCabecalho: [
-                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "65%" },
-                { "sTitle": "@(Mensagens.Active)", "mData": "Ativo", "sClass": "center", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.Code)", "mData": "FormaPagamentoCodigo", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sWidth": "65%" },
                 {
-                    "sTitle": "@(Mensagens.Actions )",
+                    "sTitle": "@(Mensagens.Active)",
+                    "mData": null,
+                    "sWidth": "15%",
+                    "mRender": function (obj) {
+                        return obj.Ativo ? "Sim" : "Não";
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function () {
-                        return "<div class=\"editable-buttons\">" +
-                            "<button type=\"button\" class=\"btn btn-success btn-sm EditarFormaPagamento\" title=\"Editar\">" +
-                            "<i class=\"fa fa-lg fa-pencil-square-o\"></i>" +
-                            "<button type=\"button\" class=\"btn btn-danger btn-sm ExcluirFormaPagamento\" title=\"Deletar\">" +
-                            "<i class=\"fa fa-lg fa-trash-o\"></i>" +
-                            "</button>" +
-                            "</div>";
+                    "mRender": function (obj) {
+                        var settings = JSON.stringify({
+                            "objetoAdicional": { "name": "FormaPagamentoCodigo", "value": obj.FormaPagamentoCodigo },
+                            "objetoExcluir": { "codigoFormaPagamento": obj.FormaPagamentoCodigo },
+                            "urlEditar": "/FormaPagamento/EditarFormaPagamento",
+                            "urlExcluir": "/FormaPagamento/ExcluirFormaPagamento",
+                            "seletorTabela": "#datatableFormaPagamento",
+                            "seletorBotaoModalAtualizar": "#AtualizarFormaPagamento",
+                            "seletorFormulario": "#formModalFormaPagamento",
+                            "seletorModal": "#modalFormaPagamento"
+                        });
+                        var botoes = Portal.CriarBotoesTabelaDinamica(
+                            "Portal.EditarItemTabelaDinamica(this, " + settings + ")",
+                            "Portal.ExcluirItemTabelaDinamica(this, " + settings + ")",
+                            "#modalFormaPagamento");
+                        return botoes[0].outerHTML;
                     }
                 }
-            ],
-            ObterCampos: function (codigo) {
-                var item = [
-                    {
-                        "Codigo": codigo,
-                        "Descricao": $("#Descricao").val(),
-                        "Ativo": $("#Ativo").closest(".inline-group").find(":checked").attr("data-text")
-                    }
-                ];
-                $("#Descricao").val("");
-                $("#Ativo").closest(".inline-group").find(":checked")[0].checked = false;
-                return item;
-            },
-            PreencherCampos: function (obj) {
-                $("#Descricao").val(obj["Descricao"]);
-                $("#Ativo").closest(".inline-group").find(":contains(" + obj["Ativo"] + ")").find("input")[0].checked = true;
-            }
+            ]
         });
+        Portal.LimparCampos = function () {
+            $("#Descricao").val("");
+            $("#Ativo").closest(".inline-group").find(":checked")[0].checked = false;
+        }
+        Portal.PreencherCamposModal = function (obj) {
+            $("#ModalFormaPagamentoDescricao").val(obj["Descricao"]);
+            $("#ModalFormaPagamentoAtivo").closest(".inline-group").find("input[value=" + obj["Ativo"].toString().capitalize() + "]")[0].checked = true;
+        }
     </script>
 }

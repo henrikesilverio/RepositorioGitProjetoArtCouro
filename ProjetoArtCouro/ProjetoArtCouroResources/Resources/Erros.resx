@@ -246,4 +246,7 @@
   <data name="PaymentConditionDoesNotExist" xml:space="preserve">
     <value>Condição de pagamento não existe</value>
   </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Acesso não autorizado.</value>
+  </data>
 </root>

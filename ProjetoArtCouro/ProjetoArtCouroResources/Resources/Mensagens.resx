@@ -552,4 +552,7 @@
   <data name="Close" xml:space="preserve">
     <value>Fechar</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
 </root>

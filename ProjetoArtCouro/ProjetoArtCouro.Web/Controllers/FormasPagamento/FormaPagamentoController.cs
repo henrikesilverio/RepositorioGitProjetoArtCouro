@@ -33,7 +33,7 @@ namespace ProjetoArtCouro.Web.Controllers.FormasPagamento
         [CustomAuthorize(Roles = "EditarFormaPagamento")]
         public JsonResult EditarFormaPagamento(FormaPagamentoModel model)
         {
-            var response = ServiceRequest.Put<object>(model, "api/FormaPagamento/EditarFormaPagamento");
+            var response = ServiceRequest.Put<FormaPagamentoModel>(model, "api/FormaPagamento/EditarFormaPagamento");
             return ReturnResponse(response);
         }
 

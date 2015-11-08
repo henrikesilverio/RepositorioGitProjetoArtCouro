@@ -4,23 +4,23 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">@Mensagens.Product</h4>
             </div>
             <div class="modal-body">
                 <form id="formModalProduto" class="smart-form" novalidate="novalidate">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            <label class="label" for="ModalDescricao">@Mensagens.Description</label>
+                            <label class="label" for="ModalProdutoDescricao">@Mensagens.Description</label>
                             <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalDescricao"
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalProdutoDescricao"
                                        name="Descricao" placeholder="@Mensagens.Description" maxlength="200" type="text" value="">
                             </label>
                             <span class="field-validation-valid" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <label class="label" for="ModalUnidadeId">@Mensagens.Description</label>
+                            <label class="label" for="ModalProdutoUnidadeId">@Mensagens.Description</label>
                             <label class="select">
-                                <select data-val="true" data-val-required="@Erros.RequiredField" id="ModalUnidadeId" name="UnidadeId">
+                                <select data-val="true" data-val-required="@Erros.RequiredField" id="ModalProdutoUnidadeId" name="UnidadeId">
                                     <option value="">@Mensagens.Select</option>
                                     <option value="1">KG – Quilograma</option>
                                     <option value="2">LT – Litro</option>
@@ -36,17 +36,17 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <label class="label" for="ModalPrecoCusto">@Mensagens.PriceCost</label>
+                            <label class="label" for="ModalProdutoPrecoCusto">@Mensagens.PriceCost</label>
                             <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalPrecoCusto"
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalProdutoPrecoCusto"
                                        name="PrecoCusto" placeholder="@Mensagens.PriceCost" class="DinheiroMask" maxlength="12" type="text" value="">
                             </label>
                             <span class="field-validation-valid" data-valmsg-for="PrecoCusto" data-valmsg-replace="true"></span>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            <label class="label" for="ModalPrecoVenda">@Mensagens.PriceSale</label>
+                            <label class="label" for="ModalProdutoPrecoVenda">@Mensagens.PriceSale</label>
                             <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalPrecoVenda"
+                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalProdutoPrecoVenda"
                                        name="PrecoVenda" placeholder="@Mensagens.PriceSale" class="DinheiroMask" maxlength="12" type="text" value="">
                             </label>
                             <span class="field-validation-valid" data-valmsg-for="PrecoVenda" data-valmsg-replace="true"></span>

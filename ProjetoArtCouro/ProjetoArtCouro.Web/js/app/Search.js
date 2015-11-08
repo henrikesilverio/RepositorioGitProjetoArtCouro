@@ -184,24 +184,6 @@
 
         $(settings.AdicionaLinhaSeletor).on("click", function() {
             Portal.AdicionarItemTabelaDinamica(settings, tabela);
-            //if ($(settings.LinhaCorrenteSeletor).val() === "") {
-            //    settings.Codigo++;
-            //    tabela.fnAddData(settings.ObterCampos(settings.Codigo));
-            //} else {
-            //    var dadosLinhaCorrente = tabela.fnGetData($(settings.LinhaCorrenteSeletor).val());
-            //    var novosDados = settings.ObterCampos(dadosLinhaCorrente.Codigo)[0];
-            //    tabela.fnUpdate(novosDados, $(settings.LinhaCorrenteSeletor).val());
-            //    $(settings.LinhaCorrenteSeletor).val("");
-            //}
-
-            //$(settings.BotaoEditarSeletor).off("click").on("click", function () {
-            //    var obj = tabela.fnGetData($(this).closest("tr"));
-            //    settings.PreencherCampos(obj);
-            //    $(settings.LinhaCorrenteSeletor).val($(this).closest("tr")[0]._DT_RowIndex);
-            //});
-            //$(settings.BotaoExcluirSeletor).off("click").on("click", function () {
-            //    tabela.fnDeleteRow($(this).closest("tr"));
-            //});
         });
     },
     PreencherTabelaDinamica: function(settings, tabela) {
@@ -229,6 +211,7 @@
                 if (data.TemErros) {
                     Portal.PreencherAlertaErros(data.Mensagem, "#AlertaMensagens");
                 } else if (data.ObjetoRetorno != null && data.ObjetoRetorno !== undefined) {
+                    Portal.LimparCampos.call(this, data);
                     Portal.LimparAlertar("#AlertaMensagens");
                     Portal.PreencherAlertaSucesso(data.Mensagem, "#AlertaMensagens");
                     tabela.fnAddData(data.ObjetoRetorno);
@@ -286,5 +269,6 @@
             Portal.PreencherAlertaErros(ex.responseJSON.message, "#AlertaMensagens");
         });
     },
+    LimparCampos: function() {},
     PreencherCamposModal: function() {}
 });

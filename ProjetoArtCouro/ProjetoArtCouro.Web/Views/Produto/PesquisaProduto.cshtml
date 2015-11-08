@@ -129,11 +129,17 @@
                 }
             ]
         });
+        Portal.LimparCampos = function () {
+            $("#Descricao").val("");
+            $("#UnidadeId").val("");
+            $("#PrecoCusto").val("");
+            $("#PrecoVenda").val("");
+        }
         Portal.PreencherCamposModal = function(obj) {
-            $("#ModalDescricao").val(obj["Descricao"]);
-            $("#ModalUnidadeId").val(obj["UnidadeId"]);
-            $("#ModalPrecoCusto").val(obj["PrecoCusto"].replace(/[a-zA-Z][$]/g, "").trim());
-            $("#ModalPrecoVenda").val(obj["PrecoVenda"].replace(/[a-zA-Z][$]/g, "").trim());
+            $("#ModalProdutoDescricao").val(obj["Descricao"]);
+            $("#ModalProdutoUnidadeId").val(obj["UnidadeId"]);
+            $("#ModalProdutoPrecoCusto").val(obj["PrecoCusto"].replace(/[a-zA-Z][$]/g, "").trim());
+            $("#ModalProdutoPrecoVenda").val(obj["PrecoVenda"].replace(/[a-zA-Z][$]/g, "").trim());
         }
     </script>
 }

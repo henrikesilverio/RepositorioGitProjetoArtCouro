@@ -5,7 +5,7 @@ namespace ProjetoArtCouro.Model.Models.FormaPagamento
 {
     public class FormaPagamentoModel
     {
-        public int FormaPagamentoCodigo { get; set; }
+        public int? FormaPagamentoCodigo { get; set; }
 
         [Display(Name = "Description", ResourceType = typeof(Mensagens))]
         public string Descricao { get; set; }
