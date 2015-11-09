@@ -18,17 +18,20 @@ namespace ProjetoArtCouro.Web.Infra.Extensions
                 ticketAuth.IsPersistent, string.Empty, ticketAuth.CookiePath);
             var encTicketAuth = FormsAuthentication.Encrypt(newTicketAuth);
             cookieAuth.Value = encTicketAuth;
+            cookieAuth.Expires = ticketAuth.Expiration;
             
             var cookieRoles = new HttpCookie(".ASPXROLES");
             var ticketRoles = new FormsAuthenticationTicket(ticketAuth.Version, userName, ticketAuth.IssueDate, ticketAuth.Expiration,
                 ticketAuth.IsPersistent, roles, "/ROLES");
             var encTickeRoles = FormsAuthentication.Encrypt(ticketRoles);
             cookieRoles.Value = encTickeRoles;
+            cookieRoles.Expires = ticketAuth.Expiration;
 
             var cookieToken = new HttpCookie(".ASPXTOKEN")
             {
                 Value = EncryptionMD5.Encrypt(token),
-                Expires = ticketAuth.Expiration
+                Expires = ticketAuth.Expiration,
+                Path = "/"
             };
 
             responseBase.Cookies.Add(cookieAuth);

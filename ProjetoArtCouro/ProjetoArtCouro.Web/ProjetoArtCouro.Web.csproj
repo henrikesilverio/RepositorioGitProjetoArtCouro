@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\fullcalendar.css" />
     <Content Include="css\demo.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
@@ -454,8 +455,10 @@
     <Content Include="js\plugin\flot\jquery.flot.tooltip.js" />
     <Content Include="js\plugin\flot\jquery.flot.tooltip.min.js" />
     <Content Include="js\plugin\fuelux\wizard\wizard.js" />
-    <Content Include="js\plugin\fullcalendar\jquery.fullcalendar.js" />
-    <Content Include="js\plugin\fullcalendar\jquery.fullcalendar.min.js" />
+    <Content Include="js\plugin\fullcalendar\fullcalendar.js" />
+    <Content Include="js\plugin\fullcalendar\fullcalendar.min.js" />
+    <Content Include="js\plugin\fullcalendar\lang-all.js" />
+    <Content Include="js\plugin\fullcalendar\moment.min.js" />
     <Content Include="js\plugin\ie-placeholder\jquery.placeholder.min.js" />
     <Content Include="js\plugin\ion-slider\ion.rangeSlider.js" />
     <Content Include="js\plugin\ion-slider\ion.rangeSlider.min.js" />

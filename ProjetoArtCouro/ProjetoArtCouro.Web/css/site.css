@@ -209,3 +209,8 @@
             -ms-opacity: 1 !important;
             opacity: 1 !important;
         }
+
+.no-padding .widget-body-toolbar {
+    display: block;
+    margin: 0;
+}
