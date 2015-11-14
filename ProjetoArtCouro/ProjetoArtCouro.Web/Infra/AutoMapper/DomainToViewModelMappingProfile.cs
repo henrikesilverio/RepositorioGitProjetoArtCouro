@@ -4,7 +4,7 @@ namespace ProjetoArtCouro.Web.Infra.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {
-        public override string ProfileName
+        public string Profile
         {
             get { return "ViewModelToDomainMappings"; }
         }

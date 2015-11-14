@@ -214,3 +214,18 @@
     display: block;
     margin: 0;
 }
+
+textarea#description {
+    -moz-resize: none;
+    -ms-resize: none;
+    -o-resize: none;
+    resize: none;
+}
+
+.fc-event button {
+    font-size: 27.5px !important;
+    color: #fff !important;
+    -ms-opacity: 0.5 !important;
+    opacity: 0.5 !important;
+    padding-right: 4px !important;
+}

@@ -2,46 +2,184 @@
     ViewBag.Title = "Home";
 }
 
-<div class="jarviswidget jarviswidget-sortable"
-     data-widget-editbutton="true" data-widget-colorbutton="true"
-     data-widget-fullscreenbutton="true" data-widget-collapsed="true"
-     data-widget-custombutton="true" data-widget-togglebutton="true"
-     data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
-    <header role="heading">
-        <span class="widget-icon"><i class="fa fa-edit"></i></span>
-        <h2>Agenda pessoal</h2>
-        <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
-        <div class="widget-toolbar">
-            <div class="btn-group">
-                <a class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown" href="javascript:void(0);">
-                    Visualização <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu js-status-update pull-right">
-                    <li>
-                        <a href="javascript:void(0);" id="mt">Mês</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" id="ag">Agenda</a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" id="td">Hoje</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
-        <div class="widget-body no-padding">
-            <div class="widget-body-toolbar">
-                <div id="calendar-buttons">
-                    <div class="btn-group">
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
-                    </div>
+<div class="row">
+    <div class="col-sm-9 col-md-9 col-lg-3">
+        <!-- new widget -->
+        <div class="jarviswidget jarviswidget-color-white">
+            <header>
+                <h2> Adicionar Eventos </h2>
+            </header>
+            <div>
+                <div class="widget-body">
+                    <form id="add-event-form">
+                        <fieldset>
+                            <div class="form-group">
+                                <label>Selecione o ícone do evento</label>
+                                <div class="btn-group btn-group-sm btn-group-justified" data-toggle="buttons">
+                                    <label class="btn btn-default active">
+                                        <input type="radio" name="iconselect" id="icon-1" value="fa-info" checked="">
+                                        <i class="fa fa-info text-muted"></i>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconselect" id="icon-2" value="fa-warning">
+                                        <i class="fa fa-warning text-muted"></i>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconselect" id="icon-3" value="fa-check">
+                                        <i class="fa fa-check text-muted"></i>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconselect" id="icon-4" value="fa-user">
+                                        <i class="fa fa-user text-muted"></i>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconselect" id="icon-5" value="fa-lock">
+                                        <i class="fa fa-lock text-muted"></i>
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="iconselect" id="icon-6" value="fa-clock-o">
+                                        <i class="fa fa-clock-o text-muted"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="smart-form">
+                                <div class="row">
+                                    <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <label class="label">Título do evento</label>
+                                        <label class="input">
+                                            <input class="form-control" id="title" name="title" data-val="true" 
+                                                   data-val-required="Campo Obrigatório" maxlength="40" type="text" placeholder="Título do evento">
+                                        </label>
+                                        <span class="field-validation-valid" data-valmsg-for="title" data-valmsg-replace="true"></span>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="smart-form">
+                                <div class="row">
+                                    <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <label class="label">Descrição do evento</label>
+                                        <label class="textarea">
+                                            <textarea class="form-control" data-val="true" data-val-required="Campo Obrigatório"
+                                                      placeholder="Tamanho maximo está definido para 40 caracteres" rows="3" maxlength="40"
+                                                      id="description" style="margin: 0px -0.75px 0px 0px; height: 68px; width: 286px;"></textarea>
+                                        </label>
+                                        <span class="field-validation-valid" data-valmsg-for="title" data-valmsg-replace="true"></span>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Selecione a cor do evento</label>
+                                <div class="btn-group btn-group-justified btn-select-tick" data-toggle="buttons">
+                                    <label class="btn bg-color-darken active">
+                                        <input type="radio" name="priority" id="option1" value="bg-color-darken txt-color-white" checked="">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                    <label class="btn bg-color-blue">
+                                        <input type="radio" name="priority" id="option2" value="bg-color-blue txt-color-white">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                    <label class="btn bg-color-orange">
+                                        <input type="radio" name="priority" id="option3" value="bg-color-orange txt-color-white">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                    <label class="btn bg-color-greenLight">
+                                        <input type="radio" name="priority" id="option4" value="bg-color-greenLight txt-color-white">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                    <label class="btn bg-color-blueLight">
+                                        <input type="radio" name="priority" id="option5" value="bg-color-blueLight txt-color-white">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                    <label class="btn bg-color-red">
+                                        <input type="radio" name="priority" id="option6" value="bg-color-red txt-color-white">
+                                        <i class="fa fa-check txt-color-white"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a id="add-event" class="btn btn-primary" href="javascript:void(0);">
+                                        <i class="fa fa-plus"></i> Adicionar Evento
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div id="calendar" class="fc fc-ltr"></div>
+        </div>
+        <div id="event-container" class="jarviswidget jarviswidget-color-white">
+            <header>
+                <h2> Arraste o evento </h2>
+            </header>
+            <div>
+                <div class="widget-body">
+                    <form>
+                        <fieldset>
+                            <ul id="external-events" class="list-unstyled"></ul>
+                        </fieldset>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="drop-remove" class="checkbox style-0" checked="checked">
+                                            <span>Remover após arrastar</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+        <div class="jarviswidget jarviswidget-sortable"
+             data-widget-editbutton="true" data-widget-colorbutton="true"
+             data-widget-fullscreenbutton="true" data-widget-collapsed="true"
+             data-widget-custombutton="true" data-widget-togglebutton="true"
+             data-widget-sortable="true" data-widget-deletebutton="true" role="widget" style="">
+            <header role="heading">
+                <span class="widget-icon"><i class="fa fa-edit"></i></span>
+                <h2>Agenda pessoal</h2>
+                <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
+                <div class="widget-toolbar">
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle btn-xs btn-default" data-toggle="dropdown" href="javascript:void(0);">
+                            Visualização <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu js-status-update pull-right">
+                            <li>
+                                <a href="javascript:void(0);" id="mt">Mês</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" id="ag">Agenda</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" id="td">Hoje</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div role="content">
+                <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
+                <div class="widget-body no-padding">
+                    <div class="widget-body-toolbar">
+                        <div id="calendar-buttons">
+                            <div class="btn-group">
+                                <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-prev"><i class="fa fa-chevron-left"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-default btn-xs" id="btn-next"><i class="fa fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="calendar" class="fc fc-ltr"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -49,16 +187,16 @@
 @section Scripts{
     <script src="~/js/plugin/fullcalendar/moment.min.js"></script>
     <script src="~/js/plugin/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/js/plugin/fullcalendar/lang-all.js"></script>
     <script>
         var fullviewcalendar;
-        var pagefunction = function () {
+        var pagefunction = function() {
 
             // full calendar
-
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
+            var dateNow = new Date();
+            var d = dateNow.getDate();
+            var m = dateNow.getMonth();
+            var y = dateNow.getFullYear();
 
             var hdr = {
                 left: "title",
@@ -66,7 +204,7 @@
                 right: "prev,today,next"
             };
 
-            var initDrag = function (e) {
+            var initDrag = function(e) {
                 // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
                 // it doesn't need to have a start or end
 
@@ -87,9 +225,9 @@
                 });
             };
 
-            var addEvent = function (title, priority, description, icon) {
-                title = title.length === 0 ? "Untitled Event" : title;
-                description = description.length === 0 ? "No Description" : description;
+            var addEvent = function(title, priority, description, icon) {
+                title = title.length === 0 ? "Evento sem titulo" : title;
+                description = description.length === 0 ? "Sem Descrição" : description;
                 icon = icon.length === 0 ? " " : icon;
                 priority = priority.length === 0 ? "label label-default" : priority;
 
@@ -101,20 +239,14 @@
                 initDrag(html);
             };
 
-            /* initialize the external events
-             -----------------------------------------------------------------*/
-
-            $("#external-events > li").each(function () {
-                initDrag($(this));
-            });
-
-            $("#add-event").click(function () {
+            $("#add-event").click(function() {
                 var title = $("#title").val(),
                     priority = $("input:radio[name=priority]:checked").val(),
                     description = $("#description").val(),
                     icon = $("input:radio[name=iconselect]:checked").val();
-
-                addEvent(title, priority, description, icon);
+                if ($("#add-event-form").valid()) {
+                    addEvent(title, priority, description, icon);
+                }
             });
 
             /* initialize the calendar
@@ -126,11 +258,10 @@
                     prev: "<i class=\"fa fa-chevron-left\"></i>",
                     next: "<i class=\"fa fa-chevron-right\"></i>"
                 },
-
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!
 
-                drop: function (date, allDay) { // this function is called when something is dropped
+                drop: function(date, allDay) { // this function is called when something is dropped
 
                     // retrieve the dropped element's stored Event Object
                     var originalEventObject = $(this).data("eventObject");
@@ -154,84 +285,46 @@
 
                 },
 
-                select: function (start, end, allDay) {
+                select: function(start, end, allDay) {
                     var title = prompt("Event Title:");
                     if (title) {
                         calendar.fullCalendar("renderEvent", {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        }, true // make the event "stick"
+                                title: title,
+                                start: start,
+                                end: end,
+                                allDay: allDay
+                            }, true // make the event "stick"
                         );
                     }
                     calendar.fullCalendar("unselect");
                 },
-
-                events: [
-                    {
-                        title: "All Day Event",
-                        start: new Date(y, m, 1),
-                        description: "long description",
-                        className: ["event", "bg-color-greenLight"],
-                        icon: "fa-check"
-                    }, {
-                        title: "Long Event",
-                        start: new Date(y, m, d - 5),
-                        end: new Date(y, m, d - 2),
-                        className: ["event", "bg-color-red"],
-                        icon: "fa-lock"
-                    }, {
-                        id: 999,
-                        title: "Repeating Event",
-                        start: new Date(y, m, d - 3, 16, 0),
-                        allDay: false,
-                        className: ["event", "bg-color-blue"],
-                        icon: "fa-clock-o"
-                    }, {
-                        id: 999,
-                        title: "Repeating Event",
-                        start: new Date(y, m, d + 4, 16, 0),
-                        allDay: false,
-                        className: ["event", "bg-color-blue"],
-                        icon: "fa-clock-o"
-                    }, {
-                        title: "Meeting",
-                        start: new Date(y, m, d, 10, 30),
-                        allDay: false,
-                        className: ["event", "bg-color-darken"]
-                    }, {
-                        title: "Lunch",
-                        start: new Date(y, m, d, 12, 0),
-                        end: new Date(y, m, d, 14, 0),
-                        allDay: false,
-                        className: ["event", "bg-color-darken"]
-                    }, {
-                        title: "Birthday Party",
-                        start: new Date(y, m, d + 1, 19, 0),
-                        end: new Date(y, m, d + 1, 22, 30),
-                        allDay: false,
-                        className: ["event", "bg-color-darken"]
-                    }, {
-                        title: "Smartadmin Open Day",
-                        start: new Date(y, m, 28),
-                        end: new Date(y, m, 29),
-                        className: ["event", "bg-color-darken"]
-                    }
-                ],
-
-                eventRender: function (event, element, icon) {
-                    if (!event.description == "") {
+                //events: [
+                //    {
+                //        title: "Long Event",
+                //        start: new Date(y, m, d - 5),
+                //        end: new Date(y, m, d - 2),
+                //        allDay: false,
+                //        description: "long description",
+                //        className: ["event", "bg-color-red"],
+                //        icon: "fa-lock"
+                //    }
+                //],
+                eventRender: function(event, element) {
+                    if (event.description !== undefined && event.description.toString() !== "") {
                         element.find(".fc-event-title").append("<br/><span class='ultra-light'>" + event.description +
                             "</span>");
                     }
-                    if (!event.icon == "") {
+                    if (event.icon !== undefined && event.icon.toString() !== "") {
                         element.find(".fc-event-title").append("<i class='air air-top-right fa " + event.icon +
                             " '></i>");
                     }
+                    element.append("<button type='button' class='close' id='removeEvents'>×</button>");
+                    element.find("#removeEvents").click(function () {
+                        $("#calendar").fullCalendar("removeEvents", event._id);
+                    });
                 },
 
-                windowResize: function (event, ui) {
+                windowResize: function() {
                     $("#calendar").fullCalendar("render");
                 }
             });
@@ -240,70 +333,33 @@
             $(".fc-header-right, .fc-header-center").hide();
 
 
-            $("#calendar-buttons #btn-prev").click(function () {
+            $("#calendar-buttons #btn-prev").click(function() {
                 $(".fc-button-prev").click();
                 return false;
             });
 
-            $("#calendar-buttons #btn-next").click(function () {
+            $("#calendar-buttons #btn-next").click(function() {
                 $(".fc-button-next").click();
                 return false;
             });
 
-            $("#calendar-buttons #btn-today").click(function () {
+            $("#calendar-buttons #btn-today").click(function() {
                 $(".fc-button-today").click();
                 return false;
             });
 
-            $("#mt").click(function () {
+            $("#mt").click(function() {
                 $("#calendar").fullCalendar("changeView", "month");
             });
 
-            $("#ag").click(function () {
+            $("#ag").click(function() {
                 $("#calendar").fullCalendar("changeView", "agendaWeek");
             });
 
-            $("#td").click(function () {
+            $("#td").click(function() {
                 $("#calendar").fullCalendar("changeView", "agendaDay");
             });
-
         };
-        var pagedestroy = function () {
-
-            /*
-            Example below:
-
-            $("#calednar").fullCalendar( 'destroy' );
-            if (debugState){
-                root.console.log("✔ Calendar destroyed");
-            }
-
-            For common instances, such as Jarviswidgets, Google maps, and Datatables, are automatically destroyed through the app.js loadURL mechanic
-
-            */
-
-            fullviewcalendar.fullCalendar("destroy");
-            fullviewcalendar = null;
-            $("#add-event").off();
-            $("#add-event").remove();
-
-            $("#external-events > li").off();
-            $("#external-events > li").remove();
-            $("#add-event").off();
-            $("#add-event").remove();
-            $("#calendar-buttons #btn-prev").off();
-            $("#calendar-buttons #btn-prev").remove();
-            $("#calendar-buttons #btn-next").off();
-            $("#calendar-buttons #btn-next").remove();
-            $("#calendar-buttons #btn-today").off();
-            $("#calendar-buttons #btn-today").remove();
-            $("#mt").off();
-            $("#mt").remove();
-            $("#ag").off();
-            $("#ag").remove();
-            $("#td").off();
-            $("#td").remove();
-        }
         pagefunction();
     </script>
 }

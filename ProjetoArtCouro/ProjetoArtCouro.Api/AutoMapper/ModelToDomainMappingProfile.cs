@@ -16,7 +16,7 @@ namespace ProjetoArtCouro.Api.AutoMapper
 {
     public class ModelToDomainMappingProfile : Profile
     {
-        public override string ProfileName
+        public string Profile
         {
             get { return "ModelToDomainMappingProfile"; }
         }
