@@ -32,3 +32,16 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debu
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Model.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\System.Web.WebPages.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Model.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\System.Web.WebPages.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb

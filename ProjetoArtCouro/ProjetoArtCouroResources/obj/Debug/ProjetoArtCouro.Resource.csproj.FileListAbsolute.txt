@@ -36,3 +36,12 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\De
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.pdb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csprojResolveAssemblyReference.cache
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouro.Resource.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\bin\ProjetoArtCouro.Resource.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\bin\AutoMapper.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Erros.resources
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.Resources.Mensagens.resources
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csproj.GenerateResource.Cache
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.pdb
