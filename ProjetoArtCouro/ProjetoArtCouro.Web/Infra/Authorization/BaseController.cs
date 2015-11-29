@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Web.Mvc;
-using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Extensions;

@@ -84,10 +84,6 @@
     <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
-      <Project>{53A56D12-0D1A-46C3-82C0-F4822DC016FF}</Project>
-      <Name>ProjetoArtCouro.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
       <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
       <Name>ProjetoArtCouro.Resource</Name>

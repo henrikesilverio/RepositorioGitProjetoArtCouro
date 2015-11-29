@@ -42,6 +42,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.7.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetZip.1.9.7\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MoreLinq">
       <HintPath>..\packages\morelinq.1.2.0\lib\net35\MoreLinq.dll</HintPath>
@@ -55,6 +59,10 @@
       <HintPath>..\packages\RestSharp.105.2.2\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.0.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -600,10 +608,12 @@
     <Compile Include="Infra\Authorization\EncryptionMD5.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Infra\Extensions\DeflateCompressionAttribute.cs" />
     <Compile Include="Infra\Extensions\GlobalErrorHandler.cs" />
     <Compile Include="Infra\Extensions\HttpResponseBaseExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Infra\Helpers\CompressionHelper.cs" />
     <Compile Include="Infra\HtmlHelperExtensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -617,6 +627,8 @@
     <Compile Include="Infra\Service\ServiceRequest.cs" />
     <Compile Include="Infra\Service\TokenModel.cs" />
     <Compile Include="Infra\WebValidator\HtmlPropertiesAttribute.cs" />
+    <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
+    <Compile Include="Models\Enums\TipoPapelPessoaEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -681,17 +693,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouro.Api\ProjetoArtCouro.Api.csproj">
-      <Project>{709E84E7-E8E2-4ED5-995F-6BA400A12A3A}</Project>
-      <Name>ProjetoArtCouro.Api</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetoArtCouro.Domain\ProjetoArtCouro.Domain.csproj">
-      <Project>{4EF49AA8-F650-4E7E-B669-7EB09F3C67F1}</Project>
-      <Name>ProjetoArtCouro.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
       <Project>{53a56d12-0d1a-46c3-82c0-f4822dc016ff}</Project>
       <Name>ProjetoArtCouro.Model</Name>
