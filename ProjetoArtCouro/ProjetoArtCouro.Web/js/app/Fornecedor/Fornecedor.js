@@ -4,7 +4,7 @@
         Portal.ConfiguracaoNovaPessoa();
         Portal.SalvarDados(settings);
     },
-    EditarFornecedor: function() {
+    EditarFornecedor: function (settings) {
         Portal.ConfiguracaoNovaPessoa();
         Portal.SalvarDados(settings);
         Portal.DesbilitarCampo("#CPF");

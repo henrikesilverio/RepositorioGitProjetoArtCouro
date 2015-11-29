@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using ProjetoArtCouro.Model.Infra.DataAnnotation;
-using ProjetoArtCouro.Model.Models.Common;
-using ProjetoArtCouro.Resource.Resources;
+﻿using ProjetoArtCouro.Model.Models.Common;
 
 namespace ProjetoArtCouro.Model.Models.Fornecedor
 {

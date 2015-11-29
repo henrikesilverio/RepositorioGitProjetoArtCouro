@@ -15,7 +15,7 @@
     <div role="content">
         <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
-            <form id="formularioCliente" class="smart-form" novalidate="novalidate">
+            <form id="formularioFornecedor" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
@@ -115,7 +115,7 @@
                 @Html.Partial("_MeioComunicacao", Model)
                 @Html.HiddenFor(m => m.Codigo)
                 <footer>
-                    <a id="SalvarCliente" class="btn btn-primary" href="javascript:void(0);">
+                    <a id="SalvarFornecedor" class="btn btn-primary" href="javascript:void(0);">
                         <i class="fa fa-floppy-o"></i> @Mensagens.Save
                     </a>
                 </footer>

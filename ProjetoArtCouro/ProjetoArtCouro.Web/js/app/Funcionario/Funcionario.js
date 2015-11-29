@@ -4,7 +4,7 @@
         Portal.ConfiguracaoNovaPessoa();
         Portal.SalvarDados(settings);
     },
-    EditarFuncionario: function () {
+    EditarFuncionario: function (settings) {
         Portal.ConfiguracaoNovaPessoa();
         Portal.SalvarDados(settings, function (formularioDados) {
             formularioDados.push({ "name": "EPessoaFisica", "value": $(".TipoPessoa:checked").val() });

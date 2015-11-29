@@ -30,11 +30,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
         {
             _context.Enderecos.Add(endereco);
             _context.SaveChanges();
-            return
-                _context.Enderecos.LastOrDefault(
-                    x =>
-                        x.CEP.Equals(endereco.CEP) && x.Logradouro.Equals(endereco.Logradouro) &&
-                        x.Numero.Equals(endereco.Numero));
+            return _context.Entry(endereco).Entity;
         }
 
         public void Atualizar(Endereco endereco)

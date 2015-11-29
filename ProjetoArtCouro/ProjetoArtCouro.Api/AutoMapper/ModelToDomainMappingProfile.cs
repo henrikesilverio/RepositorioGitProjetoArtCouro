@@ -9,6 +9,8 @@ using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
+using ProjetoArtCouro.Model.Models.Fornecedor;
+using ProjetoArtCouro.Model.Models.Funcionario;
 using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
@@ -39,10 +41,14 @@ namespace ProjetoArtCouro.Api.AutoMapper
 
             Mapper.CreateMap<PessoaModel, PessoaFisica>()
                 .ForMember(d => d.EstadoCivil, m => m.MapFrom(s => s))
-                .Include<ClienteModel, PessoaFisica>();
+                .Include<ClienteModel, PessoaFisica>()
+                .Include<FuncionarioModel, PessoaFisica>()
+                .Include<FornecedorModel, PessoaFisica>();
 
             Mapper.CreateMap<PessoaModel, PessoaJuridica>()
-                .Include<ClienteModel, PessoaJuridica>();
+                .Include<ClienteModel, PessoaJuridica>()
+                .Include<FuncionarioModel, PessoaJuridica>()
+                .Include<FornecedorModel, PessoaJuridica>();
 
             Mapper.CreateMap<PessoaModel, Pessoa>()
                 .ForMember(d => d.PessoaCodigo, m => m.MapFrom(s => s.Codigo))
@@ -86,13 +92,17 @@ namespace ProjetoArtCouro.Api.AutoMapper
                         Principal = true
                     }
                 }))
-                .Include<ClienteModel, Pessoa>();
+                .Include<ClienteModel, Pessoa>()
+                .Include<FuncionarioModel, Pessoa>()
+                .Include<FornecedorModel, Pessoa>();
 
             Mapper.CreateMap<PessoaModel, EstadoCivil>()
                 .ForMember(d => d.EstadoCivilId, m => m.Ignore())
                 .ForMember(d => d.EstadoCivilNome, m => m.Ignore())
                 .ForMember(d => d.EstadoCivilCodigo, m => m.MapFrom(s => s.EstadoCivilId))
-                .Include<ClienteModel, EstadoCivil>();
+                .Include<ClienteModel, EstadoCivil>()
+                .Include<FuncionarioModel, EstadoCivil>()
+                .Include<FornecedorModel, EstadoCivil>();
 
             Mapper.CreateMap<ProdutoModel, Produto>()
                 .ForMember(d => d.ProdutoId, m => m.Ignore())

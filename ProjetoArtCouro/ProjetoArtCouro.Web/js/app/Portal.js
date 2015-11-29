@@ -231,7 +231,7 @@ $.extend(Portal, {
                 }).error(function (ex) {
                     Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor);
                 });
-            } else if ($.isFunction(FurmularioInvalido)) {
+            } else if ($.isFunction(Portal.FurmularioInvalido)) {
                 Portal.FurmularioInvalido.call(this, formularioDados);
             }
         });

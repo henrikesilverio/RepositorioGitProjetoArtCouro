@@ -8,6 +8,8 @@ using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
+using ProjetoArtCouro.Model.Models.Fornecedor;
+using ProjetoArtCouro.Model.Models.Funcionario;
 using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
 
@@ -60,9 +62,13 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Endereco, m => m.MapFrom(s => s.Pessoa.Enderecos))
                 .ForMember(d => d.MeioComunicacao, m => m.MapFrom(s => s.Pessoa.MeiosComunicacao))
                 .ForMember(d => d.Enderecos, m => m.MapFrom(s => s.Pessoa.Enderecos))
-                .Include<PessoaFisica, ClienteModel>();
+                .Include<PessoaFisica, ClienteModel>()
+                .Include<PessoaFisica, FuncionarioModel>()
+                .Include<PessoaFisica, FornecedorModel>();
 
             Mapper.CreateMap<PessoaFisica, ClienteModel>();
+            Mapper.CreateMap<PessoaFisica, FuncionarioModel>();
+            Mapper.CreateMap<PessoaFisica, FornecedorModel>();
 
             Mapper.CreateMap<PessoaJuridica, PessoaModel>()
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.Pessoa.PessoaCodigo))
@@ -71,9 +77,13 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Endereco, m => m.MapFrom(s => s.Pessoa.Enderecos))
                 .ForMember(d => d.MeioComunicacao, m => m.MapFrom(s => s.Pessoa.MeiosComunicacao))
                 .ForMember(d => d.Enderecos, m => m.MapFrom(s => s.Pessoa.Enderecos))
-                .Include<PessoaJuridica, ClienteModel>();
+                .Include<PessoaJuridica, ClienteModel>()
+                .Include<PessoaJuridica, FuncionarioModel>()
+                .Include<PessoaJuridica, FornecedorModel>();
 
             Mapper.CreateMap<PessoaJuridica, ClienteModel>();
+            Mapper.CreateMap<PessoaJuridica, FuncionarioModel>();
+            Mapper.CreateMap<PessoaJuridica, FornecedorModel>();
 
             Mapper.CreateMap<Produto, ProdutoModel>()
                 .ForMember(d => d.Descricao, m => m.MapFrom(s => s.ProdutoNome))

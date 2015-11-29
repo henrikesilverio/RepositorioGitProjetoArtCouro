@@ -63,6 +63,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         [CustomAuthorize(Roles = "AlterarSenha")]
         public ActionResult AlterarSenha()
         {
+            ViewBag.SubTitle = Mensagens.ChangePassword;
             return View();
         }
 
