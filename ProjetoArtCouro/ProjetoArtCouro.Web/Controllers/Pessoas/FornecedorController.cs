@@ -27,7 +27,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             var response = ServiceRequest.Post<List<FornecedorModel>>(model, "api/Fornecedor/PesquisarFornecedor");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
+                response.Data.Mensagem = Erros.NoProviderForTheGivenFilter;
             }
             return ReturnResponse(response);
         }

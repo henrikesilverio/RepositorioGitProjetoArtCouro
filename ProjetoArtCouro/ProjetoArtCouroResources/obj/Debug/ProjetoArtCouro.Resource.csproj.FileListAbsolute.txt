@@ -45,3 +45,4 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtC
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csproj.GenerateResource.Cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouroResources\obj\Debug\ProjetoArtCouro.Resource.csprojResolveAssemblyReference.cache

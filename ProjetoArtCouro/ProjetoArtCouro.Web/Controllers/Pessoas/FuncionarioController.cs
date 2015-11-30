@@ -27,7 +27,7 @@ namespace ProjetoArtCouro.Web.Controllers.Pessoas
             var response = ServiceRequest.Post<List<FuncionarioModel>>(model, "api/Funcionario/PesquisarFuncionario");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                response.Data.Mensagem = Erros.NoClientForTheGivenFilter;
+                response.Data.Mensagem = Erros.NoEmployeeForTheGivenFilter;
             }
             return ReturnResponse(response);
         }

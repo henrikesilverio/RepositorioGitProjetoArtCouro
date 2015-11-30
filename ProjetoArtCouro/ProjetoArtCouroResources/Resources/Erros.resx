@@ -249,4 +249,10 @@
   <data name="UnauthorizedAccess" xml:space="preserve">
     <value>Acesso não autorizado.</value>
   </data>
+  <data name="NoEmployeeForTheGivenFilter" xml:space="preserve">
+    <value>Não há funcionário para o filtro informado</value>
+  </data>
+  <data name="NoProviderForTheGivenFilter" xml:space="preserve">
+    <value>Não há fornecedor para o filtro informado</value>
+  </data>
 </root>
