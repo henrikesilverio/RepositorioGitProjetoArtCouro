@@ -644,6 +644,7 @@
     <Content Include="Views\Cliente\PesquisaCliente.cshtml" />
     <Content Include="Views\Cliente\EditarCliente.cshtml" />
     <Content Include="js\plugin\underscore\underscore-min.map" />
+    <None Include="Properties\PublishProfiles\Publicação.pubxml" />
     <None Include="Views\Cliente\NovoCliente.cshtml" />
     <Content Include="Views\Shared\_Endereco.cshtml" />
     <Content Include="Views\Shared\_MeioComunicacao.cshtml" />
