@@ -165,6 +165,7 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             {
                 bdGrupoPermissao.Permissoes.Add(x);
             });
+            //TODO Remover ou adicionar as permissões dos usuarios relacionados ao grupo que sera atualizado
             _grupoPermissaoRepository.Atualizar(bdGrupoPermissao);
         }
 
