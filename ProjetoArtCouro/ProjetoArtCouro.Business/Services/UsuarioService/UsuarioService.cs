@@ -31,7 +31,7 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             {
                 throw new Exception(Erros.DuplicateUserName);
             };
-            var temGrupo = _grupoPermissaoRepository.ObterPorCodigoComPermissao(codigoGrupo);
+            var temGrupo = _grupoPermissaoRepository.ObterPorCodigoComPermissoes(codigoGrupo);
             AssertionConcern.AssertArgumentNotEquals(temGrupo, null, Erros.GroupDoesNotExist);
             var listaPermissao = temGrupo.Permissoes;
             if (!listaPermissao.Any())
@@ -65,21 +65,22 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         {
             var usuarioAtual = _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(usuario.UsuarioCodigo);
             AssertionConcern.AssertArgumentNotNull(usuarioAtual, Erros.UserDoesNotExist);
-            //var grupoAtual = _grupoPermissaoRepository.ObterPorCodigoComPermissao(usuarioAtual.GrupoPermissao.GrupoPermissaoCodigo);
             var grupoAtual = usuarioAtual.GrupoPermissao;
             var novoGrupo =
-                _grupoPermissaoRepository.ObterPorCodigoComPermissao(usuario.GrupoPermissao.GrupoPermissaoCodigo);
+                _grupoPermissaoRepository.ObterPorCodigoComPermissoes(usuario.GrupoPermissao.GrupoPermissaoCodigo);
             AssertionConcern.AssertArgumentNotNull(novoGrupo, Erros.GroupDoesNotExist);
-            var permissoes = usuarioAtual.Permissoes.ToList();
-            permissoes.RemoveAll(x => grupoAtual.Permissoes.Any(a => a.PermissaoId.Equals(x.PermissaoId)));
+            var permissoesDoUsuario = usuarioAtual.Permissoes.ToList();
+            //Remove todas as permissões que pertencem ao grupo de permissões atual
+            permissoesDoUsuario.RemoveAll(x => grupoAtual.Permissoes.Any(a => a.PermissaoId.Equals(x.PermissaoId)));
+            //Adiciona as permissões do novo grupo de permissões
             novoGrupo.Permissoes.ToList().ForEach(x =>
             {
-                permissoes.Add(x);
+                permissoesDoUsuario.Add(x);
             });
             usuarioAtual.Ativo = usuario.Ativo;
             usuarioAtual.UsuarioNome = usuario.UsuarioNome;
             usuarioAtual.Permissoes.Clear();
-            usuarioAtual.Permissoes = permissoes;
+            usuarioAtual.Permissoes = permissoesDoUsuario;
             usuarioAtual.GrupoPermissao = null;
             usuarioAtual.GrupoPermissao = novoGrupo;
             if (!string.IsNullOrEmpty(usuario.Senha))
@@ -124,7 +125,7 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
 
         public GrupoPermissao ObterGrupoPermissaoPorCodigo(int codigo)
         {
-            return _grupoPermissaoRepository.ObterPorCodigoComPermissao(codigo);
+            return _grupoPermissaoRepository.ObterPorCodigoComPermissoes(codigo);
         }
 
         public List<GrupoPermissao> PesquisarGrupo(string nome, int? codigo, bool todos)
@@ -152,7 +153,8 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         public void EditarGrupoPermissao(GrupoPermissao grupoPermissao)
         {
             AssertionConcern.AssertArgumentNotEmpty(grupoPermissao.GrupoPermissaoNome, Erros.EmptyGroupName);
-            var bdGrupoPermissao = _grupoPermissaoRepository.ObterPorCodigoComPermissao(grupoPermissao.GrupoPermissaoCodigo);
+            var bdGrupoPermissao =
+                _grupoPermissaoRepository.ObterPorCodigoComPermissoesEUsuarios(grupoPermissao.GrupoPermissaoCodigo);
             var listaPermissao = _permissaoRepository.ObterLista();
             if (!listaPermissao.Any())
             {
@@ -165,8 +167,8 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             {
                 bdGrupoPermissao.Permissoes.Add(x);
             });
-            //TODO Remover ou adicionar as permissões dos usuarios relacionados ao grupo que sera atualizado
             _grupoPermissaoRepository.Atualizar(bdGrupoPermissao);
+            AtualizarPermissoesDeUsuariosPorGrupoPermissao(bdGrupoPermissao);
         }
 
         public void EditarPermissaoUsuario(int codigoUsuario, List<Permissao> permissoes)
@@ -203,6 +205,19 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             grupoPermissao.Permissoes = grupoPermissao.Permissoes.Select(x =>
                 listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
             grupoPermissao.GrupoPermissaoNome = grupoPermissao.GrupoPermissaoNome.ToUpper();
+        }
+
+        private void AtualizarPermissoesDeUsuariosPorGrupoPermissao(GrupoPermissao grupoPermissao)
+        {
+            var usuarios =
+                grupoPermissao.Usuarios.Select(
+                    x => _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(x.UsuarioCodigo));
+            foreach (var usuario in usuarios)
+            {
+                usuario.Permissoes.Clear();
+                usuario.Permissoes = grupoPermissao.Permissoes;
+                _usuarioRepository.Atualizar(usuario);
+            }
         }
 
         public void Dispose()

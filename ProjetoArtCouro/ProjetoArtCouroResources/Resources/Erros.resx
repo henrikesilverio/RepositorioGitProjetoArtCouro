@@ -255,4 +255,7 @@
   <data name="NoProviderForTheGivenFilter" xml:space="preserve">
     <value>Não há fornecedor para o filtro informado</value>
   </data>
+  <data name="FailuretoUpdatePermissionsUserOnline" xml:space="preserve">
+    <value>Falha ao atualizar permissoes do usuario logado.</value>
+  </data>
 </root>

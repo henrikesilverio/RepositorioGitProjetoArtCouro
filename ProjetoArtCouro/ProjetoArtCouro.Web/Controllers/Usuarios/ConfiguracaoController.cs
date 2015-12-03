@@ -64,6 +64,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult EditarGrupo(GrupoModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarGrupo");
+            AtualizarPermissoesDoUsuarioLogado();
             return ReturnResponse(response);
         }
 
@@ -71,7 +72,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         [CustomAuthorize(Roles = "ExcluirGrupo")]
         public JsonResult ExcluirGrupo(int codigoGrupo)
         {
-            var response = ServiceRequest.Delete<RetornoBase<int?>>(new {codigoGrupo = codigoGrupo},
+            var response = ServiceRequest.Delete<RetornoBase<int?>>(new { codigoGrupo = codigoGrupo },
                 "api/Usuario/ExcluirGrupo");
             return ReturnResponse(response);
         }
@@ -97,19 +98,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public JsonResult ConfiguracaoUsuario(ConfiguracaoUsuarioModel model)
         {
             var response = ServiceRequest.Put<RetornoBase<string>>(model, "api/Usuario/EditarPermissaoUsuario");
-            if (response.StatusCode != HttpStatusCode.OK)
-            {
-                return ReturnResponse(response);
-            }
-            var ret = ServiceRequest.Get<List<PermissaoModel>>("api/Usuario/ObterPermissoesUsuarioLogado");
-            if (ret.StatusCode != HttpStatusCode.OK || ret.Data == null)
-            {
-                return ReturnResponse(response);
-            }
-            var roles =
-                JsonConvert.SerializeObject(
-                    ret.Data.ObjetoRetorno.Select(x => x.AcaoNome).ToArray());
-            Response.UpdateRolesCookie(roles);
+            AtualizarPermissoesDoUsuarioLogado();
             return ReturnResponse(response);
         }
 
@@ -126,10 +115,21 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
                 var response = ServiceRequest.Get<List<PermissaoModel>>("api/Usuario/ObterListaPermissao");
                 ViewBag.Permissoes = response.Data.ObjetoRetorno;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new Exception(Erros.FailedToLoadPermissions);
             }
+        }
+
+        private void AtualizarPermissoesDoUsuarioLogado()
+        {
+            var ret = ServiceRequest.Get<List<PermissaoModel>>("api/Usuario/ObterPermissoesUsuarioLogado");
+            if (ret.StatusCode != HttpStatusCode.OK || ret.Data == null)
+            {
+                throw new Exception(Erros.FailuretoUpdatePermissionsUserOnline);
+            }
+            var roles = JsonConvert.SerializeObject(ret.Data.ObjetoRetorno.Select(x => x.AcaoNome).ToArray());
+            Response.UpdateRolesCookie(roles);
         }
     }
 }

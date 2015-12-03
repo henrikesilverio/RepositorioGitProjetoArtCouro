@@ -232,6 +232,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Falha ao atualizar permissoes do usuario logado..
+        /// </summary>
+        public static string FailuretoUpdatePermissionsUserOnline {
+            get {
+                return ResourceManager.GetString("FailuretoUpdatePermissionsUserOnline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forma de pagamento não existe.
         /// </summary>
         public static string FormOfPaymentDoesNotExist {
