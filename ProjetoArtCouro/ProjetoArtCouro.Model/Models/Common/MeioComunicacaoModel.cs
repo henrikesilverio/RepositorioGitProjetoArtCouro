@@ -28,6 +28,8 @@ namespace ProjetoArtCouro.Model.Models.Common
         public int? EmailId { get; set; }
 
         [Display(Name = "NewEmail", ResourceType = typeof(Mensagens))]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", 
+            ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "InvalidEmail")]
         public string Email { get; set; }
 
         public List<LookupModel> Emalis { get; set; }
