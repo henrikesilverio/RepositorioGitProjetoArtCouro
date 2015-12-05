@@ -131,7 +131,7 @@
     top: 8px !important;
 }
 
-.ScrollWidgetTable div[role='content'] {
+.ScrollWidgetTable .ScrollTableContent {
     overflow: auto;
 }
 
