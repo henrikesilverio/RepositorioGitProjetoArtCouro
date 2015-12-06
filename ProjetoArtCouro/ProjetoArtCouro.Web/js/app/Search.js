@@ -60,7 +60,7 @@
             $(listaCampos).each(function() {
                 if (this.value === "" && this.type !== "checkbox") {
                     contador++;
-                } else if (this.type === "checkbox" && !this.checked) {
+                } else if ((this.type === "checkbox" || this.type === "radio") && !this.checked) {
                     contador++;
                 }
             });
@@ -174,6 +174,8 @@
                 "sInfo": "_START_ a _END_ em _TOTAL_ " + settings.TituloRodape,
                 "sInfoEmpty": settings.TituloRodapeContador,
                 "sEmptyTable": settings.InformacaoTabela,
+                "sInfoFiltered": "",
+                "sZeroRecords": "Não há registros para o filtro informado",
                 "oPaginate": {
                     "sFirst": "<<",
                     "sLast": ">>",

@@ -1,11 +1,16 @@
 ﻿.smart-form .field-validation-error {
     display: block;
-    margin-top: 1px;
+    margin-top: 2px;
     padding: 0 1px;
     font-style: normal;
     font-size: 11px;
     line-height: 15px;
     color: #D56161;
+    float: left !important;
+}
+
+.smart-form .inline-group {
+    margin: 0 !important;
 }
 
 .smart-form footer .btn {
@@ -228,4 +233,14 @@ textarea#description {
     -ms-opacity: 0.5 !important;
     opacity: 0.5 !important;
     padding-right: 4px !important;
+}
+
+.select2-container.input-validation-error a {
+    background: #fff0f0 !important;
+    border-color: #A90329 !important;
+}
+
+.select2-container.input-validation-error li {
+    background: #fff0f0 !important;
+    border-color: #A90329 !important;
 }

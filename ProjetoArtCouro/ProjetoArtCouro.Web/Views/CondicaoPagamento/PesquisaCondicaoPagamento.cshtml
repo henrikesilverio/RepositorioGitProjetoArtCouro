@@ -21,14 +21,14 @@
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             @Html.LabelFor(m => m.Descricao, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = 30 })
+                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = 50 })
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             @Html.LabelFor(m => m.QuantidadeParcelas, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new { placeholder = @Mensagens.QuantityOfParcels })
+                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new { placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos" })
                             </label>
                             @Html.ValidationMessageFor(m => m.QuantidadeParcelas)
                         </section>

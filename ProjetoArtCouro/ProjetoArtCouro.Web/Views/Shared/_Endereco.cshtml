@@ -50,7 +50,7 @@
         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
             @Html.LabelFor(m => m.Endereco.Cidade, new {@class = "label"})
             <label class="input">
-                @Html.TextBoxFor(m => m.Endereco.Cidade, new {placeholder = @Mensagens.City, MaxLength = "50"})
+                @Html.TextBoxFor(m => m.Endereco.Cidade, new { placeholder = @Mensagens.City, @class = "SomenteCinquentaLetras" })
             </label>
             @Html.ValidationMessageFor(m => m.Endereco.Cidade)
         </section>

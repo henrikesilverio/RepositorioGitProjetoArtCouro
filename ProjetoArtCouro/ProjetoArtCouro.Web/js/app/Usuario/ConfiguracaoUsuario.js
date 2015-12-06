@@ -21,6 +21,8 @@
         $("#PermissaoId").select2({
             formatNoMatches: "Permissão nao encontrada",
             placeholder: "Clique para selecionar uma permissão"
+        }).change(function() {
+            $("#PermissaoId").trigger("blur");
         });
         Portal.DesbilitarCampo("#PermissaoId");
 
@@ -39,6 +41,7 @@
                     return permissao.Codigo.toString();
                 })).trigger("change");
             }
+            $("#UsuarioId").trigger("blur");
         });
 
         $("#SalvarConfiguracaoUsuario").on("click", function () {

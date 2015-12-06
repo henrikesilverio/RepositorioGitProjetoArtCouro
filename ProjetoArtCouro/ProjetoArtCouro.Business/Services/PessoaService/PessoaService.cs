@@ -129,7 +129,8 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             if (codigo.Equals(0) &&
                 string.IsNullOrEmpty(nome) &&
                 string.IsNullOrEmpty(cpf) &&
-                string.IsNullOrEmpty(email))
+                string.IsNullOrEmpty(email) &&
+                papelCodigo.Equals(TipoPapelPessoaEnum.Nenhum))
             {
                 throw new Exception(Erros.EmptyParameters);
             };
@@ -142,7 +143,8 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             if (codigo.Equals(0) &&
                 string.IsNullOrEmpty(nome) &&
                 string.IsNullOrEmpty(cnpj) &&
-                string.IsNullOrEmpty(email))
+                string.IsNullOrEmpty(email) &&
+                papelCodigo.Equals(TipoPapelPessoaEnum.Nenhum))
             {
                 throw new Exception(Erros.EmptyParameters);
             }

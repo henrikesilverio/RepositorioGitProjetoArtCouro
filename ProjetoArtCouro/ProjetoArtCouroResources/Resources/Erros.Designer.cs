@@ -304,6 +304,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A quantidade de parcelas deve ser 0 a 99.
+        /// </summary>
+        public static string InvalidQuantityOfParcels {
+            get {
+                return ResourceManager.GetString("InvalidQuantityOfParcels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nome do usuário inválido.
         /// </summary>
         public static string InvalidUserName {

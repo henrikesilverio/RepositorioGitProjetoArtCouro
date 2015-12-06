@@ -6,11 +6,11 @@ namespace ProjetoArtCouro.Model.Models.Usuario
 {
     public class ConfiguracaoUsuarioModel
     {
-        [Required(ErrorMessageResourceName = "ERR_Name", ErrorMessageResourceType = typeof(Mensagens))]
+        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Erros))]
         [Display(Name = "Users", ResourceType = typeof(Mensagens))]
         public int? UsuarioId { get; set; }
 
-        [Required(ErrorMessageResourceName = "ERR_Name", ErrorMessageResourceType = typeof(Mensagens))]
+        [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Erros))]
         [Display(Name = "Permissions", ResourceType = typeof(Mensagens))]
         public string PermissaoId { get; set; }
 

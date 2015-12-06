@@ -107,7 +107,14 @@
             TituloRodapeContador: "Nenhum fornecedor",
             OrdenacaoDoCabecalho: [
                 { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.Name)", "mData": "Nome", "sWidth": "40%" },
+                {
+                    "sTitle": "@(Mensagens.Name)",
+                    "mData": null,
+                    "sWidth": "40%",
+                    "mRender": function (obj) {
+                        return obj.Nome != null && obj.Nome !== "" ? obj.Nome : obj.RazaoSocial;
+                    }
+                },
                 {
                     "sTitle": "@(Mensagens.CPFCNPJ)",
                     "mData": null,

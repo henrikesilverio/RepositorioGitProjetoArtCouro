@@ -1,10 +1,7 @@
 ﻿//CustomValidationCPF
-jQuery.validator.addMethod("customvalidationcpf", function (value) {
+jQuery.validator.addMethod("customvalidationcpf", function(value) {
     value = value.replace(/[^0-9]/gi, "");
-    if (value.length === 11) {
-        return ValidationCPF(value);
-    }
-    return true;
+    return ValidationCPF(value);
 }, "");
 
 jQuery.validator.unobtrusive.adapters.add("customvalidationcpf", {}, function (options) {
@@ -12,13 +9,11 @@ jQuery.validator.unobtrusive.adapters.add("customvalidationcpf", {}, function (o
     options.messages["customvalidationcpf"] = options.message;
 });
 
-jQuery.validator.addMethod("customvalidationcnpj", function (value) {
+jQuery.validator.addMethod("customvalidationcnpj", function(value) {
     value = value.replace(/[^0-9]/gi, "");
-    if (value.length === 14) {
-        return ValidationCNPJ(value);
-    }
-    return true;
+    return ValidationCNPJ(value);
 }, "");
+
 jQuery.validator.unobtrusive.adapters.add("customvalidationcnpj", {}, function (options) {
     options.rules["customvalidationcnpj"] = true;
     options.messages["customvalidationcnpj"] = options.message;
