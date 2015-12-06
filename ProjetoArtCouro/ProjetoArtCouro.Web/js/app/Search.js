@@ -41,6 +41,8 @@
                 "sInfo": "_START_ a _END_ em _TOTAL_ " + settings.TituloRodape,
                 "sInfoEmpty": settings.TituloRodapeContador,
                 "sEmptyTable": settings.InformacaoTabela,
+                "sInfoFiltered": "",
+                "sZeroRecords": "Não há registros para o filtro informado",
                 "oPaginate": {
                     "sFirst": "<<",
                     "sLast": ">>",
