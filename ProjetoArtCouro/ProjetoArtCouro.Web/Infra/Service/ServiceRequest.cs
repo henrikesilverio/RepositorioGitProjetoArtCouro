@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using System.Web.Configuration;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Web.Infra.Authorization;
@@ -10,7 +11,8 @@ namespace ProjetoArtCouro.Web.Infra.Service
     {
         public static TokenModel GetAuthenticationToken(string userName, string password)
         {
-            var client = new RestClient("http://localhost:5839");
+            var serviceUrl = WebConfigurationManager.AppSettings["serviceUrl"];
+            var client = new RestClient(serviceUrl);
             var request = new RestRequest("/api/security/token", Method.POST);
             request.AddParameter("grant_type", "password");
             request.AddParameter("username", userName);
@@ -58,7 +60,8 @@ namespace ProjetoArtCouro.Web.Infra.Service
         private static IRestResponse<RetornoBase<T>> ExecuteAction<T>(object objectParameter, string apiEndPoint, Method method) 
             where T : new()
         {
-            var client = new RestClient("http://localhost:5839");
+            var serviceUrl = WebConfigurationManager.AppSettings["serviceUrl"];
+            var client = new RestClient(serviceUrl);
             var request = new RestRequest(apiEndPoint, method);
             var json = JsonConvert.SerializeObject(objectParameter);            
             request.AddParameter("text/json", json, ParameterType.RequestBody);
