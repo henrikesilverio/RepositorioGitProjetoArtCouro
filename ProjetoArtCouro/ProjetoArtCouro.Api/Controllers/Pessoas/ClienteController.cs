@@ -10,6 +10,7 @@ using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Model.Models.Cliente;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
@@ -24,7 +25,6 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("CriarCliente")]
         [Authorize(Roles = "NovoCliente")]
-        //[CacheOutput(ClientTimeSpan = 100, ServerTimeSpan = 100)]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {
@@ -48,6 +48,31 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
                     _pessoaService.CriarPessoaJuridica(pessoa);
                 }
                 response = ReturnSuccess();
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
+        [Route("ObterListaCliente")]
+        [Authorize(Roles = "NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterListaCliente()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var listaPessoaFisica = _pessoaService.ObterListaPessoaFisicaPorPapel(TipoPapelPessoaEnum.Cliente);
+                var listaPessoaJuridica = _pessoaService.ObterListaPessoaJuridicaPorPapel(TipoPapelPessoaEnum.Cliente);
+                var listaCliente = Mapper.Map<List<ClienteModel>>(listaPessoaFisica);
+                listaCliente.AddRange(Mapper.Map<List<ClienteModel>>(listaPessoaJuridica));
+                response = ReturnSuccess(listaCliente);
             }
             catch (Exception ex)
             {

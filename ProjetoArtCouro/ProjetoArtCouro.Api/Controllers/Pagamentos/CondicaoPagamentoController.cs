@@ -9,6 +9,7 @@ using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPagamento;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 {
@@ -22,7 +23,8 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
         }
 
         [Route("ObterListaCondicaoPagamento")]
-        [Authorize(Roles = "PesquisaCondicaoPagamento")]
+        [Authorize(Roles = "PesquisaCondicaoPagamento, NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaCondicaoPagamento()
         {

@@ -9,6 +9,7 @@ using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPagamento;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 {
@@ -22,7 +23,8 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
         }
 
         [Route("ObterListaFormaPagamento")]
-        [Authorize(Roles = "PesquisaFormaPagamento")]
+        [Authorize(Roles = "PesquisaFormaPagamento, NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaFormaPagamento()
         {

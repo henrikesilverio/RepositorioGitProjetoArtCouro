@@ -14,54 +14,56 @@
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
             <form id="formContaReceber" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
+                        <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
+                    <div class="row">
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoVenda, new { @class = "label" })
+                            @Html.LabelFor(m => m.CodigoVenda, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoVenda, new { placeholder = @Mensagens.SaleCode })
+                                @Html.TextBoxFor(m => m.CodigoVenda, new {placeholder = @Mensagens.SaleCode})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoCliente, new { @class = "label" })
+                            @Html.LabelFor(m => m.CodigoCliente, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoCliente, new { placeholder = @Mensagens.ClientCode })
+                                @Html.TextBoxFor(m => m.CodigoCliente, new {placeholder = @Mensagens.ClientCode})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.DataEmissao, new { @class = "label" })
+                            @Html.LabelFor(m => m.DataEmissao, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataEmissao, new { placeholder = @Mensagens.IssuanceDate })
+                                @Html.TextBoxFor(m => m.DataEmissao, new {placeholder = @Mensagens.IssuanceDate})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.DataVencimento, new { @class = "label" })
+                            @Html.LabelFor(m => m.DataVencimento, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataVencimento, new { placeholder = @Mensagens.DueDate })
+                                @Html.TextBoxFor(m => m.DataVencimento, new {placeholder = @Mensagens.DueDate})
                             </label>
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.NomeCliente, new { @class = "label" })
+                            @Html.LabelFor(m => m.NomeCliente, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.NomeCliente, new { placeholder = @Mensagens.ProviderName })
+                                @Html.TextBoxFor(m => m.NomeCliente, new {placeholder = @Mensagens.ProviderName})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
+                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.StatusId, new { @class = "label" })
+                            @Html.LabelFor(m => m.StatusId, new {@class = "label"})
                             <label class="select">
                                 @Html.DropDownListFor(m => m.StatusId, new SelectList(ViewBag.StatusContaReceber, "Codigo", "Nome")
-                                .AddDefaultOption(Mensagens.Select))
+                                    .AddDefaultOption(Mensagens.Select))
                                 <i></i>
                             </label>
                         </section>

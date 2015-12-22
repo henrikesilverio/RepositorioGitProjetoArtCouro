@@ -13,34 +13,36 @@
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
             <form id="formCondicaoPagamento" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
+                        <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
+                    <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
+                            @Html.LabelFor(m => m.Descricao, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = 50 })
+                                @Html.TextBoxFor(m => m.Descricao, new {placeholder = @Mensagens.Description, maxlength = 50})
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.QuantidadeParcelas, new { @class = "label" })
+                            @Html.LabelFor(m => m.QuantidadeParcelas, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new { placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos" })
+                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new {placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos"})
                             </label>
                             @Html.ValidationMessageFor(m => m.QuantidadeParcelas)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
+                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, true, new { data_text = @Mensagens.Yes })
+                                    @Html.RadioButtonFor(m => m.Ativo, true, new {data_text = @Mensagens.Yes})
                                     <i></i>@Mensagens.Yes
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, false, new { data_text = @Mensagens.Not })
+                                    @Html.RadioButtonFor(m => m.Ativo, false, new {data_text = @Mensagens.Not})
                                     <i></i>@Mensagens.Not
                                 </label>
                             </div>

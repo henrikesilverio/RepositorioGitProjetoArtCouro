@@ -10,6 +10,7 @@ using ProjetoArtCouro.Domain.Contracts.IService.IProduto;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Produto;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Produtos
 {
@@ -23,7 +24,8 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
         }
 
         [Route("ObterListaProduto")]
-        [Authorize(Roles = "PesquisaProduto")]
+        [Authorize(Roles = "PesquisaProduto, NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaProduto()
         {
@@ -75,6 +77,9 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
                 var produto = Mapper.Map<Produto>(model);
                 var produtoRetorno = _produtoService.CriarProduto(produto);
                 response = ReturnSuccess(Mapper.Map<ProdutoModel>(produtoRetorno));
+                //TODO cria uma forma de fazer isso automatico
+                var cache = Configuration.CacheOutputConfiguration().GetCacheOutputProvider(Request);
+                cache.Remove("projetoartcouro.api.controllers.produtos.produtocontroller-obterlistaproduto");
             }
             catch (Exception ex)
             {

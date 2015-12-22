@@ -12,15 +12,17 @@
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
             <form id="formularioGrupo" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
+                        <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
+                    <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.GrupoNome, new { @class = "label" })
+                            @Html.LabelFor(m => m.GrupoNome, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.GrupoNome, new { placeholder = @Mensagens.GroupName, MaxLength = "30", @class = "SomenteLetraMask text-transform-uppercase" })
+                                @Html.TextBoxFor(m => m.GrupoNome, new {placeholder = @Mensagens.GroupName, MaxLength = "30", @class = "SomenteLetraMask text-transform-uppercase"})
                             </label>
                             @Html.ValidationMessageFor(m => m.GrupoNome)
                         </section>

@@ -13,20 +13,22 @@
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
             <form id="formFormaPagamento" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
+                        <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
+                    <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
+                            @Html.LabelFor(m => m.Descricao, new {@class = "label"})
                             <label class="input">
                                 @Html.TextBoxFor(m => m.Descricao, new {placeholder = @Mensagens.Description, maxlength = 50})
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
+                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
                             <div class="inline-group">
                                 <label class="radio">
                                     @Html.RadioButtonFor(m => m.Ativo, true, new {data_text = @Mensagens.Yes})

@@ -167,6 +167,16 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             return _estadoCivilRepository.ObterLista();
         }
 
+        public List<PessoaFisica> ObterListaPessoaFisicaPorPapel(TipoPapelPessoaEnum papelCodigo)
+        {
+            return _pessoaFisicaRepository.ObterLista(0, null, null, null, papelCodigo);
+        }
+
+        public List<PessoaJuridica> ObterListaPessoaJuridicaPorPapel(TipoPapelPessoaEnum papelCodigo)
+        {
+            return _pessoaJuridicaRepository.ObterLista(0, null, null, null, papelCodigo);
+        }
+
         private void AtualizarEnderecoPessoa(Pessoa pessoa, Pessoa pessoaAtual)
         {
             //Adiciona um novo endereço ou modifica o exitente para principal

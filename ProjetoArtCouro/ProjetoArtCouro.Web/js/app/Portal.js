@@ -18,6 +18,7 @@ $.extend(Portal, {
         $(".SomenteLetraMask").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         $(".SomenteCinquentaLetras").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         $(".SomenteDoisDigitos").mask("00");
+        $(".MilharMask").mask("0.000.000", { reverse: true });
         var spMaskBehavior = function (val) {
             return val.replace(/\D/g, "").length === 11 ? "(00) 00000-0000" : "(00) 0000-00009";
         },
@@ -35,7 +36,7 @@ $.extend(Portal, {
             $(obj.Form).submit();
         });
     },
-    PreencherAlertaErros: function (mensagem, selotorLocal) {
+    PreencherAlertaErros: function (mensagem, selotorLocal, limparMensagensAnteriores) {
         var div = $("<div>").attr({
             "class": "alert alert-danger fade in"
         });
@@ -55,10 +56,13 @@ $.extend(Portal, {
         div.append(i);
         div.append(strong);
         div.append((" " + mensagem));
-        $(selotorLocal).html(div[0].outerHTML);
+        $(selotorLocal).append(div);
+        if (limparMensagensAnteriores) {
+            $(selotorLocal).html(div[0].outerHTML);
+        }
         $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
-    PreencherAlertaAtencao: function (mensagem, selotorLocal) {
+    PreencherAlertaAtencao: function (mensagem, selotorLocal, limparMensagensAnteriores) {
         var div = $("<div>").attr({
             "class": "alert alert-warning fade in"
         });
@@ -78,10 +82,14 @@ $.extend(Portal, {
         div.append(i);
         div.append(strong);
         div.append((" " + mensagem));
-        $(selotorLocal).html(div[0].outerHTML);
+        $(selotorLocal).append(div);
+        if (limparMensagensAnteriores) {
+            $(selotorLocal).html(div[0].outerHTML);
+        }
+        
         $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
-    PreencherAlertaSucesso: function (mensagem, selotorLocal) {
+    PreencherAlertaSucesso: function (mensagem, selotorLocal, limparMensagensAnteriores) {
         var div = $("<div>").attr({
             "class": "alert alert-success fade in"
         });
@@ -101,7 +109,10 @@ $.extend(Portal, {
         div.append(i);
         div.append(strong);
         div.append((" " + mensagem));
-        $(selotorLocal).html(div[0].outerHTML);
+        $(selotorLocal).append(div);
+        if (limparMensagensAnteriores) {
+            $(selotorLocal).html(div[0].outerHTML);
+        }
         $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
     LimparAlertar: function (selotorLocal) {
@@ -205,7 +216,7 @@ $.extend(Portal, {
     AntesDeSerializar: function () { },
     AntesDeEnviar: function () { },
     DepoisDeValidar: function () { },
-    FurmularioInvalido: function() {},
+    FurmularioInvalido: function () { },
     SalvarDados: function (settings) {
         settings.$BotaoSalvar.on("click", function () {
             if ($.isFunction(Portal.AntesDeSerializar)) {
@@ -226,17 +237,70 @@ $.extend(Portal, {
                     traditional: true
                 }).success(function (ret) {
                     if (ret.TemErros) {
-                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
+                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor, true);
                     } else {
-                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
+                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor, true);
                     }
                 }).error(function (ex) {
-                    Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor);
+                    Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor, true);
                 });
             } else if ($.isFunction(Portal.FurmularioInvalido)) {
                 Portal.FurmularioInvalido.call(this, formularioDados);
             }
         });
+    },
+    AdicionaErroSelect2: function (seletor) {
+        var $select2Container = $(".select2-container[id*='" + seletor + "']");
+        var $span = $("span[data-valmsg-for='" + seletor + "']");
+        $select2Container.addClass("input-validation-error");
+        $select2Container.closest("label").removeClass("state-success");
+        $select2Container.closest("label").addClass("state-error");
+        $span.addClass("field-validation-error");
+        $span.append("<span for='" + seletor + "'>Campo Obrigatório</span>");
+    },
+    RemoveErroSelect2: function (seletor) {
+        var $select2Container = $(".select2-container[id*='" + seletor + "']");
+        var $span = $("span[data-valmsg-for='" + seletor + "']");
+        $select2Container.removeClass("input-validation-error");
+        $select2Container.closest("label").removeClass("state-error");
+        $select2Container.closest("label").addClass("state-success");
+        $span.removeClass("field-validation-error");
+        $span.addClass("field-validation-valid");
+        $span.html("");
+    },
+    RemoveErro: function (seletor) {
+        var $elemento = $(seletor);
+        $elemento.closest("label").removeClass("state-error");
+        $elemento.closest("section").find("span.field-validation-error").html("");
+    },
+    CoverteStringEmFloat: function (valor) {
+        var valorSemFormatacao = valor.replace(/[a-zA-Z][$]/g, "").trim().replace(".", "").replace(",", ".");
+        return parseFloat(valorSemFormatacao);
+    },
+    FormataFloatParaDinheiro: function (valor) {
+        var valorFormatado = valor.toFixed(2).replace(".", ",").replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+        return valorFormatado;
+    },
+    CalculaValorBruto: function (precoVenda, quantidade) {
+        var valorVenda = Portal.CoverteStringEmFloat(precoVenda);
+        var valorQuantidade = parseInt(quantidade);
+        var valorBruto = valorVenda * valorQuantidade;
+        var valorFormatado = Portal.FormataFloatParaDinheiro(valorBruto);
+        return valorFormatado;
+    },
+    CalculaValorLiquido: function (valorBruto, valorDesconto) {
+        var desconto = Portal.CoverteStringEmFloat(valorDesconto);
+        var valorLiquido = Portal.CoverteStringEmFloat(valorBruto) - desconto;
+        var valorFormatado = Portal.FormataFloatParaDinheiro(valorLiquido);
+        return valorFormatado;
+    },
+    FormataValor: function (valor) {
+        if (valor === "") {
+            return "R$ 0,00";
+        } else if (valor.length <= 2) {
+            return "R$ " + valor.replace(/(\d)(?=(\d{0})+(?!\d))/g, "$1,00");
+        }
+        return "R$ " + valor;
     }
 });
 

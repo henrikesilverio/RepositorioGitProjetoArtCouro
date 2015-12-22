@@ -179,6 +179,7 @@
     <Content Include="js\app\Usuario\ConfiguracaoUsuario.js" />
     <Content Include="js\app\Usuario\Grupo.js" />
     <Content Include="js\app\Usuario\Usuario.js" />
+    <Content Include="js\app\Venda\Venda.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\demo.js" />
     <Content Include="js\extensions\CustomValidation.js" />
@@ -583,6 +584,9 @@
     <Content Include="js\plugin\datatables\dataTables.colVis.min.js" />
     <Content Include="js\plugin\datatables\datatables.min.js.map" />
     <Content Include="js\plugin\datatables\DT_bootstrap.min.js.map" />
+    <Content Include="Views\Venda\NovaVenda.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
@@ -662,7 +666,6 @@
     <Content Include="Views\FormaPagamento\PesquisaFormaPagamento.cshtml" />
     <Content Include="Views\Venda\PesquisaVenda.cshtml" />
     <Content Include="Views\Venda\_VendaView.cshtml" />
-    <Content Include="Views\Venda\NovaVenda.cshtml" />
     <Content Include="Views\Compra\PesquisaCompra.cshtml" />
     <Content Include="Views\Compra\NovaCompra.cshtml" />
     <Content Include="Views\Compra\_CompraView.cshtml" />
@@ -685,6 +688,8 @@
     <Content Include="Views\Shared\_ModalProduto.cshtml" />
     <Content Include="Views\Shared\_ModalCondicaoPagamento.cshtml" />
     <Content Include="Views\Shared\_ModalFormaPagamento.cshtml" />
+    <Content Include="Views\Shared\_ModalItemProdutoVenda.cshtml" />
+    <Content Include="Views\Shared\_ModalEfetuarVenda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

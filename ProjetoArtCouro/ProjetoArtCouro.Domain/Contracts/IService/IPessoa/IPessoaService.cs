@@ -9,6 +9,8 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IPessoa
     {
         List<Estado> ObterEstados();
         List<EstadoCivil> ObterEstadosCivis();
+        List<PessoaFisica> ObterListaPessoaFisicaPorPapel(TipoPapelPessoaEnum papelCodigo);
+        List<PessoaJuridica> ObterListaPessoaJuridicaPorPapel(TipoPapelPessoaEnum papelCodigo);
         List<PessoaFisica> PesquisarPessoaFisica(int codigo, string nome, string cpf, string email, TipoPapelPessoaEnum papelCodigo);
         List<PessoaJuridica> PesquisarPessoaJuridica(int codigo, string nome, string cnpj, string email, TipoPapelPessoaEnum papelCodigo);
         Pessoa ObterPessoaPorCodigo(int codigo);

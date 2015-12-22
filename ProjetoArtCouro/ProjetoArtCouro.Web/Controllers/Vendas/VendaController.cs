@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Mvc;
+using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.FormaPagamento;
+using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Venda;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
@@ -72,91 +77,14 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         {
             ViewBag.Title = Mensagens.Sale;
             ViewBag.SubTitle = Mensagens.NewSale;
-            ViewBag.Clientes = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Vitor"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Henrique"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "Andressa"
-                },
-                 new LookupModel
-                {
-                    Codigo = 4,
-                    Nome = "Felipe"
-                }
-            };
-
-            ViewBag.FormasPagamento = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Cartão"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Dinheiro"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "Cheque"
-                }
-            };
-
-            ViewBag.CondicoesPagamento = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "A vista"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "1 + 1"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "1 + 2"
-                },
-                 new LookupModel
-                {
-                    Codigo = 4,
-                    Nome = "1 + 3"
-                }
-            };
-
-            ViewBag.Produtos = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Cinto de couro"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Bolsa de couro"
-                }
-            };
-
+            ViewBag.Produtos = new List<LookupModel>();
             var model = new VendaModel
             {
                 Status = "Aberto",
-                DataCadastro = DateTime.Now
+                DataCadastro = DateTime.Now,
+                ValorTotalBruto = "0,00",
+                ValorTotalLiquido = "0,00",
+                ValorTotalDesconto = "0,00"
             };
             return View(model);
         }
@@ -289,6 +217,35 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         public JsonResult ExcluirVenda(int codigoVenda)
         {
             return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        [CustomAuthorize(Roles = "NovaVenda")]
+        public JsonResult ObterListaCliente()
+        {
+            var response = ServiceRequest.Get<List<ClienteModel>>("api/Cliente/ObterListaCliente");
+            return ReturnResponse(response);
+        }
+
+        [CustomAuthorize(Roles = "NovaVenda")]
+        public JsonResult ObterListaFormasPagamento()
+        {
+            var response = ServiceRequest.Get<List<FormaPagamentoModel>>("api/FormaPagamento/ObterListaFormaPagamento");
+            return ReturnResponse(response);
+        }
+
+        [CustomAuthorize(Roles = "NovaVenda")]
+        public JsonResult ObterListaCondicoesPagamento()
+        {
+            var response = ServiceRequest.Get<List<CondicaoPagamentoModel>>("api/CondicaoPagamento/ObterListaCondicaoPagamento");
+            return ReturnResponse(response);
+        }
+
+        [CustomAuthorize(Roles = "NovaVenda")]
+        public JsonResult ObterListaProduto()
+        {
+            //TODO obter do estoque
+            var response = ServiceRequest.Get<List<ProdutoModel>>("api/Produto/ObterListaProduto");
+            return ReturnResponse(response);
         }
     }
 }

@@ -13,10 +13,12 @@
         <span class="jarviswidget-loader"><i class="fa fa-refresh fa-spin"></i></span>
     </header>
     <div role="content">
-        <div id="AlertaMensagens" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding"></div>
         <div class="widget-body no-padding">
             <form id="formularioVenda" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.DataCadastro, new { @class = "label" })
@@ -37,62 +39,32 @@
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.ClienteId, new { @class = "label" })
-                            <label class="select">
-                                @Html.DropDownListFor(m => m.ClienteId, new SelectList(ViewBag.Clientes, "Codigo", "Nome")
-                                    .AddDefaultOption(Mensagens.Select))
-                                <i></i>
-                            </label>
-                            @Html.ValidationMessageFor(m => m.ClienteId)
-                        </section>
-                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.FormaPagamentoId, new { @class = "label" })
-                            <label class="select">
-                                @Html.DropDownListFor(m => m.FormaPagamentoId, new SelectList(ViewBag.FormasPagamento, "Codigo", "Nome")
-                                .AddDefaultOption(Mensagens.Select))
-                                <i></i>
-                            </label>
-                            @Html.ValidationMessageFor(m => m.FormaPagamentoId)
-                        </section>
-                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CondicaoPagamentoId, new { @class = "label" })
-                            <label class="select">
-                                @Html.DropDownListFor(m => m.CondicaoPagamentoId, new SelectList(ViewBag.CondicoesPagamento, "Codigo", "Nome")
-                                .AddDefaultOption(Mensagens.Select))
-                                <i></i>
-                            </label>
-                            @Html.ValidationMessageFor(m => m.CondicaoPagamentoId)
-                        </section>
-                    </div>
-                    <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             @Html.LabelFor(m => m.ProdutoId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.ProdutoId, new SelectList(ViewBag.Produtos, "Codigo", "Nome")
                                     .AddDefaultOption(Mensagens.Select))
-                                <i></i>
                             </label>
                             @Html.ValidationMessageFor(m => m.ProdutoId)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.Quantidade, new {@class = "label"})
+                            @Html.LabelFor(m => m.Quantidade, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Quantidade, new {placeholder = @Mensagens.Quantity})
+                                @Html.TextBoxFor(m => m.Quantidade, new { placeholder = @Mensagens.Quantity, @class = "MilharMask", @maxlenth = "9" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Quantidade)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             @Html.LabelFor(m => m.ValorDesconto, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.ValorDesconto, new { placeholder = @Mensagens.ValueDiscount })
+                                @Html.TextBoxFor(m => m.ValorDesconto, new { placeholder = @Mensagens.ValueDiscount, @class = "DinheiroMask" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorDesconto)
                         </section>
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="SalvarVenda" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="EfetuarVenda" class="btn btn-primary" href="javascript:void(0);">
+                        <i class="fa fa-shopping-cart"></i> @Mensagens.MakeSales
                     </a>
                     <a id="AdicionarProduto" class="btn btn-success" href="javascript:void(0);">
                         <i class="fa fa-plus"></i> @Mensagens.AddProduct
@@ -118,30 +90,29 @@
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.ValorTotalBruto, new {@class = "label"})
+                            @Html.LabelFor(m => m.ValorTotalBruto, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalBruto, new {placeholder = @Mensagens.TotalCrudeValue, disabled = "disabled"})
+                                @Html.TextBoxFor(m => m.ValorTotalBruto, new { placeholder = @Mensagens.TotalCrudeValue, disabled = "disabled" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalBruto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.ValorTotalDesconto, new {@class = "label"})
+                            @Html.LabelFor(m => m.ValorTotalDesconto, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalDesconto, new {placeholder = @Mensagens.TotalValueDiscount, disabled = "disabled"})
+                                @Html.TextBoxFor(m => m.ValorTotalDesconto, new { placeholder = @Mensagens.TotalValueDiscount, disabled = "disabled" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalDesconto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.ValorTotalLiquido, new {@class = "label"})
+                            @Html.LabelFor(m => m.ValorTotalLiquido, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalLiquido, new {placeholder = @Mensagens.TotalValueLiquid, disabled = "disabled"})
+                                @Html.TextBoxFor(m => m.ValorTotalLiquido, new { placeholder = @Mensagens.TotalValueLiquid, disabled = "disabled" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalLiquido)
                         </section>
                     </div>
                 </fieldset>
             </form>
-            @Html.Hidden("LinhaCorrente")
         </div>
     </div>
 </div>

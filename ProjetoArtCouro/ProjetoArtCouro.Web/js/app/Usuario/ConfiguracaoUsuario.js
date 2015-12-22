@@ -7,7 +7,7 @@
             traditional: true
         }).success(function (ret) {
             if (ret.TemErros) {
-                Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
+                Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor, true);
             } else {
                 settings.ListaUsuarios = ret.ObjetoRetorno;
                 _.each(ret.ObjetoRetorno, function (usuario) {
@@ -15,7 +15,7 @@
                 });
             }
         }).error(function (ex) {
-            Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
+            Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor, true);
         });
 
         $("#PermissaoId").select2({
@@ -56,12 +56,12 @@
                     traditional: true
                 }).success(function (ret) {
                     if (ret.TemErros) {
-                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor);
+                        Portal.PreencherAlertaErros(ret.Mensagem, settings.AlertaMensagensSeletor, true);
                     } else {
-                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor);
+                        Portal.PreencherAlertaSucesso(ret.Mensagem, settings.AlertaMensagensSeletor, true);
                     }
                 }).error(function (ex) {
-                    Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor);
+                    Portal.PreencherAlertaErros(ex.responseText, settings.AlertaMensagensSeletor, true);
                 });
             }
         });
