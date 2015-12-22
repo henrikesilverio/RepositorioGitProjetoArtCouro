@@ -25,6 +25,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("CriarCliente")]
         [Authorize(Roles = "NovoCliente")]
+        [InvalidateCacheOutput("ObterListaCliente")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {
@@ -142,6 +143,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("EditarCliente")]
         [Authorize(Roles = "EditarCliente")]
+        [InvalidateCacheOutput("ObterListaCliente")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarCliente(ClienteModel model)
         {
@@ -176,6 +178,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("ExcluirCliente")]
         [Authorize(Roles = "ExcluirCliente")]
+        [InvalidateCacheOutput("ObterListaCliente")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirCliente([FromBody]JObject jObject)
         {

@@ -46,6 +46,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("CriarCondicaoPagamento")]
         [Authorize(Roles = "NovaCondicaoPagamento")]
+        [InvalidateCacheOutput("ObterListaCondicaoPagamento")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCondicaoPagamento(CondicaoPagamentoModel model)
         {
@@ -68,6 +69,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("EditarCondicaoPagamento")]
         [Authorize(Roles = "EditarCondicaoPagamento")]
+        [InvalidateCacheOutput("ObterListaCondicaoPagamento")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarCondicaoPagamento(CondicaoPagamentoModel model)
         {
@@ -90,6 +92,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("ExcluirCondicaoPagamento")]
         [Authorize(Roles = "ExcluirCondicaoPagamento")]
+        [InvalidateCacheOutput("ObterListaCondicaoPagamento")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirCondicaoPagamento([FromBody]JObject jObject)
         {

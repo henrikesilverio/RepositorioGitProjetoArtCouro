@@ -7,11 +7,11 @@ using AutoMapper;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Model.Models.Common;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
     [RoutePrefix("api/Pessoa")]
-    //[CacheOutput(ClientTimeSpan = 10000, ServerTimeSpan = 10000)]
     public class PessoaController : BaseApiController
     {
         private readonly IPessoaService _pessoaService;
@@ -22,6 +22,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("ObterListaEstado")]
         [Authorize(Roles = "NovoCliente, EditarCliente, NovoFornecedor, EditarFornecedor, NovoFuncionario, EditarFuncionario")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaEstado()
         {
@@ -43,6 +44,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("ObterListaEstadoCivil")]
         [Authorize(Roles = "NovoCliente, EditarCliente, NovoFornecedor, EditarFornecedor, NovoFuncionario, EditarFuncionario")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaEstadoCivil()
         {

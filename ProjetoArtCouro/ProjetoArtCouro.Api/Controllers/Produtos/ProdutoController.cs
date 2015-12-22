@@ -47,6 +47,7 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
 
         [Route("ObterListaUnidade")]
         [Authorize(Roles = "PesquisaProduto")]
+        [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]
         public Task<HttpResponseMessage> ObterListaUnidade()
         {
@@ -68,6 +69,7 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
 
         [Route("CriarProduto")]
         [Authorize(Roles = "NovoProduto")]
+        [InvalidateCacheOutput("ObterListaProduto")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarProduto(ProdutoModel model)
         {
@@ -77,9 +79,6 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
                 var produto = Mapper.Map<Produto>(model);
                 var produtoRetorno = _produtoService.CriarProduto(produto);
                 response = ReturnSuccess(Mapper.Map<ProdutoModel>(produtoRetorno));
-                //TODO cria uma forma de fazer isso automatico
-                var cache = Configuration.CacheOutputConfiguration().GetCacheOutputProvider(Request);
-                cache.Remove("projetoartcouro.api.controllers.produtos.produtocontroller-obterlistaproduto");
             }
             catch (Exception ex)
             {
@@ -93,6 +92,7 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
 
         [Route("EditarProduto")]
         [Authorize(Roles = "EditarProduto")]
+        [InvalidateCacheOutput("ObterListaProduto")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarProduto(ProdutoModel model)
         {
@@ -115,6 +115,7 @@ namespace ProjetoArtCouro.Api.Controllers.Produtos
 
         [Route("ExcluirProduto")]
         [Authorize(Roles = "ExcluirProduto")]
+        [InvalidateCacheOutput("ObterListaProduto")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirProduto([FromBody]JObject jObject)
         {

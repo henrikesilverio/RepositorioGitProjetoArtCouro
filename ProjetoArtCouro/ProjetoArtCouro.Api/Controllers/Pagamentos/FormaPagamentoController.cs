@@ -46,6 +46,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("CriarFormaPagamento")]
         [Authorize(Roles = "NovaFormaPagamento")]
+        [InvalidateCacheOutput("ObterListaFormaPagamento")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarFormaPagamento(FormaPagamentoModel model)
         {
@@ -68,6 +69,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("EditarFormaPagamento")]
         [Authorize(Roles = "EditarFormaPagamento")]
+        [InvalidateCacheOutput("ObterListaFormaPagamento")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarFormaPagamento(FormaPagamentoModel model)
         {
@@ -90,6 +92,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pagamentos
 
         [Route("ExcluirFormaPagamento")]
         [Authorize(Roles = "ExcluirFormaPagamento")]
+        [InvalidateCacheOutput("ObterListaFormaPagamento")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirFormaPagamento([FromBody]JObject jObject)
         {
