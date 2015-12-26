@@ -35,7 +35,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +69,34 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TesteApiVenda\TestVendaController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoArtCouro.Api\ProjetoArtCouro.Api.csproj">
+      <Project>{709e84e7-e8e2-4ed5-995f-6ba400a12a3a}</Project>
+      <Name>ProjetoArtCouro.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoArtCouro.Business\ProjetoArtCouro.Business.csproj">
+      <Project>{eb592d38-7345-4e73-a91d-705eff70eee2}</Project>
+      <Name>ProjetoArtCouro.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoArtCouro.Domain\ProjetoArtCouro.Domain.csproj">
+      <Project>{4ef49aa8-f650-4e7e-b669-7eb09f3c67f1}</Project>
+      <Name>ProjetoArtCouro.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
+      <Project>{53a56d12-0d1a-46c3-82c0-f4822dc016ff}</Project>
+      <Name>ProjetoArtCouro.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+      <Project>{bd67cbc9-554e-4d94-b708-85068614d72a}</Project>
+      <Name>ProjetoArtCouro.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
