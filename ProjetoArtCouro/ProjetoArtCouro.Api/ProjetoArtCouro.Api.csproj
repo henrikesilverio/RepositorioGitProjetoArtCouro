@@ -190,6 +190,7 @@
     <Compile Include="Controllers\Produtos\ProdutoController.cs" />
     <Compile Include="Controllers\Usuarios\UsuarioController.cs" />
     <Compile Include="Controllers\Vendas\VendaController.cs" />
+    <Compile Include="Extensions\InvalidateCacheOutputCustomAttribute.cs" />
     <Compile Include="Extensions\DeflateCompressionAttribute.cs" />
     <Compile Include="Helpers\BaseApiController.cs" />
     <Compile Include="Helpers\CompressionHelper.cs" />

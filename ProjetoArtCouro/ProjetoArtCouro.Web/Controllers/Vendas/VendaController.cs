@@ -64,7 +64,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
             var model = new VendaModel
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "0,00",
                 ValorTotalLiquido = "0,00",
                 ValorTotalDesconto = "0,00"

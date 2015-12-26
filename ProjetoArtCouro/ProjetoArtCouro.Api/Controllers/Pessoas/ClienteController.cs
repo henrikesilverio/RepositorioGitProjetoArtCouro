@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
+using ProjetoArtCouro.Api.Extensions;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Model.Models.Cliente;
-using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
@@ -25,7 +25,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("CriarCliente")]
         [Authorize(Roles = "NovoCliente")]
-        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
+        [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {
@@ -118,7 +118,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("EditarCliente")]
         [Authorize(Roles = "EditarCliente")]
-        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
+        [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarCliente(ClienteModel model)
         {
@@ -153,7 +153,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("ExcluirCliente")]
         [Authorize(Roles = "ExcluirCliente")]
-        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
+        [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirCliente([FromBody]JObject jObject)
         {
