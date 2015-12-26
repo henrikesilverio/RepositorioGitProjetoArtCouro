@@ -9,7 +9,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
         Pessoa ObterPorId(Guid id);
         Pessoa ObterPorCodigo(int codigo);
         Pessoa ObterPorCodigoComPessoaCompleta(int codigo);
-        List<Pessoa> ObterLista();
+        List<Pessoa> ObterListaComPessoaFisicaEJuridica();
         void Criar(Pessoa pessoa);
         void Atualizar(Pessoa pessoa);
         void Deletar(Pessoa pessoa);

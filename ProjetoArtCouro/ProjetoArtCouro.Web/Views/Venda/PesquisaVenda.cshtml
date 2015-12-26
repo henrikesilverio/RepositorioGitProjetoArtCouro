@@ -21,25 +21,25 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoVenda, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoVenda, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoVenda, new {placeholder = @Mensagens.SaleCode})
+                                @Html.TextBoxFor(m => m.CodigoVenda, new { placeholder = @Mensagens.SaleCode })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoCliente, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoCliente, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoCliente, new {placeholder = @Mensagens.ClientCode})
+                                @Html.TextBoxFor(m => m.CodigoCliente, new { placeholder = @Mensagens.ClientCode })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.DataCadastro, new {@class = "label"})
+                            @Html.LabelFor(m => m.DataCadastro, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataCadastro, new {placeholder = @Mensagens.RegistrationDate, @class = "DataMask"})
+                                @Html.TextBoxFor(m => m.DataCadastro, new { placeholder = @Mensagens.RegistrationDate, @class = "DataMask" })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.StatusId, new {@class = "label"})
+                            @Html.LabelFor(m => m.StatusId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.StatusId, new SelectList(ViewBag.StatusVenda, "Codigo", "Nome")
                                     .AddDefaultOption(Mensagens.Select))
@@ -49,25 +49,25 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(m => m.NomeCliente, new {@class = "label"})
+                            @Html.LabelFor(m => m.NomeCliente, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.NomeCliente, new {placeholder = @Mensagens.ClientName})
+                                @Html.TextBoxFor(m => m.NomeCliente, new { placeholder = @Mensagens.ClientName })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ})
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
                             </label>
                         </section>
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="PesquisarVenda" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-search"></i> @Mensagens.Research
+                    <a id="PesquisarVenda" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-search"></i></span> @Mensagens.Research
                     </a>
-                    <a id="NovaVenda" class="btn btn-success" href="@Url.Action("NovaVenda", "Venda")">
-                        <i class="fa fa-file-o"></i> @Mensagens.New
+                    <a id="NovaVenda" class="btn btn-labeled btn-success" href="@Url.Action("NovaVenda", "Venda")">
+                        <span class="btn-label"><i class="fa fa-file-o"></i></span> @Mensagens.New
                     </a>
                 </footer>
             </form>
@@ -92,12 +92,9 @@
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
+    <script src="~/js/app/Venda/Venda.js"></script>
     <script>
         Portal.Mask();
-        Portal.Form({
-            Button: $("#Salvar"),
-            Form: $("#smart-form-register")
-        });
         Portal.Search({
             AlertaMensagensSeletor: "#AlertaMensagens",
             BotaoPesquisarSeletor: "#PesquisarVenda",
@@ -110,20 +107,32 @@
             TituloRodapeContador: "Nenhuma venda",
             OrdenacaoDoCabecalho: [
                 { "sTitle": "@(Mensagens.SaleCode)", "mData": "CodigoVenda", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ClientCode)", "mData": "ClienteId", "sWidth": "30%" },
                 {
-                    "sTitle": "@(Mensagens.RegistrationDate)",
+                    "sTitle": "@(Mensagens.ClientCode)",
                     "mData": null,
-                    "sWidth": "20%",
+                    "sWidth": "10%",
                     "mRender": function (obj) {
-                        var milesegundos = parseInt(obj.DataCadastro.replace(/[^\d]/g, ""));
-                        var data = new Date(milesegundos);
-                        return Portal.ConverteData(data);
+                        return obj.ClienteId == null ? "N/I" : obj.ClienteId;
                     }
                 },
+                {
+                    "sTitle": "@(Mensagens.ClientName)",
+                    "mData": null,
+                    "sWidth": "40%",
+                    "mRender": function (obj) {
+                        return obj.NomeCliente == null ? "N/I" : obj.NomeCliente;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.CPFCNPJ)",
+                    "mData": null,
+                    "sWidth": "10%",
+                    "mRender": function (obj) {
+                        return obj.CPFCNPJ == null ? "N/I" : obj.CPFCNPJ;
+                    }
+                },
+                { "sTitle": "@(Mensagens.RegistrationDate)", "mData": "DataCadastro", "sWidth": "10%" },
                 { "sTitle": "@(Mensagens.Status)", "mData": "Status", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ClientName)", "mData": "NomeCliente", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.CPFCNPJ)", "mData": "CPFCNPJ", "sWidth": "10%" },
                 {
                     "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
@@ -133,7 +142,7 @@
                     "mRender": function (obj) {
                         var url = "/Venda/EditarVenda" + "?codigoVenda=" + obj.CodigoVenda;
                         var botoes = Portal.CriarBotoes(url,
-                                "Portal.RequisicaoDeletarLinha(\"/Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + "}, \"#datatableVenda\", $(this).closest(\"tr\"))");
+                            "Portal.ExcluirVenda(\"/Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + ",StatusVenda:" + obj.StatusVenda + "}, \"#datatableVenda\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

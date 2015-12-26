@@ -1,5 +1,5 @@
 ﻿@using ProjetoArtCouro.Resource.Resources
-@model  ProjetoArtCouro.Model.Models.Venda.VendaModel
+@model ProjetoArtCouro.Model.Models.Venda.VendaModel
 
 @Html.Partial("_VendaView", Model)
 
@@ -8,13 +8,6 @@
     <script src="~/js/app/Venda/Venda.js"></script>
     <script>
         Portal.Mask();
-        Portal.NovaVenda({
-            UrlProduto: "@Url.Action("ObterListaProduto", "Venda")",
-            UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Venda")",
-            UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Venda")",
-            UrlCliente: "@Url.Action("ObterListaCliente", "Venda")",
-            $TabelaSeletor: $("#datatableProduto")
-        });
         Portal.TabelaItemProduto({
             AdicionaLinhaSeletor: "#AdicionarProduto",
             TabelaSeletor: "#datatableProduto",
@@ -38,7 +31,7 @@
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         var settings = JSON.stringify({
                             "seletorTabela": "#datatableProduto",
                             "seletorBotaoModalAtualizar": "#AtualizarItemProduto",
@@ -54,7 +47,7 @@
                     }
                 }
             ],
-            ObterCamposPrincipais: function() {
+            ObterCamposPrincipais: function () {
                 var valorDescontoFormatado = Portal.FormataValor($("#ValorDesconto").val());
                 var valorBrutoFormatado = "R$ "
                     + Portal.CalculaValorBruto($("#ProdutoId option:selected").data("precoVenda"), $("#Quantidade").val());
@@ -73,6 +66,14 @@
                 ];
                 return item;
             }
+        });
+        Portal.NovaVenda({
+            UrlDados: "@Url.Action("NovaVenda", "Venda")",
+            UrlProduto: "@Url.Action("ObterListaProduto", "Venda")",
+            UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Venda")",
+            UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Venda")",
+            UrlCliente: "@Url.Action("ObterListaCliente", "Venda")",
+            $TabelaSeletor: $("#datatableProduto")
         });
     </script>
 }

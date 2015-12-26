@@ -4,20 +4,24 @@ using ProjetoArtCouro.Business.Services.PagamentoService;
 using ProjetoArtCouro.Business.Services.PessoaService;
 using ProjetoArtCouro.Business.Services.ProdutoService;
 using ProjetoArtCouro.Business.Services.UsuarioService;
+using ProjetoArtCouro.Business.Services.VendaService;
 using ProjetoArtCouro.DataBase.DataBase;
 using ProjetoArtCouro.DataBase.Repositorios.PagamentoRepository;
 using ProjetoArtCouro.DataBase.Repositorios.PessoaRepository;
 using ProjetoArtCouro.DataBase.Repositorios.ProdutoRepository;
 using ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository;
+using ProjetoArtCouro.DataBase.Repositorios.VendaRepository;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IVenda;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
 using ProjetoArtCouro.Domain.Contracts.IService.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Contracts.IService.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IService.IUsuario;
+using ProjetoArtCouro.Domain.Contracts.IService.IVenda;
 
 namespace ProjetoArtCouro.Startup.DependencyResolver
 {
@@ -50,6 +54,10 @@ namespace ProjetoArtCouro.Startup.DependencyResolver
             container.RegisterType<IFormaPagamentoService, FormaPagamentoService>(new HierarchicalLifetimeManager());
             container.RegisterType<ICondicaoPagamentoRepository, CondicaoPagamentoRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IFormaPagamentoRepository, FormaPagamentoRepository>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<IVendaService, VendaService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IVendaRepository, VendaRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IItemVendaRepository, ItemVendaRepository>(new HierarchicalLifetimeManager());
 
             //container.RegisterType<User, User>(new HierarchicalLifetimeManager());
         }

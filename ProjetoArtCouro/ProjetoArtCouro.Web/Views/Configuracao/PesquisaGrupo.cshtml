@@ -20,19 +20,19 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.GrupoNome, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoNome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.GrupoNome, new {placeholder = @Mensagens.GroupName})
+                                @Html.TextBoxFor(m => m.GrupoNome, new { placeholder = @Mensagens.GroupName })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.GrupoCodigo, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoCodigo, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.GrupoCodigo, new {placeholder = @Mensagens.GroupCode})
+                                @Html.TextBoxFor(m => m.GrupoCodigo, new { placeholder = @Mensagens.GroupCode })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                            @Html.LabelFor(m => m.Todos, new {@class = "label"})
+                            @Html.LabelFor(m => m.Todos, new { @class = "label" })
                             <div class="inline-group">
                                 <label class="checkbox">
                                     @Html.CheckBoxFor(m => m.Todos, true)
@@ -43,11 +43,11 @@
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="PesquisarGrupo" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-search"></i> @Mensagens.Research
+                    <a id="PesquisarGrupo" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-search"></i></span> @Mensagens.Research
                     </a>
-                    <a id="NovoGrupo" class="btn btn-success" href="@Url.Action("NovoGrupo", "Configuracao")">
-                        <i class="fa fa-file-o"></i> @Mensagens.New
+                    <a id="NovoGrupo" class="btn btn-labeled btn-success" href="@Url.Action("NovoGrupo", "Configuracao")">
+                        <span class="btn-label"><i class="fa fa-file-o"></i></span> @Mensagens.New
                     </a>
                 </footer>
             </form>

@@ -261,4 +261,46 @@
   <data name="InvalidQuantityOfParcels" xml:space="preserve">
     <value>A quantidade de parcelas deve ser 0 a 99</value>
   </data>
+  <data name="InvalidParameter" xml:space="preserve">
+    <value>Parâmetro {0} inválido</value>
+  </data>
+  <data name="ClientNotSet" xml:space="preserve">
+    <value>Cliente não informado</value>
+  </data>
+  <data name="NotSetPayment" xml:space="preserve">
+    <value>Forma de pagamento não informado</value>
+  </data>
+  <data name="PaymentConditionNotSet" xml:space="preserve">
+    <value>Condição de pagamento não informado</value>
+  </data>
+  <data name="SaleItemsNotSet" xml:space="preserve">
+    <value>Itens da venda não informado</value>
+  </data>
+  <data name="SaleUnknown" xml:space="preserve">
+    <value>Venda não informada</value>
+  </data>
+  <data name="StatusOfDifferentSalesOpen" xml:space="preserve">
+    <value>Status da venda diferente de aberto</value>
+  </data>
+  <data name="SumDoNotMatchTotalCrudeValue" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Bruto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueDiscount" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Desconto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueLiquid" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Líquido</value>
+  </data>
+  <data name="UserNotSet" xml:space="preserve">
+    <value>Usuário não informado</value>
+  </data>
+  <data name="NoSaleForTheGivenFilter" xml:space="preserve">
+    <value>Não há vendas para o filtro informado</value>
+  </data>
+  <data name="SaleDoesNotExist" xml:space="preserve">
+    <value>Venda não existe</value>
+  </data>
+  <data name="SaleConfirmedCanNotBeExcluded" xml:space="preserve">
+    <value>Venda confirmada não pode ser excluida.</value>
+  </data>
 </root>

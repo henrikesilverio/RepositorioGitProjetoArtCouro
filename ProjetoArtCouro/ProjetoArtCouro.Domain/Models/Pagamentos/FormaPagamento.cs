@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
@@ -10,6 +11,7 @@ namespace ProjetoArtCouro.Domain.Models.Pagamentos
         public int FormaPagamentoCodigo { get; set; }
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
+        public virtual Venda Venda { get; set; }
 
         public void Validar()
         {

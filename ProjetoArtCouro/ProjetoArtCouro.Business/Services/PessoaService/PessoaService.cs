@@ -167,6 +167,11 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             return _estadoCivilRepository.ObterLista();
         }
 
+        public List<Pessoa> ObterListaPessoa()
+        {
+            return _pessoaRepository.ObterListaComPessoaFisicaEJuridica();
+        }
+
         public List<PessoaFisica> ObterListaPessoaFisicaPorPapel(TipoPapelPessoaEnum papelCodigo)
         {
             return _pessoaFisicaRepository.ObterLista(0, null, null, null, papelCodigo);

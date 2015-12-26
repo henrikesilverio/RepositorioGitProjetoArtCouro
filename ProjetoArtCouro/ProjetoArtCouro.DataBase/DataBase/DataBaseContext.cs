@@ -4,10 +4,12 @@ using ProjetoArtCouro.DataBase.EntityConfig.PagamentoConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.ProdutoConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration;
+using ProjetoArtCouro.DataBase.EntityConfig.VendaConfiguration;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
+using ProjetoArtCouro.Domain.Models.Vendas;
 
 namespace ProjetoArtCouro.DataBase.DataBase
 {
@@ -27,6 +29,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
         public DbSet<EstadoCivil> EstadosCivis { get; set; }
         public DbSet<FormaPagamento> FormasPagamento { get; set; }
         public DbSet<GrupoPermissao> GruposPermissao { get; set; }
+        public DbSet<ItemVenda> ItensVenda { get; set; }
         public DbSet<MeioComunicacao> MeiosComunicacao { get; set; }
         public DbSet<Papel> Papeis { get; set; }
         public DbSet<Permissao> Permissoes { get; set; }
@@ -36,6 +39,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Unidade> Unidades { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
 
         //Customizando criação do DbCOntext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -54,6 +58,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
             modelBuilder.Configurations.Add(new EstadoCivilConfiguration());
             modelBuilder.Configurations.Add(new FormaPagamentoConfiguration());
             modelBuilder.Configurations.Add(new GrupoPermissaoConfiguration());
+            modelBuilder.Configurations.Add(new ItemVendaConfiguration());
             modelBuilder.Configurations.Add(new MeioComunicacaoConfiguration());
             modelBuilder.Configurations.Add(new PapelConfiguration());
             modelBuilder.Configurations.Add(new PermissaoConfiguration());
@@ -63,6 +68,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
             modelBuilder.Configurations.Add(new ProdutoConfiguration());
             modelBuilder.Configurations.Add(new UnidadeConfiguration());
             modelBuilder.Configurations.Add(new UsuarioConfiguration());
+            modelBuilder.Configurations.Add(new VendaConfiguration());
         }
     }
 }

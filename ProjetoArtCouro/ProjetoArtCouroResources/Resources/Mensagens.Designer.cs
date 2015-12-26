@@ -160,6 +160,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelar Venda.
+        /// </summary>
+        public static string CancelSale {
+            get {
+                return ResourceManager.GetString("CancelSale", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Celular.
         /// </summary>
         public static string CellPhone {
@@ -291,6 +300,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string ConditionsPayments {
             get {
                 return ResourceManager.GetString("ConditionsPayments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuração.
+        /// </summary>
+        public static string Configuration {
+            get {
+                return ResourceManager.GetString("Configuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar.
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         
@@ -552,6 +579,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string FormsPayment {
             get {
                 return ResourceManager.GetString("FormsPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gerar orçamento.
+        /// </summary>
+        public static string GenerateBudget {
+            get {
+                return ResourceManager.GetString("GenerateBudget", resourceCulture);
             }
         }
         
@@ -934,7 +970,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Preço venda.
+        ///   Looks up a localized string similar to Preço Venda.
         /// </summary>
         public static string PriceSale {
             get {
@@ -1213,6 +1249,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configurações.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configurações de Usuarios.
         /// </summary>
         public static string SettingsForUsers {
@@ -1366,7 +1411,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Valor de Desconto.
+        ///   Looks up a localized string similar to Valor Desconto.
         /// </summary>
         public static string ValueDiscount {
             get {
@@ -1375,7 +1420,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Valor do Documento.
+        ///   Looks up a localized string similar to Valor Documento.
         /// </summary>
         public static string ValueDocument {
             get {
@@ -1384,7 +1429,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Valor do Frete.
+        ///   Looks up a localized string similar to Valor Frete.
         /// </summary>
         public static string ValueFreight {
             get {
@@ -1393,7 +1438,7 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Valor líquido.
+        ///   Looks up a localized string similar to Valor Líquido.
         /// </summary>
         public static string ValueLiquid {
             get {

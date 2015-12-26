@@ -21,40 +21,40 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.Nome, new {@class = "label"})
+                            @Html.LabelFor(m => m.Nome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Nome, new {placeholder = @Mensagens.Name})
+                                @Html.TextBoxFor(m => m.Nome, new { placeholder = @Mensagens.Name })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
-                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ, MaxLength = "18", @class = "CpfCnpjMask"})
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ, MaxLength = "18", @class = "CpfCnpjMask" })
                             </label>
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Email, new {@class = "label"})
+                            @Html.LabelFor(m => m.Email, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Email, new {placeholder = @Mensagens.Email})
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = @Mensagens.Email })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.CodigoFornecedor, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoFornecedor, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoFornecedor, new {placeholder = @Mensagens.Code})
+                                @Html.TextBoxFor(m => m.CodigoFornecedor, new { placeholder = @Mensagens.Code })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.EPessoaFisica, new {@class = "labe"})
+                            @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new {@class = "TipoPessoa"})
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.PhysicalPerson
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new {@class = "TipoPessoa"})
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.LegalPerson
                                 </label>
                             </div>
@@ -62,11 +62,11 @@
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="PesquisarFornecedor" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-search"></i> @Mensagens.Research
+                    <a id="PesquisarFornecedor" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-search"></i></span> @Mensagens.Research
                     </a>
-                    <a id="NovoFornecedor" class="btn btn-success" href="@Url.Action("NovoFornecedor", "Fornecedor")">
-                        <i class="fa fa-file-o"></i> @Mensagens.New
+                    <a id="NovoFornecedor" class="btn btn-labeled btn-success" href="@Url.Action("NovoFornecedor", "Fornecedor")">
+                        <span class="btn-label"><i class="fa fa-file-o"></i></span> @Mensagens.New
                     </a>
                 </footer>
             </form>

@@ -21,7 +21,7 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.UsuarioId, new {@class = "label"})
+                            @Html.LabelFor(m => m.UsuarioId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.UsuarioId, new SelectList(ViewBag.Usuarios, "UsuarioCodigo", "UsuarioNome").AddDefaultOption(Mensagens.Select))
                             </label>
@@ -30,17 +30,17 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            @Html.LabelFor(m => m.PermissaoId, new {@class = "label"})
+                            @Html.LabelFor(m => m.PermissaoId, new { @class = "label" })
                             <label class="select">
-                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new {multiple = "multiple"})
+                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new { multiple = "multiple" })
                             </label>
                             @Html.ValidationMessageFor(m => m.PermissaoId)
                         </section>
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="SalvarConfiguracaoUsuario" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="SalvarConfiguracaoUsuario" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>

@@ -1,21 +1,161 @@
 ﻿$.extend(Portal, {
     NovaVenda: function (settings) {
         Portal.ListaProduto(settings, $("#ProdutoId"));
+        Portal.AplicaFuncoesTabelaItemProduto();
+        $("#EfetuarVenda").remove();
+        $("#CancelarVenda").remove();
+        $("#GerarOrcamento").off("click").on("click", function () {
+            var tabela = settings.$TabelaSeletor.dataTable();
+            if (tabela.fnGetData().length === 0) {
+                Portal.PreencherAlertaAtencao("Para gerar o orçamento é necessário adicionar produto(s)", "#AlertaMensagens", true);
+            } else {
+                //Monta o model e manda pro controller
+                Portal.CriarOrcamento(settings.UrlDados, tabela);
+            }
+        });
+    },
+    EditarVenda: function (settings) {
+        Portal.ListaProduto(settings, $("#ProdutoId"));
         Portal.FormasPagamento(settings, $("#FormaPagamentoId"));
         Portal.CondicoesPagamento(settings, $("#CondicaoPagamentoId"));
         Portal.ListaCliente(settings, $("#ClienteId"));
-        $("#EfetuarVenda").off("click").on("click", function () {
-            var tabela = settings.$TabelaSeletor.dataTable();
-            if (tabela.fnGetData().length === 0) {
-                Portal.PreencherAlertaAtencao("Para efetuar a venda é necessário adicionar produto(s)", "#AlertaMensagens", true);
-            } else {
-                Portal.ValidarAntesDeMostrarModal();
-            }
-            Portal.RemoveErro("#Quantidade");
-            Portal.RemoveErro("#ValorDesconto");
-            Portal.RemoveErroSelect2("ProdutoId");
-        });
         Portal.AplicaFuncoesTabelaItemProduto();
+        $("#GerarOrcamento").remove();
+        var tabela = settings.$TabelaSeletor.dataTable();
+        tabela.fnAddData(settings.ItensVenda);
+        if (settings.StatusVenda === "Aberto") {
+            $("#CancelarVenda").remove();
+            $("#EfetuarVenda").off("click").on("click", function () {
+                if (tabela.fnGetData().length === 0) {
+                    Portal.PreencherAlertaAtencao("Para efetuar a venda é necessário adicionar produto(s)", "#AlertaMensagens", true);
+                } else {
+                    Portal.ValidarAntesDeMostrarModal();
+                    $("#Vender").off("click").on("click", function () {
+                        Portal.EfetuarVenda(settings, tabela);
+                    });
+                }
+                Portal.RemoveErro("#Quantidade");
+                Portal.RemoveErro("#ValorDesconto");
+                Portal.RemoveErroSelect2("ProdutoId");
+            });
+        } else if (settings.StatusVenda === "Confirmado") {
+            Portal.BloqueiaEfetuarVenda(tabela);
+            $("#CancelarVenda").off("click").on("click", function () {
+                Portal.CancelarVenda(settings, tabela);
+            });
+        } else {
+            $("#CancelarVenda").remove();
+            Portal.BloqueiaEfetuarVenda(tabela);
+        }
+    },
+    ExcluirVenda: function (url, dados, tabelaSeletor, tr) {
+        $("#modalConfirmacao .modal-title").html("Excluir Venda");
+        if (dados.StatusVenda === "Confirmado") {
+            $("#ConfirmarAcao").hide();
+            Portal.PreencherAlertaAtencao("Não e possivel excluir uma venda confirmada, " +
+                "caso deseje excluir altere o status para <b>Cancelado</b> e clique novamente em <b>Excluir</b>",
+                "#ModalAlertaMensagens", true);
+        } else {
+            $("#ConfirmarAcao").show();
+            Portal.PreencherAlertaAtencao("Esta ação ira excluir venda, clique em <b>Confirmar</b> caso deseje excluir.",
+                "#ModalAlertaMensagens", true);
+            $("#ConfirmarAcao").off("click").on("click", function() {
+                Portal.RequisicaoDeletarLinha(url, { "CodigoVenda": dados.CodigoVenda }, tabelaSeletor, tr);
+            });
+        }
+        $("#ModalAlertaMensagens button").remove();
+        $("#modalConfirmacao").modal("show");
+    },
+    BloqueiaEfetuarVenda: function (tabela) {
+        tabela.fnSetColumnVis(7, false);
+        $("#AdicionarProduto").remove();
+        $("#EfetuarVenda").remove();
+        Portal.DesbilitarCampo("#ProdutoId");
+        Portal.DesbilitarCampo("#Quantidade");
+        Portal.DesbilitarCampo("#ValorDesconto");
+    },
+    CancelarVenda: function (settings, tabela) {
+        $("#modalConfirmacao").modal("show");
+        $("#modalConfirmacao .modal-title").html("Cancelar Venda");
+        Portal.PreencherAlertaAtencao("Esta ação ira remover a conta a receber referente a venda, o(s) item(s) da venda retornaram para o estoque.", 
+            "#ModalAlertaMensagens", true);
+        $("#ModalAlertaMensagens button").remove();
+        $("#ConfirmarAcao").off("click").on("click", function () {
+            var formularioDados = [];
+            Portal.AdicionarCamposNoFormularioDados(formularioDados, [{ "name": "CodigoVenda", "value": settings.CodigoVenda }]);
+            Portal.EnviarFormulario(settings.UrlDados, tabela, formularioDados, function () {
+                $("#CancelarVenda").attr("disabled", "disabled");
+                $("#CancelarVenda").off("click");
+                $("#CancelarVenda").remove();
+                $("#Status").val("Cancelado");
+            });
+        });
+    },
+    EfetuarVenda: function (settings, tabela) {
+        var formularioDados = [];
+        if ($("#formModalEfetivarVenda").valid()) {
+            Portal.AdicionarCamposNoFormularioDados(formularioDados, [{ "name": "CodigoVenda", "value": settings.CodigoVenda }]);
+            Portal.AdicionarCamposNoFormularioDados(formularioDados, $("#formModalEfetivarVenda").serializeArray());
+            Portal.EnviarFormulario(settings.UrlDados, tabela, formularioDados, function () {
+                $("#EfetuarVenda").attr("disabled", "disabled");
+                $("#EfetuarVenda").off("click");
+                $("#modalEfetivarVenda").modal("hide");
+                $("#Status").val("Confirmado");
+            }, function () {
+                $("#modalEfetivarVenda").modal("hide");
+            });
+        }
+    },
+    CriarOrcamento: function (urlDados, tabela) {
+        var formularioDados = [];
+        Portal.EnviarFormulario(urlDados, tabela, formularioDados, function () {
+            $("#GerarOrcamento").attr("disabled", "disabled");
+            $("#GerarOrcamento").off("click");
+        });
+    },
+    EnviarFormulario: function (urlDados, tabela, formularioDados, funcaoSucesso, funcaoErro) {
+        var $formularioStatus = $("<form>").append($("#formularioStatus").clone());
+        if ($formularioStatus.valid() && $("#formularioValoresTotais").valid()) {
+            Portal.AdicionarCamposNoFormularioDados(formularioDados, $formularioStatus.serializeArray());
+            Portal.AdicionarCamposNoFormularioDados(formularioDados, $("#formularioValoresTotais").serializeArray());
+            Portal.AdicionarItensVendaFormularioDados(formularioDados, tabela.fnGetData());
+            $.ajax({
+                url: urlDados,
+                data: formularioDados,
+                type: "POST",
+                traditional: true
+            }).success(function (ret) {
+                if (ret.TemErros) {
+                    Portal.PreencherAlertaErros(ret.Mensagem, "#AlertaMensagens", true);
+                } else {
+                    Portal.PreencherAlertaSucesso(ret.Mensagem, "#AlertaMensagens", true);
+                    if ($.isFunction(funcaoSucesso)) {
+                        funcaoSucesso.call(this, ret);
+                    }
+                }
+            }).error(function (ex) {
+                if ($.isFunction(funcaoErro)) {
+                    funcaoErro.call(this, ex);
+                }
+                Portal.PreencherAlertaErros(ex.responseJSON.message, "#AlertaMensagens", true);
+            });
+        }
+    },
+    AdicionarItensVendaFormularioDados: function (formularioDados, itensVenda) {
+        _.each(itensVenda, function (obj, index) {
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].Codigo", "value": obj.Codigo });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].Descricao", "value": obj.Descricao });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].Quantidade", "value": obj.Quantidade });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].PrecoVenda", "value": obj.PrecoVenda });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].ValorBruto", "value": obj.ValorBruto });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].ValorDesconto", "value": obj.ValorDesconto });
+            formularioDados.push({ "name": "ItemVendaModel[" + index + "].ValorLiquido", "value": obj.ValorLiquido });
+        });
+    },
+    AdicionarCamposNoFormularioDados: function (formularioDados, arrayCampo) {
+        _.each(arrayCampo, function (obj) {
+            formularioDados.push(obj);
+        });
     },
     ValidarAntesDeMostrarModal: function () {
         var temErro = false;
@@ -49,7 +189,7 @@
             });
             $ProdutoId.select2({
                 formatNoMatches: "Produto não encontrada"
-            }).change(function() {
+            }).change(function () {
                 if ($ProdutoId.val() === "") {
                     Portal.AdicionaErroSelect2("ProdutoId");
                 } else {
@@ -120,12 +260,12 @@
         });
     },
     AplicaFuncoesTabelaItemProduto: function () {
-        Portal.LimparCampos = function() {
+        Portal.LimparCampos = function () {
             $("#ProdutoId").select2("val", "");
             $("#Quantidade").val("");
             $("#ValorDesconto").val("");
         };
-        Portal.PreencherCamposModal = function(obj) {
+        Portal.PreencherCamposModal = function (obj) {
             $("#ModalItemProdutoQuantidade").val(obj["Quantidade"]);
             $("#ModalItemProdutoValorDesconto").val(obj["ValorDesconto"].replace(/[a-zA-Z][$]/g, "").trim());
         };

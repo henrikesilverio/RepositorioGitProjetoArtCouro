@@ -3,7 +3,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Bancoinicial : DbMigration
+    public partial class BancoInicial : DbMigration
     {
         public override void Up()
         {
@@ -18,6 +18,42 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         QuantidadeParcelas = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CondicaoPagamentoId);
+            
+            CreateTable(
+                "dbo.Venda",
+                c => new
+                    {
+                        VendaId = c.Guid(nullable: false, identity: true),
+                        VendaCodigo = c.Int(nullable: false, identity: true),
+                        DataCadastro = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        StatusVenda = c.Int(nullable: false),
+                        ValorTotalBruto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ValorTotalDesconto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ValorTotalLiquido = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Cliente_PessoaId = c.Guid(),
+                        CondicaoPagamento_CondicaoPagamentoId = c.Guid(),
+                        FormaPagamento_FormaPagamentoId = c.Guid(),
+                        Usuario_UsuarioId = c.Guid(),
+                    })
+                .PrimaryKey(t => t.VendaId)
+                .ForeignKey("dbo.Pessoa", t => t.Cliente_PessoaId)
+                .ForeignKey("dbo.CondicaoPagamento", t => t.CondicaoPagamento_CondicaoPagamentoId)
+                .ForeignKey("dbo.FormaPagamento", t => t.FormaPagamento_FormaPagamentoId)
+                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
+                .Index(t => t.Cliente_PessoaId)
+                .Index(t => t.CondicaoPagamento_CondicaoPagamentoId)
+                .Index(t => t.FormaPagamento_FormaPagamentoId)
+                .Index(t => t.Usuario_UsuarioId);
+            
+            CreateTable(
+                "dbo.Pessoa",
+                c => new
+                    {
+                        PessoaId = c.Guid(nullable: false, identity: true),
+                        PessoaCodigo = c.Int(nullable: false, identity: true),
+                        Nome = c.String(nullable: false, maxLength: 150, unicode: false),
+                    })
+                .PrimaryKey(t => t.PessoaId);
             
             CreateTable(
                 "dbo.Endereco",
@@ -50,16 +86,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         EstadoNome = c.String(nullable: false, maxLength: 250, unicode: false),
                     })
                 .PrimaryKey(t => t.EstadoId);
-            
-            CreateTable(
-                "dbo.Pessoa",
-                c => new
-                    {
-                        PessoaId = c.Guid(nullable: false, identity: true),
-                        PessoaCodigo = c.Int(nullable: false, identity: true),
-                        Nome = c.String(nullable: false, maxLength: 150, unicode: false),
-                    })
-                .PrimaryKey(t => t.PessoaId);
             
             CreateTable(
                 "dbo.MeioComunicacao",
@@ -140,6 +166,40 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .PrimaryKey(t => t.FormaPagamentoId);
             
             CreateTable(
+                "dbo.ItemVenda",
+                c => new
+                    {
+                        ItemVendaId = c.Guid(nullable: false, identity: true),
+                        ItemVendaCodigo = c.Int(nullable: false, identity: true),
+                        ProdutoCodigo = c.Int(nullable: false),
+                        ProdutoNome = c.String(nullable: false, maxLength: 8000, unicode: false),
+                        Quantidade = c.Int(nullable: false),
+                        PrecoVenda = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ValorBruto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ValorDesconto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        ValorLiquido = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Venda_VendaId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.ItemVendaId)
+                .ForeignKey("dbo.Venda", t => t.Venda_VendaId, cascadeDelete: true)
+                .Index(t => t.Venda_VendaId);
+            
+            CreateTable(
+                "dbo.Usuario",
+                c => new
+                    {
+                        UsuarioId = c.Guid(nullable: false, identity: true),
+                        UsuarioCodigo = c.Int(nullable: false, identity: true),
+                        UsuarioNome = c.String(nullable: false, maxLength: 60),
+                        Senha = c.String(nullable: false, maxLength: 32, fixedLength: true),
+                        Ativo = c.Boolean(nullable: false),
+                        GrupoPermissao_GrupoPermissaoId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.UsuarioId)
+                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissao_GrupoPermissaoId, cascadeDelete: true)
+                .Index(t => t.GrupoPermissao_GrupoPermissaoId);
+            
+            CreateTable(
                 "dbo.GrupoPermissao",
                 c => new
                     {
@@ -159,21 +219,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         AcaoNome = c.String(nullable: false, maxLength: 50, unicode: false),
                     })
                 .PrimaryKey(t => t.PermissaoId);
-            
-            CreateTable(
-                "dbo.Usuario",
-                c => new
-                    {
-                        UsuarioId = c.Guid(nullable: false, identity: true),
-                        UsuarioCodigo = c.Int(nullable: false, identity: true),
-                        UsuarioNome = c.String(nullable: false, maxLength: 60),
-                        Senha = c.String(nullable: false, maxLength: 32, fixedLength: true),
-                        Ativo = c.Boolean(nullable: false),
-                        GrupoPermissao_GrupoPermissaoId = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => t.UsuarioId)
-                .ForeignKey("dbo.GrupoPermissao", t => t.GrupoPermissao_GrupoPermissaoId, cascadeDelete: true)
-                .Index(t => t.GrupoPermissao_GrupoPermissaoId);
             
             CreateTable(
                 "dbo.Produto",
@@ -244,11 +289,16 @@ namespace ProjetoArtCouro.DataBase.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Produto", "Unidade_UnidadeId", "dbo.Unidade");
-            DropForeignKey("dbo.Usuario", "GrupoPermissao_GrupoPermissaoId", "dbo.GrupoPermissao");
+            DropForeignKey("dbo.Venda", "Usuario_UsuarioId", "dbo.Usuario");
             DropForeignKey("dbo.UsuarioPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.UsuarioPermissao", "UsuarioId", "dbo.Usuario");
+            DropForeignKey("dbo.Usuario", "GrupoPermissao_GrupoPermissaoId", "dbo.GrupoPermissao");
             DropForeignKey("dbo.PermissaoGrupoPermissao", "GrupoPermissaoId", "dbo.GrupoPermissao");
             DropForeignKey("dbo.PermissaoGrupoPermissao", "PermissaoId", "dbo.Permissao");
+            DropForeignKey("dbo.ItemVenda", "Venda_VendaId", "dbo.Venda");
+            DropForeignKey("dbo.Venda", "FormaPagamento_FormaPagamentoId", "dbo.FormaPagamento");
+            DropForeignKey("dbo.Venda", "CondicaoPagamento_CondicaoPagamentoId", "dbo.CondicaoPagamento");
+            DropForeignKey("dbo.Venda", "Cliente_PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaJuridica", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaFisica", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaFisica", "EstadoCivil_EstadoCivilId", "dbo.EstadoCivil");
@@ -265,6 +315,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.PessoaPapel", new[] { "PessoaId" });
             DropIndex("dbo.Produto", new[] { "Unidade_UnidadeId" });
             DropIndex("dbo.Usuario", new[] { "GrupoPermissao_GrupoPermissaoId" });
+            DropIndex("dbo.ItemVenda", new[] { "Venda_VendaId" });
             DropIndex("dbo.PessoaJuridica", new[] { "CNPJ" });
             DropIndex("dbo.PessoaJuridica", new[] { "PessoaId" });
             DropIndex("dbo.PessoaFisica", new[] { "EstadoCivil_EstadoCivilId" });
@@ -273,23 +324,29 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.MeioComunicacao", new[] { "PessoaId" });
             DropIndex("dbo.Endereco", new[] { "Estado_EstadoId" });
             DropIndex("dbo.Endereco", new[] { "PessoaId" });
+            DropIndex("dbo.Venda", new[] { "Usuario_UsuarioId" });
+            DropIndex("dbo.Venda", new[] { "FormaPagamento_FormaPagamentoId" });
+            DropIndex("dbo.Venda", new[] { "CondicaoPagamento_CondicaoPagamentoId" });
+            DropIndex("dbo.Venda", new[] { "Cliente_PessoaId" });
             DropTable("dbo.UsuarioPermissao");
             DropTable("dbo.PermissaoGrupoPermissao");
             DropTable("dbo.PessoaPapel");
             DropTable("dbo.Unidade");
             DropTable("dbo.Produto");
-            DropTable("dbo.Usuario");
             DropTable("dbo.Permissao");
             DropTable("dbo.GrupoPermissao");
+            DropTable("dbo.Usuario");
+            DropTable("dbo.ItemVenda");
             DropTable("dbo.FormaPagamento");
             DropTable("dbo.PessoaJuridica");
             DropTable("dbo.EstadoCivil");
             DropTable("dbo.PessoaFisica");
             DropTable("dbo.Papel");
             DropTable("dbo.MeioComunicacao");
-            DropTable("dbo.Pessoa");
             DropTable("dbo.Estado");
             DropTable("dbo.Endereco");
+            DropTable("dbo.Pessoa");
+            DropTable("dbo.Venda");
             DropTable("dbo.CondicaoPagamento");
         }
     }

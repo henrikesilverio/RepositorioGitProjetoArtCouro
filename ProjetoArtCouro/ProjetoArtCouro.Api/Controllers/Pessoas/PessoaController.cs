@@ -64,6 +64,28 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
+        [Route("ObterListaPessoa")]
+        [Authorize(Roles = "NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterListaPessoa()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var listaPessoa = _pessoaService.ObterListaPessoa();
+                response = ReturnSuccess(Mapper.Map<List<PessoaModel>>(listaPessoa));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         protected override void Dispose(bool disposing)
         {
             _pessoaService.Dispose();

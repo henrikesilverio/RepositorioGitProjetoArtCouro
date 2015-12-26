@@ -1,7 +1,6 @@
 ﻿@using ProjetoArtCouro.Resource.Resources
 @using ProjetoArtCouro.Web.Infra.HtmlHelperExtensions
 @model ProjetoArtCouro.Model.Models.Login.LoginModel
-
 @{
     ViewBag.Title = "Login";
 }
@@ -35,7 +34,6 @@
                                 </label>
                                 @Html.ValidationMessageFor(m => m.UsuarioNome)
                             </section>
-
                             <section>
                                 @Html.LabelFor(m => m.Senha, new { @class = "label" })
                                 <label class="input">
@@ -47,8 +45,8 @@
                             </section>
                         </fieldset>
                         <footer>
-                            <a id="Login" class="btn btn-primary" href="javascript:void(0);">
-                                <i class="fa fa-sign-in"></i> @Mensagens.Login
+                            <a id="Login" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                                <span class="btn-label"><i class="fa fa-sign-in"></i></span> @Mensagens.Login
                             </a>
                         </footer>
                     }

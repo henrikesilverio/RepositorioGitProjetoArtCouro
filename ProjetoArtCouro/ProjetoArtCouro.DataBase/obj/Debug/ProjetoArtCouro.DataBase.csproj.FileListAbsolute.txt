@@ -82,7 +82,7 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\bin\Debug\EntityFrame
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\bin\Debug\EntityFramework.SqlServer.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\bin\Debug\MoreLinq.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.csprojResolveAssemblyReference.cache
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.Migrations.Bancoinicial.resources
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.csproj.GenerateResource.Cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.Migrations.BancoInicial.resources
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.DataBase\obj\Debug\ProjetoArtCouro.DataBase.csproj.GenerateResource.Cache

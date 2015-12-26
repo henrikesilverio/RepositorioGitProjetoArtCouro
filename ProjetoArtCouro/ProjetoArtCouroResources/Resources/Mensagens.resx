@@ -349,7 +349,7 @@
     <value>Preço custo</value>
   </data>
   <data name="PriceSale" xml:space="preserve">
-    <value>Preço venda</value>
+    <value>Preço Venda</value>
   </data>
   <data name="Unit" xml:space="preserve">
     <value>Unidade</value>
@@ -436,10 +436,10 @@
     <value>Valor Bruto</value>
   </data>
   <data name="ValueDiscount" xml:space="preserve">
-    <value>Valor de Desconto</value>
+    <value>Valor Desconto</value>
   </data>
   <data name="ValueLiquid" xml:space="preserve">
-    <value>Valor líquido</value>
+    <value>Valor Líquido</value>
   </data>
   <data name="AddProduct" xml:space="preserve">
     <value>Adicionar Produto</value>
@@ -472,7 +472,7 @@
     <value>Editar Compra</value>
   </data>
   <data name="ValueFreight" xml:space="preserve">
-    <value>Valor do Frete</value>
+    <value>Valor Frete</value>
   </data>
   <data name="BillsToPay" xml:space="preserve">
     <value>Contas a Pagar</value>
@@ -484,7 +484,7 @@
     <value>Data de Emissão</value>
   </data>
   <data name="ValueDocument" xml:space="preserve">
-    <value>Valor do Documento</value>
+    <value>Valor Documento</value>
   </data>
   <data name="Received" xml:space="preserve">
     <value>Recebido</value>
@@ -566,5 +566,20 @@
   </data>
   <data name="Sell" xml:space="preserve">
     <value>Vender</value>
+  </data>
+  <data name="GenerateBudget" xml:space="preserve">
+    <value>Gerar orçamento</value>
+  </data>
+  <data name="CancelSale" xml:space="preserve">
+    <value>Cancelar Venda</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuração</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirmar</value>
   </data>
 </root>

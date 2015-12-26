@@ -65,9 +65,11 @@
     <Compile Include="EntityConfig\UsuarioConfiguration\GrupoPermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\PermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\UsuarioConfiguration.cs" />
-    <Compile Include="Migrations\201511022307486_Banco inicial.cs" />
-    <Compile Include="Migrations\201511022307486_Banco inicial.Designer.cs">
-      <DependentUpon>201511022307486_Banco inicial.cs</DependentUpon>
+    <Compile Include="EntityConfig\VendaConfiguration\ItemVendaConfiguration.cs" />
+    <Compile Include="EntityConfig\VendaConfiguration\VendaConfiguration.cs" />
+    <Compile Include="Migrations\201512241845469_Banco Inicial.cs" />
+    <Compile Include="Migrations\201512241845469_Banco Inicial.Designer.cs">
+      <DependentUpon>201512241845469_Banco Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="Repositorios\UsuarioRepository\GrupoPermissaoRepository.cs" />
     <Compile Include="Repositorios\UsuarioRepository\PermissaoRepository.cs" />
     <Compile Include="Repositorios\UsuarioRepository\UsuarioRepository.cs" />
+    <Compile Include="Repositorios\VendaRepository\ItemVendaRepository.cs" />
+    <Compile Include="Repositorios\VendaRepository\VendaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EntityConfig\CommonConfiguration\" />
@@ -106,8 +110,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511022307486_Banco inicial.resx">
-      <DependentUpon>201511022307486_Banco inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512241845469_Banco Inicial.resx">
+      <DependentUpon>201512241845469_Banco Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

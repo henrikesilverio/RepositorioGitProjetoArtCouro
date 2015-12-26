@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Venda
@@ -12,7 +10,7 @@ namespace ProjetoArtCouro.Model.Models.Venda
         public int? CodigoVenda { get; set; }
 
         [Display(Name = "RegistrationDate", ResourceType = typeof(Mensagens))]
-        public DateTime DataCadastro { get; set; }
+        public string DataCadastro { get; set; }
 
         [Display(Name = "Status", ResourceType = typeof(Mensagens))]
         public string Status { get; set; }
@@ -56,6 +54,6 @@ namespace ProjetoArtCouro.Model.Models.Venda
 
         public string CPFCNPJ { get; set; }
 
-        public List<ProdutoModel> ProdutoModel { get; set; }
+        public List<ItemVendaModel> ItemVendaModel { get; set; }
     }
 }

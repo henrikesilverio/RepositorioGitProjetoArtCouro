@@ -21,14 +21,14 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.EPessoaFisica, new {@class = "labe"})
+                            @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new {@class = "TipoPessoa"})
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.PhysicalPerson
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new {@class = "TipoPessoa"})
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "TipoPessoa" })
                                     <i></i>@Mensagens.LegalPerson
                                 </label>
                             </div>
@@ -117,8 +117,8 @@
                 @Html.Partial("_MeioComunicacao", Model)
                 @Html.HiddenFor(m => m.Codigo)
                 <footer>
-                    <a id="SalvarCliente" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="SalvarCliente" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>

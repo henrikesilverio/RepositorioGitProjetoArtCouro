@@ -20,24 +20,24 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Senha, new {@class = "label"})
+                            @Html.LabelFor(m => m.Senha, new { @class = "label" })
                             <label class="input">
-                                @Html.PasswordFor(m => m.Senha, new {placeholder = @Mensagens.Password, MaxLength = "10"})
+                                @Html.PasswordFor(m => m.Senha, new { placeholder = @Mensagens.Password, MaxLength = "10" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Senha)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.ConfirmarSenha, new {@class = "label"})
+                            @Html.LabelFor(m => m.ConfirmarSenha, new { @class = "label" })
                             <label class="input">
-                                @Html.PasswordFor(m => m.ConfirmarSenha, new {placeholder = @Mensagens.ConfirmPassword, MaxLength = "10"})
+                                @Html.PasswordFor(m => m.ConfirmarSenha, new { placeholder = @Mensagens.ConfirmPassword, MaxLength = "10" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ConfirmarSenha)
                         </section>
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="AlterarSenha" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="AlterarSenha" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>

@@ -13,7 +13,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration
             Property(x => x.UsuarioId)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(state => state.UsuarioCodigo)
+            Property(x => x.UsuarioCodigo)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
             Property(x => x.UsuarioNome)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Cliente;
@@ -46,30 +47,12 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         [CustomAuthorize(Roles = "PesquisaVenda")]
         public JsonResult PesquisaVenda(PesquisaVendaModel model)
         {
-            //var response = ServiceRequest.Post<List<VendaModel>>(model, "api/Venda/PesquisaVenda");
-            //return Json(response.Data, JsonRequestBehavior.AllowGet);
-            var resultado = new List<VendaModel>
+            var response = ServiceRequest.Post<List<VendaModel>>(model, "api/Venda/PesquisarVenda");
+            if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                new VendaModel()
-                {
-                   CodigoVenda = 1,
-                   ClienteId = 2,
-                   DataCadastro = DateTime.Now,
-                   Status = "Aberto",
-                   NomeCliente = "Vitor",
-                   CPFCNPJ = "123.456.789-09"
-                },
-                new VendaModel()
-                {
-                   CodigoVenda = 3,
-                   ClienteId = 5,
-                   DataCadastro = DateTime.Now,
-                   Status = "Aberto",
-                   NomeCliente = "Felipe",
-                   CPFCNPJ = "222.333.666-38" 
-                }
-            };
-            return Json(new {ObjetoRetorno = resultado}, JsonRequestBehavior.AllowGet);
+                response.Data.Mensagem = Erros.NoSaleForTheGivenFilter;
+            }
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovaVenda")]
@@ -81,7 +64,7 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
             var model = new VendaModel
             {
                 Status = "Aberto",
-                DataCadastro = DateTime.Now,
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
                 ValorTotalBruto = "0,00",
                 ValorTotalLiquido = "0,00",
                 ValorTotalDesconto = "0,00"
@@ -93,8 +76,8 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         [CustomAuthorize(Roles = "NovaVenda")]
         public JsonResult NovaVenda(VendaModel model)
         {
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Venda/CriarVenda");
-            return Json(response.Data, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Post<RetornoBase<object>>(model, "api/Venda/CriarVenda");
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "EditarVenda")]
@@ -102,127 +85,32 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         {
             ViewBag.Title = Mensagens.Sale;
             ViewBag.SubTitle = Mensagens.EditSale;
-            ViewBag.Clientes = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Vitor"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Henrique"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "Andressa"
-                },
-                 new LookupModel
-                {
-                    Codigo = 4,
-                    Nome = "Felipe"
-                }
-            };
-
-            ViewBag.FormasPagamento = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Cartão"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Dinheiro"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "Cheque"
-                }
-            };
-
-            ViewBag.CondicoesPagamento = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "A vista"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "1 + 1"
-                },
-                new LookupModel
-                {
-                    Codigo = 3,
-                    Nome = "1 + 2"
-                },
-                 new LookupModel
-                {
-                    Codigo = 4,
-                    Nome = "1 + 3"
-                }
-            };
-
-            ViewBag.Produtos = new List<LookupModel>
-            {
-                new LookupModel
-                {
-                    Codigo = 1,
-                    Nome = "Cinto de couro"
-                },
-                new LookupModel
-                {
-                    Codigo = 2,
-                    Nome = "Bolsa de couro"
-                }
-            };
-
-            var model = new VendaModel
-            {
-                Status = "Aberto",
-                DataCadastro = DateTime.Now
-            };
+            ViewBag.Produtos = new List<LookupModel>();
+            var response = ServiceRequest.Post<VendaModel>(new { codigoVenda = codigoVenda }, "api/Venda/PesquisarVendaPorCodigo");
+            var model = response.Data.ObjetoRetorno;
             return View(model);
         }
 
         [HttpPost]
         [CustomAuthorize(Roles = "EditarVenda")]
-        public ActionResult EditarVenda(VendaModel model)
+        public JsonResult EditarVenda(VendaModel model)
         {
-            ViewBag.Title = Mensagens.NewSale;
-            ViewBag.SubTitle = Mensagens.EditSale;
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            var response = ServiceRequest.Post<RetornoBase<string>>(model, "api/Venda/PesquisarVenda");
-            if (!response.Data.TemErros)
-            {
-                return RedirectToAction("Index", "Venda");
-            }
-            ModelState.AddModelError("Erro", response.Data.Mensagem);
-
-            return View(model);
+            var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/Venda/EditarVenda");
+            return ReturnResponse(response);
         }
 
         [HttpPost]
         [CustomAuthorize(Roles = "ExcluirVenda")]
         public JsonResult ExcluirVenda(int codigoVenda)
         {
-            return Json(true, JsonRequestBehavior.AllowGet);
+            var response = ServiceRequest.Delete<RetornoBase<object>>(new { codigoVenda = codigoVenda }, "api/Venda/ExcluirVenda");
+            return ReturnResponse(response);
         }
 
         [CustomAuthorize(Roles = "NovaVenda")]
         public JsonResult ObterListaCliente()
         {
-            var response = ServiceRequest.Get<List<ClienteModel>>("api/Cliente/ObterListaCliente");
+            var response = ServiceRequest.Get<List<PessoaModel>>("api/Pessoa/ObterListaPessoa");
             return ReturnResponse(response);
         }
 
@@ -243,7 +131,6 @@ namespace ProjetoArtCouro.Web.Controllers.Vendas
         [CustomAuthorize(Roles = "NovaVenda")]
         public JsonResult ObterListaProduto()
         {
-            //TODO obter do estoque
             var response = ServiceRequest.Get<List<ProdutoModel>>("api/Produto/ObterListaProduto");
             return ReturnResponse(response);
         }

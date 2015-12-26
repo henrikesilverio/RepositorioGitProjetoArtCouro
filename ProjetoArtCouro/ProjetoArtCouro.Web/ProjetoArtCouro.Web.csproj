@@ -584,6 +584,7 @@
     <Content Include="js\plugin\datatables\dataTables.colVis.min.js" />
     <Content Include="js\plugin\datatables\datatables.min.js.map" />
     <Content Include="js\plugin\datatables\DT_bootstrap.min.js.map" />
+    <Content Include="Views\Venda\EditarVenda.cshtml" />
     <Content Include="Views\Venda\NovaVenda.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -670,7 +671,6 @@
     <Content Include="Views\Compra\NovaCompra.cshtml" />
     <Content Include="Views\Compra\_CompraView.cshtml" />
     <Content Include="Views\Compra\EditarCompra.cshtml" />
-    <Content Include="Views\Venda\EditarVenda.cshtml" />
     <Content Include="Views\ContaPagar\PesquisaContaPagar.cshtml" />
     <Content Include="Views\ContaReceber\PesquisaContaReceber.cshtml" />
     <Content Include="Views\Usuario\PesquisaUsuario.cshtml" />
@@ -690,6 +690,7 @@
     <Content Include="Views\Shared\_ModalFormaPagamento.cshtml" />
     <Content Include="Views\Shared\_ModalItemProdutoVenda.cshtml" />
     <Content Include="Views\Shared\_ModalEfetuarVenda.cshtml" />
+    <Content Include="Views\Shared\_ModalConfirmacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

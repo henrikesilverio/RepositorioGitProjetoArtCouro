@@ -22,45 +22,45 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoCompra, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoCompra, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoCompra, new {placeholder = @Mensagens.CodeBuy})
+                                @Html.TextBoxFor(m => m.CodigoCompra, new { placeholder = @Mensagens.CodeBuy })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CodigoFornecedor, new {@class = "label"})
+                            @Html.LabelFor(m => m.CodigoFornecedor, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoFornecedor, new {placeholder = @Mensagens.ProviderCode})
+                                @Html.TextBoxFor(m => m.CodigoFornecedor, new { placeholder = @Mensagens.ProviderCode })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.DataEmissao, new {@class = "label"})
+                            @Html.LabelFor(m => m.DataEmissao, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataEmissao, new {placeholder = @Mensagens.IssuanceDate})
+                                @Html.TextBoxFor(m => m.DataEmissao, new { placeholder = @Mensagens.IssuanceDate })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.DataVencimento, new {@class = "label"})
+                            @Html.LabelFor(m => m.DataVencimento, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataVencimento, new {placeholder = @Mensagens.DueDate})
+                                @Html.TextBoxFor(m => m.DataVencimento, new { placeholder = @Mensagens.DueDate })
                             </label>
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.NomeFornecedor, new {@class = "label"})
+                            @Html.LabelFor(m => m.NomeFornecedor, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.NomeFornecedor, new {placeholder = @Mensagens.ProviderName})
+                                @Html.TextBoxFor(m => m.NomeFornecedor, new { placeholder = @Mensagens.ProviderName })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
+                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ})
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.StatusId, new {@class = "label"})
+                            @Html.LabelFor(m => m.StatusId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.StatusId, new SelectList(ViewBag.StatusContaPagar, "Codigo", "Nome")
                                     .AddDefaultOption(Mensagens.Select))
@@ -70,11 +70,11 @@
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="PesquisarContaPagar" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-search"></i> @Mensagens.Research
+                    <a id="PesquisarContaPagar" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-search"></i></span> @Mensagens.Research
                     </a>
-                    <a id="SalvarContaPagar" class="btn btn-success" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="SalvarContaPagar" class="btn btn-labeled btn-success" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>
@@ -121,7 +121,7 @@
                     "sTitle": "@(Mensagens.IssuanceDate)",
                     "mData": null,
                     "sWidth": "15%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         var milesegundos = parseInt(obj.DataEmissao.replace(/[^\d]/g, ""));
                         var data = new Date(milesegundos);
                         return Portal.ConverteData(data);
@@ -131,7 +131,7 @@
                     "sTitle": "@(Mensagens.DueDate)",
                     "mData": null,
                     "sWidth": "15%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         var milesegundos = parseInt(obj.DataVencimento.replace(/[^\d]/g, ""));
                         var data = new Date(milesegundos);
                         return Portal.ConverteData(data);
@@ -145,7 +145,7 @@
                     "sClass": "smart-form",
                     "bSortable": false,
                     "sWidth": "10%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         var div = $("<div>").attr({
                             "class": "col-12"
                         });

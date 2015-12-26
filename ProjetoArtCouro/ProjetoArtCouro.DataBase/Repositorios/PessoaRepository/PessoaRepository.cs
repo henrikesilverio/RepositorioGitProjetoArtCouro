@@ -39,9 +39,12 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
                 .FirstOrDefault(x => x.PessoaCodigo.Equals(codigo));
         }
 
-        public List<Pessoa> ObterLista()
+        public List<Pessoa> ObterListaComPessoaFisicaEJuridica()
         {
-            return _context.Pessoas.ToList();
+            return _context.Pessoas
+                .Include("PessoaFisica")
+                .Include("PessoaJuridica")
+                .ToList();
         }
 
         public void Criar(Pessoa pessoa)

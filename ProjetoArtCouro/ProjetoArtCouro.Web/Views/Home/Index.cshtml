@@ -47,7 +47,7 @@
                                     <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <label class="label">Título do evento</label>
                                         <label class="input">
-                                            <input class="form-control" id="title" name="title" data-val="true" 
+                                            <input class="form-control" id="title" name="title" data-val="true"
                                                    data-val-required="Campo Obrigatório" maxlength="40" type="text" placeholder="Título do evento">
                                         </label>
                                         <span class="field-validation-valid" data-valmsg-for="title" data-valmsg-replace="true"></span>
@@ -100,8 +100,8 @@
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <a id="add-event" class="btn btn-primary" href="javascript:void(0);">
-                                        <i class="fa fa-plus"></i> Adicionar Evento
+                                    <a id="add-event" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                                        <span class="btn-label"><i class="fa fa-plus"></i></span> Adicionar Evento
                                     </a>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@
     <script src="~/js/plugin/fullcalendar/lang-all.js"></script>
     <script>
         var fullviewcalendar;
-        var pagefunction = function() {
+        var pagefunction = function () {
 
             // full calendar
             var dateNow = new Date();
@@ -204,7 +204,7 @@
                 right: "prev,today,next"
             };
 
-            var initDrag = function(e) {
+            var initDrag = function (e) {
                 // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
                 // it doesn't need to have a start or end
 
@@ -225,7 +225,7 @@
                 });
             };
 
-            var addEvent = function(title, priority, description, icon) {
+            var addEvent = function (title, priority, description, icon) {
                 title = title.length === 0 ? "Evento sem titulo" : title;
                 description = description.length === 0 ? "Sem Descrição" : description;
                 icon = icon.length === 0 ? " " : icon;
@@ -239,7 +239,7 @@
                 initDrag(html);
             };
 
-            $("#add-event").click(function() {
+            $("#add-event").click(function () {
                 var title = $("#title").val(),
                     priority = $("input:radio[name=priority]:checked").val(),
                     description = $("#description").val(),
@@ -261,7 +261,7 @@
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!
 
-                drop: function(date, allDay) { // this function is called when something is dropped
+                drop: function (date, allDay) { // this function is called when something is dropped
 
                     // retrieve the dropped element's stored Event Object
                     var originalEventObject = $(this).data("eventObject");
@@ -285,15 +285,15 @@
 
                 },
 
-                select: function(start, end, allDay) {
+                select: function (start, end, allDay) {
                     var title = prompt("Event Title:");
                     if (title) {
                         calendar.fullCalendar("renderEvent", {
-                                title: title,
-                                start: start,
-                                end: end,
-                                allDay: allDay
-                            }, true // make the event "stick"
+                            title: title,
+                            start: start,
+                            end: end,
+                            allDay: allDay
+                        }, true // make the event "stick"
                         );
                     }
                     calendar.fullCalendar("unselect");
@@ -309,7 +309,7 @@
                 //        icon: "fa-lock"
                 //    }
                 //],
-                eventRender: function(event, element) {
+                eventRender: function (event, element) {
                     if (event.description !== undefined && event.description.toString() !== "") {
                         element.find(".fc-event-title").append("<br/><span class='ultra-light'>" + event.description +
                             "</span>");
@@ -324,7 +324,7 @@
                     });
                 },
 
-                windowResize: function() {
+                windowResize: function () {
                     $("#calendar").fullCalendar("render");
                 }
             });
@@ -333,30 +333,30 @@
             $(".fc-header-right, .fc-header-center").hide();
 
 
-            $("#calendar-buttons #btn-prev").click(function() {
+            $("#calendar-buttons #btn-prev").click(function () {
                 $(".fc-button-prev").click();
                 return false;
             });
 
-            $("#calendar-buttons #btn-next").click(function() {
+            $("#calendar-buttons #btn-next").click(function () {
                 $(".fc-button-next").click();
                 return false;
             });
 
-            $("#calendar-buttons #btn-today").click(function() {
+            $("#calendar-buttons #btn-today").click(function () {
                 $(".fc-button-today").click();
                 return false;
             });
 
-            $("#mt").click(function() {
+            $("#mt").click(function () {
                 $("#calendar").fullCalendar("changeView", "month");
             });
 
-            $("#ag").click(function() {
+            $("#ag").click(function () {
                 $("#calendar").fullCalendar("changeView", "agendaWeek");
             });
 
-            $("#td").click(function() {
+            $("#td").click(function () {
                 $("#calendar").fullCalendar("changeView", "agendaDay");
             });
         };

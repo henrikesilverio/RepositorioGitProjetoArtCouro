@@ -21,28 +21,28 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Descricao, new {@class = "label"})
+                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new {placeholder = @Mensagens.Description, maxlength = 50})
+                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = 50 })
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.QuantidadeParcelas, new {@class = "label"})
+                            @Html.LabelFor(m => m.QuantidadeParcelas, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new {placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos"})
+                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new { placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos" })
                             </label>
                             @Html.ValidationMessageFor(m => m.QuantidadeParcelas)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
+                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, true, new {data_text = @Mensagens.Yes})
+                                    @Html.RadioButtonFor(m => m.Ativo, true, new { data_text = @Mensagens.Yes })
                                     <i></i>@Mensagens.Yes
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, false, new {data_text = @Mensagens.Not})
+                                    @Html.RadioButtonFor(m => m.Ativo, false, new { data_text = @Mensagens.Not })
                                     <i></i>@Mensagens.Not
                                 </label>
                             </div>
@@ -51,8 +51,8 @@
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="AdicionarCondicaoPagamento" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-plus"></i> @Mensagens.Add
+                    <a id="AdicionarCondicaoPagamento" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-plus"></i></span> @Mensagens.Add
                     </a>
                 </footer>
             </form>
@@ -102,7 +102,7 @@
                     "sTitle": "@(Mensagens.Active)",
                     "mData": null,
                     "sWidth": "15%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         return obj.Ativo ? "Sim" : "Não";
                     }
                 },
@@ -112,7 +112,7 @@
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         var settings = JSON.stringify({
                             "objetoAdicional": { "name": "CondicaoPagamentoCodigo", "value": obj.CondicaoPagamentoCodigo },
                             "objetoExcluir": { "codigoCondicaoPagamento": obj.CondicaoPagamentoCodigo },
@@ -137,7 +137,7 @@
             $("#Ativo").closest(".inline-group").find(":checked")[0].checked = false;
             $("#QuantidadeParcelas").val("");
         }
-        Portal.PreencherCamposModal = function(obj) {
+        Portal.PreencherCamposModal = function (obj) {
             $("#ModalCondicaoPagamentoDescricao").val(obj["Descricao"]);
             $("#ModalCondicaoPagamentoAtivo").closest(".inline-group").find("input[value=" + obj["Ativo"].toString().capitalize() + "]")[0].checked = true;
             $("#ModalCondicaoPagamentoQuantidadeParcelas").val(obj["QuantidadeParcelas"]);

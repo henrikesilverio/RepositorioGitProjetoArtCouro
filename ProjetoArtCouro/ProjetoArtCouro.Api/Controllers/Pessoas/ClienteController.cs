@@ -25,7 +25,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("CriarCliente")]
         [Authorize(Roles = "NovoCliente")]
-        [InvalidateCacheOutput("ObterListaCliente")]
+        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
         [HttpPost]
         public Task<HttpResponseMessage> CriarCliente(ClienteModel model)
         {
@@ -49,31 +49,6 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
                     _pessoaService.CriarPessoaJuridica(pessoa);
                 }
                 response = ReturnSuccess();
-            }
-            catch (Exception ex)
-            {
-                response = ReturnError(ex);
-            }
-
-            var tsc = new TaskCompletionSource<HttpResponseMessage>();
-            tsc.SetResult(response);
-            return tsc.Task;
-        }
-
-        [Route("ObterListaCliente")]
-        [Authorize(Roles = "NovaVenda")]
-        [CacheOutput(ServerTimeSpan = 10000)]
-        [HttpGet]
-        public Task<HttpResponseMessage> ObterListaCliente()
-        {
-            HttpResponseMessage response;
-            try
-            {
-                var listaPessoaFisica = _pessoaService.ObterListaPessoaFisicaPorPapel(TipoPapelPessoaEnum.Cliente);
-                var listaPessoaJuridica = _pessoaService.ObterListaPessoaJuridicaPorPapel(TipoPapelPessoaEnum.Cliente);
-                var listaCliente = Mapper.Map<List<ClienteModel>>(listaPessoaFisica);
-                listaCliente.AddRange(Mapper.Map<List<ClienteModel>>(listaPessoaJuridica));
-                response = ReturnSuccess(listaCliente);
             }
             catch (Exception ex)
             {
@@ -143,7 +118,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("EditarCliente")]
         [Authorize(Roles = "EditarCliente")]
-        [InvalidateCacheOutput("ObterListaCliente")]
+        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
         [HttpPut]
         public Task<HttpResponseMessage> EditarCliente(ClienteModel model)
         {
@@ -178,7 +153,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
 
         [Route("ExcluirCliente")]
         [Authorize(Roles = "ExcluirCliente")]
-        [InvalidateCacheOutput("ObterListaCliente")]
+        [InvalidateCacheOutput("ObterListaPessoa", typeof(PessoaController))]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirCliente([FromBody]JObject jObject)
         {

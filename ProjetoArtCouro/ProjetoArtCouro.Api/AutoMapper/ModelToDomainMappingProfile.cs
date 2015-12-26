@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
+using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
+using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
@@ -13,6 +16,7 @@ using ProjetoArtCouro.Model.Models.Fornecedor;
 using ProjetoArtCouro.Model.Models.Funcionario;
 using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Model.Models.Usuario;
+using ProjetoArtCouro.Model.Models.Venda;
 
 namespace ProjetoArtCouro.Api.AutoMapper
 {
@@ -114,6 +118,28 @@ namespace ProjetoArtCouro.Api.AutoMapper
             Mapper.CreateMap<CondicaoPagamentoModel, CondicaoPagamento>();
 
             Mapper.CreateMap<FormaPagamentoModel, FormaPagamento>();
+
+            Mapper.CreateMap<VendaModel, Venda>()
+                .ForMember(d => d.Cliente, m => m.MapFrom(s => new Pessoa {PessoaCodigo = s.ClienteId ?? 0}))
+                .ForMember(d => d.CondicaoPagamento,
+                    m => m.MapFrom(s => new CondicaoPagamento {CondicaoPagamentoCodigo = s.CondicaoPagamentoId ?? 0}))
+                .ForMember(d => d.FormaPagamento,
+                    m => m.MapFrom(s => new FormaPagamento {FormaPagamentoCodigo = s.FormaPagamentoId ?? 0}))
+                .ForMember(d => d.DataCadastro, m => m.MapFrom(s => s.DataCadastro.ToDateTime()))
+                .ForMember(d => d.ItensVenda, m => m.MapFrom(s => s.ItemVendaModel))
+                .ForMember(d => d.StatusVenda, m => m.MapFrom(s => Enum.Parse(typeof (StatusVendaEnum), s.Status)))
+                .ForMember(d => d.VendaCodigo, m => m.MapFrom(s => s.CodigoVenda ?? 0))
+                .ForMember(d => d.ValorTotalBruto, m => m.MapFrom(s => s.ValorTotalBruto.ToDecimal()))
+                .ForMember(d => d.ValorTotalDesconto, m => m.MapFrom(s => s.ValorTotalDesconto.ToDecimal()))
+                .ForMember(d => d.ValorTotalLiquido, m => m.MapFrom(s => s.ValorTotalLiquido.ToDecimal()));
+
+            Mapper.CreateMap<ItemVendaModel, ItemVenda>()
+                .ForMember(d => d.ProdutoCodigo, m => m.MapFrom(s => s.Codigo))
+                .ForMember(d => d.ProdutoNome, m => m.MapFrom(s => s.Descricao))
+                .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToDecimal()))
+                .ForMember(d => d.ValorBruto, m => m.MapFrom(s => s.ValorBruto.ToDecimal()))
+                .ForMember(d => d.ValorDesconto, m => m.MapFrom(s => s.ValorDesconto.ToDecimal()))
+                .ForMember(d => d.ValorLiquido, m => m.MapFrom(s => s.ValorLiquido.ToDecimal()));
         }
     }
 }

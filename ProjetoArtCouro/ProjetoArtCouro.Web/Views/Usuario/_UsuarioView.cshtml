@@ -21,30 +21,30 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.UsuarioNome, new {@class = "label"})
+                            @Html.LabelFor(m => m.UsuarioNome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.UsuarioNome, new {placeholder = @Mensagens.UserName, MaxLength = "80"})
+                                @Html.TextBoxFor(m => m.UsuarioNome, new { placeholder = @Mensagens.UserName, MaxLength = "80" })
                             </label>
                             @Html.ValidationMessageFor(m => m.UsuarioNome)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Senha, new {@class = "label"})
+                            @Html.LabelFor(m => m.Senha, new { @class = "label" })
                             <label class="input">
-                                @Html.PasswordFor(m => m.Senha, new {placeholder = @Mensagens.Password, MaxLength = "10"})
+                                @Html.PasswordFor(m => m.Senha, new { placeholder = @Mensagens.Password, MaxLength = "10" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Senha)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.ConfirmarSenha, new {@class = "label"})
+                            @Html.LabelFor(m => m.ConfirmarSenha, new { @class = "label" })
                             <label class="input">
-                                @Html.PasswordFor(m => m.ConfirmarSenha, new {placeholder = @Mensagens.ConfirmPassword, MaxLength = "10"})
+                                @Html.PasswordFor(m => m.ConfirmarSenha, new { placeholder = @Mensagens.ConfirmPassword, MaxLength = "10" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ConfirmarSenha)
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.GrupoId, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.GrupoId, new SelectList(ViewBag.Grupos, "GrupoCodigo", "GrupoNome")
                                     .AddDefaultOption(Mensagens.Select))
@@ -53,7 +53,7 @@
                             @Html.ValidationMessageFor(m => m.GrupoId)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
+                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
                             <div class="inline-group">
                                 <label class="radio">
                                     @Html.RadioButtonFor(m => m.Ativo, true)
@@ -70,8 +70,8 @@
                     @Html.HiddenFor(m => m.UsuarioCodigo)
                 </fieldset>
                 <footer>
-                    <a id="SalvarUsuario" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="SalvarUsuario" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>

@@ -33,6 +33,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.4.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,6 +52,7 @@
     <Compile Include="Services\PessoaService\PessoaService.cs" />
     <Compile Include="Services\ProdutoService\ProdutoService.cs" />
     <Compile Include="Services\UsuarioService\UsuarioService.cs" />
+    <Compile Include="Services\VendaService\VendaService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoArtCouro.DataBase\ProjetoArtCouro.DataBase.csproj">

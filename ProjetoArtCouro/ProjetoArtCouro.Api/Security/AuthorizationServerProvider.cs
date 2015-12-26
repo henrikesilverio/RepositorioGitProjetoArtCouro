@@ -49,7 +49,8 @@ namespace ProjetoArtCouro.Api.Security
                 var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
                 identity.AddClaim(new Claim(ClaimTypes.Name, user.Senha));
-                identity.AddClaim(new Claim(ClaimTypes.Sid, user.UsuarioId.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Sid, user.UsuarioCodigo.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.UsuarioId.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.GivenName, user.UsuarioNome));
 
                 //Setando as permissao do usuario

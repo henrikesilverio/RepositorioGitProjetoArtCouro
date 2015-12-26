@@ -61,6 +61,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cliente não informado.
+        /// </summary>
+        public static string ClientNotSet {
+            get {
+                return ResourceManager.GetString("ClientNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmar senha e Senha não conferem.
         /// </summary>
         public static string ConfirmPasswordAndPasswordNotMatch {
@@ -304,6 +313,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parâmetro {0} inválido.
+        /// </summary>
+        public static string InvalidParameter {
+            get {
+                return ResourceManager.GetString("InvalidParameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A quantidade de parcelas deve ser 0 a 99.
         /// </summary>
         public static string InvalidQuantityOfParcels {
@@ -385,6 +403,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não há vendas para o filtro informado.
+        /// </summary>
+        public static string NoSaleForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoSaleForTheGivenFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forma de pagamento não informado.
+        /// </summary>
+        public static string NotSetPayment {
+            get {
+                return ResourceManager.GetString("NotSetPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O parâmetro {0} não pode ser zero.
         /// </summary>
         public static string NotZeroParameter {
@@ -430,6 +466,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Condição de pagamento não informado.
+        /// </summary>
+        public static string PaymentConditionNotSet {
+            get {
+                return ResourceManager.GetString("PaymentConditionNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Permissões não cadastradas.
         /// </summary>
         public static string PermissionsNotRegistered {
@@ -466,6 +511,78 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Venda confirmada não pode ser excluida..
+        /// </summary>
+        public static string SaleConfirmedCanNotBeExcluded {
+            get {
+                return ResourceManager.GetString("SaleConfirmedCanNotBeExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venda não existe.
+        /// </summary>
+        public static string SaleDoesNotExist {
+            get {
+                return ResourceManager.GetString("SaleDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Itens da venda não informado.
+        /// </summary>
+        public static string SaleItemsNotSet {
+            get {
+                return ResourceManager.GetString("SaleItemsNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venda não informada.
+        /// </summary>
+        public static string SaleUnknown {
+            get {
+                return ResourceManager.GetString("SaleUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status da venda diferente de aberto.
+        /// </summary>
+        public static string StatusOfDifferentSalesOpen {
+            get {
+                return ResourceManager.GetString("StatusOfDifferentSalesOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A soma do valores não conferem com o Valor Total Bruto.
+        /// </summary>
+        public static string SumDoNotMatchTotalCrudeValue {
+            get {
+                return ResourceManager.GetString("SumDoNotMatchTotalCrudeValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A soma do valores não conferem com o Valor Total Desconto.
+        /// </summary>
+        public static string SumDoNotMatchTotalValueDiscount {
+            get {
+                return ResourceManager.GetString("SumDoNotMatchTotalValueDiscount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A soma do valores não conferem com o Valor Total Líquido.
+        /// </summary>
+        public static string SumDoNotMatchTotalValueLiquid {
+            get {
+                return ResourceManager.GetString("SumDoNotMatchTotalValueLiquid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Acesso não autorizado..
         /// </summary>
         public static string UnauthorizedAccess {
@@ -489,6 +606,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string UserDoesNotExist {
             get {
                 return ResourceManager.GetString("UserDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usuário não informado.
+        /// </summary>
+        public static string UserNotSet {
+            get {
+                return ResourceManager.GetString("UserNotSet", resourceCulture);
             }
         }
     }

@@ -1,0 +1,27 @@
+﻿@using ProjetoArtCouro.Resource.Resources
+<div class="modal fade" id="modalConfirmacao" role="dialog">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <form id="formModalConfirmacao" class="smart-form" novalidate="novalidate">
+                    <div class="row">
+                        <section id="ModalAlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-labeled btn-default" href="javascript:void(0);" data-dismiss="modal">
+                    <span class="btn-label"><i class="fa fa-times"></i></span> @Mensagens.Close
+                </a>
+                <a id="ConfirmarAcao" class="btn btn-labeled btn-primary" href="javascript:void(0);" data-dismiss="modal">
+                    <span class="btn-label"><i class="fa fa-check"></i></span> @Mensagens.Confirm
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

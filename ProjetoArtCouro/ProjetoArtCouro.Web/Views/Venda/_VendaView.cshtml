@@ -15,7 +15,7 @@
     <div role="content">
         <div class="widget-body no-padding">
             <form id="formularioVenda" class="smart-form" novalidate="novalidate">
-                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset id="formularioStatus" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
                     </div>
@@ -23,14 +23,14 @@
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.DataCadastro, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.DataCadastro, new { placeholder = @Mensagens.RegistrationDate, disabled = "disabled" })
+                                @Html.TextBoxFor(m => m.DataCadastro, new { placeholder = @Mensagens.RegistrationDate, @readonly = "readonly" })
                             </label>
                             @Html.ValidationMessageFor(m => m.DataCadastro)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.Status, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.Status, new { placeholder = @Mensagens.Status, disabled = "disabled" })
+                                @Html.TextBoxFor(m => m.Status, new { placeholder = @Mensagens.Status, @readonly = "readonly" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Status)
                         </section>
@@ -63,11 +63,17 @@
                     </div>
                 </fieldset>
                 <footer>
-                    <a id="EfetuarVenda" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-shopping-cart"></i> @Mensagens.MakeSales
+                    <a id="CancelarVenda" class="btn btn-labeled btn-danger" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-ban"></i></span> @Mensagens.CancelSale
                     </a>
-                    <a id="AdicionarProduto" class="btn btn-success" href="javascript:void(0);">
-                        <i class="fa fa-plus"></i> @Mensagens.AddProduct
+                    <a id="GerarOrcamento" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-calculator"></i></span> @Mensagens.GenerateBudget
+                    </a>
+                    <a id="EfetuarVenda" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-shopping-cart"></i></span> @Mensagens.MakeSales
+                    </a>
+                    <a id="AdicionarProduto" class="btn btn-labeled btn-success" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-plus"></i></span> @Mensagens.AddProduct
                     </a>
                 </footer>
             </form>
@@ -86,27 +92,27 @@
                     </div>
                 </div>
             </fieldset>
-            <form class="smart-form" novalidate="novalidate">
+            <form id="formularioValoresTotais" class="smart-form" novalidate="novalidate">
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.ValorTotalBruto, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalBruto, new { placeholder = @Mensagens.TotalCrudeValue, disabled = "disabled" })
+                                @Html.TextBoxFor(m => m.ValorTotalBruto, new { placeholder = @Mensagens.TotalCrudeValue, @readonly = "readonly" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalBruto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.ValorTotalDesconto, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalDesconto, new { placeholder = @Mensagens.TotalValueDiscount, disabled = "disabled" })
+                                @Html.TextBoxFor(m => m.ValorTotalDesconto, new { placeholder = @Mensagens.TotalValueDiscount, @readonly = "readonly" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalDesconto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.ValorTotalLiquido, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalLiquido, new { placeholder = @Mensagens.TotalValueLiquid, disabled = "disabled" })
+                                @Html.TextBoxFor(m => m.ValorTotalLiquido, new { placeholder = @Mensagens.TotalValueLiquid, @readonly = "readonly" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalLiquido)
                         </section>

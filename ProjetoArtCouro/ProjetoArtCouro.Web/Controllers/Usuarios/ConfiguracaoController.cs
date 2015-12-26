@@ -81,7 +81,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
         public ActionResult ConfiguracaoUsuario()
         {
             ViewBag.Usuarios = new List<UsuarioModel>();
-            ViewBag.Title = Mensagens.SettingsForUsers;
+            CriarViewBags(Mensagens.SettingsForUsers);
             CriarViewBagPermissoes();
             return View();
         }
@@ -104,7 +104,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
 
         private void CriarViewBags(string subTitulo)
         {
-            ViewBag.Title = Mensagens.GroupSettings;
+            ViewBag.Title = Mensagens.Configuration;
             ViewBag.SubTitle = subTitulo;
         }
 

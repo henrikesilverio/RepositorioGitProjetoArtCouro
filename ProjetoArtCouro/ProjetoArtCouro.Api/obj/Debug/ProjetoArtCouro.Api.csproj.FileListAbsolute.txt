@@ -290,6 +290,7 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Un
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Unity.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Unity.RegistrationByConvention.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Web.Infrastructure.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\MoreLinq.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Newtonsoft.Json.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Owin.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Domain.dll
@@ -328,6 +329,7 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Owin.Securit
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Unity.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Unity.Configuration.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Microsoft.Practices.Unity.RegistrationByConvention.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\MoreLinq.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Newtonsoft.Json.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.Net.Http.Formatting.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.Web.Helpers.xml

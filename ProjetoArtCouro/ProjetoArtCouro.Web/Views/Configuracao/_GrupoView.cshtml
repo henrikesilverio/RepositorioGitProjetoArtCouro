@@ -20,18 +20,18 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.GrupoNome, new {@class = "label"})
+                            @Html.LabelFor(m => m.GrupoNome, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.GrupoNome, new {placeholder = @Mensagens.GroupName, MaxLength = "30", @class = "SomenteLetraMask text-transform-uppercase"})
+                                @Html.TextBoxFor(m => m.GrupoNome, new { placeholder = @Mensagens.GroupName, MaxLength = "30", @class = "SomenteLetraMask text-transform-uppercase" })
                             </label>
                             @Html.ValidationMessageFor(m => m.GrupoNome)
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            @Html.LabelFor(m => m.PermissaoId, new {@class = "label"})
+                            @Html.LabelFor(m => m.PermissaoId, new { @class = "label" })
                             <label class="select">
-                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new {multiple = "multiple"})
+                                @Html.DropDownListFor(m => m.PermissaoId, new SelectList(ViewBag.Permissoes, "Codigo", "Nome"), new { multiple = "multiple" })
                             </label>
                             @Html.ValidationMessageFor(m => m.PermissaoId)
                         </section>
@@ -39,8 +39,8 @@
                     @Html.HiddenFor(m => m.GrupoCodigo)
                 </fieldset>
                 <footer>
-                    <a id="SalvarGrupo" class="btn btn-primary" href="javascript:void(0);">
-                        <i class="fa fa-floppy-o"></i> @Mensagens.Save
+                    <a id="SalvarGrupo" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
                     </a>
                 </footer>
             </form>
