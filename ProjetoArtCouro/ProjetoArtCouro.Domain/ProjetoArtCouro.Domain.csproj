@@ -88,6 +88,7 @@
   <ItemGroup>
     <Folder Include="Contracts\IRepository\ICommon\" />
     <Folder Include="Models\Common\" />
+    <Folder Include="Models\Compras\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
