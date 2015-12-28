@@ -160,6 +160,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancelar Compra.
+        /// </summary>
+        public static string CancelPurchase {
+            get {
+                return ResourceManager.GetString("CancelPurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancelar Venda.
         /// </summary>
         public static string CancelSale {
@@ -691,6 +700,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Efetuar Compra.
+        /// </summary>
+        public static string MakePurchase {
+            get {
+                return ResourceManager.GetString("MakePurchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Efetuar Venda.
         /// </summary>
         public static string MakeSales {
@@ -1033,6 +1051,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comprar.
+        /// </summary>
+        public static string Purchase {
+            get {
+                return ResourceManager.GetString("Purchase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quantidade.
         /// </summary>
         public static string Quantity {
@@ -1335,6 +1362,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string TotalValueLiquid {
             get {
                 return ResourceManager.GetString("TotalValueLiquid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Valor Total Frete.
+        /// </summary>
+        public static string TotalValueShipping {
+            get {
+                return ResourceManager.GetString("TotalValueShipping", resourceCulture);
             }
         }
         

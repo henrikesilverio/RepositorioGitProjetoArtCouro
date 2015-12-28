@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ProjetoArtCouro.DataBase.DataBase;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
+using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 
 namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
@@ -45,6 +46,21 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
                 .Include("PessoaFisica")
                 .Include("PessoaJuridica")
                 .ToList();
+        }
+
+        public List<Pessoa> ObterListaComPessoaFisicaEJuridicaPorPapel(TipoPapelPessoaEnum papelCodigo)
+        {
+            var query = from pessoa in _context.Pessoas
+                .Include("Papeis")
+                .Include("PessoaFisica")
+                .Include("PessoaJuridica")
+                select pessoa;
+
+            if (papelCodigo != TipoPapelPessoaEnum.Nenhum)
+            {
+                query = query.Where(x => x.Papeis.Any(a => a.PapelCodigo == (int)papelCodigo));
+            }
+            return query.ToList();
         }
 
         public void Criar(Pessoa pessoa)

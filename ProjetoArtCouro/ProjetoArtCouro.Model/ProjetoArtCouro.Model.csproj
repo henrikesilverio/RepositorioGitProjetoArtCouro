@@ -57,6 +57,7 @@
     <Compile Include="Models\Common\PessoaModel.cs" />
     <Compile Include="Models\Common\RetornoBase.cs" />
     <Compile Include="Models\Compra\CompraModel.cs" />
+    <Compile Include="Models\Compra\ItemCompraModel.cs" />
     <Compile Include="Models\Compra\PesquisaCompraModel.cs" />
     <Compile Include="Models\CondicaoPagamento\CondicaoPagamentoModel.cs" />
     <Compile Include="Models\ContaPagar\ContaPagarModel.cs" />

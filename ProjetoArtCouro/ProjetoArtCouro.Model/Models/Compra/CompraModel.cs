@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using ProjetoArtCouro.Model.Models.Produto;
 using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Compra
@@ -12,13 +10,16 @@ namespace ProjetoArtCouro.Model.Models.Compra
         public int? CodigoCompra { get; set; }
 
         [Display(Name = "RegistrationDate", ResourceType = typeof(Mensagens))]
-        public DateTime DataCadastro { get; set; }
+        public string DataCadastro { get; set; }
 
         [Display(Name = "Status", ResourceType = typeof(Mensagens))]
         public string Status { get; set; }
 
         [Display(Name = "Providers", ResourceType = typeof(Mensagens))]
         public int? FornecedorId { get; set; }
+
+        [Display(Name = "Employees", ResourceType = typeof(Mensagens))]
+        public int? FuncionarioId { get; set; }
 
         [Display(Name = "FormsPayment", ResourceType = typeof(Mensagens))]
         public int? FormaPagamentoId { get; set; }
@@ -29,8 +30,8 @@ namespace ProjetoArtCouro.Model.Models.Compra
         [Display(Name = "TotalCrudeValue", ResourceType = typeof(Mensagens))]
         public string ValorTotalBruto { get; set; }
 
-        [Display(Name = "TotalValueDiscount", ResourceType = typeof(Mensagens))]
-        public string ValorTotalDesconto { get; set; }
+        [Display(Name = "TotalValueShipping", ResourceType = typeof(Mensagens))]
+        public string ValorTotalFrete { get; set; }
 
         [Display(Name = "TotalValueLiquid", ResourceType = typeof(Mensagens))]
         public string ValorTotalLiquido { get; set; }
@@ -47,6 +48,7 @@ namespace ProjetoArtCouro.Model.Models.Compra
         public string NomeFornecedor { get; set; }
 
         public string CPFCNPJ { get; set; }
-        public List<ProdutoModel> ProdutoModel { get; set; }
+
+        public List<ItemCompraModel> ItemCompraModel { get; set; }
     }
 }

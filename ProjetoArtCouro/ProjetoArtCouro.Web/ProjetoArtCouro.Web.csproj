@@ -171,6 +171,7 @@
     <Content Include="img\sort_desc_disabled.png" />
     <Content Include="js\app.js" />
     <Content Include="js\app\Cliente\Cliente.js" />
+    <Content Include="js\app\Compra\Compra.js" />
     <Content Include="js\app\Fornecedor\Fornecedor.js" />
     <Content Include="js\app\Funcionario\Funcionario.js" />
     <Content Include="js\app\Portal.js" />
@@ -584,6 +585,9 @@
     <Content Include="js\plugin\datatables\dataTables.colVis.min.js" />
     <Content Include="js\plugin\datatables\datatables.min.js.map" />
     <Content Include="js\plugin\datatables\DT_bootstrap.min.js.map" />
+    <Content Include="Views\Compra\NovaCompra.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Venda\EditarVenda.cshtml" />
     <Content Include="Views\Venda\NovaVenda.cshtml">
       <SubType>Code</SubType>
@@ -668,7 +672,6 @@
     <Content Include="Views\Venda\PesquisaVenda.cshtml" />
     <Content Include="Views\Venda\_VendaView.cshtml" />
     <Content Include="Views\Compra\PesquisaCompra.cshtml" />
-    <Content Include="Views\Compra\NovaCompra.cshtml" />
     <Content Include="Views\Compra\_CompraView.cshtml" />
     <Content Include="Views\Compra\EditarCompra.cshtml" />
     <Content Include="Views\ContaPagar\PesquisaContaPagar.cshtml" />
@@ -691,6 +694,8 @@
     <Content Include="Views\Shared\_ModalItemProdutoVenda.cshtml" />
     <Content Include="Views\Shared\_ModalEfetuarVenda.cshtml" />
     <Content Include="Views\Shared\_ModalConfirmacao.cshtml" />
+    <Content Include="Views\Shared\_ModalEfetuarCompra.cshtml" />
+    <Content Include="Views\Shared\_ModalItemProdutoCompra.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

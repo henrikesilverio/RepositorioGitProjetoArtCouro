@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Resource.Validation;
@@ -14,6 +15,7 @@ namespace ProjetoArtCouro.Domain.Models.Usuarios
         public string Senha { get; set; }
         public bool Ativo { get; set; }
         public virtual Venda Venda { get; set; }
+        public virtual Compra Compra { get; set; }
         public virtual GrupoPermissao GrupoPermissao { get; set; }
         public virtual ICollection<Permissao> Permissoes { get; set; }
 

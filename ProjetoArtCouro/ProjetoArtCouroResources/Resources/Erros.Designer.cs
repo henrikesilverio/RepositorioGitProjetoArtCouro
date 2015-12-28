@@ -502,6 +502,33 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fornecedor não informado.
+        /// </summary>
+        public static string ProviderNotSet {
+            get {
+                return ResourceManager.GetString("ProviderNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compra confirmada não pode ser excluída.
+        /// </summary>
+        public static string PurchaseConfirmedCanNotBeExcluded {
+            get {
+                return ResourceManager.GetString("PurchaseConfirmedCanNotBeExcluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compra não existe.
+        /// </summary>
+        public static string PurchaseDoesNotExist {
+            get {
+                return ResourceManager.GetString("PurchaseDoesNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campo Obrigatório.
         /// </summary>
         public static string RequiredField {
@@ -547,6 +574,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Status da compra diferente de aberto.
+        /// </summary>
+        public static string StatusOfDifferentPurchasingOpen {
+            get {
+                return ResourceManager.GetString("StatusOfDifferentPurchasingOpen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status da venda diferente de aberto.
         /// </summary>
         public static string StatusOfDifferentSalesOpen {
@@ -579,6 +615,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string SumDoNotMatchTotalValueLiquid {
             get {
                 return ResourceManager.GetString("SumDoNotMatchTotalValueLiquid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A soma do valores não conferem com o Valor Total Frete.
+        /// </summary>
+        public static string SumDoNotMatchTotalValueShipping {
+            get {
+                return ResourceManager.GetString("SumDoNotMatchTotalValueShipping", resourceCulture);
             }
         }
         

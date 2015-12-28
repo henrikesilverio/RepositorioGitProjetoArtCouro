@@ -2,7 +2,6 @@
 @using ProjetoArtCouro.Resource.Resources
 @using ProjetoArtCouro.Web.Infra.Extensions
 
-
 <div class="jarviswidget jarviswidget-sortable"
      data-widget-editbutton="true" data-widget-colorbutton="true"
      data-widget-fullscreenbutton="true" data-widget-collapsed="true"
@@ -106,34 +105,47 @@
             UrlDados: "@Url.Action("PesquisaCompra", "Compra")",
             TabelaSeletor: "#datatableCompra",
             WidgetSeletor: ".WidgetCompra",
-            TituloRodape: "",
-            InformacaoTabela: "",
+            TituloRodape: "Compras",
+            InformacaoTabela: "Informe os filtros para pesquisar",
+            TituloRodapeContador: "Nenhuma compra",
             OrdenacaoDoCabecalho: [
-                { "sTitle": "@(Mensagens.SaleCode)", "mData": "CodigoCompra", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ClientCode)", "mData": "FornecedorId", "sWidth": "30%" },
+                { "sTitle": "@(Mensagens.CodeBuy)", "mData": "CodigoCompra", "sWidth": "10%" },
                 {
-                    "sTitle": "@(Mensagens.RegistrationDate)",
+                    "sTitle": "@(Mensagens.ProviderCode)",
                     "mData": null,
-                    "sWidth": "20%",
-                    "mRender": function (obj) {
-                        var milesegundos = parseInt(obj.DataCadastro.replace(/[^\d]/g, ""));
-                        var data = new Date(milesegundos);
-                        return Portal.ConverteData(data);
+                    "sWidth": "10%",
+                    "mRender": function(obj) {
+                        return obj.FornecedorId == null ? "N/I" : obj.FornecedorId;
                     }
                 },
+                {
+                    "sTitle": "@(Mensagens.ProviderName)",
+                    "mData": "NomeFornecedor",
+                    "sWidth": "40%",
+                    "mRender": function(obj) {
+                        return obj.NomeFornecedor == null ? "N/I" : obj.NomeFornecedor;
+                    }
+                },
+                {
+                    "sTitle": "@(Mensagens.CPFCNPJ)",
+                    "mData": "CPFCNPJ",
+                    "sWidth": "10%",
+                    "mRender": function (obj) {
+                        return obj.CPFCNPJ == null ? "N/I" : obj.CPFCNPJ;
+                    }
+                },
+                { "sTitle": "@(Mensagens.RegistrationDate)", "mData": "DataCadastro", "sWidth": "10%" },
                 { "sTitle": "@(Mensagens.Status)", "mData": "Status", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ClientName)", "mData": "NomeFornecedor", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.CPFCNPJ)", "mData": "CPFCNPJ", "sWidth": "10%" },
                 {
                     "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "bSortable": false,
                     "sWidth": "10%",
-                    "mRender": function (obj) {
+                    "mRender": function(obj) {
                         var url = "Compra/EditarCompra" + "?codigoCompra=" + obj.CodigoCompra;
                         var botoes = Portal.CriarBotoes(url,
-                            "Portal.RequisicaoDeletarLinha(\"Compra/ExcluirCompra\",{CodigoCompra:" + obj.CodigoCompra + "}, \"#datatableCompra\", $(this).closest(\"tr\"))");
+                            "Portal.ExcluirCompra(\"Compra/ExcluirCompra\",{CodigoVenda:" + obj.CodigoCompra + ",StatusVenda:" + obj.StatusCompra + "}, \"#datatableCompra\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

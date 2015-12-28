@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using ProjetoArtCouro.Resource.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Compra
@@ -13,7 +12,7 @@ namespace ProjetoArtCouro.Model.Models.Compra
         public int? CodigoFornecedor { get; set; }
 
         [Display(Name = "RegistrationDate", ResourceType = typeof(Mensagens))]
-        public DateTime? DataCadastro { get; set; }
+        public string DataCadastro { get; set; }
 
         [Display(Name = "ProviderName", ResourceType = typeof(Mensagens))]
         public string NomeFornecedor { get; set; }

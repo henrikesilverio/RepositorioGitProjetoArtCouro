@@ -582,4 +582,16 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirmar</value>
   </data>
+  <data name="TotalValueShipping" xml:space="preserve">
+    <value>Valor Total Frete</value>
+  </data>
+  <data name="CancelPurchase" xml:space="preserve">
+    <value>Cancelar Compra</value>
+  </data>
+  <data name="MakePurchase" xml:space="preserve">
+    <value>Efetuar Compra</value>
+  </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Comprar</value>
+  </data>
 </root>

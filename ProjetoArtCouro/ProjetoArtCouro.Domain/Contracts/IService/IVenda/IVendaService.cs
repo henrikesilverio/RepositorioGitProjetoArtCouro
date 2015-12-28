@@ -11,6 +11,6 @@ namespace ProjetoArtCouro.Domain.Contracts.IService.IVenda
         Venda ObterVendaPorCodigo(int codigoVenda);
         void CriarVenda(Venda venda);
         void AtualizarVenda(Venda venda);
-        void ExcluirVenda(int vendaCodigo);
+        void ExcluirVenda(int codigoVenda);
     }
 }

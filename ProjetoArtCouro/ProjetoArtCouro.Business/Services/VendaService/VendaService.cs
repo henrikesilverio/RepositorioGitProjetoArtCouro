@@ -94,9 +94,9 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             _vendaRepository.Atualizar(vendaAtual);
         }
 
-        public void ExcluirVenda(int vendaCodigo)
+        public void ExcluirVenda(int codigoVenda)
         {
-            var venda = _vendaRepository.ObterPorCodigo(vendaCodigo);
+            var venda = _vendaRepository.ObterPorCodigo(codigoVenda);
             AssertionConcern.AssertArgumentNotEquals(venda, null, Erros.SaleDoesNotExist);
             AssertionConcern.AssertArgumentNotEquals(venda.StatusVenda, StatusVendaEnum.Confirmado, Erros.SaleConfirmedCanNotBeExcluded);
             _vendaRepository.Deletar(venda);
@@ -149,6 +149,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
         {
             _vendaRepository.Dispose();
             _itemVendaRepository.Dispose();
+            //TODO Falta libera memoria dos outro services
         }
     }
 }

@@ -11,6 +11,7 @@ using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Model.Models.Fornecedor;
+using WebApi.OutputCache.V2;
 
 namespace ProjetoArtCouro.Api.Controllers.Pessoas
 {
@@ -26,6 +27,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         [Route("CriarFornecedor")]
         [Authorize(Roles = "NovoFornecedor")]
         [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
+        [InvalidateCacheOutput("ObterListaFornecedor")]
         [HttpPost]
         public Task<HttpResponseMessage> CriarFornecedor(FornecedorModel model)
         {
@@ -116,9 +118,32 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
+        [Route("ObterListaPessoa")]
+        [Authorize(Roles = "NovaVenda")]
+        [CacheOutput(ServerTimeSpan = 10000)]
+        [HttpGet]
+        public Task<HttpResponseMessage> ObterListaFornecedor()
+        {
+            HttpResponseMessage response;
+            try
+            {
+                var listaPessoa = _pessoaService.ObterListaPessoaFisicaEJuridicaPorPapel(TipoPapelPessoaEnum.Fornecedor);
+                response = ReturnSuccess(Mapper.Map<List<FornecedorModel>>(listaPessoa));
+            }
+            catch (Exception ex)
+            {
+                response = ReturnError(ex);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
         [Route("EditarFornecedor")]
         [Authorize(Roles = "EditarFornecedor")]
         [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
+        [InvalidateCacheOutput("ObterListaFornecedor")]
         [HttpPut]
         public Task<HttpResponseMessage> EditarFornecedor(FornecedorModel model)
         {
@@ -154,6 +179,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
         [Route("ExcluirFornecedor")]
         [Authorize(Roles = "ExcluirFornecedor")]
         [InvalidateCacheOutputCustom("ObterListaPessoa", "PessoaController")]
+        [InvalidateCacheOutput("ObterListaFornecedor")]
         [HttpDelete]
         public Task<HttpResponseMessage> ExcluirFornecedor([FromBody]JObject jObject)
         {

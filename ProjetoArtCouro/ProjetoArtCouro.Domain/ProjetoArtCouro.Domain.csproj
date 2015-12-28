@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IRepository\ICompra\ICompraRepository.cs" />
+    <Compile Include="Contracts\IRepository\ICompra\IItemCompraRepository.cs" />
     <Compile Include="Contracts\IRepository\IPagamento\ICondicaoPagamentoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPagamento\IFormaPagamentoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPessoa\IEnderecoRepository.cs" />
@@ -57,12 +59,16 @@
     <Compile Include="Contracts\IRepository\IVenda\IItemVendaRepository.cs" />
     <Compile Include="Contracts\IRepository\IVenda\IVendaRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
+    <Compile Include="Contracts\IService\ICompra\ICompraService.cs" />
     <Compile Include="Contracts\IService\IPagamento\ICondicaoPagamentoService.cs" />
     <Compile Include="Contracts\IService\IPagamento\IFormaPagamentoService.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
     <Compile Include="Contracts\IService\IProduto\IProdutoService.cs" />
     <Compile Include="Contracts\IService\IUsuario\IUsuarioService.cs" />
     <Compile Include="Contracts\IService\IVenda\IVendaService.cs" />
+    <Compile Include="Models\Compras\Compra.cs" />
+    <Compile Include="Models\Compras\ItemCompra.cs" />
+    <Compile Include="Models\Enums\StatusCompraEnum.cs" />
     <Compile Include="Models\Enums\StatusVendaEnum.cs" />
     <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />
     <Compile Include="Models\Pagamentos\CondicaoPagamento.cs" />
@@ -88,7 +94,6 @@
   <ItemGroup>
     <Folder Include="Contracts\IRepository\ICommon\" />
     <Folder Include="Models\Common\" />
-    <Folder Include="Models\Compras\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">

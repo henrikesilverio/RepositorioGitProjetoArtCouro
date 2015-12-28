@@ -1,27 +1,22 @@
 ﻿@using ProjetoArtCouro.Resource.Resources
-@model  ProjetoArtCouro.Model.Models.Compra.CompraModel
+@model ProjetoArtCouro.Model.Models.Compra.CompraModel
 
 @Html.Partial("_CompraView", Model)
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
+    <script src="~/js/app/Compra/Compra.js"></script>
     <script>
         Portal.Mask();
-        Portal.Form({
-            Button: $("#Salvar"),
-            Form: $("#smart-form-register")
-        });
-        Portal.TabelaDinamica({
-            AlertaMensagensSeletor: "#AlertaMensagens",
+        Portal.TabelaItemProduto({
             AdicionaLinhaSeletor: "#AdicionarProduto",
             TabelaSeletor: "#datatableProduto",
-            TituloRodape: "Produtos",
+            TituloRodape: "Produto(s)",
             TituloRodapeContador: "Nenhum produto adicionado",
             InformacaoTabela: "Adicione novos produtos",
             BotaoEditarSeletor: ".EditarProduto",
             BotaoExcluirSeletor: ".ExcluirProduto",
-            LinhaCorrenteSeletor: "#LinhaCorrente",
-            Codigo: 0,
+            $Formulario: $("#formularioCompra"),
             OrdenacaoDoCabecalho: [
                 { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "5%" },
                 { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
@@ -36,39 +31,49 @@
                     "sClass": "center",
                     "sWidth": "10%",
                     "bSortable": false,
-                    "mRender": function () {
-                        return "<div class=\"editable-buttons\">" +
-                            "<button type=\"button\" class=\"btn btn-success btn-sm EditarProduto\" title=\"Editar\">" +
-                            "<i class=\"fa fa-lg fa-pencil-square-o\"></i>" +
-                            "<button type=\"button\" class=\"btn btn-danger btn-sm ExcluirProduto\" title=\"Deletar\">" +
-                            "<i class=\"fa fa-lg fa-trash-o\"></i>" +
-                            "</button>" +
-                            "</div>";
+                    "mRender": function (obj) {
+                        var settings = JSON.stringify({
+                            "seletorTabela": "#datatableProduto",
+                            "seletorBotaoModalAtualizar": "#AtualizarItemProduto",
+                            "seletorFormulario": "#formModalItemProdutoCompra",
+                            "seletorModal": "#modalItemProdutoCompra",
+                            "objetoLinha": JSON.stringify(obj)
+                        });
+                        var botoes = Portal.CriarBotoesTabelaDinamica(
+                            "Portal.EditarItemProdutoTabela(this, " + settings + ")",
+                            "Portal.ExcluirItemProdutoTabela(this, " + settings + ")",
+                            "#modalItemProdutoCompra");
+                        return botoes[0].outerHTML;
                     }
                 }
             ],
-            ObterCampos: function() {
+            ObterCamposPrincipais: function () {
+                var valorFreteFormatado = Portal.FormataValor($("#ValorFrete").val());
+                var valorBrutoFormatado = "R$ "
+                    + Portal.CalculaValorBruto($("#ProdutoId option:selected").data("precoVenda"), $("#Quantidade").val());
+                var valorLiquidoFormatado = "R$ "
+                    + Portal.CalculaValorLiquido(valorBrutoFormatado, valorFreteFormatado);
                 var item = [
                     {
                         "Codigo": $("#ProdutoId").val(),
                         "Descricao": $("#ProdutoId option:selected").text(),
                         "Quantidade": $("#Quantidade").val(),
-                        "PrecoVenda": 0,
-                        "ValorBruto": 0,
-                        "ValorFrete": $("#ValorFrete").val(),
-                        "ValorLiquido": 0
+                        "PrecoVenda": $("#ProdutoId option:selected").data("precoVenda"),
+                        "ValorBruto": valorBrutoFormatado,
+                        "ValorFrete": valorFreteFormatado,
+                        "ValorLiquido": valorLiquidoFormatado
                     }
                 ];
-                $("#ProdutoId").val("");
-                $("#Quantidade").val("");
-                $("#ValorFrete").val("");
                 return item;
-            },
-            PreencherCampos: function(obj) {
-                $("#ProdutoId").val($("#ProdutoId option:contains(" + obj["Descricao"] + ")").val());
-                $("#Quantidade").val(obj["Quantidade"]);
-                $("#ValorFrete").val(obj["ValorFrete"]);
             }
+        });
+        Portal.NovaCompra({
+            UrlDados: "@Url.Action("NovaCompra", "Compra")",
+            UrlProduto: "@Url.Action("ObterListaProduto", "Compra")",
+            UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Compra")",
+            UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Compra")",
+            UrlFornecedor: "@Url.Action("ObterListaFornecedor", "Compra")",
+            $TabelaSeletor: $("#datatableProduto")
         });
     </script>
 }

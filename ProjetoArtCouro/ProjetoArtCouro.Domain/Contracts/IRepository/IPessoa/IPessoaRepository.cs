@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 
 namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
@@ -10,6 +11,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
         Pessoa ObterPorCodigo(int codigo);
         Pessoa ObterPorCodigoComPessoaCompleta(int codigo);
         List<Pessoa> ObterListaComPessoaFisicaEJuridica();
+        List<Pessoa> ObterListaComPessoaFisicaEJuridicaPorPapel(TipoPapelPessoaEnum papelCodigo);
         void Criar(Pessoa pessoa);
         void Atualizar(Pessoa pessoa);
         void Deletar(Pessoa pessoa);

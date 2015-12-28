@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Resource.Validation;
@@ -14,6 +15,7 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
         public virtual PessoaFisica PessoaFisica { get; set; }
         public virtual PessoaJuridica PessoaJuridica { get; set; }
         public virtual Venda Venda { get; set; }
+        public virtual Compra Compra { get; set; }
         public virtual ICollection<Papel> Papeis { get; set; }
         public virtual ICollection<MeioComunicacao> MeiosComunicacao { get; set; }
         public virtual ICollection<Endereco> Enderecos { get; set; }

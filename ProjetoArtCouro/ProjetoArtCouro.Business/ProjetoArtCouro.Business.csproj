@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AutenticacaoService\AutenticacaoService.cs" />
+    <Compile Include="Services\CompraService\CompraService.cs" />
     <Compile Include="Services\PagamentoService\CondicaoPagamentoService.cs" />
     <Compile Include="Services\PagamentoService\FormaPagamentoService.cs" />
     <Compile Include="Services\PessoaService\PessoaService.cs" />

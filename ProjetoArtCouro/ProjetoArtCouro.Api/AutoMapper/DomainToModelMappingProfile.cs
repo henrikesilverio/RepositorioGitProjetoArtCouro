@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
 using ProjetoArtCouro.Api.Helpers;
+using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
@@ -8,6 +9,7 @@ using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
+using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Fornecedor;
@@ -105,6 +107,15 @@ namespace ProjetoArtCouro.Api.AutoMapper
             Mapper.CreateMap<PessoaJuridica, FuncionarioModel>();
             Mapper.CreateMap<PessoaJuridica, FornecedorModel>();
 
+            Mapper.CreateMap<Pessoa, FornecedorModel>()
+                .ForMember(d => d.Nome, m => m.Ignore())
+                .AfterMap((d, s) =>
+                {
+                    s = d.PessoaFisica != null
+                        ? Mapper.Map<FornecedorModel>(d.PessoaFisica)
+                        : Mapper.Map<FornecedorModel>(d.PessoaJuridica);
+                });
+
             Mapper.CreateMap<Produto, ProdutoModel>()
                 .ForMember(d => d.Descricao, m => m.MapFrom(s => s.ProdutoNome))
                 .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => s.PrecoCusto.ToString("C2")))
@@ -141,6 +152,30 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.NomeCliente, m => m.MapFrom(s => s.Cliente.Nome))
                 .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusVenda.ToString()))
                 .ForMember(d => d.ValorTotalDesconto, m => m.MapFrom(s => s.ValorTotalDesconto))
+                .ForMember(d => d.ValorTotalBruto, m => m.MapFrom(s => s.ValorTotalBruto))
+                .ForMember(d => d.ValorTotalLiquido, m => m.MapFrom(s => s.ValorTotalLiquido));
+
+            Mapper.CreateMap<ItemVenda, ItemVendaModel>()
+                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.ProdutoCodigo))
+                .ForMember(d => d.Descricao, m => m.MapFrom(s => s.ProdutoNome))
+                .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToFormatMoney()))
+                .ForMember(d => d.ValorBruto, m => m.MapFrom(s => s.ValorBruto.ToFormatMoney()))
+                .ForMember(d => d.ValorDesconto, m => m.MapFrom(s => s.ValorDesconto.ToFormatMoney()))
+                .ForMember(d => d.ValorLiquido, m => m.MapFrom(s => s.ValorLiquido.ToFormatMoney()));
+
+            Mapper.CreateMap<Compra, CompraModel>()
+                .ForMember(d => d.CPFCNPJ, m => m.MapFrom(s =>
+                    s.Fornecedor.PessoaFisica == null ? s.Fornecedor.PessoaJuridica.CNPJ : s.Fornecedor.PessoaFisica.CPF))
+                .ForMember(d => d.FornecedorId, m => m.MapFrom(s => s.Fornecedor.PessoaCodigo))
+                .ForMember(d => d.CodigoCompra, m => m.MapFrom(s => s.CompraCodigo))
+                .ForMember(d => d.CondicaoPagamentoId, m => m.MapFrom(s => s.CondicaoPagamento.CondicaoPagamentoCodigo))
+                .ForMember(d => d.DataCadastro, m => m.MapFrom(s => s.DataCadastro))
+                .ForMember(d => d.FormaPagamentoId, m => m.MapFrom(s => s.FormaPagamento.FormaPagamentoCodigo))
+                .ForMember(d => d.FuncionarioId, m => m.MapFrom(s => s.Usuario.UsuarioCodigo))
+                .ForMember(d => d.ItemCompraModel, m => m.MapFrom(s => s.ItensCompra))
+                .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Fornecedor.Nome))
+                .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusCompra.ToString()))
+                .ForMember(d => d.ValorTotalFrete, m => m.MapFrom(s => s.ValorTotalFrete))
                 .ForMember(d => d.ValorTotalBruto, m => m.MapFrom(s => s.ValorTotalBruto))
                 .ForMember(d => d.ValorTotalLiquido, m => m.MapFrom(s => s.ValorTotalLiquido));
 

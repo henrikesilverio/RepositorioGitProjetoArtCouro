@@ -1,22 +1,26 @@
 ﻿using Microsoft.Practices.Unity;
 using ProjetoArtCouro.Business.Services.AutenticacaoService;
+using ProjetoArtCouro.Business.Services.CompraService;
 using ProjetoArtCouro.Business.Services.PagamentoService;
 using ProjetoArtCouro.Business.Services.PessoaService;
 using ProjetoArtCouro.Business.Services.ProdutoService;
 using ProjetoArtCouro.Business.Services.UsuarioService;
 using ProjetoArtCouro.Business.Services.VendaService;
 using ProjetoArtCouro.DataBase.DataBase;
+using ProjetoArtCouro.DataBase.Repositorios.CompraRepository;
 using ProjetoArtCouro.DataBase.Repositorios.PagamentoRepository;
 using ProjetoArtCouro.DataBase.Repositorios.PessoaRepository;
 using ProjetoArtCouro.DataBase.Repositorios.ProdutoRepository;
 using ProjetoArtCouro.DataBase.Repositorios.UsuarioRepository;
 using ProjetoArtCouro.DataBase.Repositorios.VendaRepository;
+using ProjetoArtCouro.Domain.Contracts.IRepository.ICompra;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IVenda;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
+using ProjetoArtCouro.Domain.Contracts.IService.ICompra;
 using ProjetoArtCouro.Domain.Contracts.IService.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IService.IPessoa;
 using ProjetoArtCouro.Domain.Contracts.IService.IProduto;
@@ -58,6 +62,10 @@ namespace ProjetoArtCouro.Startup.DependencyResolver
             container.RegisterType<IVendaService, VendaService>(new HierarchicalLifetimeManager());
             container.RegisterType<IVendaRepository, VendaRepository>(new HierarchicalLifetimeManager());
             container.RegisterType<IItemVendaRepository, ItemVendaRepository>(new HierarchicalLifetimeManager());
+
+            container.RegisterType<ICompraService, CompraService>(new HierarchicalLifetimeManager());
+            container.RegisterType<ICompraRepository, CompraRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IItemCompraRepository, ItemCompraRepository>(new HierarchicalLifetimeManager());
 
             //container.RegisterType<User, User>(new HierarchicalLifetimeManager());
         }

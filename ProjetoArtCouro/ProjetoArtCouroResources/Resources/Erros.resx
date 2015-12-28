@@ -303,4 +303,19 @@
   <data name="SaleConfirmedCanNotBeExcluded" xml:space="preserve">
     <value>Venda confirmada não pode ser excluida.</value>
   </data>
+  <data name="ProviderNotSet" xml:space="preserve">
+    <value>Fornecedor não informado</value>
+  </data>
+  <data name="PurchaseDoesNotExist" xml:space="preserve">
+    <value>Compra não existe</value>
+  </data>
+  <data name="PurchaseConfirmedCanNotBeExcluded" xml:space="preserve">
+    <value>Compra confirmada não pode ser excluída</value>
+  </data>
+  <data name="StatusOfDifferentPurchasingOpen" xml:space="preserve">
+    <value>Status da compra diferente de aberto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueShipping" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Frete</value>
+  </data>
 </root>
