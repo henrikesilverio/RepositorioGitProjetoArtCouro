@@ -215,10 +215,12 @@
         var obj = tabela.fnGetData($tr);
         Portal.PreencherCamposModal(obj);
         $(settings.seletorBotaoModalAtualizar).off("click").on("click", function () {
-            $.extend(obj, Portal.ObterCamposModal(obj));
-            tabela.fnUpdate(obj, $tr[0]._DT_RowIndex);
-            Portal.CalcularTotal(tabela);
-            $(settings.seletorModal).modal("hide");
+            if ($(settings.seletorFormulario).valid()) {
+                $.extend(obj, Portal.ObterCamposModal(obj));
+                tabela.fnUpdate(obj, $tr[0]._DT_RowIndex);
+                Portal.CalcularTotal(tabela);
+                $(settings.seletorModal).modal("hide");
+            }
         });
     },
     ExcluirItemProdutoTabela: function (tdCorrete, settings) {

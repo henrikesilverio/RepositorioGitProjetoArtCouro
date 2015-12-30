@@ -49,7 +49,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
             var response = ServiceRequest.Post<List<CompraModel>>(model, "api/Compra/PesquisarCompra");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                response.Data.Mensagem = Erros.NoSaleForTheGivenFilter;
+                response.Data.Mensagem = Erros.NoShoppingForTheGivenFilter;
             }
             return ReturnResponse(response);
         }
@@ -62,7 +62,7 @@ namespace ProjetoArtCouro.Web.Controllers.Compras
             ViewBag.Produtos = new List<LookupModel>();
             var model = new CompraModel
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "0,00",
                 ValorTotalLiquido = "0,00",

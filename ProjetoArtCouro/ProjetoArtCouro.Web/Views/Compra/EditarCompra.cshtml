@@ -6,7 +6,7 @@
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
-    <script src="~/js/app/Venda/Venda.js"></script>
+    <script src="~/js/app/Compra/Compra.js"></script>
     <script>
         Portal.Mask();
         Portal.TabelaItemProduto({
@@ -24,9 +24,8 @@
                 { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
                 { "sTitle": "@(Mensagens.Quantity )", "mData": "Quantidade", "sClass": "center", "sWidth": "5%" },
                 { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueFreight)", "mData": "ValorFrente", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "15%" },
                 {
                     "sTitle": "@(Mensagens.Actions )",
                     "mData": null,
@@ -50,11 +49,10 @@
                 }
             ],
             ObterCamposPrincipais: function () {
-                var valorFreteFormatado = Portal.FormataValor($("#ValorFrete").val());
                 var valorBrutoFormatado = "R$ "
                     + Portal.CalculaValorBruto($("#ProdutoId option:selected").data("precoVenda"), $("#Quantidade").val());
                 var valorLiquidoFormatado = "R$ "
-                    + Portal.CalculaValorLiquido(valorBrutoFormatado, valorFreteFormatado);
+                    + Portal.CalculaValorLiquido(valorBrutoFormatado, "R$ 0,00");
                 var item = [
                     {
                         "Codigo": $("#ProdutoId").val(),
@@ -62,21 +60,20 @@
                         "Quantidade": $("#Quantidade").val(),
                         "PrecoVenda": $("#ProdutoId option:selected").data("precoVenda"),
                         "ValorBruto": valorBrutoFormatado,
-                        "ValorDesconto": valorFreteFormatado,
                         "ValorLiquido": valorLiquidoFormatado
                     }
                 ];
                 return item;
             }
         });
-        Portal.EditarVenda({
+        Portal.EditarCompra({
             UrlDados: "@Url.Action("EditarCompra", "Compra")",
             UrlProduto: "@Url.Action("ObterListaProduto", "Compra")",
             UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Compra")",
             UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Compra")",
             UrlFornecedor: "@Url.Action("ObterListaFornecedor", "Compra")",
             $TabelaSeletor: $("#datatableProduto"),
-            StatusCompra: "@Model.Status",
+            StatusCompra: "@Model.StatusCompra",
             ItensCompra: JSON.parse('@(Html.Raw((JsonConvert.SerializeObject(Model.ItemCompraModel))))'),
             CodigoCompra: "@Model.CodigoCompra"
         });

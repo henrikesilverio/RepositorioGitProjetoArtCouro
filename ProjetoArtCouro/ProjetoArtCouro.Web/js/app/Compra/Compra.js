@@ -2,10 +2,11 @@
     NovaCompra: function (settings) {
         Portal.ListaProduto(settings, $("#ProdutoId"));
         Portal.AplicaFuncoesTabelaItemProduto();
+        var tabela = settings.$TabelaSeletor.dataTable();
+        Portal.CalularValorTotalLiquido(tabela);
         $("#EfetuarCompra").remove();
         $("#CancelarCompra").remove();
         $("#GerarOrcamento").off("click").on("click", function () {
-            var tabela = settings.$TabelaSeletor.dataTable();
             if (tabela.fnGetData().length === 0) {
                 Portal.PreencherAlertaAtencao("Para gerar o orçamento é necessário adicionar produto(s)", "#AlertaMensagens", true);
             } else {
@@ -24,26 +25,28 @@
         var tabela = settings.$TabelaSeletor.dataTable();
         tabela.fnAddData(settings.ItensCompra);
         if (settings.StatusCompra === "Aberto") {
+            Portal.CalularValorTotalLiquido(tabela);
             $("#CancelarCompra").remove();
             $("#EfetuarCompra").off("click").on("click", function () {
                 if (tabela.fnGetData().length === 0) {
                     Portal.PreencherAlertaAtencao("Para efetuar a compra é necessário adicionar produto(s)", "#AlertaMensagens", true);
                 } else {
                     Portal.ValidarAntesDeMostrarModal();
-                    $("#Vender").off("click").on("click", function () {
+                    $("#Comprar").off("click").on("click", function () {
                         Portal.EfetuarCompra(settings, tabela);
                     });
                 }
                 Portal.RemoveErro("#Quantidade");
-                Portal.RemoveErro("#ValorFrete");
                 Portal.RemoveErroSelect2("ProdutoId");
             });
         } else if (settings.StatusCompra === "Confirmado") {
+            Portal.DesabilitaCampoValorTotalFrete();
             Portal.BloqueiaEfetuarCompra(tabela);
             $("#CancelarCompra").off("click").on("click", function () {
                 Portal.CancelarCompra(settings, tabela);
             });
         } else {
+            Portal.DesabilitaCampoValorTotalFrete();
             $("#CancelarCompra").remove();
             Portal.BloqueiaEfetuarCompra(tabela);
         }
@@ -57,7 +60,7 @@
                 "#ModalAlertaMensagens", true);
         } else {
             $("#ConfirmarAcao").show();
-            Portal.PreencherAlertaAtencao("Esta ação ira excluir compra, clique em <b>Confirmar</b> caso deseje excluir.",
+            Portal.PreencherAlertaAtencao("Esta ação ira excluir a compra, clique em <b>Confirmar</b> caso deseje excluir.",
                 "#ModalAlertaMensagens", true);
             $("#ConfirmarAcao").off("click").on("click", function () {
                 Portal.RequisicaoDeletarLinha(url, { "CodigoCompra": dados.CodigoCompra }, tabelaSeletor, tr);
@@ -67,12 +70,11 @@
         $("#modalConfirmacao").modal("show");
     },
     BloqueiaEfetuarCompra: function (tabela) {
-        tabela.fnSetColumnVis(7, false);
+        tabela.fnSetColumnVis(6, false);
         $("#AdicionarProduto").remove();
         $("#EfetuarCompra").remove();
         Portal.DesbilitarCampo("#ProdutoId");
         Portal.DesbilitarCampo("#Quantidade");
-        Portal.DesbilitarCampo("#ValorFrete");
     },
     CancelarCompra: function (settings, tabela) {
         $("#modalConfirmacao").modal("show");
@@ -87,7 +89,7 @@
                 $("#CancelarCompra").attr("disabled", "disabled");
                 $("#CancelarCompra").off("click");
                 $("#CancelarCompra").remove();
-                $("#Status").val("Cancelado");
+                $("#StatusCompra").val("Cancelado");
             });
         });
     },
@@ -97,10 +99,11 @@
             Portal.AdicionarCamposNoFormularioDados(formularioDados, [{ "name": "CodigoCompra", "value": settings.CodigoCompra }]);
             Portal.AdicionarCamposNoFormularioDados(formularioDados, $("#formModalEfetivarCompra").serializeArray());
             Portal.EnviarFormulario(settings.UrlDados, tabela, formularioDados, function () {
+                Portal.DesabilitaCampoValorTotalFrete();
                 $("#EfetuarCompra").attr("disabled", "disabled");
                 $("#EfetuarCompra").off("click");
                 $("#modalEfetivarCompra").modal("hide");
-                $("#Status").val("Confirmado");
+                $("#StatusCompra").val("Confirmado");
             }, function () {
                 $("#modalEfetivarCompra").modal("hide");
             });
@@ -148,7 +151,6 @@
             formularioDados.push({ "name": "ItemCompraModel[" + index + "].Quantidade", "value": obj.Quantidade });
             formularioDados.push({ "name": "ItemCompraModel[" + index + "].PrecoVenda", "value": obj.PrecoVenda });
             formularioDados.push({ "name": "ItemCompraModel[" + index + "].ValorBruto", "value": obj.ValorBruto });
-            formularioDados.push({ "name": "ItemCompraModel[" + index + "].ValorFrete", "value": obj.ValorFrete });
             formularioDados.push({ "name": "ItemCompraModel[" + index + "].ValorLiquido", "value": obj.ValorLiquido });
         });
     },
@@ -159,8 +161,8 @@
     },
     ValidarAntesDeMostrarModal: function () {
         var temErro = false;
-        if ($("#ClienteId option").length === 1) {
-            Portal.PreencherAlertaAtencao("Nenhum cliente cadastrado", "#AlertaMensagens", false);
+        if ($("#FornecedorId option").length === 1) {
+            Portal.PreencherAlertaAtencao("Nenhum fornecedor cadastrado", "#AlertaMensagens", false);
             temErro = true;
         }
         if ($("#FormaPagamentoId option").length === 1) {
@@ -185,7 +187,7 @@
                 $ProdutoId.append($("<option/>", {
                     value: produto.ProdutoCodigo,
                     text: produto.Descricao
-                }).data("precoCompra", produto.PrecoCompra));
+                }).data("precoVenda", produto.PrecoVenda));
             });
             $ProdutoId.select2({
                 formatNoMatches: "Produto não encontrada"
@@ -232,24 +234,24 @@
             Portal.PreencherAlertaErros(ex.responseJSON.message, settings.AlertaMensagensSeletor, true);
         });
     },
-    ListaFornecedor: function (settings, $ClienteId) {
+    ListaFornecedor: function (settings, $FornecedorId) {
         $.ajax({
             url: settings.UrlFornecedor,
             type: "GET",
             traditional: true
         }).success(function (retorno) {
-            _.each(retorno.ObjetoRetorno, function (cliente) {
-                $ClienteId.append($("<option/>", {
-                    value: cliente.Codigo,
-                    text: cliente.Nome == null || cliente.Nome === ""
-                        ? cliente.RazaoSocial
-                        : cliente.Nome
+            _.each(retorno.ObjetoRetorno, function (fornecedor) {
+                $FornecedorId.append($("<option/>", {
+                    value: fornecedor.Codigo,
+                    text: fornecedor.Nome == null || fornecedor.Nome === ""
+                        ? fornecedor.RazaoSocial
+                        : fornecedor.Nome
                 }));
             });
-            $ClienteId.select2({
-                formatNoMatches: "Cliente não encontrado"
+            $FornecedorId.select2({
+                formatNoMatches: "Fornecedor não encontrado"
             }).change(function () {
-                if ($ClienteId.val() === "") {
+                if ($FornecedorId.val() === "") {
                     Portal.AdicionaErroSelect2("ClienteId");
                 } else {
                     Portal.RemoveErroSelect2("ClienteId");
@@ -263,21 +265,17 @@
         Portal.LimparCampos = function () {
             $("#ProdutoId").select2("val", "");
             $("#Quantidade").val("");
-            $("#ValorFrete").val("");
         };
         Portal.PreencherCamposModal = function (obj) {
             $("#ModalItemProdutoQuantidade").val(obj["Quantidade"]);
-            $("#ModalItemProdutoValorFrete").val(obj["ValorFrete"].replace(/[a-zA-Z][$]/g, "").trim());
         };
         Portal.ObterCamposModal = function (obj) {
-            var valorFreteFormatado = Portal.FormataValor($("#ModalItemProdutoValorFrete").val());
             var valorBrutoFormatado = "R$ "
                 + Portal.CalculaValorBruto(obj["PrecoVenda"], $("#ModalItemProdutoQuantidade").val());
             var valorLiquidoFormatado = "R$ "
-                + Portal.CalculaValorLiquido(valorBrutoFormatado, valorFreteFormatado);
+                + Portal.CalculaValorLiquido(valorBrutoFormatado, "R$ 0,00");
             return {
                 "Quantidade": $("#ModalItemProdutoQuantidade").val(),
-                "ValorFrete": valorFreteFormatado,
                 "ValorBruto": valorBrutoFormatado,
                 "ValorLiquido": valorLiquidoFormatado
             };
@@ -286,17 +284,28 @@
             var produtos = tabela.fnGetData();
             var resultado = {
                 "ValorTotalBruto": 0,
-                "ValorTotalFrete": 0,
                 "ValorTotalLiquido": 0
             };
             _.each(produtos, function (produto) {
                 resultado.ValorTotalBruto += Portal.CoverteStringEmFloat(produto.ValorBruto);
-                resultado.ValorTotalFrete += Portal.CoverteStringEmFloat(produto.ValorFrete);
                 resultado.ValorTotalLiquido += Portal.CoverteStringEmFloat(produto.ValorLiquido);
             });
             $("#ValorTotalBruto").val(Portal.FormataFloatParaDinheiro(resultado.ValorTotalBruto));
-            $("#ValorTotalFrete").val(Portal.FormataFloatParaDinheiro(resultado.ValorTotalFrete));
-            $("#ValorTotalLiquido").val(Portal.FormataFloatParaDinheiro(resultado.ValorTotalLiquido));
+            var valorTotalFrete = Portal.CoverteStringEmFloat($("#ValorTotalFrete").val());
+            var valorTotalLiquidoComFrete = resultado.ValorTotalLiquido + valorTotalFrete;
+            $("#ValorTotalLiquido").val(Portal.FormataFloatParaDinheiro(valorTotalLiquidoComFrete));
         }
+    },
+    CalularValorTotalLiquido: function (tabela) {
+        $("#ValorTotalFrete").off("change").on("change", function () {
+            if (this.value !== "") {
+                Portal.CalcularTotal(tabela);
+            }
+        });
+    },
+    DesabilitaCampoValorTotalFrete: function() {
+        $("#ValorTotalFrete").attr("readonly", "readonly");
+        $("#ValorTotalFrete").closest("label").removeClass("state-success");
+        $("#ValorTotalFrete").closest("label").addClass("state-disabled");
     }
 });

@@ -92,12 +92,9 @@
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
+    <script src="~/js/app/Compra/Compra.js"></script>
     <script>
         Portal.Mask();
-        Portal.Form({
-            Button: $("#Salvar"),
-            Form: $("#smart-form-register")
-        });
         Portal.Search({
             AlertaMensagensSeletor: "#AlertaMensagens",
             BotaoPesquisarSeletor: "#PesquisarCompra",
@@ -114,38 +111,38 @@
                     "sTitle": "@(Mensagens.ProviderCode)",
                     "mData": null,
                     "sWidth": "10%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         return obj.FornecedorId == null ? "N/I" : obj.FornecedorId;
                     }
                 },
                 {
                     "sTitle": "@(Mensagens.ProviderName)",
-                    "mData": "NomeFornecedor",
+                    "mData": null,
                     "sWidth": "40%",
-                    "mRender": function(obj) {
+                    "mRender": function (obj) {
                         return obj.NomeFornecedor == null ? "N/I" : obj.NomeFornecedor;
                     }
                 },
                 {
                     "sTitle": "@(Mensagens.CPFCNPJ)",
-                    "mData": "CPFCNPJ",
+                    "mData": null,
                     "sWidth": "10%",
                     "mRender": function (obj) {
                         return obj.CPFCNPJ == null ? "N/I" : obj.CPFCNPJ;
                     }
                 },
                 { "sTitle": "@(Mensagens.RegistrationDate)", "mData": "DataCadastro", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.Status)", "mData": "Status", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.Status)", "mData": "StatusCompra", "sWidth": "10%" },
                 {
                     "sTitle": "@(Mensagens.Actions)",
                     "mData": null,
                     "sClass": "center",
                     "bSortable": false,
                     "sWidth": "10%",
-                    "mRender": function(obj) {
-                        var url = "Compra/EditarCompra" + "?codigoCompra=" + obj.CodigoCompra;
+                    "mRender": function (obj) {
+                        var url = "/Compra/EditarCompra" + "?codigoCompra=" + obj.CodigoCompra;
                         var botoes = Portal.CriarBotoes(url,
-                            "Portal.ExcluirCompra(\"Compra/ExcluirCompra\",{CodigoVenda:" + obj.CodigoCompra + ",StatusVenda:" + obj.StatusCompra + "}, \"#datatableCompra\", $(this).closest(\"tr\"))");
+                            "Portal.ExcluirCompra(\"/Compra/ExcluirCompra\",{CodigoCompra: " + obj.CodigoCompra + ", StatusCompra: '" + obj.StatusCompra + "'}, \"#datatableCompra\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }

@@ -13,7 +13,6 @@ namespace ProjetoArtCouro.Domain.Models.Compras
         public int Quantidade { get; set; }
         public decimal PrecoVenda { get; set; }
         public decimal ValorBruto { get; set; }
-        public decimal ValorFrete { get; set; }
         public decimal ValorLiquido { get; set; }
         public virtual Compra Compra { get; set; }
 

@@ -66,7 +66,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
                    m => m.MapFrom(s => new FormaPagamento { FormaPagamentoCodigo = s.FormaPagamentoId ?? 0 }))
                .ForMember(d => d.DataCadastro, m => m.MapFrom(s => s.DataCadastro.ToDateTime()))
                .ForMember(d => d.ItensCompra, m => m.MapFrom(s => s.ItemCompraModel))
-               .ForMember(d => d.StatusCompra, m => m.MapFrom(s => Enum.Parse(typeof(StatusCompraEnum), s.Status)))
+               .ForMember(d => d.StatusCompra, m => m.MapFrom(s => Enum.Parse(typeof(StatusCompraEnum), s.StatusCompra)))
                .ForMember(d => d.CompraCodigo, m => m.MapFrom(s => s.CodigoCompra ?? 0))
                .ForMember(d => d.ValorTotalBruto, m => m.MapFrom(s => s.ValorTotalBruto.ToDecimal()))
                .ForMember(d => d.ValorTotalFrete, m => m.MapFrom(s => s.ValorTotalFrete.ToDecimal()))
@@ -77,7 +77,6 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
                 .ForMember(d => d.ProdutoNome, m => m.MapFrom(s => s.Descricao))
                 .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToDecimal()))
                 .ForMember(d => d.ValorBruto, m => m.MapFrom(s => s.ValorBruto.ToDecimal()))
-                .ForMember(d => d.ValorFrete, m => m.MapFrom(s => s.ValorFrete.ToDecimal()))
                 .ForMember(d => d.ValorLiquido, m => m.MapFrom(s => s.ValorLiquido.ToDecimal()));
         }
 
@@ -91,7 +90,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
                 Request = new HttpRequestMessage(),
                 Configuration = new HttpConfiguration()
             };
-            var response = controller.CriarCompra(new CompraModel() { Status = "Aberto" });
+            var response = controller.CriarCompra(new CompraModel() { StatusCompra = "Aberto" });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<object>>();
             Assert.AreEqual(HttpStatusCode.OK, response.Result.StatusCode);
             Assert.AreEqual(null, data.Result.ObjetoRetorno);
@@ -103,7 +102,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
         public void TesteCriarCompraSemDataCadastro()
         {
             var controller = CreateCompraController();
-            var response = controller.CriarCompra(new CompraModel() { Status = "Aberto" });
+            var response = controller.CriarCompra(new CompraModel() { StatusCompra = "Aberto" });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Result.StatusCode);
             Assert.AreNotEqual(null, data.Result.ObjetoRetorno);
@@ -117,7 +116,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "None",
+                StatusCompra = "None",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now)
             });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
@@ -133,7 +132,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now)
             });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
@@ -149,7 +148,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05"
             });
@@ -166,7 +165,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -187,7 +186,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 1",
                 ValorTotalLiquido = "R$ 1",
@@ -216,7 +215,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -246,7 +245,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -277,7 +276,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -309,11 +308,10 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
-                ValorFrete = "R$ 0",
                 FornecedorId = 1,
                 FormaPagamentoId = 1,
                 CondicaoPagamentoId = 1,
@@ -341,7 +339,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -373,7 +371,7 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Confirmado",
+                StatusCompra = "Confirmado",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
@@ -406,10 +404,9 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
-                ValorFrete = "R$ 0",
                 ValorTotalLiquido = "R$ 60,00",
                 FornecedorId = 1,
                 FormaPagamentoId = 1,
@@ -449,10 +446,9 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             var controller = CreateCompraController();
             var response = controller.CriarCompra(new CompraModel()
             {
-                Status = "Aberto",
+                StatusCompra = "Aberto",
                 DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 60,00",
-                ValorFrete = "R$ 0",
                 ValorTotalLiquido = "R$ 2,05",
                 FornecedorId = 1,
                 FormaPagamentoId = 1,
@@ -484,51 +480,6 @@ namespace ProjetoArtCouro.Test.TesteApiCompra
             Assert.AreNotEqual(null, data.Result.ObjetoRetorno);
             Assert.AreEqual(true, data.Result.TemErros);
             Assert.AreEqual(Erros.SumDoNotMatchTotalValueLiquid, data.Result.Mensagem);
-        }
-
-        [TestMethod]
-        public void TesteCriarCompraComSomaValorFreteDiferenteValorTotalFrete()
-        {
-            var controller = CreateCompraController();
-            var response = controller.CriarCompra(new CompraModel()
-            {
-                Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
-                ValorTotalBruto = "R$ 60,00",
-                ValorTotalFrete = "R$ 2,05",
-                ValorTotalLiquido = "R$ 60,00",
-                FornecedorId = 1,
-                FormaPagamentoId = 1,
-                CondicaoPagamentoId = 1,
-                ItemCompraModel = new List<ItemCompraModel>
-                {
-                    new ItemCompraModel
-                    {
-                        Codigo = 1,
-                        Descricao = "sdasd",
-                        Quantidade = 1,
-                        PrecoVenda = "R$ 22,00",
-                        ValorBruto = "R$ 30,00",
-                        ValorFrete = "R$ 1,00",
-                        ValorLiquido = "R$ 30,00"
-                    },
-                    new ItemCompraModel
-                    {
-                        Codigo = 1,
-                        Descricao = "sdasd",
-                        Quantidade = 1,
-                        PrecoVenda = "R$ 22,00",
-                        ValorBruto = "R$ 30,00",
-                        ValorFrete = "R$ 1,00",
-                        ValorLiquido = "R$ 30,00"
-                    }
-                }
-            });
-            var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
-            Assert.AreEqual(HttpStatusCode.BadRequest, response.Result.StatusCode);
-            Assert.AreNotEqual(null, data.Result.ObjetoRetorno);
-            Assert.AreEqual(true, data.Result.TemErros);
-            Assert.AreEqual(Erros.SumDoNotMatchTotalValueShipping, data.Result.Mensagem);
         }
     }
 }

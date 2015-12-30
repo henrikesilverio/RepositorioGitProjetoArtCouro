@@ -28,17 +28,17 @@
                             @Html.ValidationMessageFor(m => m.DataCadastro)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Status, new { @class = "label" })
+                            @Html.LabelFor(m => m.StatusCompra, new { @class = "label" })
                             <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.Status, new { placeholder = @Mensagens.Status, @readonly = "readonly" })
+                                @Html.TextBoxFor(m => m.StatusCompra, new { placeholder = @Mensagens.Status, @readonly = "readonly" })
                             </label>
-                            @Html.ValidationMessageFor(m => m.Status)
+                            @Html.ValidationMessageFor(m => m.StatusCompra)
                         </section>
                     </div>
                 </fieldset>
                 <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <section class="col col-xs-12 col-sm-9 col-md-9 col-lg-9">
                             @Html.LabelFor(m => m.ProdutoId, new { @class = "label" })
                             <label class="select">
                                 @Html.DropDownListFor(m => m.ProdutoId, new SelectList(ViewBag.Produtos, "Codigo", "Nome")
@@ -52,13 +52,6 @@
                                 @Html.TextBoxFor(m => m.Quantidade, new { placeholder = @Mensagens.Quantity, @class = "MilharMask", @maxlenth = "9" })
                             </label>
                             @Html.ValidationMessageFor(m => m.Quantidade)
-                        </section>
-                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.ValorFrete, new { @class = "label" })
-                            <label class="input">
-                                @Html.TextBoxFor(m => m.ValorFrete, new { placeholder = @Mensagens.ValueFreight, @class = "DinheiroMask" })
-                            </label>
-                            @Html.ValidationMessageFor(m => m.ValorFrete)
                         </section>
                     </div>
                 </fieldset>
@@ -104,8 +97,8 @@
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.ValorTotalFrete, new { @class = "label" })
-                            <label class="input state-disabled">
-                                @Html.TextBoxFor(m => m.ValorTotalFrete, new { placeholder = @Mensagens.TotalValueDiscount, @readonly = "readonly" })
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.ValorTotalFrete, new { placeholder = @Mensagens.TotalValueShipping, @class = "DinheiroMask" })
                             </label>
                             @Html.ValidationMessageFor(m => m.ValorTotalFrete)
                         </section>

@@ -36,9 +36,6 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.CompraConfiguration
                 .IsRequired()
                 .HasColumnType("decimal");
 
-            Property(x => x.ValorFrete)
-                .HasColumnType("decimal");
-
             Property(x => x.ValorLiquido)
                 .IsRequired()
                 .HasColumnType("decimal");

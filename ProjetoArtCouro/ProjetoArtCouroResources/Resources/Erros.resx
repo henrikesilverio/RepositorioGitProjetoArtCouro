@@ -318,4 +318,7 @@
   <data name="SumDoNotMatchTotalValueShipping" xml:space="preserve">
     <value>A soma do valores não conferem com o Valor Total Frete</value>
   </data>
+  <data name="NoShoppingForTheGivenFilter" xml:space="preserve">
+    <value>Não há compras para o filtro informado</value>
+  </data>
 </root>

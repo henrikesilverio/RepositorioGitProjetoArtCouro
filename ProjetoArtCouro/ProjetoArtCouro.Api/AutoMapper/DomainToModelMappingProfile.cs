@@ -109,11 +109,19 @@ namespace ProjetoArtCouro.Api.AutoMapper
 
             Mapper.CreateMap<Pessoa, FornecedorModel>()
                 .ForMember(d => d.Nome, m => m.Ignore())
+                .ForMember(d => d.Codigo, m => m.MapFrom(s => s.PessoaCodigo))
                 .AfterMap((d, s) =>
                 {
-                    s = d.PessoaFisica != null
-                        ? Mapper.Map<FornecedorModel>(d.PessoaFisica)
-                        : Mapper.Map<FornecedorModel>(d.PessoaJuridica);
+                    if (d.PessoaFisica != null)
+                    {
+                        s.Nome = d.Nome;
+                        s.RazaoSocial = null;
+                    }
+                    else
+                    {
+                        s.RazaoSocial = d.Nome;
+                        s.Nome = null;
+                    }
                 });
 
             Mapper.CreateMap<Produto, ProdutoModel>()
@@ -174,17 +182,16 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.FuncionarioId, m => m.MapFrom(s => s.Usuario.UsuarioCodigo))
                 .ForMember(d => d.ItemCompraModel, m => m.MapFrom(s => s.ItensCompra))
                 .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Fornecedor.Nome))
-                .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusCompra.ToString()))
+                .ForMember(d => d.StatusCompra, m => m.MapFrom(s => s.StatusCompra.ToString()))
                 .ForMember(d => d.ValorTotalFrete, m => m.MapFrom(s => s.ValorTotalFrete))
                 .ForMember(d => d.ValorTotalBruto, m => m.MapFrom(s => s.ValorTotalBruto))
                 .ForMember(d => d.ValorTotalLiquido, m => m.MapFrom(s => s.ValorTotalLiquido));
 
-            Mapper.CreateMap<ItemVenda, ItemVendaModel>()
+            Mapper.CreateMap<ItemCompra, ItemCompraModel>()
                 .ForMember(d => d.Codigo, m => m.MapFrom(s => s.ProdutoCodigo))
                 .ForMember(d => d.Descricao, m => m.MapFrom(s => s.ProdutoNome))
                 .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToFormatMoney()))
                 .ForMember(d => d.ValorBruto, m => m.MapFrom(s => s.ValorBruto.ToFormatMoney()))
-                .ForMember(d => d.ValorDesconto, m => m.MapFrom(s => s.ValorDesconto.ToFormatMoney()))
                 .ForMember(d => d.ValorLiquido, m => m.MapFrom(s => s.ValorLiquido.ToFormatMoney()));
         }
     }

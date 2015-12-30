@@ -22,9 +22,8 @@
                 { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "center", "sWidth": "40%" },
                 { "sTitle": "@(Mensagens.Quantity )", "mData": "Quantidade", "sClass": "center", "sWidth": "5%" },
                 { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueFreight)", "mData": "ValorFrete", "sClass": "center", "sWidth": "10%" },
-                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "15%" },
                 {
                     "sTitle": "@(Mensagens.Actions )",
                     "mData": null,
@@ -48,11 +47,10 @@
                 }
             ],
             ObterCamposPrincipais: function () {
-                var valorFreteFormatado = Portal.FormataValor($("#ValorFrete").val());
                 var valorBrutoFormatado = "R$ "
                     + Portal.CalculaValorBruto($("#ProdutoId option:selected").data("precoVenda"), $("#Quantidade").val());
                 var valorLiquidoFormatado = "R$ "
-                    + Portal.CalculaValorLiquido(valorBrutoFormatado, valorFreteFormatado);
+                    + Portal.CalculaValorLiquido(valorBrutoFormatado, "R$ 0,00");
                 var item = [
                     {
                         "Codigo": $("#ProdutoId").val(),
@@ -60,7 +58,6 @@
                         "Quantidade": $("#Quantidade").val(),
                         "PrecoVenda": $("#ProdutoId option:selected").data("precoVenda"),
                         "ValorBruto": valorBrutoFormatado,
-                        "ValorFrete": valorFreteFormatado,
                         "ValorLiquido": valorLiquidoFormatado
                     }
                 ];

@@ -122,10 +122,9 @@ namespace ProjetoArtCouro.Business.Services.CompraService
         {
             AssertionConcern.AssertArgumentEquals(compra.ItensCompra.Sum(x => x.ValorBruto), compra.ValorTotalBruto,
                     Erros.SumDoNotMatchTotalCrudeValue);
-            AssertionConcern.AssertArgumentEquals(compra.ItensCompra.Sum(x => x.ValorFrete),
-                compra.ValorTotalFrete,
-                Erros.SumDoNotMatchTotalValueShipping);
-            AssertionConcern.AssertArgumentEquals(compra.ItensCompra.Sum(x => x.ValorLiquido), compra.ValorTotalLiquido,
+            var valorTotalLiquidoSemFrete = compra.ItensCompra.Sum(x => x.ValorLiquido);
+            var valorTotalLiquidoComFrete = valorTotalLiquidoSemFrete + compra.ValorTotalFrete;
+            AssertionConcern.AssertArgumentEquals(valorTotalLiquidoComFrete, compra.ValorTotalLiquido,
                 Erros.SumDoNotMatchTotalValueLiquid);
         }
 

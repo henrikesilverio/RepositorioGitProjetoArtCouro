@@ -118,7 +118,7 @@ namespace ProjetoArtCouro.Api.Controllers.Pessoas
             return tsc.Task;
         }
 
-        [Route("ObterListaPessoa")]
+        [Route("ObterListaFornecedor")]
         [Authorize(Roles = "NovaVenda")]
         [CacheOutput(ServerTimeSpan = 10000)]
         [HttpGet]

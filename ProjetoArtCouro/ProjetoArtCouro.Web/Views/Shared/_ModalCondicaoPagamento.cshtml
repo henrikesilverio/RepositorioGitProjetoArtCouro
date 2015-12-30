@@ -1,57 +1,60 @@
 ﻿@using ProjetoArtCouro.Resource.Resources
-<div class="modal fade" id="modalCondicaoPagamento" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">@Mensagens.PaymentTerms</h4>
-            </div>
-            <div class="modal-body">
-                <form id="formModalCondicaoPagamento" class="smart-form" novalidate="novalidate">
-                    <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <label class="label" for="ModalCondicaoPagamentoDescricao">@Mensagens.Description</label>
-                            <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoDescricao"
-                                       name="Descricao" placeholder="@Mensagens.Description" maxlength="30" type="text" value="">
-                            </label>
-                            <span class="field-validation-valid" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
-                        </section>
-                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <label class="label" for="ModalCondicaoPagamentoQuantidadeParcelas">@Mensagens.QuantityOfParcels</label>
-                            <label class="input">
-                                <input class="SomenteDoisDigitos" data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoQuantidadeParcelas"
-                                       name="QuantidadeParcelas" placeholder="@Mensagens.QuantityOfParcels" type="text" value="">
-                            </label>
-                            <span class="field-validation-valid" data-valmsg-for="QuantidadeParcelas" data-valmsg-replace="true"></span>
-                        </section>
-                        <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            <label class="label" for="ModalCondicaoPagamentoAtivo">@Mensagens.Active</label>
-                            <div class="inline-group">
-                                <label class="radio">
-                                    <input data-text="Sim" data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoAtivo"
-                                           name="Ativo" type="radio" value="True">
-                                    <i></i>@Mensagens.Yes
+@if (Request.Path.Contains("CondicaoPagamento"))
+{
+    <div class="modal fade" id="modalCondicaoPagamento" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Mensagens.PaymentTerms</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formModalCondicaoPagamento" class="smart-form" novalidate="novalidate">
+                        <div class="row">
+                            <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                <label class="label" for="ModalCondicaoPagamentoDescricao">@Mensagens.Description</label>
+                                <label class="input">
+                                    <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoDescricao"
+                                           name="Descricao" placeholder="@Mensagens.Description" maxlength="30" type="text" value="">
                                 </label>
-                                <label class="radio">
-                                    <input data-text="Não" id="ModalCondicaoPagamentoAtivo" name="Ativo" type="radio" value="False">
-                                    <i></i>@Mensagens.Not
+                                <span class="field-validation-valid" data-valmsg-for="Descricao" data-valmsg-replace="true"></span>
+                            </section>
+                            <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <label class="label" for="ModalCondicaoPagamentoQuantidadeParcelas">@Mensagens.QuantityOfParcels</label>
+                                <label class="input">
+                                    <input class="SomenteDoisDigitos" data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoQuantidadeParcelas"
+                                           name="QuantidadeParcelas" placeholder="@Mensagens.QuantityOfParcels" type="text" value="">
                                 </label>
-                            </div>
-                            <span class="field-validation-valid" data-valmsg-for="Ativo" data-valmsg-replace="true"></span>
-                        </section>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-labeled btn-default" href="javascript:void(0);" data-dismiss="modal">
-                    <span class="btn-label"><i class="fa fa-times"></i></span> @Mensagens.Close
-                </a>
-                <a id="AtualizarCondicaoPagamento" class="btn btn-labeled btn-primary" href="javascript:void(0);">
-                    <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
-                </a>
+                                <span class="field-validation-valid" data-valmsg-for="QuantidadeParcelas" data-valmsg-replace="true"></span>
+                            </section>
+                            <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                                <label class="label" for="ModalCondicaoPagamentoAtivo">@Mensagens.Active</label>
+                                <div class="inline-group">
+                                    <label class="radio">
+                                        <input data-text="Sim" data-val="true" data-val-required="@Erros.RequiredField" id="ModalCondicaoPagamentoAtivo"
+                                               name="Ativo" type="radio" value="True">
+                                        <i></i>@Mensagens.Yes
+                                    </label>
+                                    <label class="radio">
+                                        <input data-text="Não" id="ModalCondicaoPagamentoAtivo" name="Ativo" type="radio" value="False">
+                                        <i></i>@Mensagens.Not
+                                    </label>
+                                </div>
+                                <span class="field-validation-valid" data-valmsg-for="Ativo" data-valmsg-replace="true"></span>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-labeled btn-default" href="javascript:void(0);" data-dismiss="modal">
+                        <span class="btn-label"><i class="fa fa-times"></i></span> @Mensagens.Close
+                    </a>
+                    <a id="AtualizarCondicaoPagamento" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
 

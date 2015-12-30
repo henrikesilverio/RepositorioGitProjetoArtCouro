@@ -26,10 +26,6 @@ namespace ProjetoArtCouro.Model.Models.Compra
         public string ValorBruto { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "RequiredField")]
-        [Display(Name = "ValueFreight", ResourceType = typeof(Mensagens))]
-        public string ValorFrete { get; set; }
-
-        [Required(ErrorMessageResourceType = typeof(Erros), ErrorMessageResourceName = "RequiredField")]
         [Display(Name = "ValueLiquid", ResourceType = typeof(Mensagens))]
         public string ValorLiquido { get; set; }
     }

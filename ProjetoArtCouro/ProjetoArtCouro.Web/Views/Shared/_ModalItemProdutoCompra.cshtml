@@ -1,42 +1,36 @@
 ﻿@using ProjetoArtCouro.Resource.Resources
-<div class="modal fade" id="modalItemProdutoCompra" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">@Mensagens.SaleItem</h4>
-            </div>
-            <div class="modal-body">
-                <form id="formModalItemProdutoCompra" class="smart-form" novalidate="novalidate">
-                    <div class="row">
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <label class="label" for="ModalItemProdutoQuantidade">@Mensagens.Quantity</label>
-                            <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalItemProdutoQuantidade"
-                                       name="Quantidade" placeholder="@Mensagens.Quantity" class="MilharMask" maxlength="9" type="text" value="">
-                            </label>
-                            <span class="field-validation-valid" data-valmsg-for="Quantidade" data-valmsg-replace="true"></span>
-                        </section>
-                        <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <label class="label" for="ModalItemProdutoValorFrete">@Mensagens.ValueFreight</label>
-                            <label class="input">
-                                <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalItemProdutoValorFrete"
-                                       name="ValorFrete" placeholder="@Mensagens.ValueFreight" class="DinheiroMask" maxlength="12" type="text" value="">
-                            </label>
-                            <span class="field-validation-valid" data-valmsg-for="ValorFrete" data-valmsg-replace="true"></span>
-                        </section>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-labeled btn-default" href="javascript:void(0);" data-dismiss="modal">
-                    <span class="btn-label"><i class="fa fa-times"></i></span> @Mensagens.Close
-                </a>
-                <a id="AtualizarItemProduto" class="btn btn-labeled btn-primary" href="javascript:void(0);">
-                    <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
-                </a>
+@if (Request.Path.Contains("Compra"))
+{
+    <div class="modal fade" id="modalItemProdutoCompra" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Mensagens.SaleItem</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="formModalItemProdutoCompra" class="smart-form" novalidate="novalidate">
+                        <div class="row">
+                            <section class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <label class="label" for="ModalItemProdutoQuantidade">@Mensagens.Quantity</label>
+                                <label class="input">
+                                    <input data-val="true" data-val-required="@Erros.RequiredField" id="ModalItemProdutoQuantidade"
+                                           name="Quantidade" placeholder="@Mensagens.Quantity" class="MilharMask" maxlength="9" type="text" value="">
+                                </label>
+                                <span class="field-validation-valid" data-valmsg-for="Quantidade" data-valmsg-replace="true"></span>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-labeled btn-default" href="javascript:void(0);" data-dismiss="modal">
+                        <span class="btn-label"><i class="fa fa-times"></i></span> @Mensagens.Close
+                    </a>
+                    <a id="AtualizarItemProduto" class="btn btn-labeled btn-primary" href="javascript:void(0);">
+                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+}

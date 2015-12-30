@@ -412,6 +412,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não há compras para o filtro informado.
+        /// </summary>
+        public static string NoShoppingForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoShoppingForTheGivenFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forma de pagamento não informado.
         /// </summary>
         public static string NotSetPayment {

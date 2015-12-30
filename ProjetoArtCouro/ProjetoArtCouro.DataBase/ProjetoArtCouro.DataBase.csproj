@@ -69,9 +69,9 @@
     <Compile Include="EntityConfig\UsuarioConfiguration\UsuarioConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\ItemVendaConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\VendaConfiguration.cs" />
-    <Compile Include="Migrations\201512241845469_Banco Inicial.cs" />
-    <Compile Include="Migrations\201512241845469_Banco Inicial.Designer.cs">
-      <DependentUpon>201512241845469_Banco Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201512291734005_Banco Inicial.cs" />
+    <Compile Include="Migrations\201512291734005_Banco Inicial.Designer.cs">
+      <DependentUpon>201512291734005_Banco Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,8 +114,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512241845469_Banco Inicial.resx">
-      <DependentUpon>201512241845469_Banco Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512291734005_Banco Inicial.resx">
+      <DependentUpon>201512291734005_Banco Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

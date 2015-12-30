@@ -142,7 +142,7 @@
                     "mRender": function (obj) {
                         var url = "/Venda/EditarVenda" + "?codigoVenda=" + obj.CodigoVenda;
                         var botoes = Portal.CriarBotoes(url,
-                            "Portal.ExcluirVenda(\"/Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + ",StatusVenda:" + obj.StatusVenda + "}, \"#datatableVenda\", $(this).closest(\"tr\"))");
+                            "Portal.ExcluirVenda(\"/Venda/ExcluirVenda\",{CodigoVenda:" + obj.CodigoVenda + ",StatusVenda:'" + obj.StatusVenda + "'}, \"#datatableVenda\", $(this).closest(\"tr\"))");
                         return botoes[0].outerHTML;
                     }
                 }
