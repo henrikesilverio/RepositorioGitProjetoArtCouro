@@ -59,6 +59,11 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.VendaConfiguration
             HasMany(x => x.ItensVenda)
                 .WithRequired(x => x.Venda)
                 .WillCascadeOnDelete(true);
+
+            //Relacionamento 1 : 0 ou N
+            HasMany(x => x.ContasReceber)
+                .WithOptional(x => x.Venda)
+                .WillCascadeOnDelete(true);
         }
     }
 }

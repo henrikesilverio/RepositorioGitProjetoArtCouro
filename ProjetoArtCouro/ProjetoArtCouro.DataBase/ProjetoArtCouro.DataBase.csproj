@@ -67,11 +67,12 @@
     <Compile Include="EntityConfig\UsuarioConfiguration\GrupoPermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\PermissaoConfiguration.cs" />
     <Compile Include="EntityConfig\UsuarioConfiguration\UsuarioConfiguration.cs" />
+    <Compile Include="EntityConfig\VendaConfiguration\ContaReceberConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\ItemVendaConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\VendaConfiguration.cs" />
-    <Compile Include="Migrations\201512291734005_Banco Inicial.cs" />
-    <Compile Include="Migrations\201512291734005_Banco Inicial.Designer.cs">
-      <DependentUpon>201512291734005_Banco Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201601061439205_Banco Inicial.cs" />
+    <Compile Include="Migrations\201601061439205_Banco Inicial.Designer.cs">
+      <DependentUpon>201601061439205_Banco Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Repositorios\UsuarioRepository\GrupoPermissaoRepository.cs" />
     <Compile Include="Repositorios\UsuarioRepository\PermissaoRepository.cs" />
     <Compile Include="Repositorios\UsuarioRepository\UsuarioRepository.cs" />
+    <Compile Include="Repositorios\VendaRepository\ContaReceberRepository.cs" />
     <Compile Include="Repositorios\VendaRepository\ItemVendaRepository.cs" />
     <Compile Include="Repositorios\VendaRepository\VendaRepository.cs" />
   </ItemGroup>
@@ -114,8 +116,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512291734005_Banco Inicial.resx">
-      <DependentUpon>201512291734005_Banco Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601061439205_Banco Inicial.resx">
+      <DependentUpon>201601061439205_Banco Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

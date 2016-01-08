@@ -22,10 +22,12 @@ namespace ProjetoArtCouro.Business.Services.VendaService
         private readonly IFormaPagamentoRepository _formaPagamentoRepository;
         private readonly ICondicaoPagamentoRepository _condicaoPagamentoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IContaReceberRepository _contaReceberRepository;
 
         public VendaService(IVendaRepository vendaRepository, IItemVendaRepository itemVendaRepository,
             IPessoaRepository pessoaRepository, IFormaPagamentoRepository formaPagamentoRepository,
-            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository)
+            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository, 
+            IContaReceberRepository contaReceberRepository)
         {
             _vendaRepository = vendaRepository;
             _itemVendaRepository = itemVendaRepository;
@@ -33,6 +35,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             _formaPagamentoRepository = formaPagamentoRepository;
             _condicaoPagamentoRepository = condicaoPagamentoRepository;
             _usuarioRepository = usuarioRepository;
+            _contaReceberRepository = contaReceberRepository;
         }
 
         public Venda ObterVendaPorCodigo(int codigoVenda)
@@ -49,7 +52,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
                 codigoUsuario.Equals(0))
             {
                 throw new Exception(Erros.EmptyParameters);
-            };
+            }
 
             return _vendaRepository.ObterLista(codigoVenda, codigoCliente, dataCadastro, statusVenda, nomeCliente,
                 documento, codigoUsuario);
@@ -82,13 +85,14 @@ namespace ProjetoArtCouro.Business.Services.VendaService
                 AdicionaClienteFormaECondicaoDePagamento(venda, vendaAtual);
                 AtualizaItensVenda(vendaAtual, venda.ItensVenda);
                 vendaAtual.StatusVenda = StatusVendaEnum.Confirmado;
-                //TODO Gera conta a receber
+                AdicionaContaReceberNaVenda(vendaAtual);
+                vendaAtual.ContasReceber.ForEach(x => x.Validar());
                 //TODO Remove do estoque
             }
             else
             {
                 vendaAtual.StatusVenda = StatusVendaEnum.Cancelado;
-                //TODO Remove o conta a receber
+                RemoveContaReceberDaVenda(vendaAtual);
                 //TODO Volta para o estoque
             }
             _vendaRepository.Atualizar(vendaAtual);
@@ -145,11 +149,39 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             vendaAtual.CondicaoPagamento = condicaoPagamento;
         }
 
+        private static void AdicionaContaReceberNaVenda(Venda venda)
+        {
+            venda.ContasReceber = new List<ContaReceber>();
+            for (var i = 0; i < venda.CondicaoPagamento.QuantidadeParcelas; i++)
+            {
+                venda.ContasReceber.Add(new ContaReceber
+                {
+                    DataVencimento = venda.DataCadastro.AddMonths(i),
+                    Recebido = false,
+                    StatusContaReceber = StatusContaReceberEnum.Aberto,
+                    ValorDocumento = venda.ValorTotalLiquido / venda.CondicaoPagamento.QuantidadeParcelas,
+                    Venda = venda
+                });
+            }
+        }
+
+        private void RemoveContaReceberDaVenda(Venda venda)
+        {
+            var contasReceber = _contaReceberRepository.ObterListaPorCodigoVenda(venda.VendaCodigo);
+            contasReceber.ForEach(x =>
+            {
+                _contaReceberRepository.Deletar(x);
+            });
+        }
+
         public void Dispose()
         {
             _vendaRepository.Dispose();
             _itemVendaRepository.Dispose();
-            //TODO Falta libera memoria dos outro services
+            _pessoaRepository.Dispose();
+            _formaPagamentoRepository.Dispose();
+            _condicaoPagamentoRepository.Dispose();
+            _usuarioRepository.Dispose();
         }
     }
 }

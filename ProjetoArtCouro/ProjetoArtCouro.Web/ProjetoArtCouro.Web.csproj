@@ -180,6 +180,7 @@
     <Content Include="js\app\Usuario\ConfiguracaoUsuario.js" />
     <Content Include="js\app\Usuario\Grupo.js" />
     <Content Include="js\app\Usuario\Usuario.js" />
+    <Content Include="js\app\Venda\ContaReceber.js" />
     <Content Include="js\app\Venda\Venda.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\demo.js" />

@@ -321,4 +321,13 @@
   <data name="NoShoppingForTheGivenFilter" xml:space="preserve">
     <value>Não há compras para o filtro informado</value>
   </data>
+  <data name="SaleNotSet" xml:space="preserve">
+    <value>Venda não informada</value>
+  </data>
+  <data name="ThereReceivableWithZeroCode" xml:space="preserve">
+    <value>Existe conta a receber com código igual a zero</value>
+  </data>
+  <data name="NoAccountReceivableForTheGivenFilter" xml:space="preserve">
+    <value>Não há conta a receber para o filtro informado</value>
+  </data>
 </root>

@@ -29,6 +29,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
     {
         private readonly Mock<IVendaRepository> _mockVendaRepository = new Mock<IVendaRepository>();
         private readonly Mock<IItemVendaRepository> _mockItemVendaRepository = new Mock<IItemVendaRepository>();
+        private readonly Mock<IContaReceberRepository> _mockContaReceberRepository = new Mock<IContaReceberRepository>();
         private readonly Mock<IPessoaRepository> _mockPessoaRepository = new Mock<IPessoaRepository>();
         private readonly Mock<IFormaPagamentoRepository> _mockFormaPagamentoRepository =
             new Mock<IFormaPagamentoRepository>();
@@ -45,7 +46,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
 
             var vendaService = new VendaService(_mockVendaRepository.Object, _mockItemVendaRepository.Object,
                 _mockPessoaRepository.Object, _mockFormaPagamentoRepository.Object,
-                _mockCondicaoPagamentoRepository.Object, _usuarioRepository.Object);
+                _mockCondicaoPagamentoRepository.Object, _usuarioRepository.Object, _mockContaReceberRepository.Object);
 
             var controller = new VendaController(vendaService)
             {
@@ -118,7 +119,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "None",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now)
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now)
             });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Result.StatusCode);
@@ -134,7 +135,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now)
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now)
             });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
             Assert.AreEqual(HttpStatusCode.BadRequest, response.Result.StatusCode);
@@ -150,7 +151,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05"
             });
             var data = response.Result.Content.ReadAsAsync<RetornoBase<Exception>>();
@@ -224,7 +225,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -245,7 +246,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 1",
                 ValorTotalLiquido = "R$ 1",
                 ClienteId = 1,
@@ -274,7 +275,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -304,7 +305,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -335,7 +336,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -367,7 +368,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ValorDesconto = "R$ 0",
@@ -399,7 +400,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -431,7 +432,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Confirmado",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 2,05",
                 ClienteId = 1,
@@ -464,7 +465,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 2,05",
                 ValorDesconto = "R$ 0",
                 ValorTotalLiquido = "R$ 60,00",
@@ -507,7 +508,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 60,00",
                 ValorDesconto = "R$ 0",
                 ValorTotalLiquido = "R$ 2,05",
@@ -550,7 +551,7 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
             var response = controller.CriarVenda(new VendaModel()
             {
                 Status = "Aberto",
-                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm:ss}", DateTime.Now),
+                DataCadastro = string.Format("{0:dd/MM/yyyy H:mm}", DateTime.Now),
                 ValorTotalBruto = "R$ 60,00",
                 ValorTotalDesconto = "R$ 2,05",
                 ValorTotalLiquido = "R$ 60,00",

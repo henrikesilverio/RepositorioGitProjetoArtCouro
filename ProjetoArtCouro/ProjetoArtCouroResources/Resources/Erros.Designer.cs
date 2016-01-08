@@ -367,6 +367,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Não há conta a receber para o filtro informado.
+        /// </summary>
+        public static string NoAccountReceivableForTheGivenFilter {
+            get {
+                return ResourceManager.GetString("NoAccountReceivableForTheGivenFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Não há clientes para o filtro informado.
         /// </summary>
         public static string NoClientForTheGivenFilter {
@@ -576,6 +585,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Venda não informada.
         /// </summary>
+        public static string SaleNotSet {
+            get {
+                return ResourceManager.GetString("SaleNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venda não informada.
+        /// </summary>
         public static string SaleUnknown {
             get {
                 return ResourceManager.GetString("SaleUnknown", resourceCulture);
@@ -633,6 +651,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string SumDoNotMatchTotalValueShipping {
             get {
                 return ResourceManager.GetString("SumDoNotMatchTotalValueShipping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Existe conta a receber com código igual a zero.
+        /// </summary>
+        public static string ThereReceivableWithZeroCode {
+            get {
+                return ResourceManager.GetString("ThereReceivableWithZeroCode", resourceCulture);
             }
         }
         

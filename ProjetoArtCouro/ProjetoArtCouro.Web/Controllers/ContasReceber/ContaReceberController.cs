@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.ContaReceber;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
+using ProjetoArtCouro.Web.Infra.Service;
 
 namespace ProjetoArtCouro.Web.Controllers.ContasReceber
 {
@@ -35,41 +36,20 @@ namespace ProjetoArtCouro.Web.Controllers.ContasReceber
         [CustomAuthorize(Roles = "PesquisaContaReceber")]
         public JsonResult PesquisaContaReceber(PesquisaContaReceberModel model)
         {
-            var resultado = new List<ContaReceberModel>
+            var response = ServiceRequest.Post<List<ContaReceberModel>>(model, "api/ContaReceber/PesquisaContaReceber");
+            if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
-                new ContaReceberModel
-                {
-                    CodigoVenda = 1,
-                    CodigoCliente = 2,
-                    DataEmissao = DateTime.Now,
-                    DataVencimento = DateTime.Now.AddYears(1),
-                    Status = "Aberto",
-                    ValorDocumento = "R$ 500,00",
-                    Recebido = false
-                },
-                new ContaReceberModel
-                {
-                    CodigoVenda = 2,
-                    CodigoCliente = 6,
-                    DataEmissao = DateTime.Now,
-                    DataVencimento = DateTime.Now.AddYears(1),
-                    Status = "Recebido",
-                    ValorDocumento = "R$ 600,00",
-                    Recebido = true
-                },
-                new ContaReceberModel
-                {
-                    CodigoVenda = 5,
-                    CodigoCliente = 6,
-                    DataEmissao = DateTime.Now,
-                    DataVencimento = DateTime.Now.AddYears(1),
-                    Status = "Recebido",
-                    ValorDocumento = "R$ 1000,00",
-                    Recebido = true
-                }
-            };
+                response.Data.Mensagem = Erros.NoAccountReceivableForTheGivenFilter;
+            }
+            return ReturnResponse(response);
+        }
 
-            return Json(new { ObjetoRetorno = resultado }, JsonRequestBehavior.AllowGet);
+        [HttpPost]
+        [CustomAuthorize(Roles = "PesquisaContaReceber")]
+        public JsonResult ReceberConta(List<ContaReceberModel> model)
+        {
+            var response = ServiceRequest.Put<RetornoBase<object>>(model, "api/ContaReceber/ReceberConta");
+            return ReturnResponse(response);
         }
     }
 }

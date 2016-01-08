@@ -57,7 +57,7 @@
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ, @class = "CpfCnpjMask" })
                             </label>
                         </section>
                     </div>

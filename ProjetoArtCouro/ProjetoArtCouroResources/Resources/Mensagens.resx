@@ -594,4 +594,7 @@
   <data name="Purchase" xml:space="preserve">
     <value>Comprar</value>
   </data>
+  <data name="Receive" xml:space="preserve">
+    <value>Receber</value>
+  </data>
 </root>

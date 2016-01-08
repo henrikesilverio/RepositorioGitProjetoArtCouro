@@ -13,6 +13,7 @@ using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.ContaReceber;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Fornecedor;
 using ProjetoArtCouro.Model.Models.Funcionario;
@@ -163,6 +164,14 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.PrecoVenda.ToDecimal()))
                 .ForMember(d => d.ValorBruto, m => m.MapFrom(s => s.ValorBruto.ToDecimal()))
                 .ForMember(d => d.ValorLiquido, m => m.MapFrom(s => s.ValorLiquido.ToDecimal()));
+
+            Mapper.CreateMap<ContaReceberModel, ContaReceber>()
+                .ForMember(d => d.ContaReceberCodigo, m => m.MapFrom(s => s.CodigoContaReceber))
+                .ForMember(d => d.DataVencimento, m => m.MapFrom(s => s.DataVencimento))
+                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.StatusContaReceber,
+                    m => m.MapFrom(s => Enum.Parse(typeof (StatusContaReceberEnum), s.Status)))
+                .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento));
         }
     }
 }

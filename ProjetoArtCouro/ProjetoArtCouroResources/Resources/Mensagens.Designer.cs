@@ -1078,6 +1078,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Receber.
+        /// </summary>
+        public static string Receive {
+            get {
+                return ResourceManager.GetString("Receive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Recebido.
         /// </summary>
         public static string Received {

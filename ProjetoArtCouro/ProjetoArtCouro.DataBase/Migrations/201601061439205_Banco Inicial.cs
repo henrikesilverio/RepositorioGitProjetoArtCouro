@@ -181,6 +181,22 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .Index(t => t.CNPJ, unique: true);
             
             CreateTable(
+                "dbo.ContaReceber",
+                c => new
+                    {
+                        ContaReceberId = c.Guid(nullable: false, identity: true),
+                        ContaReceberCodigo = c.Int(nullable: false, identity: true),
+                        DataVencimento = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        ValorDocumento = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        StatusContaReceber = c.Int(nullable: false),
+                        Recebido = c.Boolean(nullable: false),
+                        Venda_VendaId = c.Guid(),
+                    })
+                .PrimaryKey(t => t.ContaReceberId)
+                .ForeignKey("dbo.Venda", t => t.Venda_VendaId, cascadeDelete: true)
+                .Index(t => t.Venda_VendaId);
+            
+            CreateTable(
                 "dbo.FormaPagamento",
                 c => new
                     {
@@ -346,6 +362,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropForeignKey("dbo.PermissaoGrupoPermissao", "PermissaoId", "dbo.Permissao");
             DropForeignKey("dbo.ItemVenda", "Venda_VendaId", "dbo.Venda");
             DropForeignKey("dbo.Venda", "FormaPagamento_FormaPagamentoId", "dbo.FormaPagamento");
+            DropForeignKey("dbo.ContaReceber", "Venda_VendaId", "dbo.Venda");
             DropForeignKey("dbo.Venda", "CondicaoPagamento_CondicaoPagamentoId", "dbo.CondicaoPagamento");
             DropForeignKey("dbo.Venda", "Cliente_PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.PessoaJuridica", "PessoaId", "dbo.Pessoa");
@@ -366,6 +383,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.ItemCompra", new[] { "Compra_CompraId" });
             DropIndex("dbo.Usuario", new[] { "GrupoPermissao_GrupoPermissaoId" });
             DropIndex("dbo.ItemVenda", new[] { "Venda_VendaId" });
+            DropIndex("dbo.ContaReceber", new[] { "Venda_VendaId" });
             DropIndex("dbo.PessoaJuridica", new[] { "CNPJ" });
             DropIndex("dbo.PessoaJuridica", new[] { "PessoaId" });
             DropIndex("dbo.PessoaFisica", new[] { "EstadoCivil_EstadoCivilId" });
@@ -393,6 +411,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.Usuario");
             DropTable("dbo.ItemVenda");
             DropTable("dbo.FormaPagamento");
+            DropTable("dbo.ContaReceber");
             DropTable("dbo.PessoaJuridica");
             DropTable("dbo.EstadoCivil");
             DropTable("dbo.PessoaFisica");

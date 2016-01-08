@@ -24,6 +24,7 @@ namespace ProjetoArtCouro.Domain.Models.Vendas
         public virtual FormaPagamento FormaPagamento { get; set; }
         public virtual CondicaoPagamento CondicaoPagamento { get; set; }
         public virtual ICollection<ItemVenda> ItensVenda { get; set; }
+        public virtual ICollection<ContaReceber> ContasReceber { get; set; }
 
         public void Validar()
         {
