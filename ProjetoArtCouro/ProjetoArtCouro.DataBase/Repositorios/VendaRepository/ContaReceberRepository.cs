@@ -44,12 +44,12 @@ namespace ProjetoArtCouro.DataBase.Repositorios.VendaRepository
         public List<ContaReceber> ObterLista(int codigoVenda, int codigoCliente, DateTime dataEmissao, DateTime dataVencimento,
             int statusContaReceber, string nomeCliente, string documento, int codigoUsuario)
         {
-            var query = from venda in _context.ContasReceber
+            var query = from contaReceber in _context.ContasReceber
                 .Include("Venda")
                 .Include("Venda.Usuario")
                 .Include("Venda.Cliente.PessoaFisica")
                 .Include("Venda.Cliente.PessoaJuridica")
-                        select venda;
+                        select contaReceber;
 
             if (!codigoVenda.Equals(0))
             {

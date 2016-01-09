@@ -330,4 +330,7 @@
   <data name="NoAccountReceivableForTheGivenFilter" xml:space="preserve">
     <value>Não há conta a receber para o filtro informado</value>
   </data>
+  <data name="PurchaseNotSet" xml:space="preserve">
+    <value>Compra não informada</value>
+  </data>
 </root>

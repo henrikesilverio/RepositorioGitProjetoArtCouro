@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="DataBase\DataBaseContext.cs" />
     <Compile Include="EntityConfig\CompraConfiguration\CompraConfiguration.cs" />
+    <Compile Include="EntityConfig\CompraConfiguration\ContaPagarConfiguration.cs" />
     <Compile Include="EntityConfig\CompraConfiguration\ItemCompraConfiguration.cs" />
     <Compile Include="EntityConfig\PagamentoConfiguration\CondicaoPagamentoConfiguration.cs" />
     <Compile Include="EntityConfig\PagamentoConfiguration\FormaPagamentoConfiguration.cs" />
@@ -70,13 +71,14 @@
     <Compile Include="EntityConfig\VendaConfiguration\ContaReceberConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\ItemVendaConfiguration.cs" />
     <Compile Include="EntityConfig\VendaConfiguration\VendaConfiguration.cs" />
-    <Compile Include="Migrations\201601061439205_Banco Inicial.cs" />
-    <Compile Include="Migrations\201601061439205_Banco Inicial.Designer.cs">
-      <DependentUpon>201601061439205_Banco Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201601091832201_Banco Inicial.cs" />
+    <Compile Include="Migrations\201601091832201_Banco Inicial.Designer.cs">
+      <DependentUpon>201601091832201_Banco Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\CompraRepository\CompraRepository.cs" />
+    <Compile Include="Repositorios\CompraRepository\ContaPagarRepository.cs" />
     <Compile Include="Repositorios\CompraRepository\ItemCompraRepository.cs" />
     <Compile Include="Repositorios\PagamentoRepository\CondicaoPagamentoRepository.cs" />
     <Compile Include="Repositorios\PagamentoRepository\FormaPagamentoRepository.cs" />
@@ -116,8 +118,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601061439205_Banco Inicial.resx">
-      <DependentUpon>201601061439205_Banco Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601091832201_Banco Inicial.resx">
+      <DependentUpon>201601091832201_Banco Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

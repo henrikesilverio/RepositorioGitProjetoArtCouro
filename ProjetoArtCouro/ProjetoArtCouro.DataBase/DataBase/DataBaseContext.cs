@@ -26,6 +26,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
         }
 
         public DbSet<CondicaoPagamento> CondicoesPagamento { get; set; }
+        public DbSet<ContaPagar> ContasPagar { get; set; }
         public DbSet<ContaReceber> ContasReceber { get; set; }
         public DbSet<Compra> Compras { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
@@ -58,6 +59,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
 
             //Setando as configurações para criação dos objetos
             modelBuilder.Configurations.Add(new CondicaoPagamentoConfiguration());
+            modelBuilder.Configurations.Add(new ContaPagarConfiguration());
             modelBuilder.Configurations.Add(new ContaReceberConfiguration());
             modelBuilder.Configurations.Add(new CompraConfiguration());
             modelBuilder.Configurations.Add(new EnderecoConfiguration());

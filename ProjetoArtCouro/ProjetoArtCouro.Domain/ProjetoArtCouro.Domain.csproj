@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IRepository\ICompra\ICompraRepository.cs" />
+    <Compile Include="Contracts\IRepository\ICompra\IContaPagarRepository.cs" />
     <Compile Include="Contracts\IRepository\ICompra\IItemCompraRepository.cs" />
     <Compile Include="Contracts\IRepository\IPagamento\ICondicaoPagamentoRepository.cs" />
     <Compile Include="Contracts\IRepository\IPagamento\IFormaPagamentoRepository.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Contracts\IRepository\IVenda\IVendaRepository.cs" />
     <Compile Include="Contracts\IService\IAutenticacao\IAutenticacao.cs" />
     <Compile Include="Contracts\IService\ICompra\ICompraService.cs" />
+    <Compile Include="Contracts\IService\ICompra\IContaPagarService.cs" />
     <Compile Include="Contracts\IService\IPagamento\ICondicaoPagamentoService.cs" />
     <Compile Include="Contracts\IService\IPagamento\IFormaPagamentoService.cs" />
     <Compile Include="Contracts\IService\IPessoa\IPessoaService.cs" />
@@ -69,8 +71,10 @@
     <Compile Include="Contracts\IService\IVenda\IContaReceberService.cs" />
     <Compile Include="Contracts\IService\IVenda\IVendaService.cs" />
     <Compile Include="Models\Compras\Compra.cs" />
+    <Compile Include="Models\Compras\ContaPagar.cs" />
     <Compile Include="Models\Compras\ItemCompra.cs" />
     <Compile Include="Models\Enums\StatusCompraEnum.cs" />
+    <Compile Include="Models\Enums\StatusContaPagarEnum.cs" />
     <Compile Include="Models\Enums\StatusContaReceberEnum.cs" />
     <Compile Include="Models\Enums\StatusVendaEnum.cs" />
     <Compile Include="Models\Enums\TipoComunicacaoEnum.cs" />

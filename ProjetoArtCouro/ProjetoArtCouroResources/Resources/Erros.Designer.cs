@@ -547,6 +547,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compra não informada.
+        /// </summary>
+        public static string PurchaseNotSet {
+            get {
+                return ResourceManager.GetString("PurchaseNotSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Campo Obrigatório.
         /// </summary>
         public static string RequiredField {
