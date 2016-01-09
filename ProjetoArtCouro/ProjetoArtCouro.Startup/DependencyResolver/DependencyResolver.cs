@@ -70,6 +70,9 @@ namespace ProjetoArtCouro.Startup.DependencyResolver
             container.RegisterType<IContaReceberService, ContaReceberService>(new HierarchicalLifetimeManager());
             container.RegisterType<IContaReceberRepository, ContaReceberRepository>(new HierarchicalLifetimeManager());
 
+            container.RegisterType<IContaPagarService, ContaPagarService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IContaPagarRepository, ContaPagarRepository>(new HierarchicalLifetimeManager());
+
             //container.RegisterType<User, User>(new HierarchicalLifetimeManager());
         }
     }

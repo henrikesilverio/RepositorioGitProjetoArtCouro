@@ -182,7 +182,8 @@
     <Compile Include="AutoMapper\EnderecoConverter.cs" />
     <Compile Include="AutoMapper\MeioComunicacaoConverter.cs" />
     <Compile Include="Controllers\Compras\CompraController.cs" />
-    <Compile Include="Controllers\ContsaReceber\ContaReceberController.cs" />
+    <Compile Include="Controllers\ContasPagar\ContaPagarController.cs" />
+    <Compile Include="Controllers\ContasReceber\ContaReceberController.cs" />
     <Compile Include="Controllers\Pagamentos\CondicaoPagamentoController.cs" />
     <Compile Include="Controllers\Pagamentos\FormaPagamentoController.cs" />
     <Compile Include="Controllers\Pessoas\ClienteController.cs" />

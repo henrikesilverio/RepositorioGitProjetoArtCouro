@@ -11,6 +11,7 @@ using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.ContaPagar;
 using ProjetoArtCouro.Model.Models.ContaReceber;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Fornecedor;
@@ -211,6 +212,24 @@ namespace ProjetoArtCouro.Api.AutoMapper
                     d.CPFCNPJ = s.Venda.Cliente.PessoaFisica != null
                         ? s.Venda.Cliente.PessoaFisica.CPF
                         : s.Venda.Cliente.PessoaJuridica.CNPJ;
+                });
+
+            Mapper.CreateMap<ContaPagar, ContaPagarModel>()
+                .ForMember(d => d.CodigoContaPagar, m => m.MapFrom(s => s.ContaPagarCodigo))
+                .ForMember(d => d.CodigoCompra, m => m.MapFrom(s => s.Compra.CompraCodigo))
+                .ForMember(d => d.CodigoFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.PessoaCodigo))
+                .ForMember(d => d.DataEmissao, m => m.MapFrom(s => s.Compra.DataCadastro))
+                .ForMember(d => d.DataVencimento, m => m.MapFrom(s => s.DataVencimento))
+                .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento))
+                .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusContaPagar.ToString()))
+                .ForMember(d => d.StatusId, m => m.MapFrom(s => (int)s.StatusContaPagar))
+                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.Nome))
+                .AfterMap((s, d) =>
+                {
+                    d.CPFCNPJ = s.Compra.Fornecedor.PessoaFisica != null
+                        ? s.Compra.Fornecedor.PessoaFisica.CPF
+                        : s.Compra.Fornecedor.PessoaJuridica.CNPJ;
                 });
         }
     }

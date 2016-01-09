@@ -664,6 +664,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existe conta a pagar com código igual a zero.
+        /// </summary>
+        public static string ThereAccountPayableWithCodeZero {
+            get {
+                return ResourceManager.GetString("ThereAccountPayableWithCodeZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Existe conta a receber com código igual a zero.
         /// </summary>
         public static string ThereReceivableWithZeroCode {

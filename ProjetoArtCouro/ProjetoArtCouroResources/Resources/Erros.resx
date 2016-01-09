@@ -333,4 +333,7 @@
   <data name="PurchaseNotSet" xml:space="preserve">
     <value>Compra não informada</value>
   </data>
+  <data name="ThereAccountPayableWithCodeZero" xml:space="preserve">
+    <value>Existe conta a pagar com código igual a zero</value>
+  </data>
 </root>

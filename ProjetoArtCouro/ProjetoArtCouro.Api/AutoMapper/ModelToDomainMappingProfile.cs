@@ -13,6 +13,7 @@ using ProjetoArtCouro.Model.Models.Cliente;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
+using ProjetoArtCouro.Model.Models.ContaPagar;
 using ProjetoArtCouro.Model.Models.ContaReceber;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Fornecedor;
@@ -171,6 +172,14 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
                 .ForMember(d => d.StatusContaReceber,
                     m => m.MapFrom(s => Enum.Parse(typeof (StatusContaReceberEnum), s.Status)))
+                .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento));
+
+            Mapper.CreateMap<ContaPagarModel, ContaPagar>()
+                .ForMember(d => d.ContaPagarCodigo, m => m.MapFrom(s => s.CodigoContaPagar))
+                .ForMember(d => d.DataVencimento, m => m.MapFrom(s => s.DataVencimento))
+                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.StatusContaPagar,
+                    m => m.MapFrom(s => Enum.Parse(typeof(StatusContaPagarEnum), s.Status)))
                 .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento));
         }
     }

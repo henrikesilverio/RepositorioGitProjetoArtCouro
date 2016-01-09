@@ -12,7 +12,7 @@ using ProjetoArtCouro.Domain.Contracts.IService.IVenda;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Model.Models.ContaReceber;
 
-namespace ProjetoArtCouro.Api.Controllers.ContsaReceber
+namespace ProjetoArtCouro.Api.Controllers.ContasReceber
 {
     [RoutePrefix("api/ContaReceber")]
     public class ContaReceberController : BaseApiController

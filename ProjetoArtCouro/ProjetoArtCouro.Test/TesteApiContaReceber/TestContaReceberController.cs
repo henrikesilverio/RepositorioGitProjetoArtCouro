@@ -6,7 +6,7 @@ using System.Web.Http;
 using AutoMapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using ProjetoArtCouro.Api.Controllers.ContsaReceber;
+using ProjetoArtCouro.Api.Controllers.ContasReceber;
 using ProjetoArtCouro.Business.Services.VendaService;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IVenda;
 using ProjetoArtCouro.Domain.Contracts.IService.IVenda;

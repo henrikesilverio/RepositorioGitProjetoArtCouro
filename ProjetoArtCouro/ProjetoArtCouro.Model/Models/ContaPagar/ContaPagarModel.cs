@@ -6,6 +6,8 @@ namespace ProjetoArtCouro.Model.Models.ContaPagar
 {
     public class ContaPagarModel
     {
+        public int? CodigoContaPagar { get; set; }
+
         [Display(Name = "CodeBuy", ResourceType = typeof(Mensagens))]
         public int? CodigoCompra { get; set; }
 
@@ -13,10 +15,10 @@ namespace ProjetoArtCouro.Model.Models.ContaPagar
         public int? CodigoFornecedor { get; set; }
 
         [Display(Name = "IssuanceDate", ResourceType = typeof(Mensagens))]
-        public DateTime? DataEmissao { get; set; }
+        public string DataEmissao { get; set; }
 
         [Display(Name = "DueDate", ResourceType = typeof(Mensagens))]
-        public DateTime? DataVencimento { get; set; }
+        public string DataVencimento { get; set; }
 
         [Display(Name = "ProviderName", ResourceType = typeof(Mensagens))]
         public string NomeFornecedor { get; set; }
