@@ -4,6 +4,6 @@
     {
         None = 0,
         Aberto = 1,
-        Recebido = 2
+        Pago = 2
     }
 }

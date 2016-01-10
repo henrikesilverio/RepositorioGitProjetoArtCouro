@@ -39,9 +39,9 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             contasPagar.ForEach(x =>
             {
                 var contaPagarAtual = _contaPagarRepository.ObterPorCodigoComCompra(x.ContaPagarCodigo);
-                contaPagarAtual.Recebido = x.Recebido;
-                contaPagarAtual.StatusContaPagar = x.Recebido
-                    ? StatusContaPagarEnum.Recebido
+                contaPagarAtual.Pago = x.Pago;
+                contaPagarAtual.StatusContaPagar = x.Pago
+                    ? StatusContaPagarEnum.Pago
                     : StatusContaPagarEnum.Aberto;
                 _contaPagarRepository.Atualizar(contaPagarAtual);
             });

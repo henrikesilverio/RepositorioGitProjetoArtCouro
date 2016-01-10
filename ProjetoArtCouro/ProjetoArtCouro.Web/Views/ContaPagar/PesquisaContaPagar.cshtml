@@ -2,7 +2,6 @@
 @using ProjetoArtCouro.Resource.Resources
 @using ProjetoArtCouro.Web.Infra.Extensions
 
-
 <div class="jarviswidget jarviswidget-sortable"
      data-widget-editbutton="true" data-widget-colorbutton="true"
      data-widget-fullscreenbutton="true" data-widget-collapsed="true"
@@ -36,13 +35,13 @@
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             @Html.LabelFor(m => m.DataEmissao, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataEmissao, new { placeholder = @Mensagens.IssuanceDate })
+                                @Html.TextBoxFor(m => m.DataEmissao, new { placeholder = @Mensagens.IssuanceDate, @class = "DataMask" })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             @Html.LabelFor(m => m.DataVencimento, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.DataVencimento, new { placeholder = @Mensagens.DueDate })
+                                @Html.TextBoxFor(m => m.DataVencimento, new { placeholder = @Mensagens.DueDate, @class = "DataMask" })
                             </label>
                         </section>
                     </div>
@@ -56,7 +55,7 @@
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
                             @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ })
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ, @class = "CpfCnpjMask" })
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
@@ -74,7 +73,7 @@
                         <span class="btn-label"><i class="fa fa-search"></i></span> @Mensagens.Research
                     </a>
                     <a id="SalvarContaPagar" class="btn btn-labeled btn-success" href="javascript:void(0);">
-                        <span class="btn-label"><i class="fa fa-floppy-o"></i></span> @Mensagens.Save
+                        <span class="btn-label"><i class="fa fa-arrow-down"></i></span> @Mensagens.Pay
                     </a>
                 </footer>
             </form>
@@ -99,12 +98,9 @@
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
+    <script src="~/js/app/Compra/ContaPagar.js"></script>
     <script>
         Portal.Mask();
-        Portal.Form({
-            Button: $("#Salvar"),
-            Form: $("#smart-form-register")
-        });
         Portal.Search({
             AlertaMensagensSeletor: "#AlertaMensagens",
             BotaoPesquisarSeletor: "#PesquisarContaPagar",
@@ -112,53 +108,36 @@
             UrlDados: "@Url.Action("PesquisaContaPagar", "ContaPagar")",
             TabelaSeletor: "#datatableContaPagar",
             WidgetSeletor: ".WidgetContaPagar",
-            TituloRodape: "",
-            InformacaoTabela: "",
+            TituloRodape: "Contas a Pagar",
+            InformacaoTabela: "Informe os filtros para pesquisar",
+            TituloRodapeContador: "Nenhuma conta a pagar",
             OrdenacaoDoCabecalho: [
-                { "sTitle": "@(Mensagens.ProviderCode)", "mData": "CodigoFornecedor", "sWidth": "15%" },
                 { "sTitle": "@(Mensagens.CodeBuy)", "mData": "CodigoCompra", "sWidth": "15%" },
-                {
-                    "sTitle": "@(Mensagens.IssuanceDate)",
-                    "mData": null,
-                    "sWidth": "15%",
-                    "mRender": function (obj) {
-                        var milesegundos = parseInt(obj.DataEmissao.replace(/[^\d]/g, ""));
-                        var data = new Date(milesegundos);
-                        return Portal.ConverteData(data);
-                    }
-                },
-                {
-                    "sTitle": "@(Mensagens.DueDate)",
-                    "mData": null,
-                    "sWidth": "15%",
-                    "mRender": function (obj) {
-                        var milesegundos = parseInt(obj.DataVencimento.replace(/[^\d]/g, ""));
-                        var data = new Date(milesegundos);
-                        return Portal.ConverteData(data);
-                    }
-                },
+                { "sTitle": "@(Mensagens.ProviderCode)", "mData": "CodigoFornecedor", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.IssuanceDate)", "mData": "DataEmissao", "sWidth": "15%" },
+                { "sTitle": "@(Mensagens.DueDate)", "mData": "DataVencimento", "sWidth": "15%" },
                 { "sTitle": "@(Mensagens.ValueDocument)", "mData": "ValorDocumento", "sWidth": "20%" },
                 { "sTitle": "@(Mensagens.Status)", "mData": "Status", "sWidth": "10%" },
                 {
-                    "sTitle": "@(Mensagens.Received + " ?")",
+                    "sTitle": "@(Mensagens.Paid + " ?")",
                     "mData": null,
                     "sClass": "smart-form",
                     "bSortable": false,
                     "sWidth": "10%",
-                    "mRender": function (obj) {
+                    "mRender": function(obj) {
                         var div = $("<div>").attr({
                             "class": "col-12"
                         });
 
                         var label = $("<label>").attr({
-                            "class": "checkbox " + (obj.Recebido ? "state-disabled" : "")
+                            "class": "checkbox " + (obj.Pago ? "state-disabled" : "")
                         });
 
                         var input = $("<input>").attr({
                             "type": "checkbox",
                             "name": "checkbox"
                         });
-                        if (obj.Recebido) {
+                        if (obj.Pago) {
                             $(input).attr({
                                 "checked": "checked",
                                 "disabled": "disabled"
@@ -175,5 +154,6 @@
                 }
             ]
         });
+        Portal.PagarConta();
     </script>
 }

@@ -223,7 +223,7 @@ namespace ProjetoArtCouro.Api.AutoMapper
                 .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento))
                 .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusContaPagar.ToString()))
                 .ForMember(d => d.StatusId, m => m.MapFrom(s => (int)s.StatusContaPagar))
-                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.Pago, m => m.MapFrom(s => s.Pago))
                 .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.Nome))
                 .AfterMap((s, d) =>
                 {

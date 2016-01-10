@@ -172,6 +172,7 @@
     <Content Include="js\app.js" />
     <Content Include="js\app\Cliente\Cliente.js" />
     <Content Include="js\app\Compra\Compra.js" />
+    <Content Include="js\app\Compra\ContaPagar.js" />
     <Content Include="js\app\Fornecedor\Fornecedor.js" />
     <Content Include="js\app\Funcionario\Funcionario.js" />
     <Content Include="js\app\Portal.js" />

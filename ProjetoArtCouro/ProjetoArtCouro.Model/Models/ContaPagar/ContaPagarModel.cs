@@ -35,7 +35,7 @@ namespace ProjetoArtCouro.Model.Models.ContaPagar
         [Display(Name = "ValueDocument", ResourceType = typeof(Mensagens))]
         public string ValorDocumento { get; set; }
 
-        [Display(Name = "Received", ResourceType = typeof(Mensagens))]
-        public bool Recebido { get; set; }
+        [Display(Name = "Paid", ResourceType = typeof(Mensagens))]
+        public bool Pago { get; set; }
     }
 }

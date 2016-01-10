@@ -22,10 +22,12 @@ namespace ProjetoArtCouro.Business.Services.CompraService
         private readonly IFormaPagamentoRepository _formaPagamentoRepository;
         private readonly ICondicaoPagamentoRepository _condicaoPagamentoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly IContaPagarRepository _contaPagarRepository;
 
         public CompraService(ICompraRepository vendaRepository, IItemCompraRepository itemVendaRepository,
             IPessoaRepository pessoaRepository, IFormaPagamentoRepository formaPagamentoRepository,
-            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository)
+            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository, 
+            IContaPagarRepository contaPagarRepository)
         {
             _compraRepository = vendaRepository;
             _itemCompraRepository = itemVendaRepository;
@@ -33,6 +35,7 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             _formaPagamentoRepository = formaPagamentoRepository;
             _condicaoPagamentoRepository = condicaoPagamentoRepository;
             _usuarioRepository = usuarioRepository;
+            _contaPagarRepository = contaPagarRepository;
         }
 
         public List<Compra> PesquisarCompra(int codigoCompra, int codigoFornecedor, DateTime dataCadastro, int statusCompra,
@@ -82,13 +85,14 @@ namespace ProjetoArtCouro.Business.Services.CompraService
                 AdicionaFornecedorFormaECondicaoDePagamento(compra, compraAtual);
                 AtualizaItensCompra(compraAtual, compra.ItensCompra);
                 compraAtual.StatusCompra = StatusCompraEnum.Confirmado;
-                //TODO Gera conta a pagar
+                AdicionaContaPagarNaCompra(compraAtual);
+                compraAtual.ContasPagar.ForEach(x => x.Validar());
                 //TODO Adiciona no estoque
             }
             else
             {
                 compraAtual.StatusCompra = StatusCompraEnum.Cancelado;
-                //TODO Remove o conta a pagar
+                RemoveContaPagarDaCompra(compraAtual);
                 //TODO Remove do estoque
             }
             _compraRepository.Atualizar(compraAtual);
@@ -144,6 +148,31 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             compraAtual.CondicaoPagamento = condicaoPagamento;
         }
 
+        private static void AdicionaContaPagarNaCompra(Compra compra)
+        {
+            compra.ContasPagar = new List<ContaPagar>();
+            for (var i = 0; i < compra.CondicaoPagamento.QuantidadeParcelas; i++)
+            {
+                compra.ContasPagar.Add(new ContaPagar
+                {
+                    DataVencimento = DateTime.Now.AddDays(1).AddMonths(i),
+                    Pago = false,
+                    StatusContaPagar = StatusContaPagarEnum.Aberto,
+                    ValorDocumento = compra.ValorTotalLiquido / compra.CondicaoPagamento.QuantidadeParcelas,
+                    Compra = compra
+                });
+            }
+        }
+
+        private void RemoveContaPagarDaCompra(Compra compra)
+        {
+            var contasReceber = _contaPagarRepository.ObterListaPorCodigoCompra(compra.CompraCodigo);
+            contasReceber.ForEach(x =>
+            {
+                _contaPagarRepository.Deletar(x);
+            });
+        }
+
         public void Dispose()
         {
             _compraRepository.Dispose();
@@ -152,6 +181,7 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             _formaPagamentoRepository.Dispose();
             _condicaoPagamentoRepository.Dispose();
             _usuarioRepository.Dispose();
+            _contaPagarRepository.Dispose();
         }
     }
 }

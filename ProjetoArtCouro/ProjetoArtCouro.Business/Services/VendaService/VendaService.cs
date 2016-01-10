@@ -156,7 +156,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             {
                 venda.ContasReceber.Add(new ContaReceber
                 {
-                    DataVencimento = venda.DataCadastro.AddMonths(i),
+                    DataVencimento = DateTime.Now.AddDays(1).AddMonths(i),
                     Recebido = false,
                     StatusContaReceber = StatusContaReceberEnum.Aberto,
                     ValorDocumento = venda.ValorTotalLiquido / venda.CondicaoPagamento.QuantidadeParcelas,
@@ -182,6 +182,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             _formaPagamentoRepository.Dispose();
             _condicaoPagamentoRepository.Dispose();
             _usuarioRepository.Dispose();
+            _contaReceberRepository.Dispose();
         }
     }
 }

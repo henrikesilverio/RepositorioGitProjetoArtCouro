@@ -597,4 +597,10 @@
   <data name="Receive" xml:space="preserve">
     <value>Receber</value>
   </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Pagar</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Pago</value>
+  </data>
 </root>

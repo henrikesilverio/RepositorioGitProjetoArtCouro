@@ -12,7 +12,7 @@ namespace ProjetoArtCouro.Domain.Models.Compras
         public DateTime DataVencimento { get; set; }
         public decimal ValorDocumento { get; set; }
         public StatusContaPagarEnum StatusContaPagar { get; set; }
-        public bool Recebido { get; set; }
+        public bool Pago { get; set; }
         public virtual Compra Compra { get; set; }
 
         public void Validar()

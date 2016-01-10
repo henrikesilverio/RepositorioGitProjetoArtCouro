@@ -271,7 +271,7 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         DataVencimento = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         ValorDocumento = c.Decimal(nullable: false, precision: 18, scale: 2),
                         StatusContaPagar = c.Int(nullable: false),
-                        Recebido = c.Boolean(nullable: false),
+                        Pago = c.Boolean(nullable: false),
                         Compra_CompraId = c.Guid(),
                     })
                 .PrimaryKey(t => t.ContaPagarId)

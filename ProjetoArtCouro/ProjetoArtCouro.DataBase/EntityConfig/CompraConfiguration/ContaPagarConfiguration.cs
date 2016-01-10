@@ -28,7 +28,7 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.CompraConfiguration
                 .IsRequired()
                 .HasColumnType("int");
 
-            Property(x => x.Recebido)
+            Property(x => x.Pago)
                 .IsRequired()
                 .HasColumnType("bit");
         }

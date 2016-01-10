@@ -177,7 +177,7 @@ namespace ProjetoArtCouro.Api.AutoMapper
             Mapper.CreateMap<ContaPagarModel, ContaPagar>()
                 .ForMember(d => d.ContaPagarCodigo, m => m.MapFrom(s => s.CodigoContaPagar))
                 .ForMember(d => d.DataVencimento, m => m.MapFrom(s => s.DataVencimento))
-                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.Pago, m => m.MapFrom(s => s.Pago))
                 .ForMember(d => d.StatusContaPagar,
                     m => m.MapFrom(s => Enum.Parse(typeof(StatusContaPagarEnum), s.Status)))
                 .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento));

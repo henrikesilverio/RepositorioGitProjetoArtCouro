@@ -40,7 +40,7 @@ namespace ProjetoArtCouro.Test.TesteApiContaPagar
             Mapper.CreateMap<ContaPagarModel, ContaPagar>()
                 .ForMember(d => d.ContaPagarCodigo, m => m.MapFrom(s => s.CodigoContaPagar))
                 .ForMember(d => d.DataVencimento, m => m.MapFrom(s => s.DataVencimento))
-                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.Pago, m => m.MapFrom(s => s.Pago))
                 .ForMember(d => d.StatusContaPagar,
                     m => m.MapFrom(s => Enum.Parse(typeof(StatusContaPagarEnum), s.Status)))
                 .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento));
@@ -54,7 +54,7 @@ namespace ProjetoArtCouro.Test.TesteApiContaPagar
                 .ForMember(d => d.ValorDocumento, m => m.MapFrom(s => s.ValorDocumento))
                 .ForMember(d => d.Status, m => m.MapFrom(s => s.StatusContaPagar.ToString()))
                 .ForMember(d => d.StatusId, m => m.MapFrom(s => (int)s.StatusContaPagar))
-                .ForMember(d => d.Recebido, m => m.MapFrom(s => s.Recebido))
+                .ForMember(d => d.Pago, m => m.MapFrom(s => s.Pago))
                 .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.Nome))
                 .AfterMap((s, d) =>
                 {
@@ -110,7 +110,7 @@ namespace ProjetoArtCouro.Test.TesteApiContaPagar
             {
                 new ContaPagarModel
                 {
-                    Recebido = true,
+                    Pago = true,
                     Status = "Aberto"
                 }
             });
@@ -132,7 +132,7 @@ namespace ProjetoArtCouro.Test.TesteApiContaPagar
                 new ContaPagarModel
                 {
                     CodigoContaPagar = 1,
-                    Recebido = true,
+                    Pago = true,
                     Status = "Aberto"
                 }
             });
