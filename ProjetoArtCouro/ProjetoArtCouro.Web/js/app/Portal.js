@@ -18,6 +18,7 @@ $.extend(Portal, {
         $(".SomenteLetraMask").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         $(".SomenteCinquentaLetras").mask("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
         $(".SomenteDoisDigitos").mask("00");
+        $(".SomenteVinteDigitos").mask("00000000000000000000");
         $(".MilharMask").mask("0.000.000", { reverse: true });
         var spMaskBehavior = function (val) {
             return val.replace(/\D/g, "").length === 11 ? "(00) 00000-0000" : "(00) 0000-00009";

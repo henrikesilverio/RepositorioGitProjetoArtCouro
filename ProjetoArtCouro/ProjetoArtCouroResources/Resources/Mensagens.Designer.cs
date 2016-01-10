@@ -1024,6 +1024,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Código do produto.
+        /// </summary>
+        public static string ProductCode {
+            get {
+                return ResourceManager.GetString("ProductCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Descrição Produto.
+        /// </summary>
+        public static string ProductDescription {
+            get {
+                return ResourceManager.GetString("ProductDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Produtos.
         /// </summary>
         public static string Products {
@@ -1083,6 +1101,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Quantity {
             get {
                 return ResourceManager.GetString("Quantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantidade no estoque.
+        /// </summary>
+        public static string QuantityInStock {
+            get {
+                return ResourceManager.GetString("QuantityInStock", resourceCulture);
             }
         }
         
@@ -1353,6 +1380,15 @@ namespace ProjetoArtCouro.Resource.Resources {
         public static string Stock {
             get {
                 return ResourceManager.GetString("Stock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pesquisa de estoque.
+        /// </summary>
+        public static string StockSearch {
+            get {
+                return ResourceManager.GetString("StockSearch", resourceCulture);
             }
         }
         

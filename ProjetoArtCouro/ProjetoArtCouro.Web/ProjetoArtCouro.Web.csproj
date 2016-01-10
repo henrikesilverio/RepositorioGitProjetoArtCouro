@@ -604,6 +604,7 @@
     <Compile Include="Controllers\CondicoesPagamento\CondicaoPagamentoController.cs" />
     <Compile Include="Controllers\ContasPagar\ContaPagarController.cs" />
     <Compile Include="Controllers\ContasReceber\ContaReceberController.cs" />
+    <Compile Include="Controllers\Estoques\EstoqueController.cs" />
     <Compile Include="Controllers\FormasPagamento\FormaPagamentoController.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
     <Compile Include="Controllers\Login\LoginController.cs" />
@@ -698,6 +699,7 @@
     <Content Include="Views\Shared\_ModalConfirmacao.cshtml" />
     <Content Include="Views\Shared\_ModalEfetuarCompra.cshtml" />
     <Content Include="Views\Shared\_ModalItemProdutoCompra.cshtml" />
+    <Content Include="Views\Estoque\PesquisaEstoque.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

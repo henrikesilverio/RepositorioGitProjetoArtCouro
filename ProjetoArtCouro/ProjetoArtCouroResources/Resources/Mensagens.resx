@@ -603,4 +603,16 @@
   <data name="Paid" xml:space="preserve">
     <value>Pago</value>
   </data>
+  <data name="StockSearch" xml:space="preserve">
+    <value>Pesquisa de estoque</value>
+  </data>
+  <data name="ProductCode" xml:space="preserve">
+    <value>Código do produto</value>
+  </data>
+  <data name="QuantityInStock" xml:space="preserve">
+    <value>Quantidade no estoque</value>
+  </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>Descrição Produto</value>
+  </data>
 </root>
