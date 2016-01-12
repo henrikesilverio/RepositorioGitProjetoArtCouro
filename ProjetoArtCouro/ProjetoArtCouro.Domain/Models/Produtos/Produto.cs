@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjetoArtCouro.Domain.Models.Estoques;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
@@ -12,6 +13,7 @@ namespace ProjetoArtCouro.Domain.Models.Produtos
         public decimal PrecoCusto { get; set; }
         public decimal PrecoVenda { get; set; }
         public virtual Unidade Unidade { get; set; }
+        public virtual Estoque Estoque { get; set; }
 
         public void Validar()
         {

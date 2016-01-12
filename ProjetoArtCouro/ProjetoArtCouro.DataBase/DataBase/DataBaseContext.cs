@@ -1,12 +1,14 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ProjetoArtCouro.DataBase.EntityConfig.CompraConfiguration;
+using ProjetoArtCouro.DataBase.EntityConfig.EstoqueConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.PagamentoConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.PessoaConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.ProdutoConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.UsuarioConfiguration;
 using ProjetoArtCouro.DataBase.EntityConfig.VendaConfiguration;
 using ProjetoArtCouro.Domain.Models.Compras;
+using ProjetoArtCouro.Domain.Models.Estoques;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
@@ -31,6 +33,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
         public DbSet<Compra> Compras { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Estado> Estados { get; set; }
+        public DbSet<Estoque> Estoques { get; set; }
         public DbSet<EstadoCivil> EstadosCivis { get; set; }
         public DbSet<FormaPagamento> FormasPagamento { get; set; }
         public DbSet<GrupoPermissao> GruposPermissao { get; set; }
@@ -65,6 +68,7 @@ namespace ProjetoArtCouro.DataBase.DataBase
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
             modelBuilder.Configurations.Add(new EstadoConfiguration());
             modelBuilder.Configurations.Add(new EstadoCivilConfiguration());
+            modelBuilder.Configurations.Add(new EstoqueConfiguration());
             modelBuilder.Configurations.Add(new FormaPagamentoConfiguration());
             modelBuilder.Configurations.Add(new GrupoPermissaoConfiguration());
             modelBuilder.Configurations.Add(new ItemCompraConfiguration());
