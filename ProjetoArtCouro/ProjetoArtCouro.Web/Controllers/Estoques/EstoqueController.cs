@@ -20,7 +20,7 @@ namespace ProjetoArtCouro.Web.Controllers.Estoques
         [HttpPost]
         public JsonResult PesquisaEstoque(PesquisaEstoqueModel model)
         {
-            var response = ServiceRequest.Post<List<EstoqueModel>>(model, "api/Estoque/PesquisaEstoque");
+            var response = ServiceRequest.Post<List<EstoqueModel>>(model, "api/Estoque/PesquisarEstoque");
             if (response.Data.ObjetoRetorno != null && !response.Data.ObjetoRetorno.Any())
             {
                 response.Data.Mensagem = Erros.NoAccountReceivableForTheGivenFilter;

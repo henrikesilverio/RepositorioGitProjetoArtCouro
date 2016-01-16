@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using MoreLinq;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IEstoque;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IVenda;
 using ProjetoArtCouro.Domain.Contracts.IService.IVenda;
@@ -23,11 +25,14 @@ namespace ProjetoArtCouro.Business.Services.VendaService
         private readonly ICondicaoPagamentoRepository _condicaoPagamentoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IContaReceberRepository _contaReceberRepository;
+        private readonly IEstoqueRepository _estoqueRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
         public VendaService(IVendaRepository vendaRepository, IItemVendaRepository itemVendaRepository,
             IPessoaRepository pessoaRepository, IFormaPagamentoRepository formaPagamentoRepository,
-            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository, 
-            IContaReceberRepository contaReceberRepository)
+            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository,
+            IContaReceberRepository contaReceberRepository, IEstoqueRepository estoqueRepository,
+            IProdutoRepository produtoRepository)
         {
             _vendaRepository = vendaRepository;
             _itemVendaRepository = itemVendaRepository;
@@ -36,6 +41,8 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             _condicaoPagamentoRepository = condicaoPagamentoRepository;
             _usuarioRepository = usuarioRepository;
             _contaReceberRepository = contaReceberRepository;
+            _estoqueRepository = estoqueRepository;
+            _produtoRepository = produtoRepository;
         }
 
         public Venda ObterVendaPorCodigo(int codigoVenda)
@@ -78,6 +85,7 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             venda.ItensVenda.ForEach(x => x.Validar());
             AssertionConcern.AssertArgumentNotEquals(0, venda.VendaCodigo,
                 string.Format(Erros.NotZeroParameter, "VendaCodigo"));
+            VerificarEstoque(venda.ItensVenda);
             var vendaAtual = _vendaRepository.ObterPorCodigoComItensVenda(venda.VendaCodigo);
             if (venda.StatusVenda == StatusVendaEnum.Aberto)
             {
@@ -87,13 +95,13 @@ namespace ProjetoArtCouro.Business.Services.VendaService
                 vendaAtual.StatusVenda = StatusVendaEnum.Confirmado;
                 AdicionaContaReceberNaVenda(vendaAtual);
                 vendaAtual.ContasReceber.ForEach(x => x.Validar());
-                //TODO Remove do estoque
+                BaixarDoEstoque(vendaAtual.ItensVenda);
             }
             else
             {
                 vendaAtual.StatusVenda = StatusVendaEnum.Cancelado;
                 RemoveContaReceberDaVenda(vendaAtual);
-                //TODO Volta para o estoque
+                DevolverNoEstoque(vendaAtual.ItensVenda);
             }
             _vendaRepository.Atualizar(vendaAtual);
         }
@@ -172,6 +180,52 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             {
                 _contaReceberRepository.Deletar(x);
             });
+        }
+
+        private void BaixarDoEstoque(IEnumerable<ItemVenda> itensVenda)
+        {
+            itensVenda.ForEach(x =>
+            {
+                var estoque = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
+                estoque.Quantidade = estoque.Quantidade - x.Quantidade;
+                _estoqueRepository.Atualizar(estoque);
+            });
+        }
+
+        private void DevolverNoEstoque(IEnumerable<ItemVenda> itensVenda)
+        {
+            itensVenda.ForEach(x =>
+            {
+                var estoque = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
+                estoque.Quantidade = estoque.Quantidade + x.Quantidade;
+                _estoqueRepository.Atualizar(estoque);
+            });
+        }
+
+        private void VerificarEstoque(IEnumerable<ItemVenda> itensVenda)
+        {
+            var produtosQueFaltamNoEstoque = new List<Tuple<string, int, int>>();
+            itensVenda.ForEach(x =>
+            {
+                var estoque = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
+                if (estoque.Quantidade - x.Quantidade < 0)
+                {
+                    produtosQueFaltamNoEstoque.Add(new Tuple<string, int, int>(x.ProdutoNome, x.Quantidade,
+                        estoque.Quantidade));
+                }
+            });
+            AssertionConcern.AssertArgumentFalse(produtosQueFaltamNoEstoque.Any(),
+                MensagemDeEstoqueInsuficiente(produtosQueFaltamNoEstoque));
+        }
+
+        private static string MensagemDeEstoqueInsuficiente(List<Tuple<string, int, int>> produtosQueFaltamNoEstoque)
+        {
+            var mensagen = Erros.ProductsThatAreMissingInStock + "</br>";
+            produtosQueFaltamNoEstoque.ForEach(x =>
+            {
+                mensagen += string.Format(Erros.ProductInsufficient, x.Item1, x.Item2, x.Item1) + "</br>";
+            });
+            return mensagen;
         }
 
         public void Dispose()

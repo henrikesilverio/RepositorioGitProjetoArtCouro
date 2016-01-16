@@ -2,6 +2,7 @@
 using AutoMapper;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Domain.Models.Compras;
+using ProjetoArtCouro.Domain.Models.Estoques;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Produtos;
@@ -13,6 +14,7 @@ using ProjetoArtCouro.Model.Models.Compra;
 using ProjetoArtCouro.Model.Models.CondicaoPagamento;
 using ProjetoArtCouro.Model.Models.ContaPagar;
 using ProjetoArtCouro.Model.Models.ContaReceber;
+using ProjetoArtCouro.Model.Models.Estoque;
 using ProjetoArtCouro.Model.Models.FormaPagamento;
 using ProjetoArtCouro.Model.Models.Fornecedor;
 using ProjetoArtCouro.Model.Models.Funcionario;
@@ -231,6 +233,15 @@ namespace ProjetoArtCouro.Api.AutoMapper
                         ? s.Compra.Fornecedor.PessoaFisica.CPF
                         : s.Compra.Fornecedor.PessoaJuridica.CNPJ;
                 });
+
+            Mapper.CreateMap<Estoque, EstoqueModel>()
+                .ForMember(d => d.CodigoProduto, m => m.MapFrom(s => s.Produto.ProdutoCodigo))
+                .ForMember(d => d.Descricao, m => m.MapFrom(s => s.Produto.ProdutoNome))
+                .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Fornecedor.Nome))
+                .ForMember(d => d.CodigoFornecedor, m => m.MapFrom(s => s.Fornecedor.PessoaCodigo))
+                .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => s.Produto.PrecoCusto))
+                .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.Produto.PrecoVenda))
+                .ForMember(d => d.QuantidaEstoque, m => m.MapFrom(s => s.Quantidade));
         }
     }
 }

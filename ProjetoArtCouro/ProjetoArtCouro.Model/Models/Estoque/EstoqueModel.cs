@@ -14,6 +14,9 @@ namespace ProjetoArtCouro.Model.Models.Estoque
         [Display(Name = "ProviderName", ResourceType = typeof(Mensagens))]
         public string NomeFornecedor { get; set; }
 
+        [Display(Name = "ProviderCode", ResourceType = typeof(Mensagens))]
+        public int? CodigoFornecedor { get; set; }
+
         [Display(Name = "PriceCost", ResourceType = typeof(Mensagens))]
         public string PrecoCusto { get; set; }
 

@@ -336,4 +336,10 @@
   <data name="ThereAccountPayableWithCodeZero" xml:space="preserve">
     <value>Existe conta a pagar com código igual a zero</value>
   </data>
+  <data name="ProductInsufficient" xml:space="preserve">
+    <value>Produto: {0}, Quantidade informada: {1}, Quantidade em estoque: {2}</value>
+  </data>
+  <data name="ProductsThatAreMissingInStock" xml:space="preserve">
+    <value>Produto(s) que falta(m) no estoque</value>
+  </data>
 </root>

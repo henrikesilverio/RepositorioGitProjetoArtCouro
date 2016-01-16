@@ -79,7 +79,7 @@
     CancelarCompra: function (settings, tabela) {
         $("#modalConfirmacao").modal("show");
         $("#modalConfirmacao .modal-title").html("Cancelar Compra");
-        Portal.PreencherAlertaAtencao("Esta ação ira remover a conta a pagar referente a compra, o(s) item(s) da compra retornaram para o estoque.",
+        Portal.PreencherAlertaAtencao("Esta ação ira remover a conta a pagar referente a compra, o(s) item(s) da compra sera(ão) subtraído(s) para o estoque.",
             "#ModalAlertaMensagens", true);
         $("#ModalAlertaMensagens button").remove();
         $("#ConfirmarAcao").off("click").on("click", function () {

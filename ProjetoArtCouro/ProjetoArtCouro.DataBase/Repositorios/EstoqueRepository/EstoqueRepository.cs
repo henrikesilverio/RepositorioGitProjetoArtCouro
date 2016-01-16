@@ -31,6 +31,48 @@ namespace ProjetoArtCouro.DataBase.Repositorios.EstoqueRepository
             return _context.Estoques.ToList();
         }
 
+        public Estoque ObterPorCodigoProduto(int codigoProduto)
+        {
+            return
+                _context.Estoques.Include("Produto").FirstOrDefault(x => x.Produto.ProdutoCodigo.Equals(codigoProduto));
+        }
+
+        public List<Estoque> ObterLista(string descricaoProduto, int codigoProduto, int quantidaEstoque, string nomeFornecedor,
+            int codigoFornecedor)
+        {
+            var query = from estoque in _context.Estoques
+                .Include("Produto")
+                .Include("Fornecedor")
+                        select estoque;
+
+            if (!codigoProduto.Equals(0))
+            {
+                query = query.Where(x => x.Produto.ProdutoCodigo == codigoProduto);
+            }
+
+            if (!quantidaEstoque.Equals(0))
+            {
+                query = query.Where(x => x.Quantidade == quantidaEstoque);
+            }
+
+            if (!codigoFornecedor.Equals(0))
+            {
+                query = query.Where(x => x.Fornecedor.PessoaCodigo == codigoFornecedor);
+            }
+
+            if (!string.IsNullOrEmpty(descricaoProduto))
+            {
+                query = query.Where(x => x.Produto.ProdutoNome.Contains(descricaoProduto));
+            }
+
+            if (!string.IsNullOrEmpty(nomeFornecedor))
+            {
+                query = query.Where(x => x.Fornecedor.Nome.Contains(nomeFornecedor));
+            }
+
+            return query.ToList();
+        }
+
         public void Criar(Estoque estoque)
         {
             _context.Estoques.Add(estoque);

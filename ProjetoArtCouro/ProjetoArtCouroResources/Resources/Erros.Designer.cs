@@ -520,6 +520,24 @@ namespace ProjetoArtCouro.Resource.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Produto: {0}, Quantidade informada: {1}, Quantidade em estoque: {2}.
+        /// </summary>
+        public static string ProductInsufficient {
+            get {
+                return ResourceManager.GetString("ProductInsufficient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produto(s) que falta(m) no estoque.
+        /// </summary>
+        public static string ProductsThatAreMissingInStock {
+            get {
+                return ResourceManager.GetString("ProductsThatAreMissingInStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fornecedor não informado.
         /// </summary>
         public static string ProviderNotSet {

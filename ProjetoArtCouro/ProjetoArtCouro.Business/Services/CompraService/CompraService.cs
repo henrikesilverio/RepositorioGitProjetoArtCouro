@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using MoreLinq;
 using ProjetoArtCouro.Domain.Contracts.IRepository.ICompra;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IEstoque;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
 using ProjetoArtCouro.Domain.Contracts.IService.ICompra;
 using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Enums;
+using ProjetoArtCouro.Domain.Models.Estoques;
+using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Resource.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
@@ -23,19 +27,24 @@ namespace ProjetoArtCouro.Business.Services.CompraService
         private readonly ICondicaoPagamentoRepository _condicaoPagamentoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IContaPagarRepository _contaPagarRepository;
+        private readonly IEstoqueRepository _estoqueRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
-        public CompraService(ICompraRepository vendaRepository, IItemCompraRepository itemVendaRepository,
+        public CompraService(ICompraRepository compraRepository, IItemCompraRepository itemCompraRepository,
             IPessoaRepository pessoaRepository, IFormaPagamentoRepository formaPagamentoRepository,
-            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository, 
-            IContaPagarRepository contaPagarRepository)
+            ICondicaoPagamentoRepository condicaoPagamentoRepository, IUsuarioRepository usuarioRepository,
+            IContaPagarRepository contaPagarRepository, IEstoqueRepository estoqueRepository,
+            IProdutoRepository produtoRepository)
         {
-            _compraRepository = vendaRepository;
-            _itemCompraRepository = itemVendaRepository;
+            _compraRepository = compraRepository;
+            _itemCompraRepository = itemCompraRepository;
             _pessoaRepository = pessoaRepository;
             _formaPagamentoRepository = formaPagamentoRepository;
             _condicaoPagamentoRepository = condicaoPagamentoRepository;
             _usuarioRepository = usuarioRepository;
             _contaPagarRepository = contaPagarRepository;
+            _estoqueRepository = estoqueRepository;
+            _produtoRepository = produtoRepository;
         }
 
         public List<Compra> PesquisarCompra(int codigoCompra, int codigoFornecedor, DateTime dataCadastro, int statusCompra,
@@ -87,13 +96,13 @@ namespace ProjetoArtCouro.Business.Services.CompraService
                 compraAtual.StatusCompra = StatusCompraEnum.Confirmado;
                 AdicionaContaPagarNaCompra(compraAtual);
                 compraAtual.ContasPagar.ForEach(x => x.Validar());
-                //TODO Adiciona no estoque
+                AdicionarNoEstoque(compra.ItensCompra, compra.Fornecedor);
             }
             else
             {
                 compraAtual.StatusCompra = StatusCompraEnum.Cancelado;
                 RemoveContaPagarDaCompra(compraAtual);
-                //TODO Remove do estoque
+                AtualizarDoEstoque(compraAtual.ItensCompra);
             }
             _compraRepository.Atualizar(compraAtual);
         }
@@ -173,6 +182,30 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             });
         }
 
+        private void AdicionarNoEstoque(IEnumerable<ItemCompra> itensCompra, Pessoa fornecedor)
+        {
+            itensCompra.ForEach(x =>
+            {
+                _estoqueRepository.Criar(new Estoque
+                {
+                    DataUltimaEntrada = DateTime.Now,
+                    Fornecedor = _pessoaRepository.ObterPorCodigo(fornecedor.PessoaCodigo),
+                    Produto = _produtoRepository.ObterPorCodigo(x.ProdutoCodigo),
+                    Quantidade = x.Quantidade
+                });
+            });
+        }
+
+        private void AtualizarDoEstoque(IEnumerable<ItemCompra> itensCompra)
+        {
+            itensCompra.ForEach(x =>
+            {
+                var estoque = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
+                estoque.Quantidade = estoque.Quantidade - x.Quantidade;
+                _estoqueRepository.Atualizar(estoque);
+            });
+        }
+
         public void Dispose()
         {
             _compraRepository.Dispose();
@@ -182,6 +215,8 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             _condicaoPagamentoRepository.Dispose();
             _usuarioRepository.Dispose();
             _contaPagarRepository.Dispose();
+            _estoqueRepository.Dispose();
+            _produtoRepository.Dispose();
         }
     }
 }

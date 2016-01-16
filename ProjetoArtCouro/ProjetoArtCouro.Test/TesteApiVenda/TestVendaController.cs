@@ -9,8 +9,10 @@ using Moq;
 using ProjetoArtCouro.Api.Controllers.Vendas;
 using ProjetoArtCouro.Api.Helpers;
 using ProjetoArtCouro.Business.Services.VendaService;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IEstoque;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPagamento;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa;
+using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IVenda;
 using ProjetoArtCouro.Domain.Contracts.IService.IVenda;
@@ -36,6 +38,8 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
         private readonly Mock<ICondicaoPagamentoRepository> _mockCondicaoPagamentoRepository =
             new Mock<ICondicaoPagamentoRepository>();
         private readonly Mock<IUsuarioRepository> _usuarioRepository = new Mock<IUsuarioRepository>();
+        private readonly Mock<IEstoqueRepository> _estoqueRepository = new Mock<IEstoqueRepository>();
+        private readonly Mock<IProdutoRepository> _produtoRepository = new Mock<IProdutoRepository>();
 
         private VendaController CreateVendaController()
         {
@@ -46,7 +50,8 @@ namespace ProjetoArtCouro.Test.TesteApiVenda
 
             var vendaService = new VendaService(_mockVendaRepository.Object, _mockItemVendaRepository.Object,
                 _mockPessoaRepository.Object, _mockFormaPagamentoRepository.Object,
-                _mockCondicaoPagamentoRepository.Object, _usuarioRepository.Object, _mockContaReceberRepository.Object);
+                _mockCondicaoPagamentoRepository.Object, _usuarioRepository.Object, _mockContaReceberRepository.Object,
+                _estoqueRepository.Object, _produtoRepository.Object);
 
             var controller = new VendaController(vendaService)
             {
