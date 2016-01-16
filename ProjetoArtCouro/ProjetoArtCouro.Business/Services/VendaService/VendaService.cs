@@ -237,6 +237,8 @@ namespace ProjetoArtCouro.Business.Services.VendaService
             _condicaoPagamentoRepository.Dispose();
             _usuarioRepository.Dispose();
             _contaReceberRepository.Dispose();
+            _estoqueRepository.Dispose();
+            _produtoRepository.Dispose();
         }
     }
 }

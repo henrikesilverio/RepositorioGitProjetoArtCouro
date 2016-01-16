@@ -298,5 +298,119 @@
             $("#ValorTotalDesconto").val(Portal.FormataFloatParaDinheiro(resultado.ValorTotalDesconto));
             $("#ValorTotalLiquido").val(Portal.FormataFloatParaDinheiro(resultado.ValorTotalLiquido));
         }
+    },
+    HabilitarAjudaPesquisaVenda: function () {
+        $("#Ajuda").off("click").on("click", function () {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        $("#formPesquisaVenda fieldset").attr({
+            "data-step": "1",
+            "data-intro": "Campos utilizados para pesquisa, informe os filtros desejados e clique em <b>Pesquisar</b>.",
+            "data-position": "botton"
+        });
+        $("#NovaVenda").attr({
+            "data-step": "2",
+            "data-intro": "Ao clicar você será redirecionado(a) para tela <b>Nova Venda</b>.",
+            "data-position": "left"
+        });
+        $(".WidgetVenda").attr({
+            "data-step": "3",
+            "data-intro": "Tabala que informara o(s) resultado(s) da pesquisa.",
+            "data-position": "top"
+        });
+        $("#datatableVenda_filter label").attr({
+            "data-step": "4",
+            "data-intro": "Campo utilizado para filtrar o(s) resultado(s) da tabela.",
+            "data-position": "right"
+        });
+        $(".DTTT.btn-group").attr({
+            "data-step": "4",
+            "data-intro": "Opções de exportação do(s) resultado(s) da tabela. </br>" +
+                "<b>XLS</b> - Exporta para o formato .XLS Excel </br>" +
+                "<b>CSV</b> - Exporta para o formato .CSV Excel </br>" +
+                "<b>PDF</b> - Exporta para o formato .PDF </br>" +
+                "<b>Imprimir</b> - Expande a tabela em tela cheia para impressão",
+            "data-position": "top"
+        });
+    },
+    HabilitarAjudaNovaVenda: function () {
+        $("#Ajuda").off("click").on("click", function () {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        $("#ProdutoId").closest("label").attr({
+            "data-step": "1",
+            "data-intro": "Campo utilizado para pesquisar o(s) produto(s).",
+            "data-position": "top"
+        });
+        $("#AdicionarProduto").attr({
+            "data-step": "2",
+            "data-intro": "Ao clicar você ira adicionar o produto selecionado com a quantidade informada.",
+            "data-position": "left"
+        });
+        $("#GerarOrcamento").attr({
+            "data-step": "3",
+            "data-intro": "Ao clicar você ira gerar um orçamento do(s) produto(s) que estão na tabela.",
+            "data-position": "left"
+        });
+        $("#formularioValoresTotais fieldset").attr({
+            "data-step": "4",
+            "data-intro": "Campos utilizados para apresentar os valores totais da venda.",
+            "data-position": "top"
+        });
+    },
+    HabilitarAjudaEditarVenda: function (settings) {
+        $("#Ajuda").off("click").on("click", function () {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        if (settings.StatusVenda === "Aberto") {
+            $("#StatusVenda").closest("label").attr({
+                "data-step": "1",
+                "data-intro": "Enquanto o status da venda for aberto você pode continuar adicionado produtos.",
+                "data-position": "botton"
+            });
+            $("#ProdutoId").closest("label").attr({
+                "data-step": "2",
+                "data-intro": "Campo utilizado para pesquisar o(s) produto(s).",
+                "data-position": "top"
+            });
+            $("#AdicionarProduto").attr({
+                "data-step": "3",
+                "data-intro": "Ao clicar você ira adicionar o produto selecionado com a quantidade informada.",
+                "data-position": "left"
+            });
+            $("#EfetuarVenda").attr({
+                "data-step": "4",
+                "data-intro": "Ao clicar você ira efetuar a venda do(s) produto(s) que estão na tabela.",
+                "data-position": "left"
+            });
+            $("#formularioValoresTotais fieldset").attr({
+                "data-step": "5",
+                "data-intro": "Campos utilizados para apresentar os valores totais da venda.",
+                "data-position": "top"
+            });
+        } else if (settings.StatusVenda === "Confirmado") {
+            $("#CancelarVenda").attr({
+                "data-step": "1",
+                "data-intro": "Ao clicar você ira cancelar a venda e o(s) produto(s) que estão na tabela ira(m) voltar para o estoque.",
+                "data-position": "left"
+            });
+        } else if (settings.StatusVenda === "Cancelado") {
+            $(".widget-toolbar").remove();
+        }
     }
 });

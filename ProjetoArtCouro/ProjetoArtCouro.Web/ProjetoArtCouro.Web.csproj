@@ -119,6 +119,7 @@
     <Content Include="css\demo.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\introjs.css" />
     <Content Include="css\invoice.css" />
     <Content Include="css\lockscreen.css" />
     <Content Include="css\smartadmin-production-custom.css" />
@@ -472,6 +473,8 @@
     <Content Include="js\plugin\fullcalendar\lang-all.js" />
     <Content Include="js\plugin\fullcalendar\moment.min.js" />
     <Content Include="js\plugin\ie-placeholder\jquery.placeholder.min.js" />
+    <Content Include="js\plugin\intro\intro.js" />
+    <Content Include="js\plugin\intro\intro.min.js" />
     <Content Include="js\plugin\ion-slider\ion.rangeSlider.js" />
     <Content Include="js\plugin\ion-slider\ion.rangeSlider.min.js" />
     <Content Include="js\plugin\jquery-form\jquery-form.min.js" />

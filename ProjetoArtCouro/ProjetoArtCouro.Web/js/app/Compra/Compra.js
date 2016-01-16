@@ -90,6 +90,7 @@
                 $("#CancelarCompra").off("click");
                 $("#CancelarCompra").remove();
                 $("#StatusCompra").val("Cancelado");
+                $(".widget-toolbar").remove();
             });
         });
     },
@@ -303,9 +304,133 @@
             }
         });
     },
-    DesabilitaCampoValorTotalFrete: function() {
+    DesabilitaCampoValorTotalFrete: function () {
         $("#ValorTotalFrete").attr("readonly", "readonly");
         $("#ValorTotalFrete").closest("label").removeClass("state-success");
         $("#ValorTotalFrete").closest("label").addClass("state-disabled");
+    },
+    HabilitarAjudaPesquisaCompra: function () {
+        $("#Ajuda").off("click").on("click", function () {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        $("#formPesquisaCompra fieldset").attr({
+            "data-step": "1",
+            "data-intro": "Campos utilizados para pesquisa, informe os filtros desejados e clique em <b>Pesquisar</b>.",
+            "data-position": "botton"
+        });
+        $("#NovaCompra").attr({
+            "data-step": "2",
+            "data-intro": "Ao clicar você será redirecionado(a) para tela <b>Nova Compra</b>.",
+            "data-position": "left"
+        });
+        $(".WidgetCompra").attr({
+            "data-step": "3",
+            "data-intro": "Tabala que informara o(s) resultado(s) da pesquisa.",
+            "data-position": "top"
+        });
+        $("#datatableCompra_filter label").attr({
+            "data-step": "4",
+            "data-intro": "Campo utilizado para filtrar o(s) resultado(s) da tabela.",
+            "data-position": "right"
+        });
+        $(".DTTT.btn-group").attr({
+            "data-step": "4",
+            "data-intro": "Opções de exportação do(s) resultado(s) da tabela. </br>" +
+                "<b>XLS</b> - Exporta para o formato .XLS Excel </br>" +
+                "<b>CSV</b> - Exporta para o formato .CSV Excel </br>" +
+                "<b>PDF</b> - Exporta para o formato .PDF </br>" +
+                "<b>Imprimir</b> - Expande a tabela em tela cheia para impressão",
+            "data-position": "top"
+        });
+    },
+    HabilitarAjudaNovaCompra: function () {
+        $("#Ajuda").off("click").on("click", function () {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        $("#ProdutoId").closest("label").attr({
+            "data-step": "1",
+            "data-intro": "Campo utilizado para pesquisar o(s) produto(s).",
+            "data-position": "top"
+        });
+        $("#AdicionarProduto").attr({
+            "data-step": "2",
+            "data-intro": "Ao clicar você ira adicionar o produto selecionado com a quantidade informada.",
+            "data-position": "left"
+        });
+        $("#GerarOrcamento").attr({
+            "data-step": "3",
+            "data-intro": "Ao clicar você ira gerar um orçamento do(s) produto(s) que estão na tabela.",
+            "data-position": "left"
+        });
+        $("#formularioValoresTotais fieldset").attr({
+            "data-step": "4",
+            "data-intro": "Campos utilizados para apresentar os valores totais da compra.",
+            "data-position": "top"
+        });
+        $("#ValorTotalFrete").closest("label").attr({
+            "data-step": "5",
+            "data-intro": "Campo utilizado para adicionar o valor do frete, ao ser adicionado o valor e somado ao <b>Valor Total Liquido</b>",
+            "data-position": "top"
+        });
+    },
+    HabilitarAjudaEditarCompra: function(settings) {
+        $("#Ajuda").off("click").on("click", function() {
+            introJs().setOptions({
+                "nextLabel": "Próximo",
+                "prevLabel": "Anterior",
+                "skipLabel": "Sair",
+                "doneLabel": "Fim"
+            }).start();
+        });
+        if (settings.StatusCompra === "Aberto") {
+            $("#StatusCompra").closest("label").attr({
+                "data-step": "1",
+                "data-intro": "Enquanto o status da compra for aberto você pode continuar adicionado produtos.",
+                "data-position": "botton"
+            });
+            $("#ProdutoId").closest("label").attr({
+                "data-step": "2",
+                "data-intro": "Campo utilizado para pesquisar o(s) produto(s).",
+                "data-position": "top"
+            });
+            $("#AdicionarProduto").attr({
+                "data-step": "3",
+                "data-intro": "Ao clicar você ira adicionar o produto selecionado com a quantidade informada.",
+                "data-position": "left"
+            });
+            $("#EfetuarCompra").attr({
+                "data-step": "4",
+                "data-intro": "Ao clicar você ira efetuar a compra do(s) produto(s) que estão na tabela.",
+                "data-position": "left"
+            });
+            $("#formularioValoresTotais fieldset").attr({
+                "data-step": "5",
+                "data-intro": "Campos utilizados para apresentar os valores totais da compra.",
+                "data-position": "top"
+            });
+            $("#ValorTotalFrete").closest("label").attr({
+                "data-step": "6",
+                "data-intro": "Campo utilizado para adicionar o valor do frete, ao ser adicionado o valor e somado ao <b>Valor Total Liquido</b>",
+                "data-position": "top"
+            });
+        } else if (settings.StatusCompra === "Confirmado") {
+            $("#CancelarCompra").attr({
+                "data-step": "1",
+                "data-intro": "Ao clicar você ira cancelar a compra e o(s) produto(s) que estão na tabela sera(m) baixado(s) do estoque.",
+                "data-position": "left"
+            });
+        } else if (settings.StatusCompra === "Cancelado") {
+            $(".widget-toolbar").remove();
+        }
     }
 });

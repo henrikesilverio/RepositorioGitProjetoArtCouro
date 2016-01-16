@@ -77,5 +77,8 @@
             ItensCompra: JSON.parse('@(Html.Raw((JsonConvert.SerializeObject(Model.ItemCompraModel))))'),
             CodigoCompra: "@Model.CodigoCompra"
         });
+        Portal.HabilitarAjudaEditarCompra({
+            StatusCompra: "@Model.StatusCompra"
+        });
     </script>
 }

@@ -245,3 +245,15 @@ textarea#description {
     background: #fff0f0 !important;
     border-color: #A90329 !important;
 }
+
+.help {
+    margin-top: 4px !important;
+}
+
+.help i {
+    color: #275b89 !important;
+}
+
+.help i:hover {
+    color: #000000 !important;
+}

@@ -87,7 +87,7 @@ $.extend(Portal, {
         if (limparMensagensAnteriores) {
             $(selotorLocal).html(div[0].outerHTML);
         }
-        
+
         $("body").stop().animate({ scrollTop: 0 }, "500", "swing");
     },
     PreencherAlertaSucesso: function (mensagem, selotorLocal, limparMensagensAnteriores) {

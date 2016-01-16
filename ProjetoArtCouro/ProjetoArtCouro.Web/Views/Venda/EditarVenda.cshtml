@@ -8,26 +8,26 @@
     <script src="~/js/app/Search.js"></script>
     <script src="~/js/app/Venda/Venda.js"></script>
     <script>
-    Portal.Mask();
-    Portal.TabelaItemProduto({
-        AdicionaLinhaSeletor: "#AdicionarProduto",
-        TabelaSeletor: "#datatableProduto",
-        TituloRodape: "Produto(s)",
-        TituloRodapeContador: "Nenhum produto adicionado",
-        InformacaoTabela: "Adicione novos produtos",
-        BotaoEditarSeletor: ".EditarProduto",
-        BotaoExcluirSeletor: ".ExcluirProduto",
-        $Formulario: $("#formularioVenda"),
-        OrdenacaoDoCabecalho: [
-            { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "5%" },
-            { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "left", "sWidth": "40%" },
-            { "sTitle": "@(Mensagens.Quantity )", "mData": "Quantidade", "sClass": "center", "sWidth": "5%" },
-            { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "10%" },
-            { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "10%" },
-            { "sTitle": "@(Mensagens.ValueDiscount)", "mData": "ValorDesconto", "sClass": "center", "sWidth": "10%" },
-            { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "10%" },
-            {
-                "sTitle": "@(Mensagens.Actions )",
+        Portal.Mask();
+        Portal.TabelaItemProduto({
+            AdicionaLinhaSeletor: "#AdicionarProduto",
+            TabelaSeletor: "#datatableProduto",
+            TituloRodape: "Produto(s)",
+            TituloRodapeContador: "Nenhum produto adicionado",
+            InformacaoTabela: "Adicione novos produtos",
+            BotaoEditarSeletor: ".EditarProduto",
+            BotaoExcluirSeletor: ".ExcluirProduto",
+            $Formulario: $("#formularioVenda"),
+            OrdenacaoDoCabecalho: [
+                { "sTitle": "@(Mensagens.Code)", "mData": "Codigo", "sClass": "center", "sWidth": "5%" },
+                { "sTitle": "@(Mensagens.Description)", "mData": "Descricao", "sClass": "left", "sWidth": "40%" },
+                { "sTitle": "@(Mensagens.Quantity )", "mData": "Quantidade", "sClass": "center", "sWidth": "5%" },
+                { "sTitle": "@(Mensagens.PriceSale )", "mData": "PrecoVenda", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueCrude)", "mData": "ValorBruto", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueDiscount)", "mData": "ValorDesconto", "sClass": "center", "sWidth": "10%" },
+                { "sTitle": "@(Mensagens.ValueLiquid)", "mData": "ValorLiquido", "sClass": "center", "sWidth": "10%" },
+                {
+                    "sTitle": "@(Mensagens.Actions )",
                     "mData": null,
                     "sClass": "center",
                     "sWidth": "10%",
@@ -70,14 +70,17 @@
         });
         Portal.EditarVenda({
             UrlDados: "@Url.Action("EditarVenda", "Venda")",
-        UrlProduto: "@Url.Action("ObterListaProduto", "Venda")",
-        UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Venda")",
-        UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Venda")",
-        UrlCliente: "@Url.Action("ObterListaCliente", "Venda")",
-        $TabelaSeletor: $("#datatableProduto"),
-        StatusVenda: "@Model.Status",
-        ItensVenda: JSON.parse('@(Html.Raw((JsonConvert.SerializeObject(Model.ItemVendaModel))))'),
-        CodigoVenda: "@Model.CodigoVenda"
-    });
+            UrlProduto: "@Url.Action("ObterListaProduto", "Venda")",
+            UrlCondicoesPagamento: "@Url.Action("ObterListaCondicoesPagamento", "Venda")",
+            UrlFormasPagamento: "@Url.Action("ObterListaFormasPagamento", "Venda")",
+            UrlCliente: "@Url.Action("ObterListaCliente", "Venda")",
+            $TabelaSeletor: $("#datatableProduto"),
+            StatusVenda: "@Model.Status",
+            ItensVenda: JSON.parse('@(Html.Raw((JsonConvert.SerializeObject(Model.ItemVendaModel))))'),
+            CodigoVenda: "@Model.CodigoVenda"
+        });
+        Portal.HabilitarAjudaEditarVenda({
+            StatusVenda: "@Model.Status"
+        });
     </script>
 }
