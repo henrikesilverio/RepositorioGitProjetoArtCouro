@@ -329,7 +329,7 @@
             "data-position": "right"
         });
         $(".DTTT.btn-group").attr({
-            "data-step": "4",
+            "data-step": "5",
             "data-intro": "Opções de exportação do(s) resultado(s) da tabela. </br>" +
                 "<b>XLS</b> - Exporta para o formato .XLS Excel </br>" +
                 "<b>CSV</b> - Exporta para o formato .CSV Excel </br>" +
@@ -405,7 +405,7 @@
             });
         } else if (settings.StatusVenda === "Confirmado") {
             $("#CancelarVenda").attr({
-                "data-step": "1",
+                "data-step": "6",
                 "data-intro": "Ao clicar você ira cancelar a venda e o(s) produto(s) que estão na tabela ira(m) voltar para o estoque.",
                 "data-position": "left"
             });

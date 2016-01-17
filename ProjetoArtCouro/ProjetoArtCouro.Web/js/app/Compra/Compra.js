@@ -339,7 +339,7 @@
             "data-position": "right"
         });
         $(".DTTT.btn-group").attr({
-            "data-step": "4",
+            "data-step": "5",
             "data-intro": "Opções de exportação do(s) resultado(s) da tabela. </br>" +
                 "<b>XLS</b> - Exporta para o formato .XLS Excel </br>" +
                 "<b>CSV</b> - Exporta para o formato .CSV Excel </br>" +
