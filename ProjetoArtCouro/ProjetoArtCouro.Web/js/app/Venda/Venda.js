@@ -405,7 +405,7 @@
             });
         } else if (settings.StatusVenda === "Confirmado") {
             $("#CancelarVenda").attr({
-                "data-step": "6",
+                "data-step": "1",
                 "data-intro": "Ao clicar você ira cancelar a venda e o(s) produto(s) que estão na tabela ira(m) voltar para o estoque.",
                 "data-position": "left"
             });
