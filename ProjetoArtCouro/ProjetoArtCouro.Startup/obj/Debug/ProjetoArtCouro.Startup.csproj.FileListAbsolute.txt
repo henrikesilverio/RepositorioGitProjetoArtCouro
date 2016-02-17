@@ -120,3 +120,4 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\MoreLinq.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.csprojResolveAssemblyReference.cache

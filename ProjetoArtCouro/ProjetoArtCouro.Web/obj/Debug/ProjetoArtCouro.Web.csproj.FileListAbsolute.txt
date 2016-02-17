@@ -212,3 +212,38 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Ra
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll.config
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Cors.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.xml
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
