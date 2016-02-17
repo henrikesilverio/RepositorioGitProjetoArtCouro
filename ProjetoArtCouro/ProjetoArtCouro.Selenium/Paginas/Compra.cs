@@ -14,6 +14,7 @@ namespace ProjetoArtCouro.Selenium.Paginas
         private IWebDriver driver;
         private CompraModel compra;
         private WebDriverWait driverWait;
+
         public Compra(IWebDriver driver)
         {
             this.driver = driver;
@@ -35,6 +36,7 @@ namespace ProjetoArtCouro.Selenium.Paginas
             driver.FindElement(By.Id("Quantidade")).SendKeys(compra.Quantidade.ToString());
             driver.FindElement(By.Id("AdicionarProduto")).Click();
             driver.FindElement(By.Id("GerarOrcamento")).Click();
+
         }
 
         public bool ExisteNaListagem()
@@ -48,6 +50,7 @@ namespace ProjetoArtCouro.Selenium.Paginas
             driver.FindElement(By.Id("Quantidade")).SendKeys(compra.Quantidade.ToString());
             driver.FindElement(By.Id("AdicionarProduto")).Click();
             return driver.PageSource.Contains("Campo Obrigatório");
+
         }
 
     }

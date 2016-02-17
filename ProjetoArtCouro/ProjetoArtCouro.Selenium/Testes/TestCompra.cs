@@ -20,6 +20,7 @@ namespace ProjetoArtCouro.Selenium
             pesquisaCompraPage.Cadastrar();
             Assert.IsTrue(pesquisaCompraPage.ExisteNaListagem());
             driver.Close();
+
         }
     }
 }
