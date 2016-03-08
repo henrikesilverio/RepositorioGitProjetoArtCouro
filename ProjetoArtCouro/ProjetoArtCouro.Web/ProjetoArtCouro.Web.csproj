@@ -597,7 +597,9 @@
     <Content Include="Views\Venda\NovaVenda.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
   </ItemGroup>
@@ -660,7 +662,7 @@
     <Content Include="Views\Cliente\EditarCliente.cshtml" />
     <Content Include="js\plugin\underscore\underscore-min.map" />
     <None Include="Properties\PublishProfiles\Publicação.pubxml" />
-    <None Include="Views\Cliente\NovoCliente.cshtml" />
+    <Content Include="Views\Cliente\NovoCliente.cshtml" />
     <Content Include="Views\Shared\_Endereco.cshtml" />
     <Content Include="Views\Shared\_MeioComunicacao.cshtml" />
     <Content Include="Views\Cliente\_ClienteView.cshtml" />
