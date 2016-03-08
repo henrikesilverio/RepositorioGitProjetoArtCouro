@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Resource", "ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj", "{BD67CBC9-554E-4D94-B708-85068614D72A}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Model", "ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj", "{53A56D12-0D1A-46C3-82C0-F4822DC016FF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Test", "ProjetoArtCouro.Test\ProjetoArtCouro.Test.csproj", "{670C977A-4E01-407A-9E5A-8558C46A0478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Selenium", "ProjetoArtCouro.Selenium\ProjetoArtCouro.Selenium.csproj", "{0C7F5EF3-222C-4810-8B8F-895084542123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{670C977A-4E01-407A-9E5A-8558C46A0478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{670C977A-4E01-407A-9E5A-8558C46A0478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{670C977A-4E01-407A-9E5A-8558C46A0478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C7F5EF3-222C-4810-8B8F-895084542123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C7F5EF3-222C-4810-8B8F-895084542123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C7F5EF3-222C-4810-8B8F-895084542123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C7F5EF3-222C-4810-8B8F-895084542123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

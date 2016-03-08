@@ -65,3 +65,4 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\MoreLinq.xm
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
