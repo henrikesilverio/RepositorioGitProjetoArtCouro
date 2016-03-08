@@ -223,6 +223,8 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         public void Dispose()
         {
             _usuarioRepository.Dispose();
+            _permissaoRepository.Dispose();
+            _grupoPermissaoRepository.Dispose();
         }
     }
 }

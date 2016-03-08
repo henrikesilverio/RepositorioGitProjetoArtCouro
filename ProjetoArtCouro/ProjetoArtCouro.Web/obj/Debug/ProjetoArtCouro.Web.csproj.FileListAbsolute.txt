@@ -177,41 +177,6 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\EntityF
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll.config
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Cors.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll.config
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
@@ -247,3 +212,38 @@ C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCo
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll.config
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Cors.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Http.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Mvc.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Razor.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Deployment.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb

@@ -50,6 +50,7 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\bin\De
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Business.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.dll
@@ -65,4 +66,3 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\MoreLinq.xm
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache

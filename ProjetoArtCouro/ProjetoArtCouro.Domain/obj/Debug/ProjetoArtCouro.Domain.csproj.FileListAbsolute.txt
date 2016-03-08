@@ -32,6 +32,12 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debu
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.pdb
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
+C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.dll
@@ -39,9 +45,3 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCou
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.dll
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resource.pdb
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
-C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
