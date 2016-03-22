@@ -35,25 +35,21 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.VendaConfiguration
                 .IsRequired()
                 .HasColumnType("decimal");
 
-            //Relacionamento 0 ou 1 : 1
-            HasOptional(x => x.Usuario)
-                .WithOptionalDependent(x => x.Venda)
-                .WillCascadeOnDelete(false);
+            //Relacionamento 1 : N
+            HasRequired(x => x.Usuario)
+                .WithMany(x => x.Venda);
 
-            //Relacionamento 0 ou 1 : 1
+            //Relacionamento 0 ou 1 : N
             HasOptional(x => x.Cliente)
-                .WithOptionalDependent(x => x.Venda)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Venda);
 
             //Relacionamento 0 ou 1 : 1
             HasOptional(x => x.CondicaoPagamento)
-                .WithOptionalDependent(x => x.Venda)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Venda);
 
             //Relacionamento 0 ou 1 : 1
             HasOptional(x => x.FormaPagamento)
-                .WithOptionalDependent(x => x.Venda)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Venda);
 
             //Relacionamento 1 : N
             HasMany(x => x.ItensVenda)

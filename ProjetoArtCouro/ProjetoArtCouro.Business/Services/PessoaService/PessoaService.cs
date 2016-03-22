@@ -41,7 +41,7 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             pessoa.Validar();
             pessoa.PessoaFisica.Validar();
             //Verifica se a pessoa existe, caso exista atualiza o papel da pessoa
-            var existePessoaFisica = _pessoaFisicaRepository.ObterPorCPF(pessoa.PessoaFisica.CPF);
+            var existePessoaFisica = _pessoaRepository.ObterPorCPFComPessoaCompleta(pessoa.PessoaFisica.CPF);
             //Recupera informações do banco
             var firstOrDefault = pessoa.Papeis.FirstOrDefault();
             AssertionConcern.AssertArgumentNotNull(firstOrDefault, string.Format(Erros.NullParameter, "Papeis"));
@@ -52,8 +52,8 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
 
             if (existePessoaFisica != null)
             {
-                existePessoaFisica.Pessoa.Papeis.Add(pessoa.Papeis.First());
-                _pessoaRepository.Atualizar(existePessoaFisica.Pessoa);
+                existePessoaFisica.Papeis.Add(pessoa.Papeis.First());
+                _pessoaRepository.Atualizar(existePessoaFisica);
             }
             else
             {
@@ -69,7 +69,7 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
             pessoa.Validar();
             pessoa.PessoaJuridica.Validar();
             //Verifica se a pessoa existe, caso exista atualiza o papel da pessoa
-            var existePessoaJuridica = _pessoaJuridicaRepository.ObterPorCNPJ(pessoa.PessoaJuridica.CNPJ);
+            var existePessoaJuridica = _pessoaRepository.ObterPorCNPJComPessoaCompleta(pessoa.PessoaJuridica.CNPJ);
             //Recupera informações do banco
             var firstOrDefault = pessoa.Papeis.FirstOrDefault();
             AssertionConcern.AssertArgumentNotNull(firstOrDefault, string.Format(Erros.NullParameter, "Papeis"));
@@ -80,8 +80,8 @@ namespace ProjetoArtCouro.Business.Services.PessoaService
 
             if (existePessoaJuridica != null)
             {
-                existePessoaJuridica.Pessoa.Papeis.Add(pessoa.Papeis.First());
-                _pessoaRepository.Atualizar(existePessoaJuridica.Pessoa);
+                existePessoaJuridica.Papeis.Add(pessoa.Papeis.First());
+                _pessoaRepository.Atualizar(existePessoaJuridica);
             }
             else
             {

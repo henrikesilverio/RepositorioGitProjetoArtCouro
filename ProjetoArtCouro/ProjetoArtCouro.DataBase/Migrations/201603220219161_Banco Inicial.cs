@@ -21,13 +21,13 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         CondicaoPagamento_CondicaoPagamentoId = c.Guid(),
                         FormaPagamento_FormaPagamentoId = c.Guid(),
                         Fornecedor_PessoaId = c.Guid(),
-                        Usuario_UsuarioId = c.Guid(),
+                        Usuario_UsuarioId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.CompraId)
                 .ForeignKey("dbo.CondicaoPagamento", t => t.CondicaoPagamento_CondicaoPagamentoId)
                 .ForeignKey("dbo.FormaPagamento", t => t.FormaPagamento_FormaPagamentoId)
                 .ForeignKey("dbo.Pessoa", t => t.Fornecedor_PessoaId)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
+                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId, cascadeDelete: true)
                 .Index(t => t.CondicaoPagamento_CondicaoPagamentoId)
                 .Index(t => t.FormaPagamento_FormaPagamentoId)
                 .Index(t => t.Fornecedor_PessoaId)
@@ -59,13 +59,13 @@ namespace ProjetoArtCouro.DataBase.Migrations
                         Cliente_PessoaId = c.Guid(),
                         CondicaoPagamento_CondicaoPagamentoId = c.Guid(),
                         FormaPagamento_FormaPagamentoId = c.Guid(),
-                        Usuario_UsuarioId = c.Guid(),
+                        Usuario_UsuarioId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.VendaId)
                 .ForeignKey("dbo.Pessoa", t => t.Cliente_PessoaId)
                 .ForeignKey("dbo.CondicaoPagamento", t => t.CondicaoPagamento_CondicaoPagamentoId)
                 .ForeignKey("dbo.FormaPagamento", t => t.FormaPagamento_FormaPagamentoId)
-                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId)
+                .ForeignKey("dbo.Usuario", t => t.Usuario_UsuarioId, cascadeDelete: true)
                 .Index(t => t.Cliente_PessoaId)
                 .Index(t => t.CondicaoPagamento_CondicaoPagamentoId)
                 .Index(t => t.FormaPagamento_FormaPagamentoId)

@@ -10,6 +10,8 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IPessoa
         Pessoa ObterPorId(Guid id);
         Pessoa ObterPorCodigo(int codigo);
         Pessoa ObterPorCodigoComPessoaCompleta(int codigo);
+        Pessoa ObterPorCPFComPessoaCompleta(string cpf);
+        Pessoa ObterPorCNPJComPessoaCompleta(string cnpj);
         List<Pessoa> ObterListaComPessoaFisicaEJuridica();
         List<Pessoa> ObterListaComPessoaFisicaEJuridicaPorPapel(TipoPapelPessoaEnum papelCodigo);
         void Criar(Pessoa pessoa);

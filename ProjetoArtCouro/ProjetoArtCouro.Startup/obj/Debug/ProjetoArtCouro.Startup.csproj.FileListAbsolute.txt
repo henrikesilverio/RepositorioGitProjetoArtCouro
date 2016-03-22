@@ -95,6 +95,7 @@ D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Deb
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.dll
 D:\RepositorioGitProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.pdb
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.csprojResolveAssemblyReference.cache
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\ProjetoArtCouro.Startup.dll.config
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\ProjetoArtCouro.Startup.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\ProjetoArtCouro.Startup.pdb
@@ -118,6 +119,5 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\Microsoft.Pr
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\Microsoft.Practices.Unity.RegistrationByConvention.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\ProjetoArtCouro.Resource.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\bin\Debug\MoreLinq.xml
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Startup\obj\Debug\ProjetoArtCouro.Startup.pdb

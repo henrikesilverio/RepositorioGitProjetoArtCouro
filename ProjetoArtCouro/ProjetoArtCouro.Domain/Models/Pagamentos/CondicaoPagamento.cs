@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Resource.Resources;
@@ -13,8 +14,8 @@ namespace ProjetoArtCouro.Domain.Models.Pagamentos
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
         public int QuantidadeParcelas { get; set; }
-        public virtual Venda Venda { get; set; }
-        public virtual Compra Compra { get; set; }
+        public virtual ICollection<Venda> Venda { get; set; }
+        public virtual ICollection<Compra> Compra { get; set; }
 
         public void Validar()
         {

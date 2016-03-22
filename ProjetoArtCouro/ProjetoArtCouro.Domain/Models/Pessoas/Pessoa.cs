@@ -15,9 +15,9 @@ namespace ProjetoArtCouro.Domain.Models.Pessoas
         public string Nome { get; set; }
         public virtual PessoaFisica PessoaFisica { get; set; }
         public virtual PessoaJuridica PessoaJuridica { get; set; }
-        public virtual Venda Venda { get; set; }
-        public virtual Compra Compra { get; set; }
         public virtual Estoque Estoque { get; set; }
+        public virtual ICollection<Venda> Venda { get; set; }
+        public virtual ICollection<Compra> Compra { get; set; }
         public virtual ICollection<Papel> Papeis { get; set; }
         public virtual ICollection<MeioComunicacao> MeiosComunicacao { get; set; }
         public virtual ICollection<Endereco> Enderecos { get; set; }

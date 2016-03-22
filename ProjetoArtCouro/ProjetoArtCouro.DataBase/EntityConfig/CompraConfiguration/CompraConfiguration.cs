@@ -35,25 +35,21 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.CompraConfiguration
                 .IsRequired()
                 .HasColumnType("decimal");
 
-            //Relacionamento 0 ou 1 : 1
-            HasOptional(x => x.Usuario)
-                .WithOptionalDependent(x => x.Compra)
-                .WillCascadeOnDelete(false);
+            //Relacionamento 0 ou 1 : N
+            HasRequired(x => x.Usuario)
+                .WithMany(x => x.Compra);
 
-            //Relacionamento 0 ou 1 : 1
+            //Relacionamento 1 : N
             HasOptional(x => x.Fornecedor)
-                .WithOptionalDependent(x => x.Compra)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Compra);
 
-            //Relacionamento 0 ou 1 : 1
+            //Relacionamento 0 ou 1 : N
             HasOptional(x => x.CondicaoPagamento)
-                .WithOptionalDependent(x => x.Compra)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Compra);
 
-            //Relacionamento 0 ou 1 : 1
+            //Relacionamento 0 ou 1 : N
             HasOptional(x => x.FormaPagamento)
-                .WithOptionalDependent(x => x.Compra)
-                .WillCascadeOnDelete(false);
+                .WithMany(x => x.Compra);
 
             //Relacionamento 1 : N
             HasMany(x => x.ItensCompra)

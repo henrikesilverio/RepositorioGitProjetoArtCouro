@@ -40,6 +40,29 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
                 .FirstOrDefault(x => x.PessoaCodigo.Equals(codigo));
         }
 
+        public Pessoa ObterPorCPFComPessoaCompleta(string cpf)
+        {
+            return _context.Pessoas
+                .Include("PessoaFisica")
+                .Include("PessoaFisica.EstadoCivil")
+                .Include("Papeis")
+                .Include("MeiosComunicacao")
+                .Include("Enderecos")
+                .Include("Enderecos.Estado")
+                .FirstOrDefault(x => x.PessoaFisica.CPF.Equals(cpf));
+        }
+
+        public Pessoa ObterPorCNPJComPessoaCompleta(string cnpj)
+        {
+            return _context.Pessoas
+                .Include("PessoaJuridica")
+                .Include("Papeis")
+                .Include("MeiosComunicacao")
+                .Include("Enderecos")
+                .Include("Enderecos.Estado")
+                .FirstOrDefault(x => x.PessoaJuridica.CNPJ.Equals(cnpj));
+        }
+
         public List<Pessoa> ObterListaComPessoaFisicaEJuridica()
         {
             return _context.Pessoas
@@ -54,7 +77,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.PessoaRepository
                 .Include("Papeis")
                 .Include("PessoaFisica")
                 .Include("PessoaJuridica")
-                select pessoa;
+                        select pessoa;
 
             if (papelCodigo != TipoPapelPessoaEnum.Nenhum)
             {
