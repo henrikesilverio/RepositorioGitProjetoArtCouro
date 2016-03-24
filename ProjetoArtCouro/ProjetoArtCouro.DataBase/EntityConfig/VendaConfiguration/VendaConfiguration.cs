@@ -37,19 +37,19 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.VendaConfiguration
 
             //Relacionamento 1 : N
             HasRequired(x => x.Usuario)
-                .WithMany(x => x.Venda);
+                .WithMany(x => x.Vendas);
 
             //Relacionamento 0 ou 1 : N
             HasOptional(x => x.Cliente)
-                .WithMany(x => x.Venda);
+                .WithMany(x => x.Vendas);
 
             //Relacionamento 0 ou 1 : 1
             HasOptional(x => x.CondicaoPagamento)
-                .WithMany(x => x.Venda);
+                .WithMany(x => x.Vendas);
 
             //Relacionamento 0 ou 1 : 1
             HasOptional(x => x.FormaPagamento)
-                .WithMany(x => x.Venda);
+                .WithMany(x => x.Vendas);
 
             //Relacionamento 1 : N
             HasMany(x => x.ItensVenda)

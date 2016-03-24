@@ -15,8 +15,8 @@ namespace ProjetoArtCouro.Domain.Models.Usuarios
         public string Senha { get; set; }
         public bool Ativo { get; set; }
         public virtual GrupoPermissao GrupoPermissao { get; set; }
-        public virtual ICollection<Venda> Venda { get; set; }
-        public virtual ICollection<Compra> Compra { get; set; }
+        public virtual ICollection<Venda> Vendas { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
         public virtual ICollection<Permissao> Permissoes { get; set; }
 
         public void Validar()

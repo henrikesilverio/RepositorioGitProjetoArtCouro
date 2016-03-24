@@ -1,5 +1,5 @@
 ﻿using System;
-using ProjetoArtCouro.Domain.Models.Pessoas;
+using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Produtos;
 
 namespace ProjetoArtCouro.Domain.Models.Estoques
@@ -11,6 +11,6 @@ namespace ProjetoArtCouro.Domain.Models.Estoques
         public DateTime DataUltimaEntrada { get; set; }
         public int Quantidade { get; set; }
         public virtual Produto Produto { get; set; }
-        public virtual Pessoa Fornecedor { get; set; }
+        public virtual Compra Compra { get; set; }
     }
 }

@@ -114,48 +114,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .PrimaryKey(t => t.EstadoId);
             
             CreateTable(
-                "dbo.Estoque",
-                c => new
-                    {
-                        EstoqueId = c.Guid(nullable: false, identity: true),
-                        EstoqueCodigo = c.Int(nullable: false, identity: true),
-                        DataUltimaEntrada = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
-                        Quantidade = c.Int(nullable: false),
-                        Fornecedor_PessoaId = c.Guid(),
-                        Produto_ProdutoId = c.Guid(),
-                    })
-                .PrimaryKey(t => t.EstoqueId)
-                .ForeignKey("dbo.Pessoa", t => t.Fornecedor_PessoaId)
-                .ForeignKey("dbo.Produto", t => t.Produto_ProdutoId)
-                .Index(t => t.Fornecedor_PessoaId)
-                .Index(t => t.Produto_ProdutoId);
-            
-            CreateTable(
-                "dbo.Produto",
-                c => new
-                    {
-                        ProdutoId = c.Guid(nullable: false, identity: true),
-                        ProdutoCodigo = c.Int(nullable: false, identity: true),
-                        ProdutoNome = c.String(nullable: false, maxLength: 200, unicode: false),
-                        PrecoCusto = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        PrecoVenda = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Unidade_UnidadeId = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => t.ProdutoId)
-                .ForeignKey("dbo.Unidade", t => t.Unidade_UnidadeId, cascadeDelete: true)
-                .Index(t => t.Unidade_UnidadeId);
-            
-            CreateTable(
-                "dbo.Unidade",
-                c => new
-                    {
-                        UnidadeId = c.Guid(nullable: false, identity: true),
-                        UnidadeCodigo = c.Int(nullable: false, identity: true),
-                        UnidadeNome = c.String(nullable: false, maxLength: 30, unicode: false),
-                    })
-                .PrimaryKey(t => t.UnidadeId);
-            
-            CreateTable(
                 "dbo.MeioComunicacao",
                 c => new
                     {
@@ -321,6 +279,48 @@ namespace ProjetoArtCouro.DataBase.Migrations
                 .Index(t => t.Compra_CompraId);
             
             CreateTable(
+                "dbo.Estoque",
+                c => new
+                    {
+                        EstoqueId = c.Guid(nullable: false, identity: true),
+                        EstoqueCodigo = c.Int(nullable: false, identity: true),
+                        DataUltimaEntrada = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        Quantidade = c.Int(nullable: false),
+                        Compra_CompraId = c.Guid(),
+                        Produto_ProdutoId = c.Guid(),
+                    })
+                .PrimaryKey(t => t.EstoqueId)
+                .ForeignKey("dbo.Compra", t => t.Compra_CompraId)
+                .ForeignKey("dbo.Produto", t => t.Produto_ProdutoId)
+                .Index(t => t.Compra_CompraId)
+                .Index(t => t.Produto_ProdutoId);
+            
+            CreateTable(
+                "dbo.Produto",
+                c => new
+                    {
+                        ProdutoId = c.Guid(nullable: false, identity: true),
+                        ProdutoCodigo = c.Int(nullable: false, identity: true),
+                        ProdutoNome = c.String(nullable: false, maxLength: 200, unicode: false),
+                        PrecoCusto = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        PrecoVenda = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Unidade_UnidadeId = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.ProdutoId)
+                .ForeignKey("dbo.Unidade", t => t.Unidade_UnidadeId, cascadeDelete: true)
+                .Index(t => t.Unidade_UnidadeId);
+            
+            CreateTable(
+                "dbo.Unidade",
+                c => new
+                    {
+                        UnidadeId = c.Guid(nullable: false, identity: true),
+                        UnidadeCodigo = c.Int(nullable: false, identity: true),
+                        UnidadeNome = c.String(nullable: false, maxLength: 30, unicode: false),
+                    })
+                .PrimaryKey(t => t.UnidadeId);
+            
+            CreateTable(
                 "dbo.ItemCompra",
                 c => new
                     {
@@ -385,6 +385,9 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropForeignKey("dbo.ItemCompra", "Compra_CompraId", "dbo.Compra");
             DropForeignKey("dbo.Compra", "Fornecedor_PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.Compra", "FormaPagamento_FormaPagamentoId", "dbo.FormaPagamento");
+            DropForeignKey("dbo.Estoque", "Produto_ProdutoId", "dbo.Produto");
+            DropForeignKey("dbo.Produto", "Unidade_UnidadeId", "dbo.Unidade");
+            DropForeignKey("dbo.Estoque", "Compra_CompraId", "dbo.Compra");
             DropForeignKey("dbo.ContaPagar", "Compra_CompraId", "dbo.Compra");
             DropForeignKey("dbo.Compra", "CondicaoPagamento_CondicaoPagamentoId", "dbo.CondicaoPagamento");
             DropForeignKey("dbo.Venda", "Usuario_UsuarioId", "dbo.Usuario");
@@ -404,9 +407,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropForeignKey("dbo.PessoaPapel", "PapelId", "dbo.Papel");
             DropForeignKey("dbo.PessoaPapel", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.MeioComunicacao", "PessoaId", "dbo.Pessoa");
-            DropForeignKey("dbo.Estoque", "Produto_ProdutoId", "dbo.Produto");
-            DropForeignKey("dbo.Produto", "Unidade_UnidadeId", "dbo.Unidade");
-            DropForeignKey("dbo.Estoque", "Fornecedor_PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.Endereco", "PessoaId", "dbo.Pessoa");
             DropForeignKey("dbo.Endereco", "Estado_EstadoId", "dbo.Estado");
             DropIndex("dbo.UsuarioPermissao", new[] { "PermissaoId" });
@@ -416,6 +416,9 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.PessoaPapel", new[] { "PapelId" });
             DropIndex("dbo.PessoaPapel", new[] { "PessoaId" });
             DropIndex("dbo.ItemCompra", new[] { "Compra_CompraId" });
+            DropIndex("dbo.Produto", new[] { "Unidade_UnidadeId" });
+            DropIndex("dbo.Estoque", new[] { "Produto_ProdutoId" });
+            DropIndex("dbo.Estoque", new[] { "Compra_CompraId" });
             DropIndex("dbo.ContaPagar", new[] { "Compra_CompraId" });
             DropIndex("dbo.Usuario", new[] { "GrupoPermissao_GrupoPermissaoId" });
             DropIndex("dbo.ItemVenda", new[] { "Venda_VendaId" });
@@ -426,9 +429,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropIndex("dbo.PessoaFisica", new[] { "CPF" });
             DropIndex("dbo.PessoaFisica", new[] { "PessoaId" });
             DropIndex("dbo.MeioComunicacao", new[] { "PessoaId" });
-            DropIndex("dbo.Produto", new[] { "Unidade_UnidadeId" });
-            DropIndex("dbo.Estoque", new[] { "Produto_ProdutoId" });
-            DropIndex("dbo.Estoque", new[] { "Fornecedor_PessoaId" });
             DropIndex("dbo.Endereco", new[] { "Estado_EstadoId" });
             DropIndex("dbo.Endereco", new[] { "PessoaId" });
             DropIndex("dbo.Venda", new[] { "Usuario_UsuarioId" });
@@ -443,6 +443,9 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.PermissaoGrupoPermissao");
             DropTable("dbo.PessoaPapel");
             DropTable("dbo.ItemCompra");
+            DropTable("dbo.Unidade");
+            DropTable("dbo.Produto");
+            DropTable("dbo.Estoque");
             DropTable("dbo.ContaPagar");
             DropTable("dbo.Permissao");
             DropTable("dbo.GrupoPermissao");
@@ -455,9 +458,6 @@ namespace ProjetoArtCouro.DataBase.Migrations
             DropTable("dbo.PessoaFisica");
             DropTable("dbo.Papel");
             DropTable("dbo.MeioComunicacao");
-            DropTable("dbo.Unidade");
-            DropTable("dbo.Produto");
-            DropTable("dbo.Estoque");
             DropTable("dbo.Estado");
             DropTable("dbo.Endereco");
             DropTable("dbo.Pessoa");

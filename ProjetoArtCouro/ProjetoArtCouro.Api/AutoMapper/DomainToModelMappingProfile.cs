@@ -237,8 +237,8 @@ namespace ProjetoArtCouro.Api.AutoMapper
             Mapper.CreateMap<Estoque, EstoqueModel>()
                 .ForMember(d => d.CodigoProduto, m => m.MapFrom(s => s.Produto.ProdutoCodigo))
                 .ForMember(d => d.Descricao, m => m.MapFrom(s => s.Produto.ProdutoNome))
-                .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Fornecedor.Nome))
-                .ForMember(d => d.CodigoFornecedor, m => m.MapFrom(s => s.Fornecedor.PessoaCodigo))
+                .ForMember(d => d.NomeFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.Nome))
+                .ForMember(d => d.CodigoFornecedor, m => m.MapFrom(s => s.Compra.Fornecedor.PessoaCodigo))
                 .ForMember(d => d.PrecoCusto, m => m.MapFrom(s => s.Produto.PrecoCusto))
                 .ForMember(d => d.PrecoVenda, m => m.MapFrom(s => s.Produto.PrecoVenda))
                 .ForMember(d => d.QuantidaEstoque, m => m.MapFrom(s => s.Quantidade));

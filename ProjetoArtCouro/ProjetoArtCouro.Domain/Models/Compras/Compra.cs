@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ProjetoArtCouro.Domain.Models.Enums;
+using ProjetoArtCouro.Domain.Models.Estoques;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Usuarios;
@@ -23,6 +24,7 @@ namespace ProjetoArtCouro.Domain.Models.Compras
         public virtual Pessoa Fornecedor { get; set; }
         public virtual FormaPagamento FormaPagamento { get; set; }
         public virtual CondicaoPagamento CondicaoPagamento { get; set; }
+        public virtual ICollection<Estoque> Estoques { get; set; }
         public virtual ICollection<ItemCompra> ItensCompra { get; set; }
         public virtual ICollection<ContaPagar> ContasPagar { get; set; }
 

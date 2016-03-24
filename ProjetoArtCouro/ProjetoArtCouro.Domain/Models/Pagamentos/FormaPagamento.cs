@@ -13,8 +13,8 @@ namespace ProjetoArtCouro.Domain.Models.Pagamentos
         public int FormaPagamentoCodigo { get; set; }
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
-        public virtual ICollection<Venda> Venda { get; set; }
-        public virtual ICollection<Compra> Compra { get; set; }
+        public virtual ICollection<Venda> Vendas { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
 
         public void Validar()
         {

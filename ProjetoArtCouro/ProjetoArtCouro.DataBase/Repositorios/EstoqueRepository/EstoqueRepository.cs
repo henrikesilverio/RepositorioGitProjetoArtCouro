@@ -42,7 +42,8 @@ namespace ProjetoArtCouro.DataBase.Repositorios.EstoqueRepository
         {
             var query = from estoque in _context.Estoques
                 .Include("Produto")
-                .Include("Fornecedor")
+                .Include("Compra")
+                .Include("Compra.Fornecedor")
                         select estoque;
 
             if (!codigoProduto.Equals(0))
@@ -57,7 +58,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.EstoqueRepository
 
             if (!codigoFornecedor.Equals(0))
             {
-                query = query.Where(x => x.Fornecedor.PessoaCodigo == codigoFornecedor);
+                query = query.Where(x => x.Compra.Fornecedor.PessoaCodigo == codigoFornecedor);
             }
 
             if (!string.IsNullOrEmpty(descricaoProduto))
@@ -67,7 +68,7 @@ namespace ProjetoArtCouro.DataBase.Repositorios.EstoqueRepository
 
             if (!string.IsNullOrEmpty(nomeFornecedor))
             {
-                query = query.Where(x => x.Fornecedor.Nome.Contains(nomeFornecedor));
+                query = query.Where(x => x.Compra.Fornecedor.Nome.Contains(nomeFornecedor));
             }
 
             return query.ToList();

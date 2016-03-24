@@ -27,10 +27,9 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.EstoqueConfiguration
                 .WithOptionalDependent(x => x.Estoque)
                 .WillCascadeOnDelete(false);
 
-            //Relacionamento 0 ou 1 : 1
-            HasOptional(x => x.Fornecedor)
-                .WithOptionalDependent(x => x.Estoque)
-                .WillCascadeOnDelete(false);
+            //Relacionamento 0 ou 1 : N
+            HasOptional(x => x.Compra)
+                .WithMany(x => x.Estoques);
         }
     }
 }

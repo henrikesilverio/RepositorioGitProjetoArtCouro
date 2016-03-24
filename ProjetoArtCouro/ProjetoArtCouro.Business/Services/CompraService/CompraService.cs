@@ -96,7 +96,7 @@ namespace ProjetoArtCouro.Business.Services.CompraService
                 compraAtual.StatusCompra = StatusCompraEnum.Confirmado;
                 AdicionaContaPagarNaCompra(compraAtual);
                 compraAtual.ContasPagar.ForEach(x => x.Validar());
-                AdicionarNoEstoque(compra.ItensCompra, compra.Fornecedor);
+                AdicionarNoEstoque(compra.ItensCompra, compra);
             }
             else
             {
@@ -182,17 +182,28 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             });
         }
 
-        private void AdicionarNoEstoque(IEnumerable<ItemCompra> itensCompra, Pessoa fornecedor)
+        private void AdicionarNoEstoque(IEnumerable<ItemCompra> itensCompra, Compra compra)
         {
             itensCompra.ForEach(x =>
             {
-                _estoqueRepository.Criar(new Estoque
+                var estoqueAtual = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
+                if (estoqueAtual != null)
                 {
-                    DataUltimaEntrada = DateTime.Now,
-                    Fornecedor = _pessoaRepository.ObterPorCodigo(fornecedor.PessoaCodigo),
-                    Produto = _produtoRepository.ObterPorCodigo(x.ProdutoCodigo),
-                    Quantidade = x.Quantidade
-                });
+                    estoqueAtual.Compra = _compraRepository.ObterPorCodigo(compra.CompraCodigo);
+                    estoqueAtual.DataUltimaEntrada = DateTime.Now;
+                    estoqueAtual.Quantidade += x.Quantidade;
+                    _estoqueRepository.Atualizar(estoqueAtual);
+                }
+                else
+                {
+                    _estoqueRepository.Criar(new Estoque
+                    {
+                        DataUltimaEntrada = DateTime.Now,
+                        Compra = _compraRepository.ObterPorCodigo(compra.CompraCodigo),
+                        Produto = _produtoRepository.ObterPorCodigo(x.ProdutoCodigo),
+                        Quantidade = x.Quantidade
+                    });
+                }
             });
         }
 
@@ -201,7 +212,7 @@ namespace ProjetoArtCouro.Business.Services.CompraService
             itensCompra.ForEach(x =>
             {
                 var estoque = _estoqueRepository.ObterPorCodigoProduto(x.ProdutoCodigo);
-                estoque.Quantidade = estoque.Quantidade - x.Quantidade;
+                estoque.Quantidade -= x.Quantidade;
                 _estoqueRepository.Atualizar(estoque);
             });
         }

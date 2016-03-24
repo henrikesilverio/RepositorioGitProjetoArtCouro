@@ -37,19 +37,19 @@ namespace ProjetoArtCouro.DataBase.EntityConfig.CompraConfiguration
 
             //Relacionamento 0 ou 1 : N
             HasRequired(x => x.Usuario)
-                .WithMany(x => x.Compra);
+                .WithMany(x => x.Compras);
 
             //Relacionamento 1 : N
             HasOptional(x => x.Fornecedor)
-                .WithMany(x => x.Compra);
+                .WithMany(x => x.Compras);
 
             //Relacionamento 0 ou 1 : N
             HasOptional(x => x.CondicaoPagamento)
-                .WithMany(x => x.Compra);
+                .WithMany(x => x.Compras);
 
             //Relacionamento 0 ou 1 : N
             HasOptional(x => x.FormaPagamento)
-                .WithMany(x => x.Compra);
+                .WithMany(x => x.Compras);
 
             //Relacionamento 1 : N
             HasMany(x => x.ItensCompra)
