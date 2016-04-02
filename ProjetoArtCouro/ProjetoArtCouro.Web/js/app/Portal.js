@@ -275,7 +275,7 @@ $.extend(Portal, {
         $elemento.closest("section").find("span.field-validation-error").html("");
     },
     CoverteStringEmFloat: function (valor) {
-        var valorSemFormatacao = valor.replace(/[a-zA-Z][$]/g, "").trim().replace(".", "").replace(",", ".");
+        var valorSemFormatacao = valor.replace(/[a-zA-Z][$]/g, "").trim().replace(/\./g, "").replace(",", ".");
         return parseFloat(valorSemFormatacao);
     },
     FormataFloatParaDinheiro: function (valor) {
@@ -284,7 +284,7 @@ $.extend(Portal, {
     },
     CalculaValorBruto: function (precoVenda, quantidade) {
         var valorVenda = Portal.CoverteStringEmFloat(precoVenda);
-        var valorQuantidade = parseInt(quantidade);
+        var valorQuantidade = Portal.CoverteStringEmFloat(quantidade);
         var valorBruto = valorVenda * valorQuantidade;
         var valorFormatado = Portal.FormataFloatParaDinheiro(valorBruto);
         return valorFormatado;
