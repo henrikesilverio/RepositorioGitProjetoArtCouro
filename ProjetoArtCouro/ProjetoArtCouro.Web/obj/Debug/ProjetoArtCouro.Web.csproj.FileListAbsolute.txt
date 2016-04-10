@@ -220,7 +220,6 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Cors.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.dll
@@ -231,7 +230,6 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.De
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resource.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.xml
@@ -247,3 +245,5 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Ra
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.pdb

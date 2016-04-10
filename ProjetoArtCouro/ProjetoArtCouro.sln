@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Resource", "ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj", "{BD67CBC9-554E-4D94-B708-85068614D72A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Business", "ProjetoArtCouro.Business\ProjetoArtCouro.Business.csproj", "{EB592D38-7345-4E73-A91D-705EFF70EEE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Domain", "ProjetoArtCouro.Domain\ProjetoArtCouro.Domain.csproj", "{4EF49AA8-F650-4E7E-B669-7EB09F3C67F1}"
@@ -23,16 +21,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Test", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Selenium", "ProjetoArtCouro.Selenium\ProjetoArtCouro.Selenium.csproj", "{0C7F5EF3-222C-4810-8B8F-895084542123}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoArtCouro.Resources", "ProjetoArtCouro.Resources\ProjetoArtCouro.Resources.csproj", "{19A0BFC9-DC4C-4211-91B6-8B78293FFCBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BD67CBC9-554E-4D94-B708-85068614D72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD67CBC9-554E-4D94-B708-85068614D72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD67CBC9-554E-4D94-B708-85068614D72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD67CBC9-554E-4D94-B708-85068614D72A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EB592D38-7345-4E73-A91D-705EFF70EEE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB592D38-7345-4E73-A91D-705EFF70EEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB592D38-7345-4E73-A91D-705EFF70EEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +65,10 @@ Global
 		{0C7F5EF3-222C-4810-8B8F-895084542123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C7F5EF3-222C-4810-8B8F-895084542123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C7F5EF3-222C-4810-8B8F-895084542123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A0BFC9-DC4C-4211-91B6-8B78293FFCBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A0BFC9-DC4C-4211-91B6-8B78293FFCBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A0BFC9-DC4C-4211-91B6-8B78293FFCBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A0BFC9-DC4C-4211-91B6-8B78293FFCBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

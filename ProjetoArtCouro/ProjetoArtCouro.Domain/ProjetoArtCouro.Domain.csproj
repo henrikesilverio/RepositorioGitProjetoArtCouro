@@ -107,9 +107,9 @@
     <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
-      <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
-      <Name>ProjetoArtCouro.Resource</Name>
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resources.csproj">
+      <Project>{19a0bfc9-dc4c-4211-91b6-8b78293ffcbe}</Project>
+      <Name>ProjetoArtCouro.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

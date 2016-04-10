@@ -85,13 +85,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
-      <Project>{bd67cbc9-554e-4d94-b708-85068614d72a}</Project>
-      <Name>ProjetoArtCouro.Resource</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resources.csproj">
+      <Project>{19a0bfc9-dc4c-4211-91b6-8b78293ffcbe}</Project>
+      <Name>ProjetoArtCouro.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

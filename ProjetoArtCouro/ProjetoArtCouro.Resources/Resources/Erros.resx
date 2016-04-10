@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfirmPasswordAndPasswordNotMatch" xml:space="preserve">
+    <value>Confirmar senha e Senha não conferem</value>
+  </data>
+  <data name="DuplicateGruopName" xml:space="preserve">
+    <value>Nome duplicado, já existe um grupo com esse nome</value>
+  </data>
+  <data name="DuplicateUserName" xml:space="preserve">
+    <value>Nome duplicado, já existe um usuário com esse nome</value>
+  </data>
+  <data name="EmptyAddress" xml:space="preserve">
+    <value>Endereço vazio</value>
+  </data>
+  <data name="EmptyAllowList" xml:space="preserve">
+    <value>Lista de permissão vazia</value>
+  </data>
+  <data name="EmptyCPF" xml:space="preserve">
+    <value>CPF vazio</value>
+  </data>
+  <data name="EmptyGroupName" xml:space="preserve">
+    <value>Nome do grupo vazio</value>
+  </data>
+  <data name="EmptyMaritalStatus" xml:space="preserve">
+    <value>Estado civil vazio</value>
+  </data>
+  <data name="EmptyParameters" xml:space="preserve">
+    <value>Parametros vazios</value>
+  </data>
+  <data name="EmptyPerson" xml:space="preserve">
+    <value>Pessoa vazia</value>
+  </data>
+  <data name="EmptyRG" xml:space="preserve">
+    <value>RG vazio</value>
+  </data>
+  <data name="EmptySex" xml:space="preserve">
+    <value>Sexo vazio</value>
+  </data>
+  <data name="GroupDoesNotExist" xml:space="preserve">
+    <value>Grupo não existe</value>
+  </data>
+  <data name="InvalidCNPJ" xml:space="preserve">
+    <value>CNPJ inválido</value>
+  </data>
+  <data name="InvalidCode" xml:space="preserve">
+    <value>Código inválido</value>
+  </data>
+  <data name="InvalidCPF" xml:space="preserve">
+    <value>CPF inválido</value>
+  </data>
+  <data name="InvalidCredentials" xml:space="preserve">
+    <value>Credencial inválida</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Email inválido</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>Nome do usuário inválido</value>
+  </data>
+  <data name="InvalidUserOrPassword" xml:space="preserve">
+    <value>Nome ou senhas estão incorretos</value>
+  </data>
+  <data name="InvalidUserPassword" xml:space="preserve">
+    <value>Senha inválida</value>
+  </data>
+  <data name="MeansOfCommunicationEmpty" xml:space="preserve">
+    <value>Meio de comunicação vazio</value>
+  </data>
+  <data name="NoGruopForTheGivenFilter" xml:space="preserve">
+    <value>Não há grupo para o filtro informado</value>
+  </data>
+  <data name="NoUsersForTheGivenFilter" xml:space="preserve">
+    <value>Não há usuarios para o filtro informado</value>
+  </data>
+  <data name="NullParameter" xml:space="preserve">
+    <value>O parâmetro {0} está nulo</value>
+  </data>
+  <data name="PaperEmptyPerson" xml:space="preserve">
+    <value>Papel pessoa vazio</value>
+  </data>
+  <data name="PermissionsNotRegistered" xml:space="preserve">
+    <value>Permissões não cadastradas</value>
+  </data>
+  <data name="RequiredField" xml:space="preserve">
+    <value>Campo Obrigatório</value>
+  </data>
+  <data name="UserDoesNotExist" xml:space="preserve">
+    <value>Usuário não existe</value>
+  </data>
+  <data name="PersonDoesNotExist" xml:space="preserve">
+    <value>Pessoa não existe</value>
+  </data>
+  <data name="EmptyPhone" xml:space="preserve">
+    <value>Telefone vazio</value>
+  </data>
+  <data name="NoClientForTheGivenFilter" xml:space="preserve">
+    <value>Não há clientes para o filtro informado</value>
+  </data>
+  <data name="EmptyCNPJ" xml:space="preserve">
+    <value>CNPJ vazio</value>
+  </data>
+  <data name="EmptyContact" xml:space="preserve">
+    <value>Contato vazio</value>
+  </data>
+  <data name="EmptyName" xml:space="preserve">
+    <value>Nome vazio</value>
+  </data>
+  <data name="FailedToLoadPermissions" xml:space="preserve">
+    <value>Falha ao carregar permissões</value>
+  </data>
+  <data name="EmptyParameter" xml:space="preserve">
+    <value>O parâmetro {0} está vazio</value>
+  </data>
+  <data name="NotZeroParameter" xml:space="preserve">
+    <value>O parâmetro {0} não pode ser zero</value>
+  </data>
+  <data name="UnitDoesNotExist" xml:space="preserve">
+    <value>Unidade não existe</value>
+  </data>
+  <data name="ProductDoesNotExist" xml:space="preserve">
+    <value>Produto não existe</value>
+  </data>
+  <data name="CouldNotLoadUnits" xml:space="preserve">
+    <value>Não foi possível carregar as unidades.</value>
+  </data>
+  <data name="FormOfPaymentDoesNotExist" xml:space="preserve">
+    <value>Forma de pagamento não existe</value>
+  </data>
+  <data name="PaymentConditionDoesNotExist" xml:space="preserve">
+    <value>Condição de pagamento não existe</value>
+  </data>
+  <data name="UnauthorizedAccess" xml:space="preserve">
+    <value>Acesso não autorizado.</value>
+  </data>
+  <data name="NoEmployeeForTheGivenFilter" xml:space="preserve">
+    <value>Não há funcionário para o filtro informado</value>
+  </data>
+  <data name="NoProviderForTheGivenFilter" xml:space="preserve">
+    <value>Não há fornecedor para o filtro informado</value>
+  </data>
+  <data name="FailuretoUpdatePermissionsUserOnline" xml:space="preserve">
+    <value>Falha ao atualizar permissoes do usuario logado.</value>
+  </data>
+  <data name="InvalidQuantityOfParcels" xml:space="preserve">
+    <value>A quantidade de parcelas deve ser 0 a 99</value>
+  </data>
+  <data name="InvalidParameter" xml:space="preserve">
+    <value>Parâmetro {0} inválido</value>
+  </data>
+  <data name="ClientNotSet" xml:space="preserve">
+    <value>Cliente não informado</value>
+  </data>
+  <data name="NotSetPayment" xml:space="preserve">
+    <value>Forma de pagamento não informado</value>
+  </data>
+  <data name="PaymentConditionNotSet" xml:space="preserve">
+    <value>Condição de pagamento não informado</value>
+  </data>
+  <data name="SaleItemsNotSet" xml:space="preserve">
+    <value>Itens da venda não informado</value>
+  </data>
+  <data name="SaleUnknown" xml:space="preserve">
+    <value>Venda não informada</value>
+  </data>
+  <data name="StatusOfDifferentSalesOpen" xml:space="preserve">
+    <value>Status da venda diferente de aberto</value>
+  </data>
+  <data name="SumDoNotMatchTotalCrudeValue" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Bruto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueDiscount" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Desconto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueLiquid" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Líquido</value>
+  </data>
+  <data name="UserNotSet" xml:space="preserve">
+    <value>Usuário não informado</value>
+  </data>
+  <data name="NoSaleForTheGivenFilter" xml:space="preserve">
+    <value>Não há vendas para o filtro informado</value>
+  </data>
+  <data name="SaleDoesNotExist" xml:space="preserve">
+    <value>Venda não existe</value>
+  </data>
+  <data name="SaleConfirmedCanNotBeExcluded" xml:space="preserve">
+    <value>Venda confirmada não pode ser excluida.</value>
+  </data>
+  <data name="ProviderNotSet" xml:space="preserve">
+    <value>Fornecedor não informado</value>
+  </data>
+  <data name="PurchaseDoesNotExist" xml:space="preserve">
+    <value>Compra não existe</value>
+  </data>
+  <data name="PurchaseConfirmedCanNotBeExcluded" xml:space="preserve">
+    <value>Compra confirmada não pode ser excluída</value>
+  </data>
+  <data name="StatusOfDifferentPurchasingOpen" xml:space="preserve">
+    <value>Status da compra diferente de aberto</value>
+  </data>
+  <data name="SumDoNotMatchTotalValueShipping" xml:space="preserve">
+    <value>A soma do valores não conferem com o Valor Total Frete</value>
+  </data>
+  <data name="NoShoppingForTheGivenFilter" xml:space="preserve">
+    <value>Não há compras para o filtro informado</value>
+  </data>
+  <data name="SaleNotSet" xml:space="preserve">
+    <value>Venda não informada</value>
+  </data>
+  <data name="ThereReceivableWithZeroCode" xml:space="preserve">
+    <value>Existe conta a receber com código igual a zero</value>
+  </data>
+  <data name="NoAccountReceivableForTheGivenFilter" xml:space="preserve">
+    <value>Não há conta a receber para o filtro informado</value>
+  </data>
+  <data name="PurchaseNotSet" xml:space="preserve">
+    <value>Compra não informada</value>
+  </data>
+  <data name="ThereAccountPayableWithCodeZero" xml:space="preserve">
+    <value>Existe conta a pagar com código igual a zero</value>
+  </data>
+  <data name="ProductInsufficient" xml:space="preserve">
+    <value>Produto: {0}, Quantidade informada: {1}, Quantidade em estoque: {2}</value>
+  </data>
+  <data name="ProductsThatAreMissingInStock" xml:space="preserve">
+    <value>Produto(s) que falta(m) no estoque</value>
+  </data>
+</root>
