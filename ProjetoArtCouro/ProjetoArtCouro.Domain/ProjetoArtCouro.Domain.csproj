@@ -107,7 +107,7 @@
     <Folder Include="Models\Common\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
       <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
       <Name>ProjetoArtCouro.Resource</Name>
     </ProjectReference>

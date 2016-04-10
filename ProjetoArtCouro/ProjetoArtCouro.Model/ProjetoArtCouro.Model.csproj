@@ -85,7 +85,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
       <Project>{bd67cbc9-554e-4d94-b708-85068614d72a}</Project>
       <Name>ProjetoArtCouro.Resource</Name>
     </ProjectReference>

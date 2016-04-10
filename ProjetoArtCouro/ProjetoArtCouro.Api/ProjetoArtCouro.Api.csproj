@@ -221,7 +221,7 @@
       <Project>{00373a34-856b-44f1-ba0a-7afb23ba1ccc}</Project>
       <Name>ProjetoArtCouro.Startup</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
       <Project>{bd67cbc9-554e-4d94-b708-85068614d72a}</Project>
       <Name>ProjetoArtCouro.Resource</Name>
     </ProjectReference>

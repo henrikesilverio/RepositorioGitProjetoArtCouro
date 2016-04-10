@@ -114,7 +114,7 @@
       <Project>{4ef49aa8-f650-4e7e-b669-7eb09f3c67f1}</Project>
       <Name>ProjetoArtCouro.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ProjetoArtCouroResources\ProjetoArtCouro.Resource.csproj">
+    <ProjectReference Include="..\ProjetoArtCouro.Resources\ProjetoArtCouro.Resource.csproj">
       <Project>{BD67CBC9-554E-4D94-B708-85068614D72A}</Project>
       <Name>ProjetoArtCouro.Resource</Name>
     </ProjectReference>

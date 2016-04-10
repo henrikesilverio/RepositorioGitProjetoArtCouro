@@ -1,7 +1,0 @@
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Debug\ProjetoArtCouroDomain.dll
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Debug\ProjetoArtCouroDomain.pdb
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\obj\Debug\ProjetoArtCouroDomain.dll
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\obj\Debug\ProjetoArtCouroDomain.pdb
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Debug\AutoMapper.Net4.dll
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Debug\AutoMapper.dll
-D:\RepositorioProjetoArtCouro\ProjetoArtCouro\ProjetoArtCouroDomain\bin\Debug\AutoMapper.xml
