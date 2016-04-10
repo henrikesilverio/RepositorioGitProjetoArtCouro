@@ -1,4 +1,4 @@
-﻿using ProjetoArtCouro.Resource.Resources;
+﻿using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Common
 {

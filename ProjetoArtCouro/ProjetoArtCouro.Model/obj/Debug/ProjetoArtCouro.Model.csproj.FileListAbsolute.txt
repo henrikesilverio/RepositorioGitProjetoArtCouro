@@ -49,12 +49,12 @@ C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCo
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Model.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resources.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resources.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\System.Web.WebPages.Deployment.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\obj\Debug\ProjetoArtCouro.Model.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resources.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Model\bin\Debug\ProjetoArtCouro.Resources.pdb

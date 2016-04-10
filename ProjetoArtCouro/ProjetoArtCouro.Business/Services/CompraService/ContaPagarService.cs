@@ -5,7 +5,7 @@ using ProjetoArtCouro.Domain.Contracts.IRepository.ICompra;
 using ProjetoArtCouro.Domain.Contracts.IService.ICompra;
 using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Enums;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Business.Services.CompraService

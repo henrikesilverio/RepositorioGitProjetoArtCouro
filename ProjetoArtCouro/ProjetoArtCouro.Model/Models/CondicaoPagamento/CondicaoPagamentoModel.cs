@@ -1,6 +1,6 @@
 ﻿using System.CodeDom;
 using System.ComponentModel.DataAnnotations;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Model.Models.CondicaoPagamento
 {

@@ -1,5 +1,5 @@
 ﻿using System;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Domain.Models.Vendas

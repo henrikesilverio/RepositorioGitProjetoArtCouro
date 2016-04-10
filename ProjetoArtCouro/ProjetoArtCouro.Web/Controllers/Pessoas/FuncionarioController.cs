@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Funcionario;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 using ProjetoArtCouro.Web.Models.Enums;

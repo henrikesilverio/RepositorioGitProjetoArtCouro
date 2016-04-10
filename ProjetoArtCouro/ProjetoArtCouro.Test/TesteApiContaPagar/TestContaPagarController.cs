@@ -14,7 +14,7 @@ using ProjetoArtCouro.Domain.Models.Compras;
 using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.ContaPagar;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Test.TesteApiContaPagar
 {

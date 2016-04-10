@@ -4,6 +4,7 @@ using System.Data.Entity.Migrations;
 using ProjetoArtCouro.Domain.Models.Produtos;
 using ProjetoArtCouro.Domain.Models.Usuarios;
 using ProjetoArtCouro.Resource.Validation;
+using ProjetoArtCouro.Resources.Validation;
 
 namespace ProjetoArtCouro.DataBase.Migrations
 {

@@ -296,6 +296,7 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Newtonsoft.Json.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Owin.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Domain.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Model.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Resources.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Startup.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.Net.Http.Formatting.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\System.Web.Cors.dll
@@ -315,6 +316,7 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.DataBa
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Business.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Domain.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Model.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Resources.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Startup.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\Antlr3.Runtime.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\AutoMapper.xml
@@ -345,5 +347,3 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Busine
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\obj\Debug\ProjetoArtCouro.Api.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Resources.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Api\bin\ProjetoArtCouro.Resources.pdb

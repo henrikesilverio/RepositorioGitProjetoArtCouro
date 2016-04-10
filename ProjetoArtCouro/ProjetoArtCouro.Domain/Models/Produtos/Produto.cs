@@ -1,6 +1,6 @@
 ﻿using System;
 using ProjetoArtCouro.Domain.Models.Estoques;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Domain.Models.Produtos

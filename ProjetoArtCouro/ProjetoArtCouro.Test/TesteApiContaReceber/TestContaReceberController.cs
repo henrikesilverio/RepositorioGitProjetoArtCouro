@@ -14,7 +14,7 @@ using ProjetoArtCouro.Domain.Models.Enums;
 using ProjetoArtCouro.Domain.Models.Vendas;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.ContaReceber;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Test.TesteApiContaReceber
 {

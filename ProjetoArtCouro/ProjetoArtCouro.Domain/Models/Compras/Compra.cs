@@ -6,7 +6,7 @@ using ProjetoArtCouro.Domain.Models.Estoques;
 using ProjetoArtCouro.Domain.Models.Pagamentos;
 using ProjetoArtCouro.Domain.Models.Pessoas;
 using ProjetoArtCouro.Domain.Models.Usuarios;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Domain.Models.Compras

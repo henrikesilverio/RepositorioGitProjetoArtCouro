@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Estoque;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Service;
 

@@ -10,7 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Startup.DependencyResolver;
 
 namespace ProjetoArtCouro.Api.Security

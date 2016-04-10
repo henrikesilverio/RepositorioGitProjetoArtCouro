@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using ProjetoArtCouro.Domain.Contracts.IRepository.IEstoque;
 using ProjetoArtCouro.Domain.Contracts.IService.IEstoque;
 using ProjetoArtCouro.Domain.Models.Estoques;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Business.Services.EstoqueService
 {

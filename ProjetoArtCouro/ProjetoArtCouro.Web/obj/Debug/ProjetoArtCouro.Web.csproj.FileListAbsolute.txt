@@ -217,9 +217,15 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.dl
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Web.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Security.Cookies.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Security.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Owin.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Cors.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.Helpers.dll
@@ -230,8 +236,13 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.De
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Razor.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Model.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\AutoMapper.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Ionic.Zip.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Security.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Microsoft.Owin.Security.Cookies.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\MoreLinq.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\Newtonsoft.Json.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\RestSharp.xml
@@ -245,5 +256,3 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Ra
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Resources.pdb

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 
-namespace ProjetoArtCouro.Resource.Validation
+namespace ProjetoArtCouro.Resources.Validation
 {
     public class EmailAssertionConcern
     {

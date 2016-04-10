@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
 using ProjetoArtCouro.Model.Models.Usuario;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Web.Infra.Authorization;
 using ProjetoArtCouro.Web.Infra.Extensions;
 using ProjetoArtCouro.Web.Infra.Service;
@@ -129,7 +129,7 @@ namespace ProjetoArtCouro.Web.Controllers.Usuarios
                 throw new Exception(Erros.FailuretoUpdatePermissionsUserOnline);
             }
             var roles = JsonConvert.SerializeObject(ret.Data.ObjetoRetorno.Select(x => x.AcaoNome).ToArray());
-            Response.UpdateRolesCookie(roles);
+            Request.UpdateRoles(roles);
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resource.Validation;
+using ProjetoArtCouro.Resources.Resources;
 
-namespace ProjetoArtCouro.Resource.Validation
+namespace ProjetoArtCouro.Resources.Validation
 {
     public class PasswordAssertionConcern
     {

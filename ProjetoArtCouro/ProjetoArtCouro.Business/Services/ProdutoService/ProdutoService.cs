@@ -2,7 +2,7 @@
 using ProjetoArtCouro.Domain.Contracts.IRepository.IProduto;
 using ProjetoArtCouro.Domain.Contracts.IService.IProduto;
 using ProjetoArtCouro.Domain.Models.Produtos;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Business.Services.ProdutoService

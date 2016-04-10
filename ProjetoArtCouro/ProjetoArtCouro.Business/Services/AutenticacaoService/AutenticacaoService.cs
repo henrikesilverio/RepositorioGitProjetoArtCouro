@@ -1,7 +1,7 @@
 ﻿using ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario;
 using ProjetoArtCouro.Domain.Contracts.IService.IAutenticacao;
 using ProjetoArtCouro.Domain.Models.Usuarios;
-using ProjetoArtCouro.Resource.Validation;
+using ProjetoArtCouro.Resources.Validation;
 
 namespace ProjetoArtCouro.Business.Services.AutenticacaoService
 {

@@ -2,7 +2,7 @@
 using System.Net;
 using System.Web.Mvc;
 using ProjetoArtCouro.Model.Models.Common;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Web.Infra.Extensions;
 using RestSharp;
 

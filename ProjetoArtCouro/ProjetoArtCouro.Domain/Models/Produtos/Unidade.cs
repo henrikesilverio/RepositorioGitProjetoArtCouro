@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProjetoArtCouro.Resource.Resources;
+using ProjetoArtCouro.Resources.Resources;
 using ProjetoArtCouro.Resource.Validation;
 
 namespace ProjetoArtCouro.Domain.Models.Produtos

@@ -40,8 +40,8 @@ C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCo
 C:\Users\Felipe Silva\Documents\SubVersion\ArtCouro\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Domain.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resources.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resources.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\obj\Debug\ProjetoArtCouro.Domain.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resources.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Domain\bin\Debug\ProjetoArtCouro.Resources.pdb

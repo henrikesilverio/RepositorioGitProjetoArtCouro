@@ -1,8 +1,9 @@
-﻿using System.Web;
+﻿using System.Linq;
+using System.Security.Claims;
+using System.Web;
 using System.Web.Configuration;
 using Newtonsoft.Json;
 using ProjetoArtCouro.Model.Models.Common;
-using ProjetoArtCouro.Web.Infra.Authorization;
 using RestSharp;
 
 namespace ProjetoArtCouro.Web.Infra.Service
@@ -65,21 +66,17 @@ namespace ProjetoArtCouro.Web.Infra.Service
             var request = new RestRequest(apiEndPoint, method);
             var json = JsonConvert.SerializeObject(objectParameter);            
             request.AddParameter("text/json", json, ParameterType.RequestBody);
-            var token = GetTokenForAuthCookie();
+            var token = GetToken();
             request.AddHeader("Authorization", string.Format("Bearer {0}", token));
             var response = client.Execute<RetornoBase<T>>(request);
             return response;
         }
 
-        private static string GetTokenForAuthCookie()
+        private static string GetToken()
         {
-            var cookie = HttpContext.Current.Request.Cookies[".ASPXTOKEN"];
-            if (cookie == null)
-            {
-                return string.Empty;
-            }
-            var token = EncryptionMD5.Decrypt(cookie.Value);
-            return token ?? string.Empty;
+            var ctx = HttpContext.Current.GetOwinContext();
+            var claim = ctx.Authentication.User.Claims.FirstOrDefault(x => x.Type.Equals(ClaimTypes.SerialNumber));
+            return claim == null ? string.Empty : claim.Value;
         }
     }
 }

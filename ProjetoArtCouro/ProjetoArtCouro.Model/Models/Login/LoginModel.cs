@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ProjetoArtCouro.Resource.Resources;
+using System.Web.Mvc;
+using ProjetoArtCouro.Resources.Resources;
 
 namespace ProjetoArtCouro.Model.Models.Login
 {
@@ -12,5 +13,8 @@ namespace ProjetoArtCouro.Model.Models.Login
         [Required(ErrorMessageResourceName = "ERR_Password", ErrorMessageResourceType = typeof(Mensagens))]
         [Display(Name = "Password", ResourceType = typeof(Mensagens))]
         public string Senha { get; set; }
+
+        [HiddenInput]
+        public string ReturnUrl { get; set; }
     }
 }

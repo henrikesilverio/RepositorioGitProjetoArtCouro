@@ -57,12 +57,12 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFrame
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\MoreLinq.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resources.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.DataBase.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Domain.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resources.pdb
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\EntityFramework.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\MoreLinq.xml
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\obj\Debug\ProjetoArtCouro.Business.pdb
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resources.dll
-F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Business\bin\Debug\ProjetoArtCouro.Resources.pdb
