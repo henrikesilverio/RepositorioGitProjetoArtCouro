@@ -54,13 +54,14 @@ namespace ProjetoArtCouro.Api.Security
                 identity.AddClaim(new Claim(ClaimTypes.GivenName, user.UsuarioNome));
 
                 //Setando as permissao do usuario
-                foreach (var permissao in user.Permissoes)
+                var permissoes = _autenticacaoService.ObterPermissoes(user.UsuarioNome);
+                foreach (var permissao in permissoes)
                 {
                     identity.AddClaim(new Claim(ClaimTypes.Role, permissao.AcaoNome));
                 }
 
                 //Inclui as o nome e as permissões do usuario no retorno da autenticação
-                var properties = CreateProperties(user.UsuarioNome, JsonConvert.SerializeObject(user.Permissoes.Select(x => x.AcaoNome).ToArray()));
+                var properties = CreateProperties(user.UsuarioNome, JsonConvert.SerializeObject(permissoes.Select(x => x.AcaoNome).ToArray()));
                 var ticket = new AuthenticationTicket(identity, properties);
                 
                 var principal = new GenericPrincipal(identity, null);

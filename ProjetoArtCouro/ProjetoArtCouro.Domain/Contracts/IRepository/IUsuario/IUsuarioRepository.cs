@@ -12,6 +12,7 @@ namespace ProjetoArtCouro.Domain.Contracts.IRepository.IUsuario
         Usuario ObterPorCodigoComPermissoesEGrupo(int codigo);
         Usuario ObterPorUsuarioNome(string usuarioNome);
         Usuario ObterComPermissoesPorUsuarioNome(string usuarioNome);
+        Usuario ObterComPermissoesComGrupoPorUsuarioNome(string usuarioNome);
         List<Usuario> ObterLista();
         List<Usuario> ObterListaComPermissoes();
         List<Usuario> ObterLista(string nome, int? codigoGrupo, bool? ativo);

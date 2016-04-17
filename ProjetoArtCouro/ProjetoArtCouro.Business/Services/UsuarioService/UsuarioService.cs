@@ -34,18 +34,11 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             };
             var temGrupo = _grupoPermissaoRepository.ObterPorCodigoComPermissoes(codigoGrupo);
             AssertionConcern.AssertArgumentNotEquals(temGrupo, null, Erros.GroupDoesNotExist);
-            var listaPermissao = temGrupo.Permissoes;
-            if (!listaPermissao.Any())
-            {
-                throw new Exception(Erros.PermissionsNotRegistered);
-            }
-
             var usuario = new Usuario()
             {
                 UsuarioNome = nome.ToLower(),
                 Senha = PasswordAssertionConcern.Encrypt(senha),
                 Ativo = true,
-                Permissoes = listaPermissao,
                 GrupoPermissao = temGrupo
             };
 
@@ -66,24 +59,15 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
         {
             var usuarioAtual = _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(usuario.UsuarioCodigo);
             AssertionConcern.AssertArgumentNotNull(usuarioAtual, Erros.UserDoesNotExist);
-            var grupoAtual = usuarioAtual.GrupoPermissao;
-            var novoGrupo =
-                _grupoPermissaoRepository.ObterPorCodigoComPermissoes(usuario.GrupoPermissao.GrupoPermissaoCodigo);
-            AssertionConcern.AssertArgumentNotNull(novoGrupo, Erros.GroupDoesNotExist);
-            var permissoesDoUsuario = usuarioAtual.Permissoes.ToList();
-            //Remove todas as permissões que pertencem ao grupo de permissões atual
-            permissoesDoUsuario.RemoveAll(x => grupoAtual.Permissoes.Any(a => a.PermissaoId.Equals(x.PermissaoId)));
-            //Adiciona as permissões do novo grupo de permissões
-            novoGrupo.Permissoes.ToList().ForEach(x =>
+            if (usuarioAtual.GrupoPermissao.GrupoPermissaoCodigo != usuario.GrupoPermissao.GrupoPermissaoCodigo)
             {
-                permissoesDoUsuario.Add(x);
-            });
+                var novoGrupo =
+                _grupoPermissaoRepository.ObterPorCodigoComPermissoes(usuario.GrupoPermissao.GrupoPermissaoCodigo);
+                AssertionConcern.AssertArgumentNotNull(novoGrupo, Erros.GroupDoesNotExist);
+                usuarioAtual.GrupoPermissao = novoGrupo;
+            }
             usuarioAtual.Ativo = usuario.Ativo;
             usuarioAtual.UsuarioNome = usuario.UsuarioNome;
-            usuarioAtual.Permissoes.Clear();
-            usuarioAtual.Permissoes = permissoesDoUsuario;
-            usuarioAtual.GrupoPermissao = null;
-            usuarioAtual.GrupoPermissao = novoGrupo;
             if (!string.IsNullOrEmpty(usuario.Senha))
             {
                 usuarioAtual.Senha = PasswordAssertionConcern.Encrypt(usuario.Senha);
@@ -169,7 +153,6 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
                 bdGrupoPermissao.Permissoes.Add(x);
             });
             _grupoPermissaoRepository.Atualizar(bdGrupoPermissao);
-            AtualizarPermissoesDeUsuariosPorGrupoPermissao(bdGrupoPermissao);
         }
 
         public void EditarPermissaoUsuario(int codigoUsuario, List<Permissao> permissoes)
@@ -206,19 +189,6 @@ namespace ProjetoArtCouro.Business.Services.UsuarioService
             grupoPermissao.Permissoes = grupoPermissao.Permissoes.Select(x =>
                 listaPermissao.FirstOrDefault(a => a.PermissaoCodigo.Equals(x.PermissaoCodigo))).ToList();
             grupoPermissao.GrupoPermissaoNome = grupoPermissao.GrupoPermissaoNome.ToUpper();
-        }
-
-        private void AtualizarPermissoesDeUsuariosPorGrupoPermissao(GrupoPermissao grupoPermissao)
-        {
-            var usuarios =
-                grupoPermissao.Usuarios.Select(
-                    x => _usuarioRepository.ObterPorCodigoComPermissoesEGrupo(x.UsuarioCodigo));
-            foreach (var usuario in usuarios)
-            {
-                usuario.Permissoes.Clear();
-                usuario.Permissoes = grupoPermissao.Permissoes;
-                _usuarioRepository.Atualizar(usuario);
-            }
         }
 
         public void Dispose()

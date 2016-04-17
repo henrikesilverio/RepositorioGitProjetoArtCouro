@@ -256,3 +256,9 @@ F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\System.Web.WebPages.Ra
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.csprojResolveAssemblyReference.cache
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.dll
 F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\obj\Debug\ProjetoArtCouro.Web.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\EntityFramework.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.DataBase.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.dll
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.DataBase.pdb
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\EntityFramework.xml
+F:\GitRepositorio\ProjetoArtCouro\ProjetoArtCouro.Web\bin\ProjetoArtCouro.Domain.pdb

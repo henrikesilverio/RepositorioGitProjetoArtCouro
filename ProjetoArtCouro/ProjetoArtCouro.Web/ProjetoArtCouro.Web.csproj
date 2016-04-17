@@ -735,6 +735,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProjetoArtCouro.DataBase\ProjetoArtCouro.DataBase.csproj">
+      <Project>{5A321BC1-4747-419C-BA75-58232881FFCF}</Project>
+      <Name>ProjetoArtCouro.DataBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProjetoArtCouro.Model\ProjetoArtCouro.Model.csproj">
       <Project>{53a56d12-0d1a-46c3-82c0-f4822dc016ff}</Project>
       <Name>ProjetoArtCouro.Model</Name>
