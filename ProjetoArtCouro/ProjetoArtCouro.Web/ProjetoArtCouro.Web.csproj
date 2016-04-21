@@ -152,6 +152,7 @@
     <Content Include="img\avatars\male.png" />
     <Content Include="img\avatars\sunny-big.png" />
     <Content Include="img\avatars\sunny.png" />
+    <Content Include="img\favicon.ico" />
     <Content Include="img\fcr-default.png" />
     <Content Include="img\flags\de.png" />
     <Content Include="img\flags\es.png" />
