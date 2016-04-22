@@ -15,46 +15,46 @@
     <div role="content">
         <div class="widget-body no-padding">
             <form id="formPesquisaFornecedor" class="smart-form" novalidate="novalidate">
-                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset>
                     <div class="row">
                         <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-7">
-                            @Html.LabelFor(m => m.Nome, new { @class = "label" })
+                            @Html.LabelFor(m => m.Nome, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Nome, new { placeholder = @Mensagens.Name })
+                                @Html.TextBoxFor(m => m.Nome, new {placeholder = @Mensagens.Name})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-5">
-                            @Html.LabelFor(m => m.CPFCNPJ, new { @class = "label" })
+                            @Html.LabelFor(m => m.CPFCNPJ, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CPFCNPJ, new { placeholder = @Mensagens.CPFCNPJ, MaxLength = "18", @class = "CpfCnpjMask" })
+                                @Html.TextBoxFor(m => m.CPFCNPJ, new {placeholder = @Mensagens.CPFCNPJ, MaxLength = "18", @class = "CpfCnpjMask"})
                             </label>
                         </section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.Email, new { @class = "label" })
+                            @Html.LabelFor(m => m.Email, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Email, new { placeholder = @Mensagens.Email })
+                                @Html.TextBoxFor(m => m.Email, new {placeholder = @Mensagens.Email})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.CodigoFornecedor, new { @class = "label" })
+                            @Html.LabelFor(m => m.CodigoFornecedor, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.CodigoFornecedor, new { placeholder = @Mensagens.Code })
+                                @Html.TextBoxFor(m => m.CodigoFornecedor, new {placeholder = @Mensagens.Code})
                             </label>
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.EPessoaFisica, new { @class = "labe" })
+                            @Html.LabelFor(m => m.EPessoaFisica, new {@class = "labe"})
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new { @class = "TipoPessoa" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, true, new {@class = "TipoPessoa"})
                                     <i></i>@Mensagens.PhysicalPerson
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new { @class = "TipoPessoa" })
+                                    @Html.RadioButtonFor(m => m.EPessoaFisica, false, new {@class = "TipoPessoa"})
                                     <i></i>@Mensagens.LegalPerson
                                 </label>
                             </div>
@@ -70,24 +70,24 @@
                     </a>
                 </footer>
             </form>
-            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetFornecedor ScrollWidgetTable">
-                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
-                     data-widget-colorbutton="false" data-widget-togglebutton="false"
-                     data-widget-deletebutton="false" data-widget-editbutton="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Tabela de Fornecedores</h2>
-                    </header>
-                    <div class="ScrollTableContent">
-                        <div class="widget-body no-padding">
-                            <table id="datatableFornecedor" class="table table-striped table-bordered table-hover" width="100%"></table>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
         </div>
     </div>
 </div>
+<fieldset class="WidgetFornecedor ScrollWidgetTable">
+    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+         data-widget-colorbutton="false" data-widget-togglebutton="false"
+         data-widget-deletebutton="false" data-widget-editbutton="false">
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Tabela de Fornecedores</h2>
+        </header>
+        <div class="ScrollTableContent">
+            <div class="widget-body no-padding">
+                <table id="datatableFornecedor" class="table table-striped table-bordered table-hover" width="100%"></table>
+            </div>
+        </div>
+    </div>
+</fieldset>
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>

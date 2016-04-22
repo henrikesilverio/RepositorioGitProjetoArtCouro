@@ -15,7 +15,7 @@
     <div role="content">
         <div class="widget-body no-padding">
             <form id="formularioFornecedor" class="smart-form" novalidate="novalidate">
-                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset>
                     <div class="row">
                         <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
                     </div>
@@ -36,7 +36,7 @@
                         </section>
                     </div>
                 </fieldset>
-                <fieldset id="DadosPessoaFisica" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset id="DadosPessoaFisica">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             @Html.LabelFor(m => m.Nome, new { @class = "label" })
@@ -86,7 +86,7 @@
                         </section>
                     </div>
                 </fieldset>
-                <fieldset id="DadosPessoaJuridica" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset id="DadosPessoaJuridica">
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
                             @Html.LabelFor(m => m.RazaoSocial, new { @class = "label" })

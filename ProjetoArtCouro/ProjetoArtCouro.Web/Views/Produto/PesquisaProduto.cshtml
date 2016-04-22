@@ -16,20 +16,20 @@
     <div role="content">
         <div class="widget-body no-padding">
             <form id="formProduto" class="smart-form" novalidate="novalidate">
-                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset>
                     <div class="row">
                         <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
+                            @Html.LabelFor(m => m.Descricao, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = "200" })
+                                @Html.TextBoxFor(m => m.Descricao, new {placeholder = @Mensagens.Description, maxlength = "200"})
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.UnidadeId, new { @class = "label" })
+                            @Html.LabelFor(m => m.UnidadeId, new {@class = "label"})
                             <label class="select">
                                 @Html.DropDownListFor(m => m.UnidadeId, new SelectList(ViewBag.Unidades, "Codigo", "Nome")
                                     .AddDefaultOption(Mensagens.Select))
@@ -40,16 +40,16 @@
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.PrecoCusto, new { @class = "label" })
+                            @Html.LabelFor(m => m.PrecoCusto, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.PrecoCusto, new { placeholder = @Mensagens.PriceCost, @class = "DinheiroMask", maxlength = "12" })
+                                @Html.TextBoxFor(m => m.PrecoCusto, new {placeholder = @Mensagens.PriceCost, @class = "DinheiroMask", maxlength = "12"})
                             </label>
                             @Html.ValidationMessageFor(m => m.PrecoCusto)
                         </section>
                         <section class="col col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                            @Html.LabelFor(m => m.PrecoVenda, new { @class = "label" })
+                            @Html.LabelFor(m => m.PrecoVenda, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.PrecoVenda, new { placeholder = @Mensagens.PriceSale, @class = "DinheiroMask", maxlength = "12" })
+                                @Html.TextBoxFor(m => m.PrecoVenda, new {placeholder = @Mensagens.PriceSale, @class = "DinheiroMask", maxlength = "12"})
                             </label>
                             @Html.ValidationMessageFor(m => m.PrecoVenda)
                         </section>
@@ -61,24 +61,24 @@
                     </a>
                 </footer>
             </form>
-            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetFornecedor ScrollWidgetTable">
-                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
-                     data-widget-colorbutton="false" data-widget-togglebutton="false"
-                     data-widget-deletebutton="false" data-widget-editbutton="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Tabela de Produtos</h2>
-                    </header>
-                    <div class="ScrollTableContent">
-                        <div class="widget-body no-padding">
-                            <table id="datatableProduto" class="table table-striped table-bordered table-hover" width="100%"></table>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
         </div>
     </div>
 </div>
+<fieldset class="WidgetFornecedor ScrollWidgetTable">
+    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+         data-widget-colorbutton="false" data-widget-togglebutton="false"
+         data-widget-deletebutton="false" data-widget-editbutton="false">
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Tabela de Produtos</h2>
+        </header>
+        <div class="ScrollTableContent">
+            <div class="widget-body no-padding">
+                <table id="datatableProduto" class="table table-striped table-bordered table-hover" width="100%"></table>
+            </div>
+        </div>
+    </div>
+</fieldset>
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>

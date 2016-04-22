@@ -15,34 +15,34 @@
     <div role="content">
         <div class="widget-body no-padding">
             <form id="formCondicaoPagamento" class="smart-form" novalidate="novalidate">
-                <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <fieldset>
                     <div class="row">
                         <section id="AlertaMensagens" class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 no-margin"></section>
                     </div>
                     <div class="row">
                         <section class="col col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            @Html.LabelFor(m => m.Descricao, new { @class = "label" })
+                            @Html.LabelFor(m => m.Descricao, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.Descricao, new { placeholder = @Mensagens.Description, maxlength = 50 })
+                                @Html.TextBoxFor(m => m.Descricao, new {placeholder = @Mensagens.Description, maxlength = 50})
                             </label>
                             @Html.ValidationMessageFor(m => m.Descricao)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.QuantidadeParcelas, new { @class = "label" })
+                            @Html.LabelFor(m => m.QuantidadeParcelas, new {@class = "label"})
                             <label class="input">
-                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new { placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos" })
+                                @Html.TextBoxFor(m => m.QuantidadeParcelas, new {placeholder = @Mensagens.QuantityOfParcels, @class = "SomenteDoisDigitos"})
                             </label>
                             @Html.ValidationMessageFor(m => m.QuantidadeParcelas)
                         </section>
                         <section class="col col-xs-12 col-sm-3 col-md-3 col-lg-3">
-                            @Html.LabelFor(m => m.Ativo, new { @class = "label" })
+                            @Html.LabelFor(m => m.Ativo, new {@class = "label"})
                             <div class="inline-group">
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, true, new { data_text = @Mensagens.Yes })
+                                    @Html.RadioButtonFor(m => m.Ativo, true, new {data_text = @Mensagens.Yes})
                                     <i></i>@Mensagens.Yes
                                 </label>
                                 <label class="radio">
-                                    @Html.RadioButtonFor(m => m.Ativo, false, new { data_text = @Mensagens.Not })
+                                    @Html.RadioButtonFor(m => m.Ativo, false, new {data_text = @Mensagens.Not})
                                     <i></i>@Mensagens.Not
                                 </label>
                             </div>
@@ -56,24 +56,24 @@
                     </a>
                 </footer>
             </form>
-            <fieldset class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 WidgetCondicaoPagamento ScrollWidgetTable">
-                <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
-                     data-widget-colorbutton="false" data-widget-togglebutton="false"
-                     data-widget-deletebutton="false" data-widget-editbutton="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Tabela de Condições de Pagamento</h2>
-                    </header>
-                    <div class="ScrollTableContent">
-                        <div class="widget-body no-padding">
-                            <table id="datatableCondicaoPagamento" class="table table-striped table-bordered table-hover" width="100%"></table>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
         </div>
     </div>
 </div>
+<fieldset class="WidgetCondicaoPagamento ScrollWidgetTable">
+    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-fullscreenbutton="false"
+         data-widget-colorbutton="false" data-widget-togglebutton="false"
+         data-widget-deletebutton="false" data-widget-editbutton="false">
+        <header>
+            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+            <h2>Tabela de Condições de Pagamento</h2>
+        </header>
+        <div class="ScrollTableContent">
+            <div class="widget-body no-padding">
+                <table id="datatableCondicaoPagamento" class="table table-striped table-bordered table-hover" width="100%"></table>
+            </div>
+        </div>
+    </div>
+</fieldset>
 
 @section Scripts{
     <script src="~/js/app/Search.js"></script>
